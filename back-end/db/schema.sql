@@ -36,5 +36,12 @@ CREATE TABLE users_volunteers (
 
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
-    
-)
+    elder INT references users_elderly(id),
+    description TEXT,
+    req_date DATE,
+    volunteer INT references users_volunteers(id),
+    location TEXT,
+    time TEXT,
+    assigned BOOLEAN DEFAULT false
+),
+
