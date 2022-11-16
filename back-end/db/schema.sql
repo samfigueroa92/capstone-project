@@ -45,3 +45,30 @@ CREATE TABLE requests (
     assigned BOOLEAN DEFAULT false
 ),
 
+CREATE TABLE reviews_elder (
+    id SERIAL PRIMARY KEY,
+    volunteer INT references users_volunteers(id),
+    description TEXT,
+    post_date DATE,
+    request_id INT references requests(id)
+),
+
+CREATE TABLE reviews_volunteer (
+    id SERIAL PRIMARY KEY,
+    elder INT references users_elderly(id),
+    description TEXT,
+    post_date DATE,
+    request_id INT references requests(id)
+),
+
+CREATE TABLE ratings_elder (
+    id SERIAL PRIMARY KEY,
+    rating INT,
+    request_id INT references users_elderly(id)
+),
+
+CREATE TABLE ratings_volunteer (
+    id SERIAL PRIMARY KEY,
+    rating INT,
+    request_id INT references users_volunteers(id)
+)
