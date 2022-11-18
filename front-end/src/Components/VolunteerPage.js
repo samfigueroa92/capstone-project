@@ -1,3 +1,5 @@
+import "./VolunteerPage.css"
+
 const VolunteerPage = () => {
     return (
         <div>
