@@ -3,72 +3,49 @@ CREATE DATABASE task_capstone;
 
 \c task_capstone;
 
-CREATE TABLE users_elderly (
-    id SERIAL PRIMARY KEY, 
-    firstname TEXT NOT NULL,
-    lastname TEXT NOT NULL,
-    dob DATE NOT NULL,
-    languages TEXT,
-    address TEXT NOT NULL,
-    unit TEXT,
-    city TEXT NOT NULL,
-    zipcode VARCHAR(255) NOT NULL,
-    phonenumber VARCHAR(255) NOT NULL,
-    email TEXT NOT NULL,
-    verified BOOLEAN default false,
-    profilephoto TEXT
-);
 
-CREATE TABLE users_volunteers (
+create table users (
     id SERIAL PRIMARY KEY,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
-    languages TEXT,
+    dob DATE NOT NULL,
     address TEXT NOT NULL,
     unit TEXT,
     city TEXT NOT NULL,
-    zipcode VARCHAR(255) NOT NULL,
-    phonenumber VARCHAR(255) NOT NULL,
+    state TEXT NOT NULL,
+    zipcode VARCHAR(5),
+    phonenumber VARCHAR(10),
     email TEXT NOT NULL,
     verified BOOLEAN default false,
-    profilephoto TEXT
+    user_type TEXT NOT NULL
+    profilephoto TEXT NOT NULL,
+    languages TEXT,
 );
 
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
-    elder INT references users_elderly(id),
-    description TEXT NOT NULL,
+    elder INT references users(id),
+    volunteer INT references users(id),
     req_date DATE NOT NULL,
-    volunteer INT references users_volunteers(id),
+    description TEXT NOT NULL,
     location TEXT NOT NULL,
     time TEXT,
     assigned BOOLEAN DEFAULT false
 );
 
-CREATE TABLE reviews_elder (
-    id SERIAL PRIMARY KEY,
-    volunteer INT references users_volunteers(id),
-    description TEXT NOT NULL,
-    post_date DATE,
-    request_id INT references requests(id)
-);
-
-CREATE TABLE reviews_volunteer (
-    id SERIAL PRIMARY KEY,
-    elder INT references users_elderly(id),
-    description TEXT NOT NULL,
-    post_date DATE,
-    request_id INT references requests(id)
-);
-
-CREATE TABLE ratings_elder (
+CREATE TABLE ratings (
     id SERIAL PRIMARY KEY,
     rating INT NOT NULL,
-    request_id INT references users_elderly(id)
+    request_id INT references requests(id),
+    rating_user INT references users(id),
+    rated_user INT references users(id)
 );
 
-CREATE TABLE ratings_volunteer (
+CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    rating INT NOT NULL,
-    request_id INT references users_volunteers(id)
-);
+    user INT references users(id),
+    description TEXT NOT NULL,
+    post_date DATE NOT NULL,
+    request_id INT references requests(id)
+)
+
