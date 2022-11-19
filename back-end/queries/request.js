@@ -26,4 +26,18 @@ const getRequest = async (id) => {
   }
 };
 
+//Edit Request
+const editRequest = async (user, id) => {
+    try {
+        console.log("Editing request with id of " + id);
+        const req = await db.one ("UPDATE users SET firstname=$1, lastname=$2, dob=$3, address=$4, unit=$5, city=$6, state=$7, zipcode=$8, phonenumber=$9, email=$10, verified=$11, user_type=$12, profilephoto=$13, languages=$14 WHERE id=$15 RETURNING *",
+        [
+            
+        ]
+        )
+    } catch (error) {
+        return error;
+    }
+}
+
 module.exports = {};
