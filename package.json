@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/samfigueroa92/capstone-project/issues"
   },
-  "homepage": "https://github.com/samfigueroa92/capstone-project#readme"
+  "homepage": "https://github.com/samfigueroa92/capstone-project#readme",
+  "dependencies": {
+    "firebase": "^9.14.0"
+  }
 }
