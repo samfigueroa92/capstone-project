@@ -1,0 +1,147 @@
+.home{
+    width: 100vw;
+    font-family:'Poppins', sans-serif;
+    /* padding-left: 7vw;
+    padding-right: 7vw; */
+    padding-top: 50px;
+    display: grid;
+    grid-template-areas: "a a a b b b"
+    "a a a b b b"
+    "a a a b b b"
+    "a a a b b b"
+    "c c c c c c"
+    "c c c c c c"
+    "d d d d d d";
+}
+
+/* delete later */
+/* img{
+    width: 500px;
+} */
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info Button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px 50px 10px 50px;
+    border-radius: 25px;
+    letter-spacing: .2em;
+}
+
+.info Button:hover{
+    background-color: #B8DEDC;
+}
+
+.info{
+    grid-area: a;
+}
+
+.gallery{
+    grid-area: b;
+    display: grid;
+    grid-template-areas: "bi bi bi"
+    "bi bi bi"
+    "bi bi bi"
+    "i1 i2 i3"
+    "i1 i2 i3";
+}
+
+.big-image{
+    grid-area: bi;
+    object-fit: fill;
+}
+
+.image1{
+    grid-area: i1;
+    object-fit: fill;
+}
+.image2{
+    grid-area: i2;
+    object-fit: fill;
+}
+.image3{
+    grid-area: i3;
+    object-fit: fill;
+}
+
+.blurbs{
+    display: flex;
+    grid-area: c;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.blurbs img{
+    width: 50px;
+}
+
+.blurbs section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bottom-banner{
+    grid-area: d;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+
+
+
+/* .info-layout{
+    display: flex;
+    width: 100vw;
+} */
+
+
+/* .info{
+    width: 500px;
+    text-align: justify;
+} */
+
+
+
+/* .gallery{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+} */
+
+/* .big-image{
+    width: 100%;
+} */
+
+/* .smaller-images{
+    display: flex;
+    width: 100%;
+} */
+
+/* .smaller-images img{
+    width: 30%;
+
+} */
+
+/* .blurbs{
+    grid-area: "c";
+} */
+
+/* section img{
+    width: 50px;
+} */
+
+
+
+

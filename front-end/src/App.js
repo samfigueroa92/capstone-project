@@ -6,6 +6,9 @@ import NavBar from "./Components/NavBar";
 import SeniorsPage from "./Components/SeniorsPage";
 import VolunteerPage from "./Components/VolunteerPage";
 
+//CSS
+import "./App.css"
+
 const App = () => {
   return (
     <div className="App">
