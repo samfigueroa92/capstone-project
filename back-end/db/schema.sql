@@ -18,7 +18,7 @@ CREATE TABLE users (
     email TEXT NOT NULL,
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
-    profilephoto TEXT NOT NULL,
+    profilephoto TEXT,
     languages TEXT
 );
 
