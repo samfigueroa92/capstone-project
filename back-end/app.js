@@ -32,5 +32,9 @@ app.get("/test", async (req, res) => {
 // REMOVE AFTER SUCCESSFUL DEPLOYMENT
 /////////////////////////////////////
 
+app.get("*", (req, res) => {
+  res.status(404).send("Error : Page not found");
+});
+
 // EXPORT
 module.exports = app;
