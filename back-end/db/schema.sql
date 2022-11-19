@@ -4,7 +4,7 @@ CREATE DATABASE task_capstone;
 \c task_capstone;
 
 
-create table users (
+CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
@@ -17,9 +17,9 @@ create table users (
     phonenumber VARCHAR(10),
     email TEXT NOT NULL,
     verified BOOLEAN default false,
-    user_type TEXT NOT NULL
+    user_type TEXT NOT NULL,
     profilephoto TEXT NOT NULL,
-    languages TEXT,
+    languages TEXT
 );
 
 CREATE TABLE requests (
@@ -43,9 +43,9 @@ CREATE TABLE ratings (
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    user INT references users(id),
+    reviewer INT references users(id),
     description TEXT NOT NULL,
     post_date DATE NOT NULL,
     request_id INT references requests(id)
-)
+);
 
