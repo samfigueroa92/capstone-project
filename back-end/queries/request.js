@@ -12,6 +12,15 @@ const getAllRequests = async () => {
     }
 }
 
+// --Routes--
+
+//Single request
+const getRequest = async(id) => {
+    try {
+        console.log("Retreiving request from request table")
+    }
+}
+
 
 
 
