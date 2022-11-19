@@ -1,3 +1,5 @@
+import "./SeniorsPage.css"
+
 const SeniorsPage = () => {
     return (
         <div>
