@@ -1,0 +1,17 @@
+.Navbar img{
+    width:300px;
+}
+
+.Navbar{
+    background-color: #42999B;
+    color: black;
+}
+
+.logo{
+    margin-left: 30px;
+}
+
+.links{
+    color: white;
+    font-weight: bold;
+}
