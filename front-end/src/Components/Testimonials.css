@@ -1,0 +1,36 @@
+.testimonials{
+    font-family:'Poppins', sans-serif;
+    background-color: #42999B;
+    color: white;
+    display: grid;
+    grid-template-areas: "h h h h"
+    "a b c d";
+    text-align: center;
+}
+
+.testimonials h1{
+    grid-area: h;
+    margin-top: 20px;
+}
+
+.testimonials img{
+    width: 300px;
+    border-radius: 15%;
+}
+
+.testimonial-one{
+    margin: 20px;
+    padding: 10px;
+}
+.testimonial-two{
+    margin: 20px;
+    padding: 10px;
+}
+.testimonial-three{
+    margin: 20px;
+    padding: 10px;
+}
+.testimonial-four{
+    margin: 20px;
+    padding: 10px;
+}
