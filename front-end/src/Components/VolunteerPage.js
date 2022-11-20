@@ -1,13 +1,43 @@
-import "./VolunteerPage.css"
+import "./VolunteerPage.css";
+
+//BOOTSTRAP
+import Button from "react-bootstrap/Button";
 
 const VolunteerPage = () => {
-    return (
-        <div>
-            <h2>This is the volunteer page</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-        </div>
-    );
+  return (
+    <div className="volunteer-page">
+      <h2>Volunteers</h2>
+      <div>
+        <h5>What does a volunteer do?</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
+          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+      <div>
+        <h5>How do I apply?</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
+          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+      <div>
+        <h5>What are the benefits?</h5>
+        <p>
+          orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
+          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+      <Button>SIGN UP NOW</Button>
+      <img src="https://static.vecteezy.com/system/resources/previews/006/795/116/original/volunteer-man-walking-in-park-with-elderly-disabled-or-handicapped-woman-in-wheelchair-help-and-support-to-senior-people-with-health-problems-banner-for-5th-december-cartoon-illustration-vector.jpg" />
+    </div>
+  );
 };
 
 export default VolunteerPage;

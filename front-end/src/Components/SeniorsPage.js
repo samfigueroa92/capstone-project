@@ -1,13 +1,43 @@
-import "./SeniorsPage.css"
+import "./SeniorsPage.css";
+
+//BOOTSTRAP
+import Button from "react-bootstrap/Button";
 
 const SeniorsPage = () => {
-    return (
-        <div>
-            <h2>This is the seniors page</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-        </div>
-    );
+  return (
+    <div className="senior-page">
+      <h2>Seniors</h2>
+      <div>
+        <h5>How does it work?</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
+          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+      <div>
+        <h5>How do I apply?</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
+          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+      <div>
+        <h5>What are the benefits?</h5>
+        <p>
+          orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
+          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+      <Button>SIGN UP NOW</Button>
+      <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
+    </div>
+  );
 };
 
 export default SeniorsPage;
