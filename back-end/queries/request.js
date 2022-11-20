@@ -68,6 +68,9 @@ const editRequest = async (request, id) => {
   }
 };
 
+//Update Request - Assign Volunteer, mark request assigned as TRUE
+//Update Request - Remove Volunteer, mark request assigned as FALSE
+
 //Delete Request
 const deleteRequest = async (id) => {
   try {
