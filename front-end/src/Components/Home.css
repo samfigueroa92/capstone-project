@@ -1,6 +1,5 @@
 .home{
     width: 100vw;
-
     font-family:'Poppins', sans-serif;
     padding-left: 7vw;
     padding-right: 7vw;
@@ -42,6 +41,7 @@
 .gallery{
     grid-area: b;
     display: grid;
+    gap: 5px;
     grid-template-areas: "bi bi bi"
     "bi bi bi"
     "bi bi bi"
