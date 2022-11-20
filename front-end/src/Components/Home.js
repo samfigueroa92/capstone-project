@@ -5,7 +5,7 @@ import Testimonials from "./Testimonials";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const Home = () => {
+const Home = ({setModalOpen}) => {
   return (
     <div>
       <div className="home">
@@ -31,7 +31,7 @@ const Home = () => {
               litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
           </div>
-          <Button>SIGN UP NOW</Button>
+          <Button onClick={() => setModalOpen(true)}>SIGN UP NOW</Button>
         </div>
         <div className="gallery">
           <img

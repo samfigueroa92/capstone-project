@@ -1,3 +1,64 @@
-/* .login-modal{
+.login-modal {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
 
-} */
+.modal-content{
+    position: absolute;
+    /* margin: 0 auto; */
+    background-color: white;
+    width: 50%;
+    max-width: 600px;
+    min-width: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content Button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px 50px 10px 50px;
+    border-radius: 25px;
+    letter-spacing: .2em;
+    margin: 10px;
+    outline: none;
+    box-shadow: 0 3px #999;
+    width: 70%;
+}
+
+.modal-content Button:hover{
+    background-color: #B8DEDC;
+}
+
+.modal-content Button:active{
+    background-color: #42999B;
+    transform: translateY(2px);
+    box-shadow: 0 1px #666;
+}
+
+.signin-buttons{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.close{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
