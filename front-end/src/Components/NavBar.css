@@ -2,6 +2,11 @@
     width:300px;
 }
 
+.nav-content{
+    display: flex;
+    align-items: center;
+}
+
 .Navbar{
     background-color: #42999B;
     color: black;
@@ -9,11 +14,15 @@
 
 .logo{
     margin-left: 30px;
+    margin-top: 5px;
 }
 
 .links{
     color: white;
     font-weight: bold;
+    font-size: 18px;
+    letter-spacing: .11em;
+    margin-right: 20px;
 }
 
 .Navbar Button{
@@ -25,6 +34,7 @@
     border-radius: 25px;
     letter-spacing: .2em;
     font-size: 19px;
+    min-width: 200px;
 }
 
 .Navbar Button:hover{
