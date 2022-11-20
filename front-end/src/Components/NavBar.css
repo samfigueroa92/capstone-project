@@ -15,3 +15,23 @@
     color: white;
     font-weight: bold;
 }
+
+.Navbar Button{
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    padding: 10px 40px 10px 40px;
+    border-radius: 25px;
+    letter-spacing: .2em;
+    font-size: 19px;
+}
+
+.Navbar Button:hover{
+    background-color: #B8DEDC;
+}
+
+#avatar{
+    padding-right: 15px;
+    font-size: large;
+}
