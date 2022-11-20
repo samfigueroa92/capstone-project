@@ -1,5 +1,6 @@
 import "./Home.css";
 import Footer from "./Footer";
+import Testimonials from "./Testimonials";
 
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
@@ -80,6 +81,7 @@ const Home = () => {
           <h1>Get help from local volunteers!</h1>
         </div>
       </div>
+      <Testimonials />
       <Footer />
     </div>
   );
