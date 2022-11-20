@@ -48,8 +48,22 @@ const editRequest = async (request, id) => {
   }
 };
 
+//Delete Request
+const deleteRequest = async (id) => {
+  try {
+    console.log("Deleting request with id of " + id);
+    const request = await db.one(
+      "DELETE FROM requests WHERE id=$1 RETURNING *",
+      id
+    );
+    return request;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllRequests,
-  getRequest, 
-  editRequest
+  getRequest,
+  editRequest,
 };
