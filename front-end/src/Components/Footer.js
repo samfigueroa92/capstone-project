@@ -1,18 +1,20 @@
 import './Footer.css'
+import logo from "../images/logoGS.png"
 
 const Footer = () => {
     return (
         <div className="footer">
             <div className = 'brand-culture'>
             <div className="brand-box">
-            <h4>GoldenSolutions</h4>
+            {/* <h4>GoldenSolutions</h4> */}
+            <img  className='brand'src={logo} alt="GoldenSolutions Logo" width="300"/>
             </div>
             <div className="quote">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             </div>
             <div className="quicklinks">
-                <h5 className = 'logo'>Quick Links</h5>
+                <h5 className = 'links'>Quick Links</h5>
                 <div className='list'>
                 <ul>
                 <ol><a>Home</a></ol>
