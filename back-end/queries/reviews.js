@@ -50,4 +50,9 @@ const editReview = async (review, id) => {
   }
 };
 
-module.exports = {};
+module.exports = {
+  getReviews,
+  getReview,
+  leaveReview,
+  editReview
+};
