@@ -1,4 +1,5 @@
 import "./VolunteerPage.css";
+import Footer from "./Footer";
 
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
@@ -36,6 +37,7 @@ const VolunteerPage = () => {
       </div>
       <Button>SIGN UP NOW</Button>
       <img src="https://static.vecteezy.com/system/resources/previews/006/795/116/original/volunteer-man-walking-in-park-with-elderly-disabled-or-handicapped-woman-in-wheelchair-help-and-support-to-senior-people-with-health-problems-banner-for-5th-december-cartoon-illustration-vector.jpg" />
+      <Footer />
     </div>
   );
 };

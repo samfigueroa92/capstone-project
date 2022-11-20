@@ -1,4 +1,5 @@
 import "./Home.css";
+import Footer from "./Footer";
 
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
@@ -31,10 +32,6 @@ const Home = () => {
         <Button>SIGN UP NOW</Button>
       </div>
       <div className="gallery">
-        {/* <p className="big-image">this is the larger image</p>
-        <p className="image1">this is small img 1</p>
-        <p className="image2">this is small img 2</p>
-        <p className="image3">this is small img 3</p> */}
           <img className="big-image" src="https://www.lifeopedia.com/wp-content/uploads/2016/05/iStock_000069165823_Large.jpg" />
           <img className="image1" src="https://sdscf.org/wp-content/uploads/2019/03/shutterstock_288532283.jpg" />
           <img className="image2" src="https://www.communityplace.org/wp-content/uploads/2021/12/group-of-retired-seniors-painting.jpg" />
@@ -69,6 +66,7 @@ const Home = () => {
       <div className="bottom-banner">
         <h1>Get help from local volunteers!</h1>
       </div>
+      <Footer />
     </div>
   );
 };
