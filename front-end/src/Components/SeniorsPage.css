@@ -4,7 +4,8 @@
 .senior-page{
     margin: 60px 50px;
     display: grid;
-    grid-template-columns: 4fr 3fr
+    grid-template-columns: 4fr 3fr;
+    margin-bottom: 20%
 }
 .button{
     background-color: #42999B;
