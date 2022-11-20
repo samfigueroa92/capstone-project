@@ -26,4 +26,15 @@ const leaveRating = async (rating) => {
   }
 };
 
+// Single Rating
+const viewRating = async (id) => {
+  try {
+    console.log("Viewing single rating");
+    rating = await db.one("SELECT * FROM ratings WHERE id=$1", id);
+    return rating;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {};
