@@ -23,8 +23,6 @@ const getUser = async (id) => {
   }
 };
 
-//Create user (backburner while we learn how the hell firebase works)
-
 const newUser = async (user) => {
   console.log("Adding new user to the DB");
   try {
