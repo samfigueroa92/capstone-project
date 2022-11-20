@@ -1,8 +1,8 @@
 .home{
     width: 100vw;
     font-family:'Poppins', sans-serif;
-    /* padding-left: 7vw;
-    padding-right: 7vw; */
+    padding-left: 7vw;
+    padding-right: 7vw;
     padding-top: 50px;
     display: grid;
     grid-template-areas: "a a a b b b"
@@ -13,11 +13,6 @@
     "c c c c c c"
     "d d d d d d";
 }
-
-/* delete later */
-/* img{
-    width: 500px;
-} */
 
 .info{
     display: flex;
@@ -55,20 +50,26 @@
 
 .big-image{
     grid-area: bi;
-    object-fit: fill;
+    max-width: 600px;
+    border: 5px solid #83C5BE;
 }
 
 .image1{
     grid-area: i1;
-    object-fit: fill;
+    max-width: 200px;
+    border: 5px solid #83C5BE;
 }
+
 .image2{
     grid-area: i2;
-    object-fit: fill;
+    max-width: 200px;
+    border: 5px solid #83C5BE;
 }
+
 .image3{
     grid-area: i3;
-    object-fit: fill;
+    max-width: 200px;
+    border: 5px solid #83C5BE;
 }
 
 .blurbs{
