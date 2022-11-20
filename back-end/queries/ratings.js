@@ -37,4 +37,8 @@ const viewRating = async (id) => {
   }
 };
 
-module.exports = {};
+module.exports = {
+  getRatings,
+  leaveRating,
+  viewRating
+};
