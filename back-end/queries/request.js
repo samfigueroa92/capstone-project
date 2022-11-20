@@ -15,6 +15,26 @@ const getAllRequests = async () => {
 
 // --Routes--
 
+//Create request
+const makeRequest = async (request) => {
+  try {
+    console.log("Adding request to database");
+    request = await db.one(
+      "INSERT INTO requests (elder, description, req_date, location, time) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [
+        request.elder,
+        request.description,
+        request.req_date,
+        request.location,
+        request.time,
+      ]
+    );
+    return request;
+  } catch (error) {
+    return error;
+  }
+};
+
 //Single request
 const getRequest = async (id) => {
   try {
