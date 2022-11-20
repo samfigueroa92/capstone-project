@@ -25,6 +25,32 @@ const getUser = async (id) => {
 
 //Create user (backburner while we learn how the hell firebase works)
 
+const newUser = async (user) => {
+  console.log("Adding new user to the DB");
+  try {
+    user = await db.one(
+      "INSERT INTO users (firstname, lastname, dob, address, unit, city, state, zipcode, phonenumber, email, user_type, profile_photo, languages) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *",
+      [
+        user.firstname,
+        user.lastname,
+        user.dob,
+        user.address,
+        user.unit,
+        user.city,
+        user.state,
+        user.zipcode,
+        user.phonenumber,
+        user.email,
+        user.user_type,
+        user.profile_photo,
+        user.languages,
+      ]
+    );
+  } catch (error) {
+    return error;
+  }
+};
+
 //Delete user - requires admin auth
 const deleteUser = async (id) => {
   console.log("Removing user " + id);
@@ -69,4 +95,5 @@ module.exports = {
   getUser,
   deleteUser,
   editUser,
+  newUser,
 };
