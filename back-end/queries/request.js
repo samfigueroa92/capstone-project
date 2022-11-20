@@ -48,4 +48,8 @@ const editRequest = async (request, id) => {
   }
 };
 
-module.exports = {};
+module.exports = {
+  getAllRequests,
+  getRequest, 
+  editRequest
+};
