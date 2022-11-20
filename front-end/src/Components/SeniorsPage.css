@@ -16,3 +16,7 @@
     letter-spacing: .2em;
     margin-left: 50%;
 }
+
+.button :hover{
+    background-color:#B8DEDC;
+}
