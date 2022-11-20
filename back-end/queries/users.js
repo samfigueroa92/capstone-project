@@ -49,4 +49,9 @@ const editUser = async (user, id) => {
   }
 };
 
-module.exports = {};
+module.exports = {
+  getAllUsers,
+  getUser,
+  deleteUser,
+  editUser
+};
