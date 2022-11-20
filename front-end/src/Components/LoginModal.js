@@ -15,31 +15,27 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
     }
   }, [user, navigate]);
 
-  //   return(
-  //       <div>
-  //     <section>
-  //       <div>
-  //         <button onClick={signInWithGoogle}>Sign in With google</button>
-  //         <button onClick={signOut}> sign out</button>
-  //     </div>
-  //     </section>
-  //   </div>
-  //   )
-
-//   stopPropagation prevents the "login-modal" onClick event to happen
+  //stopPropagation prevents the "login-modal" onClick event to happen
 
   return modalOpen ? (
     <div className="login-modal" onClick={() => setModalOpen(false)}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="avatar-container">
+          <div className="login-avatar">
+            <i className="fa-solid fa-user"></i>
+          </div>
+        </div>
         <div className="close">
           <div className="x-mark" onClick={() => setModalOpen(false)}>
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
         <div className="signin-buttons">
-        <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-        <Button onClick={signOut}> Sign out</Button>
+          <h3>Login</h3>
+          <Button onClick={signInWithGoogle}>Sign in With Google</Button>
+          <Button onClick={signOut}> Sign out</Button>
         </div>
+        <p>Not a user? Sign up here.</p>
       </div>
     </div>
   ) : null;
