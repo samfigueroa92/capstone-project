@@ -7,9 +7,10 @@ import Button from "react-bootstrap/Button";
 const SeniorsPage = () => {
   return (
     <div className="senior-page">
-      <h2>Seniors</h2>
+      <div className='senior-paragraph'>
+      <h2 className ='seniors'>Seniors</h2>
       <div>
-        <h5>How does it work?</h5>
+        <h5><b>How does it work?</b></h5>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
           ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
@@ -18,7 +19,7 @@ const SeniorsPage = () => {
         </p>
       </div>
       <div>
-        <h5>How do I apply?</h5>
+        <h5><b>How do I apply?</b></h5>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
           ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
@@ -27,7 +28,7 @@ const SeniorsPage = () => {
         </p>
       </div>
       <div>
-        <h5>What are the benefits?</h5>
+        <h5><b>What are the benefits?</b></h5>
         <p>
           orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
           ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
@@ -35,7 +36,8 @@ const SeniorsPage = () => {
           per conubia nostra, per inceptos himenaeos.
         </p>
       </div>
-      <Button>SIGN UP NOW</Button>
+      <Button className = 'button'>SIGN UP NOW</Button>
+      </div>
       <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
       <Footer />
     </div>
