@@ -42,7 +42,22 @@ const editUser = async (user, id) => {
     console.log("Editing user with id of " + id);
     const req = await db.one(
       "UPDATE users SET firstname=$1, lastname=$2, dob=$3, address=$4, unit=$5, city=$6, state=$7, zipcode=$8, phonenumber=$9, email=$10, verified=$11, user_type=$12, profilephoto=$13, languages=$14 WHERE id=$15 RETURNING *",
-      []
+      [
+        user.firstname,
+        user.lastname,
+        user.dob,
+        user.address,
+        user.unit,
+        user.city,
+        user.state,
+        user.zipcode,
+        user.telephonenumber,
+        user.email,
+        user.verified,
+        user.user_type,
+        user.profilephoto,
+        user.languages,
+      ]
     );
   } catch (error) {
     return error;
@@ -53,5 +68,5 @@ module.exports = {
   getAllUsers,
   getUser,
   deleteUser,
-  editUser
+  editUser,
 };
