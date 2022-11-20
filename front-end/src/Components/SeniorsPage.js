@@ -1,4 +1,5 @@
 import "./SeniorsPage.css";
+import Footer from "./Footer";
 
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
@@ -38,6 +39,7 @@ const SeniorsPage = () => {
       <Button className = 'button'>SIGN UP NOW</Button>
       </div>
       <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
+      <Footer />
     </div>
   );
 };
