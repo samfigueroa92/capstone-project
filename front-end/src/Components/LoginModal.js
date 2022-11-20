@@ -34,8 +34,8 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
           <Button onClick={signOut}> Sign out</Button>
-        </div>
         <p>Not a user? Sign up here.</p>
+        </div>
       </div>
     </div>
   ) : null;

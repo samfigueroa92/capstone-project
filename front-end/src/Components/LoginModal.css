@@ -1,5 +1,5 @@
 .login-modal {
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -61,23 +61,29 @@
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
+  z-index: 3;
 }
 
-.avatar-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.avatar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -60px;
+  left:-0px;
 }
 
 .login-avatar {
-  background-color: #42999b;
+  background-color: #F1B9A5;
   color: white;
   text-align: center;
+  font-size: 48px;
   height: 100px;
   width: 100px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
-align-items: center;
+  align-items: center;
 }
+
