@@ -2,6 +2,11 @@
     width:300px;
 }
 
+.nav-content{
+    display: flex;
+    align-items: center;
+}
+
 .Navbar{
     background-color: #42999B;
     color: black;
@@ -9,9 +14,34 @@
 
 .logo{
     margin-left: 30px;
+    margin-top: 5px;
 }
 
 .links{
     color: white;
     font-weight: bold;
+    font-size: 18px;
+    letter-spacing: .11em;
+    margin-right: 20px;
+}
+
+.Navbar Button{
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    padding: 10px 40px 10px 40px;
+    border-radius: 25px;
+    letter-spacing: .2em;
+    font-size: 19px;
+    min-width: 200px;
+}
+
+.Navbar Button:hover{
+    background-color: #B8DEDC;
+}
+
+#avatar{
+    padding-right: 15px;
+    font-size: large;
 }
