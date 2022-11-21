@@ -24,11 +24,13 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 8% 0;
     line-height: .9;
+    padding-left: 3%;
 }
 .our-team-img{
     width: 90%;
     opacity: .9;
     border-radius: 2%;
+    border-color: #E29578 solid 2px;
 }
 .position{
     color: gray;
@@ -42,9 +44,13 @@
     text-decoration: none;
     position: relative;
     line-height: 1.5;
+    background: 0 0;  
+    
+   
 }
 .underline :hover{
     text-decoration: underline #E29578 2px;
+    
 }
 .name{
     padding-top: 2%;
