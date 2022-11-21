@@ -1,0 +1,51 @@
+.teamwork{
+    font-family:'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("../images/teamwork.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    width: 100%;
+    height: 400px;
+    color: white;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    padding-left: 80px;
+    flex-direction: column;
+    font-weight: 600;
+    line-height: 1.2;
+    
+    
+
+}
+.our-team{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 8% 0;
+    line-height: .9;
+}
+.our-team-img{
+    width: 90%;
+    opacity: .9;
+    border-radius: 2%;
+}
+.position{
+    color: gray;
+}
+.team{
+    padding: 3%;
+}
+.underline{
+    padding-top: 3%;
+    padding-bottom: 1%;
+    text-decoration: none;
+    position: relative;
+    line-height: 1.5;
+}
+.underline :hover{
+    text-decoration: underline #E29578 2px;
+}
+.name{
+    padding-top: 2%;
+}
