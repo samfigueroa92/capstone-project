@@ -1,5 +1,5 @@
-import './Footer.css'
-import logo from "../images/logoGS.png"
+import './Footer.css';
+import logo from "../images/logoGS.png";
 
 const Footer = () => {
     return (
@@ -17,16 +17,15 @@ const Footer = () => {
                 <h5 className = 'links'>Quick Links</h5>
                 <div className='list'>
                 <ul>
-                <ol><a>Home</a></ol>
-                <ol><a>Volunteers</a></ol>
-                <ol><a>Seniors</a></ol>
-                <ol><a>Gallery</a></ol>
-                <ol><a>Events</a></ol>
-                <ol><a>Support</a></ol>
-                <ol><a>Info</a></ol>
+                <ol><a href="/">Home</a></ol>
+                <ol><a href="/volunteers">Volunteers</a></ol>
+                <ol><a href="/seniors">Seniors</a></ol>
+                {/* <ol><a>Gallery</a></ol> */}
+                {/* <ol><a>Events</a></ol> */}
+                {/* <ol><a>Support</a></ol> */}
+                <ol><a>Our Team</a></ol>
                 </ul>
                 </div>
-        
             </div>
             <div className="contact">
                 <h5>Contact Us</h5>
