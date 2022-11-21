@@ -13,12 +13,31 @@
 .links{
     text-align: center;
 }
+
 ul{
     margin-left: 30%;
 }
+
+
+a:link{
+    text-decoration: none;
+    color: white;
+}
+
+a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
 .brand-culture{
     margin-left: 10%;
 }
+
 .brand-box{
     border: solid 2px #006D77;
     width: 43%;
