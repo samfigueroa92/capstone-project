@@ -8,14 +8,15 @@
 .quicklinks{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    
+    justify-content: left;
 }
 .links{
     text-align: center;
 }
 
 ul{
-    margin-left: 30%;
+    margin-left: 26%;
+    
 }
 
 
