@@ -33,7 +33,7 @@ const OurTeam = () => {
             setLearnMore({ ...learnMore, [teamMate]: !learnMore[teamMate] })
           }
         >
-         <p className='underline'>View Less</p>
+         <button className='underline'>View Less</button>
         </div>
       </>
     ) : (
@@ -42,7 +42,7 @@ const OurTeam = () => {
           setLearnMore({ ...learnMore, [teamMate]: !learnMore[teamMate] })
         }
       >
-        <p className='underline'>Learn More</p>
+        <button className='underline'>Learn More</button>
       </div>
     );
   };
@@ -66,8 +66,8 @@ const OurTeam = () => {
             src="https://ca.slack-edge.com/TCVA3PF24-U02LP2TBD8D-66655ad951d8-512"
             alt="Samantha Figueroa"
           />
-          <h5 className='name'> Samantha Figueroa</h5>
-          <h5 className='position'> President of Engineering</h5>
+          <p className='name'> Samantha Figueroa</p>
+          <p className='position'> President of Engineering</p>
           {handleLearnMore('sam')}
         </div>
         <div className= 'team'>
@@ -76,8 +76,8 @@ const OurTeam = () => {
             src="https://media-exp1.licdn.com/dms/image/C4D03AQEUYyUqQXTZpQ/profile-displayphoto-shrink_800_800/0/1643244593566?e=1674691200&v=beta&t=mzXtv0JVf8sXvpzSPlT1YW-8aBDkFReJNLP3y6hxtNE"
             alt="Tom LaTulipe"
           />
-          <h5 className ='name'>Tom LaTulipe</h5>
-          <h5 className='position'> VP of Engineering</h5>
+          <p className ='name'>Tom LaTulipe</p>
+          <p className='position'> VP of Engineering</p>
           {handleLearnMore('tom')}
         </div>
         <div className= 'team'>
@@ -86,8 +86,8 @@ const OurTeam = () => {
             src="https://media-exp1.licdn.com/dms/image/C5603AQFIoVA0ltC1Fg/profile-displayphoto-shrink_800_800/0/1592177861401?e=1674086400&v=beta&t=gGt0ISX9GlFHHDdsgcf4t97d5fpQs00mMEcWSSwQoV8"
             alt="Kalilah Clarke"
           />
-          <h5 className='name'>Kalilah Clarke</h5>
-          <h5 className='position'>Director of Engineering - User Facing Technologies</h5>
+          <p className='name'>Kalilah Clarke</p>
+          <p className='position'>Director of Engineering - User Facing Technologies</p>
           {handleLearnMore('kalilah')}
         </div>
         <div className= 'team'>
@@ -96,8 +96,8 @@ const OurTeam = () => {
             src="https://ca.slack-edge.com/TCVA3PF24-U02LBBUQM39-804e6eb0aa9f-512"
             alt="Adnan Abubakar Adams"
           />
-          <h5 className='name'>Adnan Abubakar Adams</h5>
-          <h5 className='position'>Senior Principal Engineer</h5>
+          <p className='name'>Adnan Abubakar Adams</p>
+          <p className='position'>Senior Principal Engineer</p>
           {handleLearnMore('adnan')}
         </div>
         <div className= 'team'>
@@ -108,8 +108,8 @@ const OurTeam = () => {
             alt="Gigi Scarsborough"
           />
           </a>
-          <h5 className='name'>Gigi Scarborough</h5>
-          <h5 className='position'>Chief Technology Officer</h5>
+          <p className='name'>Gigi Scarborough</p>
+          <p className='position'>Chief Technology Officer</p>
           {handleLearnMore('gigi')}
         </div>
         <div className= 'team'>
@@ -120,8 +120,8 @@ const OurTeam = () => {
             alt="Tim McKiernan"
           />
          </a>
-          <h5 className='name'>Tim McKiernan</h5>
-          <h5 className='position'>Chief Innovation Officer</h5>
+          <p className='name'>Tim McKiernan</p>
+          <p className='position'>Chief Innovation Officer</p>
           {handleLearnMore('tim')}
         </div>
       </div>
