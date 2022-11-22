@@ -101,3 +101,11 @@
     line-height: 1.2; 
     font-style: italic;
 }
+
+.bio{
+    font-family:'Poppins', sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 15px;
+    line-height: 1.71;
+}

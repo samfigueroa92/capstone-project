@@ -4,6 +4,7 @@
     display: grid; 
     grid-template-columns: repeat(3, 1fr);
     padding-top: 80px;
+    padding-bottom: 40px;
 }
 .quicklinks{
     display: grid;
