@@ -27,7 +27,7 @@ const OurTeam = () => {
   const handleLearnMore = (teamMate) => {
     return learnMore[teamMate] ? (
       <>
-        {STAFFBIOS[teamMate]}
+        <p className = 'bio'>{STAFFBIOS[teamMate]}</p>
         <div
           onClick={() =>
             setLearnMore({ ...learnMore, [teamMate]: !learnMore[teamMate] })
