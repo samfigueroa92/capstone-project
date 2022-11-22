@@ -8,15 +8,31 @@ import "./SidebarNav.css"
 
 const SidebarNav = () => {
     const [volunteer, setVolunteer] = useState(true)
+
+    const handleAcceptedRequest = () =>{
+
+    }
+
+    const handleOpenRequest = () => {
+
+    }
+    const handlePersonalAchievement = () => {
+
+    }
+
+    const handleSettings = () =>{
+
+    }
+    
     return (
         <div className='SideBar'>
             {volunteer ? 
             <>
-            <p>Volunteer Dashboard</p>
-            <p>Accepted Requests</p>
-            <p>Open Requests</p>
-            <p>Achievements</p>
-            <p>Settings</p>
+            <p className="header">Volunteer Dashboard</p>
+            <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
+            <p onClick ={handleOpenRequest}>Open Requests</p>
+            <p onClick ={handlePersonalAchievement}>Achievements</p>
+            <p onClick ={handleSettings}>Settings</p>
             </>:
             <>
             <p>Senior Dashboard</p>
