@@ -6,7 +6,6 @@ const Footer = () => {
         <div className="footer">
             <div className = 'brand-culture'>
             <div className="brand-box">
-            {/* <h4>GoldenSolutions</h4> */}
             <img  className='brand'src={logo} alt="GoldenSolutions Logo" width="300"/>
             </div>
             <div className="quote">
