@@ -4,7 +4,7 @@ import Footer from "./Footer";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const VolunteerPage = () => {
+const VolunteerPage = ({setModalOpen}) => {
   return (
     <div>
     <div className="volunteer-page">
@@ -37,7 +37,7 @@ const VolunteerPage = () => {
           per conubia nostra, per inceptos himenaeos.
         </p>
       </div>
-      <Button className='button'>SIGN UP NOW</Button>
+      <Button className='button' onClick={() => setModalOpen(true)}>SIGN UP NOW</Button>
       </div>
       <img className ='volunteer-image'src="https://static.vecteezy.com/system/resources/previews/006/795/116/original/volunteer-man-walking-in-park-with-elderly-disabled-or-handicapped-woman-in-wheelchair-help-and-support-to-senior-people-with-health-problems-banner-for-5th-december-cartoon-illustration-vector.jpg" />
     </div>
