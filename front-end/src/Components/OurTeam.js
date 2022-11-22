@@ -108,11 +108,13 @@ const OurTeam = () => {
           {handleLearnMore('gigi')}
         </div>
         <div className= 'team'>
+         <a href = "https://mckiernantim.github.io/">
           <img
             className="our-team-img"
             src="https://ca.slack-edge.com/TCVA3PF24-U022H04SBPF-6e9b68170b60-512"
             alt="Tim McKiernan"
           />
+         </a>
           <h5 className='name'>Tim McKiernan</h5>
           <h5 className='position'>Chief Innovation Officer</h5>
           {handleLearnMore('tim')}
