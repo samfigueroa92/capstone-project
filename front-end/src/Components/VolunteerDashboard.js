@@ -1,6 +1,11 @@
+import SidebarNav from "./SidebarNav";
+import './VolunteerDashboard.css'
+
 const VolunteerDashboard = () => {
     return (
-        <div></div>
+        <div>
+            <SidebarNav/>
+        </div>
     );
 };
 
