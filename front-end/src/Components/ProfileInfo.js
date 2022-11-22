@@ -1,3 +1,4 @@
+import "./ProfileInfo.css"
 import React from 'react'
 
 const ProfileInfo = () => {

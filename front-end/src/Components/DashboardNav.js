@@ -1,3 +1,4 @@
+import "./Dashboard.css"
 const DashboardNav = () => {
     return (
         <div></div>

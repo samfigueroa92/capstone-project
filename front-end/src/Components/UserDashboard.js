@@ -1,6 +1,9 @@
+import "./UserDashboard.css"
 const UserDashboard = () => {
     return (
-        <div></div>
+        <div>
+
+        </div>
     );
 };
 
