@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 
 //CSS Imports
-import teamwork from '../images/teamwork.jpg'
 import "./OurTeam.css";
 
 const OurTeam = () => {
