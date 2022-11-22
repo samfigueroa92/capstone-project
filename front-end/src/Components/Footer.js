@@ -23,7 +23,7 @@ const Footer = () => {
                 {/* <ol><a>Gallery</a></ol> */}
                 {/* <ol><a>Events</a></ol> */}
                 {/* <ol><a>Support</a></ol> */}
-                <ol><a>Our Team</a></ol>
+                <ol><a href="/our-team">Our Team</a></ol>
                 </ul>
                 </div>
             </div>
