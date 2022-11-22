@@ -54,7 +54,7 @@ const OurTeam = () => {
       <div>{ "Supporting Our Community"}</div>
       <div>{"One Volunteer at a Time"}</div> 
       </div>
-      <div className = 'quote'>
+      <div className = 'quotes'>
       <div>"{"As you grow older, you will discover that you have two hands —"}</div>
       <div>{"one for helping yourself, the other for helping others."}"</div> 
       <div>{"— Audrey Hepburn"}</div>
