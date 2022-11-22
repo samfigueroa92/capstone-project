@@ -1,3 +1,8 @@
+
+
+//Component Imports
+
+//CSS Imports
 import './Footer.css';
 import logo from "../images/logoGS.png";
 

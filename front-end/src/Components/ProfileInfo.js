@@ -1,5 +1,9 @@
-import "./ProfileInfo.css"
 import React from 'react'
+
+//Component Imports
+
+//CSS Imports
+import "./ProfileInfo.css"
 
 const ProfileInfo = () => {
   return (

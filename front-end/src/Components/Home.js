@@ -1,7 +1,10 @@
-import "./Home.css";
+
+//Component Imports
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 
+//CSS Imports
+import "./Home.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 

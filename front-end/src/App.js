@@ -8,6 +8,7 @@ import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/SeniorsPage";
 import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
+import VolunteerDashboard from "./Components/VolunteerDashboard";
 
 //CSS
 import "./App.css";
