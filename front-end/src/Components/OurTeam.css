@@ -19,7 +19,7 @@
 .our-team{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 2% 0;
+    margin: 6% 0;
     line-height: .9;
     padding-left: 3%;
 }
@@ -52,7 +52,7 @@
 .name{
     padding-top: 2%;
 }
-.quote{
+.quotes{
     font-family:'Poppins', sans-serif;
     background-repeat: no-repeat;
     width: 100%;
@@ -62,6 +62,7 @@
     display: flex;
     justify-content: center;
     text-align: right;
+    padding-top: 6%;
     padding-right: 5%;
     text-transform: uppercase;
     padding-left: 80px;
