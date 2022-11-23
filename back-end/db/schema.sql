@@ -6,6 +6,7 @@ CREATE DATABASE task_capstone;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    firebase_id TEXT,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
     dob DATE NOT NULL,
