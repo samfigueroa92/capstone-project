@@ -1,28 +1,17 @@
-.SideBar{
+.SideBar {
     background-color: #EDF6F9;
     height: 750px;
-    padding-left: 40px;
-    padding-top: 150px;
+    padding-top: 120px;
 }
 .header{
     font-weight: bold;
 }
 
 .under-click{
-    height: 0;
-    width: 10px;
-    color:white;
-    background: 0 0;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    text-transform: none;
-    color: #000!important;
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-
-    
+    border-top: 1px solid #006D77; 
+    padding-top: 20px;
+}
+.text{
+    padding-left: 30px;
+    padding-right: 30px;
 }

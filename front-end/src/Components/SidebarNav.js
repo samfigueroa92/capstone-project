@@ -27,7 +27,7 @@ const SidebarNav = () => {
     return (
         <div className='SideBar'>
             {volunteer ? 
-            <>
+            <div className = 'text'>
             <p className="header">Volunteer Dashboard</p>
             <div className="under-click"></div>
             <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
@@ -38,7 +38,7 @@ const SidebarNav = () => {
             <div className="under-click"></div>
             <p onClick ={handleSettings}>Settings</p>
             <div className="under-click"></div>
-            </>:
+            </div>:
             <>
             <p>Senior Dashboard</p>
             <p>My Requests</p>
