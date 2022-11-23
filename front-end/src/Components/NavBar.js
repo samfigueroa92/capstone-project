@@ -1,7 +1,12 @@
-import "./NavBar.css";
+
+
+//Component Imports
 import Container from "react-bootstrap/esm/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
+//CSS Imports
+import "./NavBar.css";
 import logo from "../images/logoGS.png";
 import Button from "react-bootstrap/Button";
 

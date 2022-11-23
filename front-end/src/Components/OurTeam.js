@@ -1,7 +1,10 @@
-import "./OurTeam.css";
-import Footer from "./Footer";
-import teamwork from '../images/teamwork.jpg'
 import React, { useState } from "react";
+
+//Components Import
+import Footer from "./Footer";
+
+//CSS Imports
+import "./OurTeam.css";
 
 const OurTeam = () => {
   const [learnMore, setLearnMore] = useState({

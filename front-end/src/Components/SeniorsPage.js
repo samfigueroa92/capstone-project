@@ -1,6 +1,10 @@
-import "./SeniorsPage.css";
+
+
+//Component Imports
 import Footer from "./Footer";
 
+//CSS Imports
+import "./SeniorsPage.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 

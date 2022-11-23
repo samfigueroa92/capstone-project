@@ -1,7 +1,10 @@
-import "./Home.css";
+
+//Component Imports
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 
+//CSS Imports
+import "./Home.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
@@ -37,18 +40,22 @@ const Home = ({setModalOpen}) => {
           <img
             className="big-image"
             src="https://www.lifeopedia.com/wp-content/uploads/2016/05/iStock_000069165823_Large.jpg"
+            alt="Computer Help"
           />
           <img
             className="image1"
             src="https://sdscf.org/wp-content/uploads/2019/03/shutterstock_288532283.jpg"
+            alt="Groceries"
           />
           <img
             className="image2"
             src="https://www.communityplace.org/wp-content/uploads/2021/12/group-of-retired-seniors-painting.jpg"
+            alt="Painting"
           />
           <img
             className="image3"
             src="https://aginginplace.org/wp-content/uploads/Group-of-people-planting-vegetable.jpg"
+            alt="Planting"
           />
         </div>
         <div className="blurbs">
