@@ -1,3 +1,8 @@
+
+
+//Component Imports
+
+//CSS Imports
 import './Footer.css';
 import logo from "../images/logoGS.png";
 
@@ -13,8 +18,8 @@ const Footer = () => {
             </div>
             </div>
             <div className="quicklinks">
-                <h5 className = 'links'>Quick Links</h5>
                 <div className='list'>
+                <h5 className = 'links'>Quick Links</h5>
                 <ul>
                 <ol><a href="/">Home</a></ol>
                 <ol><a href="/volunteers">Volunteers</a></ol>

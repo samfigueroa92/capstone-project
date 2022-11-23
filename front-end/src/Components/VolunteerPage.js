@@ -1,6 +1,10 @@
-import "./VolunteerPage.css";
+
+
+//Component Imports
 import Footer from "./Footer";
 
+//CSS Imports
+import "./VolunteerPage.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 

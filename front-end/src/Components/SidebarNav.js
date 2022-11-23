@@ -1,16 +1,43 @@
-import Calender from "./Calendar"
 import React, {useState} from "react";
+
+//Component Import
+import Calender from "./Calendar"
+
+//CSS Import
+import "./SidebarNav.css"
+
 const SidebarNav = () => {
     const [volunteer, setVolunteer] = useState(true)
+
+    const handleAcceptedRequest = () =>{
+
+    }
+
+    const handleOpenRequest = () => {
+
+    }
+    const handlePersonalAchievement = () => {
+
+    }
+
+    const handleSettings = () =>{
+
+    }
+
     return (
         <div className='SideBar'>
             {volunteer ? 
             <>
-            <p>Volunteer Dashboard</p>
-            <p>Accepted Requests</p>
-            <p>Open Requests</p>
-            <p>Achievements</p>
-            <p>Settings</p>
+            <p className="header">Volunteer Dashboard</p>
+            <div className="under-click"></div>
+            <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
+            <div className="under-click"></div>
+            <p onClick ={handleOpenRequest}>Open Requests</p>
+            <div className="under-click"></div>
+            <p onClick ={handlePersonalAchievement}>Achievements</p>
+            <div className="under-click"></div>
+            <p onClick ={handleSettings}>Settings</p>
+            <div className="under-click"></div>
             </>:
             <>
             <p>Senior Dashboard</p>
