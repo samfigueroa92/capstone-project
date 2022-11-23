@@ -1,12 +1,11 @@
-import './Footer.css'
-import logo from "../images/logoGS.png"
+import './Footer.css';
+import logo from "../images/logoGS.png";
 
 const Footer = () => {
     return (
         <div className="footer">
             <div className = 'brand-culture'>
             <div className="brand-box">
-            {/* <h4>GoldenSolutions</h4> */}
             <img  className='brand'src={logo} alt="GoldenSolutions Logo" width="300"/>
             </div>
             <div className="quote">
@@ -17,16 +16,15 @@ const Footer = () => {
                 <h5 className = 'links'>Quick Links</h5>
                 <div className='list'>
                 <ul>
-                <ol><a>Home</a></ol>
-                <ol><a>Volunteers</a></ol>
-                <ol><a>Seniors</a></ol>
-                <ol><a>Gallery</a></ol>
-                <ol><a>Events</a></ol>
-                <ol><a>Support</a></ol>
-                <ol><a>Info</a></ol>
+                <ol><a href="/">Home</a></ol>
+                <ol><a href="/volunteers">Volunteers</a></ol>
+                <ol><a href="/seniors">Seniors</a></ol>
+                {/* <ol><a>Gallery</a></ol> */}
+                {/* <ol><a>Events</a></ol> */}
+                {/* <ol><a>Support</a></ol> */}
+                <ol><a href="/our-team">Our Team</a></ol>
                 </ul>
                 </div>
-        
             </div>
             <div className="contact">
                 <h5>Contact Us</h5>

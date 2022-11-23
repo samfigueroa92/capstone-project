@@ -4,21 +4,42 @@
     display: grid; 
     grid-template-columns: repeat(3, 1fr);
     padding-top: 80px;
+    padding-bottom: 40px;
 }
 .quicklinks{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    
+    justify-content: left;
 }
 .links{
     text-align: center;
 }
+
 ul{
-    margin-left: 30%;
+    margin-left: 26%;
+    
 }
+
+
+a:link{
+    text-decoration: none;
+    color: white;
+}
+
+a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
 .brand-culture{
     margin-left: 10%;
 }
+
 .brand-box{
     border: solid 2px #006D77;
     width: 43%;

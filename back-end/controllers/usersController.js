@@ -25,7 +25,7 @@ users.get("/", async (req, res) => {
 // SINGLE USER
 users.get("/:id", async (req, res) => {
     const { id } = req.params;
-    const user = await getUser();
+    const user = await getUser(id);
     if(user) {
         res.json(user);
     } else {
@@ -54,12 +54,6 @@ users.delete("/:id", async (req, res) => {
         res.status(400).json("User Not Found");
     }
 });
-
-
-
-
-
-
 
 
 module.exports = users;

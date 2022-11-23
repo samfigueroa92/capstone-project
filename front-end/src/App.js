@@ -7,9 +7,10 @@ import NavBar from "./Components/NavBar";
 import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/SeniorsPage";
 import VolunteerPage from "./Components/VolunteerPage";
+import OurTeam from "./Components/OurTeam";
 
 //CSS
-import "./App.css"
+import "./App.css";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,13 +21,14 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
-          <Route path="/" element={ <Home/> } />
-          <Route path="/volunteers" element={ <VolunteerPage /> } />
-          <Route path="/seniors" element={ <SeniorsPage /> } />
+          <Route path="/our-team" element={<OurTeam />} />
+          <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />
+          <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
+          <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen}/> } />
         </Routes>
       </Router>
     </div>
   );
-}
+};
 
 export default App;
