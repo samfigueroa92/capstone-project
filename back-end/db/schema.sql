@@ -31,7 +31,8 @@ CREATE TABLE requests (
     description TEXT NOT NULL,
     location TEXT NOT NULL,
     time TEXT,
-    assigned BOOLEAN DEFAULT false
+    assigned BOOLEAN DEFAULT false,
+    complete BOOLEAN DEFAULT false
 );
 
 CREATE TABLE ratings (
