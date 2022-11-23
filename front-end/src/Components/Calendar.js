@@ -1,13 +1,9 @@
-
-
 //Component Import
 
 //CSS Import
-import "./Calendar.css"
+import "./Calendar.css";
 const Calendar = () => {
-    return (
-        <div></div>
-    );
+  return <div></div>;
 };
 
 export default Calendar;

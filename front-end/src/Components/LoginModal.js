@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { signInWithGoogle, signOut } from "../Services/Firebase";
 //Component Imports
 
-
 //CSS Imports
 import "./LoginModal.css";
 import Button from "react-bootstrap/esm/Button";
@@ -38,7 +37,7 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
           <Button onClick={signOut}> Sign out</Button>
-        <p>Not a user? Sign up here.</p>
+          <p>Not a user? Sign up here.</p>
         </div>
       </div>
     </div>

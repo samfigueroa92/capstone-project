@@ -1,15 +1,9 @@
-
-
 //Component Imports
 
 //CSS Imports
-import "./UserDashboard.css"
+import "./UserDashboard.css";
 const UserDashboard = () => {
-    return (
-        <div>
-
-        </div>
-    );
+  return <div></div>;
 };
 
 export default UserDashboard;

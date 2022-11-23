@@ -1,13 +1,9 @@
-
-
 //Component Import
 
 //CSS Import
-import "./Dashboard.css"
+import "./Dashboard.css";
 const DashboardNav = () => {
-    return (
-        <div></div>
-    );
+  return <div></div>;
 };
 
 export default DashboardNav;

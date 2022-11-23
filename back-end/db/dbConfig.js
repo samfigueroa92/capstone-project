@@ -9,10 +9,10 @@ const cn = DATABASE_URL
   ? {
       connectionString: DATABASE_URL,
       max: 30,
- // this key value is only required for heroku deployment
-//       ssl: {
-//         rejectUnauthorized: false,
-//       },
+      // this key value is only required for heroku deployment
+      //       ssl: {
+      //         rejectUnauthorized: false,
+      //       },
     }
   : {
       host: PG_HOST,
@@ -24,5 +24,5 @@ const cn = DATABASE_URL
 
 const db = pgp(cn);
 
-console.log('Postgres connection', cn);
+console.log("Postgres connection", cn);
 module.exports = db;

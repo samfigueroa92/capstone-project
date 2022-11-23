@@ -54,5 +54,5 @@ module.exports = {
   getReviews,
   getReview,
   leaveReview,
-  editReview
+  editReview,
 };

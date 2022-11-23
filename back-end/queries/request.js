@@ -90,5 +90,5 @@ module.exports = {
   getRequest,
   editRequest,
   makeRequest,
-  deleteRequest
+  deleteRequest,
 };

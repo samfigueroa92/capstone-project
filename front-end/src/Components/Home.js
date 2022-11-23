@@ -1,4 +1,3 @@
-
 //Component Imports
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
@@ -8,7 +7,7 @@ import "./Home.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const Home = ({setModalOpen}) => {
+const Home = ({ setModalOpen }) => {
   return (
     <div>
       <div className="home">

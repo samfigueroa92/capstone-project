@@ -40,5 +40,5 @@ const viewRating = async (id) => {
 module.exports = {
   getRatings,
   leaveRating,
-  viewRating
+  viewRating,
 };
