@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS goldensolutions;
-CREATE DATABASE goldensolutions;
+DROP DATABASE IF EXISTS task_capstone;
+CREATE DATABASE task_capstone;
 
-\c goldensolutions;
+\c task_capstone;
 
 
 CREATE TABLE users (
