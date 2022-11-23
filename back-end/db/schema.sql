@@ -1,11 +1,12 @@
-DROP DATABASE IF EXISTS task_capstone;
-CREATE DATABASE task_capstone;
+DROP DATABASE IF EXISTS goldensolutions;
+CREATE DATABASE goldensolutions;
 
-\c task_capstone;
+\c goldensolutions;
 
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    firebase_id TEXT,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
     dob DATE NOT NULL,
