@@ -111,6 +111,7 @@
     line-height: 1.71;
 }
 
+/* IPHONE SE */
 @media screen and (max-width: 700px) {
     .teamwork{
         font-family:'Poppins', sans-serif;
