@@ -1,0 +1,13 @@
+.volunteer-dashboard{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.sidebar-nav{
+    grid-column: 1/2;
+}
+
+.requests{
+    display: grid;
+    grid-template-columns: 1fr;
+}

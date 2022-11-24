@@ -1,0 +1,12 @@
+.my-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.my-requests{
+    margin: 15px;
+}
+
+.my-requests h3{
+    margin-left: 10px;
+}
