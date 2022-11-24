@@ -9,6 +9,8 @@ import SeniorsPage from "./Components/SeniorsPage";
 import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
+import RequestCard from "./Components/RequestCard";
+
 
 //CSS
 import "./App.css";
@@ -22,6 +24,7 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
+          <Route path='/request' element={<RequestCard/>}/>
           <Route path='/user-dashboard' element={ <UserDashboard/> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />

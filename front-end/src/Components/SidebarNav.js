@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 
 //Component Import
 import Calender from "./Calendar"
@@ -28,16 +29,26 @@ const SidebarNav = () => {
         <div className='SideBar'>
             {volunteer ? 
             <div className = 'text'>
-            <p className="header">Volunteer Dashboard</p>
+        <Link to='/user-dashboard'>
+            <p className="header" onClick>Volunteer Dashboard</p>
             <div className="under-click"></div>
+        </Link>
+        <Link>
             <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
             <div className="under-click"></div>
+        </Link>
+        <Link>
             <p onClick ={handleOpenRequest}>Open Requests</p>
             <div className="under-click"></div>
+        </Link>
+        <Link>
             <p onClick ={handlePersonalAchievement}>Achievements</p>
             <div className="under-click"></div>
+        </Link>
+        <Link>
             <p onClick ={handleSettings}>Settings</p>
             <div className="under-click"></div>
+        </Link>
             </div>:
             <>
             <p>Senior Dashboard</p>

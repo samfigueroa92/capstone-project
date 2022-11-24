@@ -2,6 +2,7 @@
     background-color: #EDF6F9;
     height: 750px;
     padding-top: 120px;
+    color: black;
 }
 .header{
     font-weight: bold;
@@ -14,4 +15,5 @@
 .text{
     padding-left: 30px;
     padding-right: 30px;
+    color:black
 }

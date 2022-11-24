@@ -23,17 +23,17 @@ ul{
 }
 
 
-a:link{
+ul a:link{
     text-decoration: none;
     color: white;
 }
 
-a:visited{
+ul a:visited{
     text-decoration: none;
     color: white;
 }
 
-a:hover{
+ul a:hover{
     text-decoration: none;
     color: black;
 }
