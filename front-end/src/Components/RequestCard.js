@@ -1,8 +1,11 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import SidebarNav from "./SidebarNav";
 
 const RequestCard = () => {
   return (
+    <div className='user-dashboard'>
+      <SidebarNav/>
     <div className="req-card">
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
@@ -15,6 +18,7 @@ const RequestCard = () => {
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
       </Card>
+    </div>
     </div>
   );
 };
