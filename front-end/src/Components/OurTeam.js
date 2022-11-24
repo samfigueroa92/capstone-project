@@ -12,8 +12,10 @@ const OurTeam = () => {
     tom: false,
     kalilah: false,
     adnan: false,
+    sabrina: false,
     gigi: false,
     tim: false,
+    amber: false,
   });
 
   const STAFFBIOS = {
@@ -23,8 +25,10 @@ const OurTeam = () => {
       "kalilah, orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
     adnan:
       "adnan, orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    sabrina:"sabrina,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
     gigi: "gigi,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
     tim: "tim,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    amber: "amber,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
   };
 
   const handleLearnMore = (teamMate) => {
@@ -104,6 +108,17 @@ const OurTeam = () => {
           {handleLearnMore('adnan')}
         </div>
         <div className= 'team'>
+          <img
+            className="our-team-img"
+            src="https://ca.slack-edge.com/TCVA3PF24-U02M4L7LAV7-07a20f756bae-512"
+            alt="Sabrina"
+          />
+          <p className='name'>Sabrina Escobar Flores</p>
+          <p className='position'>Mobile/Tablet Front-End Developer</p>
+          {handleLearnMore('sabrina')}
+        </div>
+       
+        <div className= 'team'>
         <a href="https://www.gigiscarborough.com">
           <img
             className="our-team-img"
@@ -127,7 +142,20 @@ const OurTeam = () => {
           <p className='position'>Chief Innovation Officer</p>
           {handleLearnMore('tim')}
         </div>
+        <div className= 'team'>
+        <a href="">
+          <img
+            className="our-team-img"
+            src="https://ca.slack-edge.com/TCVA3PF24-U04CMRUKB6U-8ad816fd1907-512"
+            alt="Amber Bennet"
+          />
+          </a>
+          <p className='name'>Amber Bennet</p>
+          <p className='position'>Techinical Consultant</p>
+          {handleLearnMore('amber')}
+        </div>
       </div>
+      
       <Footer />
     </div>
   );
