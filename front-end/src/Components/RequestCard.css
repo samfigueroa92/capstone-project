@@ -1,9 +1,3 @@
-/* .user-dashboard{
-    display: grid;
-    grid-template-columns: 7fr 25fr;
-    
-} */
-
 .req-card{
     width: 250px;
     margin: 10px;
@@ -19,4 +13,12 @@
 
 .assignment{
     float: left;
+}
+
+.time{
+    float: right;
+}
+
+.clock{
+    margin-right: 5px;
 }

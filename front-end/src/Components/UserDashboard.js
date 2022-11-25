@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -21,7 +20,7 @@ const UserDashboard = () => {
         .then(res => setRequests(res.data))
         .catch(err => console.error(err))
     }, []);
-    console.log(requests)
+
     return (
         <div className='user-dashboard'>
             <div className="sidebar-nav">
