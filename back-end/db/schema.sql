@@ -28,11 +28,13 @@ CREATE TABLE requests (
     elder INT references users(id),
     volunteer INT references users(id),
     req_date DATE NOT NULL,
+    title TEXT,
     description TEXT NOT NULL,
     location TEXT NOT NULL,
     time TEXT,
     assigned BOOLEAN DEFAULT false,
-    complete BOOLEAN DEFAULT false
+    complete BOOLEAN DEFAULT false,
+    image TEXT
 );
 
 CREATE TABLE ratings (
