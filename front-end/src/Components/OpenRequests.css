@@ -1,0 +1,12 @@
+.open-requests{
+    margin: 15px;
+}
+
+.open-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.open-requests h3{
+    margin-left: 10px;
+}
