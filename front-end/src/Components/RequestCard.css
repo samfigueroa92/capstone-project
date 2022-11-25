@@ -1,5 +1,22 @@
-.user-dashboard{
+/* .user-dashboard{
     display: grid;
     grid-template-columns: 7fr 25fr;
     
+} */
+
+.req-card{
+    width: 250px;
+    margin: 10px;
+}
+
+/* .req-card img{
+    width: 200px;
+} */
+
+.card-bottom{
+    border-top: 1px solid gray;
+}
+
+.assignment{
+    float: left;
 }

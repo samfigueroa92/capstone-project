@@ -24,7 +24,7 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
-          <Route path='/request' element={<RequestCard/>}/>
+      
           <Route path='/user-dashboard' element={ <UserDashboard/> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />

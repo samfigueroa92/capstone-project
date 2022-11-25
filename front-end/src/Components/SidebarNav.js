@@ -11,18 +11,18 @@ const SidebarNav = () => {
     const [volunteer, setVolunteer] = useState(true)
 
     const handleAcceptedRequest = () =>{
-
+        console.log('hello')
     }
 
     const handleOpenRequest = () => {
-
+        console.log('Bye')
     }
     const handlePersonalAchievement = () => {
-
+        console.log('Bonjour')
     }
 
     const handleSettings = () =>{
-
+        console.log('Au Revoir')
     }
 
     return (
