@@ -88,9 +88,11 @@ width: 200%;
        text-align: center;
        justify-content: center;
        padding-left: 0px;
+       padding-right: 60px;
    }
    .list{
-    padding-right: 40px;
+    padding-right: 120px;
+    text-align: center;
    }
     .brand-culture{
         text-align: center;
