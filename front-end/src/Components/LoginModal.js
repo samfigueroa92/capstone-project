@@ -2,8 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { useNavigate } from "react-router-dom";
 import { signInWithGoogle, signOut } from "../Services/Firebase";
-//Component Imports
-
 
 //CSS Imports
 import "./LoginModal.css";
