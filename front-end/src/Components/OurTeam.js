@@ -94,7 +94,7 @@ const OurTeam = () => {
             alt="Kalilah Clarke"
           />
           <p className='name'>Kalilah Clarke</p>
-          <p className='position'>Director of Engineering - User Facing Technologies</p>
+          <p className='position'>Director of Engineering-User Facing Technologies</p>
           {handleLearnMore('kalilah')}
         </div>
         <div className= 'team'>
@@ -151,7 +151,7 @@ const OurTeam = () => {
           />
           </a>
           <p className='name'>Amber Bennet</p>
-          <p className='position'>Techinical Consultant</p>
+          <p className='position'>Technical Consultant</p>
           {handleLearnMore('amber')}
         </div>
       </div>
