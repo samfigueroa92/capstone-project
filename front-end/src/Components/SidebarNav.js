@@ -37,7 +37,7 @@ const SidebarNav = () => {
             <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
             <div className="under-click"></div>
         </Link>
-        <Link>
+        <Link to='/open-requests'>
             <p onClick ={handleOpenRequest}>Open Requests</p>
             <div className="under-click"></div>
         </Link>

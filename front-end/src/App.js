@@ -9,9 +9,11 @@ import SeniorsPage from "./Components/SeniorsPage";
 import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
+import OpenRequestPage from "./Components/OpenRequestPage";
 
 //CSS
 import "./App.css";
+
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,6 +24,7 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
+          <Route path='/open-requests' element= {<OpenRequestPage/>}/>
           <Route path='/user-dashboard' element={ <UserDashboard/> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />
