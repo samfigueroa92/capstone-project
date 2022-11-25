@@ -126,4 +126,18 @@ width: 200%;
         justify-content: center;
         /* text-align: center; */
      }
+     ul a:link{
+        text-decoration: none;
+        color: white;
+    }
+    
+    ul a:visited{
+        text-decoration: none;
+        color: white;
+    }
+    
+    ul a:hover{
+        text-decoration: none;
+        color: black;
+    }
 }
