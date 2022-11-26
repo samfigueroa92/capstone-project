@@ -54,12 +54,13 @@ const VolunteerPage = () => {
           <img
             className="volunteer-image"
             src="https://static.vecteezy.com/system/resources/previews/006/795/116/original/volunteer-man-walking-in-park-with-elderly-disabled-or-handicapped-woman-in-wheelchair-help-and-support-to-senior-people-with-health-problems-banner-for-5th-december-cartoon-illustration-vector.jpg"
+            alt="helpin"
           />
-        </div>        
+        </div>
         <Button className="button" onClick={() => navigate("/sign-up")}>
           SIGN UP NOW
         </Button>
-      </div>    
+      </div>
       <Footer />
     </>
   );
