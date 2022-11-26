@@ -1,13 +1,16 @@
 //Component Imports
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
+import { useNavigate } from "react-router-dom";
 
 //CSS Imports
 import "./Home.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const Home = ({setModalOpen}) => {
+const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="home">
@@ -33,7 +36,7 @@ const Home = ({setModalOpen}) => {
               litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
           </div>
-          <Button onClick={() => setModalOpen(true)}>SIGN UP NOW</Button>
+          <Button onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
         </div>
         <div className="gallery">
           <img

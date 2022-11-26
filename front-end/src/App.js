@@ -26,12 +26,12 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
-          <Route path='/open-requests' element= {<OpenRequestPage/>}/>
-          <Route path='/user-dashboard' element={ <UserDashboard/> }/>
+          <Route path='/open-requests' element= {<OpenRequestPage />}/>
+          <Route path='/user-dashboard' element={ <UserDashboard /> }/>
           <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />
-          <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
-          <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen}/> } />
+          <Route path="/" element={ <Home /> } />
+          <Route path="/volunteers" element={ <VolunteerPage /> } />
+          <Route path="/seniors" element={ <SeniorsPage /> } />
           <Route path="/sign-up" element={<SignUpPage/>} />
         </Routes>
       </Router>
