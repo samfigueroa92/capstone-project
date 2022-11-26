@@ -11,7 +11,7 @@ CREATE TABLE users (
     lastname TEXT NOT NULL,
     dob DATE NOT NULL,
     address TEXT NOT NULL,
-    unit TEXT,
+    address2 TEXT,
     city TEXT NOT NULL,
     state TEXT NOT NULL,
     zipcode VARCHAR(5),
@@ -20,7 +20,9 @@ CREATE TABLE users (
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
     profilephoto TEXT,
-    languages TEXT
+    languages TEXT,
+    SSN VARCHAR(30),
+    verification_type TEXT
 );
 
 CREATE TABLE requests (

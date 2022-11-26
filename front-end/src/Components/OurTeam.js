@@ -111,15 +111,6 @@ const OurTeam = () => {
           <p className="position">Senior Principal Engineer</p>
           {handleLearnMore("adnan")}
         </div>
-<<<<<<< HEAD
-        <div className="team">
-          <a href="https://www.gigiscarborough.com">
-            <img
-              className="our-team-img"
-              src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
-              alt="Gigi Scarsborough"
-            />
-=======
         <div className= 'team'>
           <img
             className="our-team-img"
@@ -138,7 +129,6 @@ const OurTeam = () => {
             src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
             alt="Gigi Scarsborough"
           />
->>>>>>> main
           </a>
           <p className="name">Gigi Scarborough</p>
           <p className="position">Chief Technology Officer</p>

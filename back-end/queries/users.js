@@ -60,7 +60,7 @@ const deleteUser = async (id) => {
   }
 };
 
-//Edit user (?)
+//Edit user - profile details and such. Not all of these should be accessible to the user. For instance
 const editUser = async (user, id) => {
   try {
     console.log("Editing user with id of " + id);
