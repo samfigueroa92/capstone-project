@@ -36,11 +36,15 @@ const makeRequest = async (request) => {
 };
 
 //Single request
+//Looking at this makes me think - we'll probably need some helper functions to validate that a person is able to review this request,
+// at least from a volunteer side. A query that checks to see if the users firebase_id is in the row they are attempting to look at, 
+// and if so, the request info is sent back. At least for the future - not necessarily important to have in for the short term.
+
 const getRequest = async (id) => {
   try {
     console.log("Retreiving request from request table");
-    const req = await db.one("SELECT * FROM requests WHERE id=$1", id);
-    return req;
+    const request = await db.one("SELECT * FROM requests WHERE id=$1", id);
+    return request;
   } catch (error) {
     return error;
   }
