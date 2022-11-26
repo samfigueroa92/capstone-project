@@ -1,5 +1,3 @@
-
-
 //Component Imports
 import Footer from "./Footer";
 
