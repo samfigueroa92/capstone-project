@@ -1,0 +1,31 @@
+.signup-text{
+    text-align: center;
+    margin: 15px;
+    padding: 15px;
+}
+
+.form{
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 0px 100px;
+    padding: 10px;
+}
+
+.form-button Button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 25px 50px 25px 50px;
+    border-radius: 50px;
+    letter-spacing: .2em;
+}
+
+.form-button Button:hover{
+    background-color: #B8DEDC;
+}
+
+.form-button{
+    text-align: end;
+    margin-right: 150px;
+}
