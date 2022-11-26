@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { useNavigate } from "react-router-dom";
 import { signInWithGoogle, signOut } from "../Services/Firebase";
-//Component Imports
 
 //CSS Imports
 import "./LoginModal.css";
@@ -14,9 +13,10 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
 
   useEffect(() => {
     if (user) {
-      navigate("loggedInPage");
+      navigate("/");
     }
   }, [user, navigate]);
+  console.log(user)
 
   //stopPropagation prevents the "login-modal" onClick event to happen
 

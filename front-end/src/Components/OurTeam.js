@@ -95,11 +95,9 @@ const OurTeam = () => {
             src="https://media-exp1.licdn.com/dms/image/C5603AQFIoVA0ltC1Fg/profile-displayphoto-shrink_800_800/0/1592177861401?e=1674086400&v=beta&t=gGt0ISX9GlFHHDdsgcf4t97d5fpQs00mMEcWSSwQoV8"
             alt="Kalilah Clarke"
           />
-          <p className="name">Kalilah Clarke</p>
-          <p className="position">
-            Director of Engineering - User Facing Technologies
-          </p>
-          {handleLearnMore("kalilah")}
+          <p className='name'>Kalilah Clarke</p>
+          <p className='position'>Director of Engineering-User Facing Technologies</p>
+          {handleLearnMore('kalilah')}
         </div>
         <div className="team">
           <img
@@ -155,7 +153,7 @@ const OurTeam = () => {
           />
           </a>
           <p className='name'>Amber Bennet</p>
-          <p className='position'>Techinical Consultant</p>
+          <p className='position'>Technical Consultant</p>
           {handleLearnMore('amber')}
         </div>
       </div>

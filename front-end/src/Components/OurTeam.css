@@ -112,7 +112,43 @@
 }
 
 /* IPHONE SE */
-@media screen and (max-width: 700px) {
+
+/* @media screen and (max-width: 800px) {
+    .teamwork{
+        font-family:'Poppins', sans-serif;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: center;
+        width: 90%;
+        height: 180px;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        justify-content:end;
+        text-transform: uppercase;
+        padding-left: 15px;
+        padding-bottom: 10px;
+
+        flex-direction: column;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+    .our-team{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 1% 0;
+        line-height: .9;
+        padding-left: 3%;
+    }
+    .our-team-img{
+        width: 40%;
+        opacity: .9;
+        border-radius: 4%;
+    }
+
+} */
+
+@media screen and (max-width: 400px) {
     .teamwork{
         font-family:'Poppins', sans-serif;
         background-repeat: no-repeat;

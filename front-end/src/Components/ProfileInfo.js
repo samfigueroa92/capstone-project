@@ -5,6 +5,11 @@ import React from "react";
 //CSS Imports
 import "./ProfileInfo.css";
 
+//Cannot be edited: Name, Date of Birth, Email
+//Should not be visible: SSN, Verification Type
+
+//Everything else should be visible and a button to Edit info
+
 const ProfileInfo = () => {
   return (
     <div>
