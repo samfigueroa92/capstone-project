@@ -95,11 +95,9 @@ const OurTeam = () => {
             src="https://media-exp1.licdn.com/dms/image/C5603AQFIoVA0ltC1Fg/profile-displayphoto-shrink_800_800/0/1592177861401?e=1674086400&v=beta&t=gGt0ISX9GlFHHDdsgcf4t97d5fpQs00mMEcWSSwQoV8"
             alt="Kalilah Clarke"
           />
-          <p className="name">Kalilah Clarke</p>
-          <p className="position">
-            Director of Engineering - User Facing Technologies
-          </p>
-          {handleLearnMore("kalilah")}
+          <p className='name'>Kalilah Clarke</p>
+          <p className='position'>Director of Engineering-User Facing Technologies</p>
+          {handleLearnMore('kalilah')}
         </div>
         <div className="team">
           <img
@@ -111,15 +109,6 @@ const OurTeam = () => {
           <p className="position">Senior Principal Engineer</p>
           {handleLearnMore("adnan")}
         </div>
-<<<<<<< HEAD
-        <div className="team">
-          <a href="https://www.gigiscarborough.com">
-            <img
-              className="our-team-img"
-              src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
-              alt="Gigi Scarsborough"
-            />
-=======
         <div className= 'team'>
           <img
             className="our-team-img"
@@ -138,7 +127,6 @@ const OurTeam = () => {
             src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
             alt="Gigi Scarsborough"
           />
->>>>>>> main
           </a>
           <p className="name">Gigi Scarborough</p>
           <p className="position">Chief Technology Officer</p>
@@ -165,7 +153,7 @@ const OurTeam = () => {
           />
           </a>
           <p className='name'>Amber Bennet</p>
-          <p className='position'>Techinical Consultant</p>
+          <p className='position'>Technical Consultant</p>
           {handleLearnMore('amber')}
         </div>
       </div>

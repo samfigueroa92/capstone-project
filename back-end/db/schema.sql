@@ -20,7 +20,9 @@ CREATE TABLE users (
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
     profilephoto TEXT,
-    languages TEXT
+    languages TEXT,
+    SSN VARCHAR(30),
+    verification_type TEXT
 );
 
 CREATE TABLE requests (

@@ -53,18 +53,18 @@ const SidebarNav = () => {
     const [volunteer, setVolunteer] = useState(true)
 
     const handleAcceptedRequest = () =>{
-
+        console.log('hello')
     }
 
     const handleOpenRequest = () => {
-
+        console.log('Bye')
     }
     const handlePersonalAchievement = () => {
-
+        console.log('Bonjour')
     }
 
     const handleSettings = () =>{
-
+        console.log('Au Revoir')
     }
 
     return (
@@ -79,7 +79,7 @@ const SidebarNav = () => {
             <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
             <div className="under-click"></div>
         </Link>
-        <Link>
+        <Link to='/open-requests'>
             <p onClick ={handleOpenRequest}>Open Requests</p>
             <div className="under-click"></div>
         </Link>

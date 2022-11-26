@@ -22,6 +22,7 @@ users.get("/", async (req, res) => {
 });
 
 // SINGLE USER
+// !--- The id being passed here is the uid of the user from Firebase ---!
 users.get("/:id", async (req, res) => {
   const { id } = req.params;
   const user = await getUser(id);
@@ -33,6 +34,7 @@ users.get("/:id", async (req, res) => {
 });
 
 // EDIT USER
+// !--- The id being passed here is the uid of the user from Firebase ---!
 users.put("/:id", async (req, res) => {
   const { id } = req.params;
   const editedUser = await editUser(req.body, id);
@@ -44,6 +46,7 @@ users.put("/:id", async (req, res) => {
 });
 
 // DELETE USER
+// !--- The id being passed here is the uid of the user from Firebase ---!
 users.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedUser = await deleteUser(id);
