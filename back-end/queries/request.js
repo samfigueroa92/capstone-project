@@ -72,10 +72,10 @@ const editRequest = async (request, id) => {
 //Update Request - Assign Volunteer, mark request assigned as TRUE
 const assignVolunteer = async (request, volunteer) => {
   try {
-    console.log(`Assigning volunteer ${volunteer.id} to request ${id}`);
+    console.log(`Assigning volunteer ${volunteer.id} to request ${request.id}`);
     const assign = await db.one(
-      "UPDATE requests SET volunteer=$1, assigned=TRUE WHERE id=$2 RETURNING *",
-      [volunteer.id, request.id]
+      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [volunteer.id, "TRUE", request.id]
     );
     return assign;
   } catch (error) {
@@ -84,16 +84,18 @@ const assignVolunteer = async (request, volunteer) => {
 };
 
 //Update Request - Remove Volunteer, mark request assigned as FALSE
-const removeVolunter = async (request) => {
+const removeVolunter = async (id) => {
   try {
     console.log("Removing volunteer from request");
     const unAssign = await db.one(
-
-    )
+      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [NULL, "FALSE", id]
+    );
+    return unAssign;
   } catch (error) {
     return error;
   }
-}
+};
 
 //Delete Request
 const deleteRequest = async (id) => {
