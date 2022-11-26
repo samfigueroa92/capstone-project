@@ -22,6 +22,7 @@ const Home = () => {
               ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate
               ligula in accumsan accumsan. Class aptent taciti sociosqu ad
               litora torquent per conubia nostra, per inceptos himenaeos.
+
               <br />
               <br />
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed

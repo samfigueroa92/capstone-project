@@ -7,12 +7,13 @@ import { signInWithGoogle, signOut } from "../Services/Firebase";
 import "./LoginModal.css";
 import Button from "react-bootstrap/esm/Button";
 
-const LoginModal = ({ modalOpen, setModalOpen }) => {
+const LoginModal = ({ modalOpen, setModalOpen, setUserAuth }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
+      setUserAuth(user)
       navigate("/");
     }
   }, [user, navigate]);

@@ -1,0 +1,32 @@
+.Navbar .Dropdown{
+padding: 0;
+border: none;
+background: none;
+}
+
+.Navbar .profile-pic{
+    border: 0;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    margin: 0px;
+    
+    position: relative;
+    width: 35px;
+    z-index: 0;
+}
+#dropdown{
+    background-color: #42999B;
+    margin-left: 0;
+    font-size: 15px;
+    color:white;
+}
+#dropdown:hover{
+    color: black;
+}
+.leftside{
+    margin-left: 60%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100px;
+}
