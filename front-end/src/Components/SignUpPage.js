@@ -65,6 +65,17 @@ const SignUpPage = () => {
     "Wyoming": "WY",
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   //logic that will send all the gathered information to the back-end
+
+  // }
+
+  // const handleChange = (e) => {
+  //   //logic that will save value from input into a useState
+  // }
+
   return (
     <div className="sign-up">
       <div className="signup-text">
@@ -176,13 +187,23 @@ const SignUpPage = () => {
               </Form.Group>
             </Row>
 
-            <Form.Group className="mb-3" controlId="formBasicPhoto">
+            <Row>
+            <Form.Group as={Col} className="mb-3" controlId="formBasicPhoto">
               <Form.Label>Upload Photo</Form.Label>
               <Form.Control type="file" placeholder="image" />
               <Form.Text className="text-muted">
                 Please upload a photo in which your face is visible.
               </Form.Text>
             </Form.Group>
+            <Form.Group as={Col} className="mb-3" controlId="formBasicUser">
+                <Form.Label>User Type</Form.Label>
+                <Form.Select>
+                  <option>--Select Option--</option>
+                  <option>Senior</option>
+                  <option>Volunteer</option>
+                </Form.Select>
+              </Form.Group>
+            </Row>
           </Form>
         </Container>
       </div>
