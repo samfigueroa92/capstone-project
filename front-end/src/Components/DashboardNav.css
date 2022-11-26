@@ -1,32 +1,42 @@
-.Navbar .Dropdown{
+/* .Navbar .Dropdown{
 padding: 0;
 border: none;
 background: none;
+} */
+
+.dashboard-nav{
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end;
 }
 
 .Navbar .profile-pic{
-    border: 0;
-    -webkit-border-radius: 50%;
+    /* border: 0; */
+    /* -webkit-border-radius: 50%; */
     border-radius: 50%;
-    display: block;
-    margin: 0px;
-    
-    position: relative;
-    width: 35px;
-    z-index: 0;
+    /* display: block; */
+    /* margin: 0px; */
+    /* position: relative; */
+    width: 45px;
+    /* z-index: 0; */
 }
 #dropdown{
     background-color: #42999B;
-    margin-left: 0;
+    /* margin-left: 0; */
     font-size: 15px;
     color:white;
 }
 #dropdown:hover{
     color: black;
 }
-.leftside{
+
+/* .leftside{
     margin-left: 60%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     width: 100px;
+} */
+
+#envelope, #bell{
+    margin: 12px 5px;
 }
