@@ -3,6 +3,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import { signOut } from "../Services/Firebase";
+import { UserContext } from "../Providers/UserProviders";
+import { useContext } from "react";
 
 //Component Import
 import logo from "../images/logoGS.png";
@@ -10,12 +12,13 @@ import logo from "../images/logoGS.png";
 //CSS Import
 import "./DashboardNav.css";
 
-const DashboardNav = ({ userAuth }) => {
-  const { displayName, photoURL } = userAuth;
+const DashboardNav = () => {
+  const user = useContext(UserContext);
 
-  console.log(photoURL);
+  const { displayName, photoURL } = user;
+
   return (
-    <div className="Navbar">
+    <div className="dash-navbar">
       <Navbar>
         <Navbar.Brand href="/" className="logo">
           <img src={logo} alt="logo" />

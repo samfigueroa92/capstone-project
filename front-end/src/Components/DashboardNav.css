@@ -6,11 +6,12 @@ background: none;
 
 .dashboard-nav{
     display: flex;
-    flex-direction: column; 
-    align-items: flex-end;
+    flex-direction: row; 
+    /* align-items: flex-end; */
+    /* margin-left: 60%; */
 }
 
-.Navbar .profile-pic{
+.dash-navbar .profile-pic{
     /* border: 0; */
     /* -webkit-border-radius: 50%; */
     border-radius: 50%;

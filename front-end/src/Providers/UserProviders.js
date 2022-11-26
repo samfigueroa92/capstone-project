@@ -17,6 +17,7 @@ export const UserProvider = (props) =>{
 
         })
     },[]);
+    
     return (
         <UserContext.Provider value ={user}>
             <div>

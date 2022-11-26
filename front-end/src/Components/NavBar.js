@@ -2,6 +2,9 @@
 import Container from "react-bootstrap/esm/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import DashboardNav from "./DashboardNav";
+import { UserContext } from "../Providers/UserProviders";
+import { useContext } from "react";
 
 //CSS Imports
 import "./NavBar.css";
@@ -9,7 +12,9 @@ import logo from "../images/logoGS.png";
 import Button from "react-bootstrap/Button";
 
 const NavBar = ({ setModalOpen }) => {
-  return (
+  const user = useContext(UserContext);
+
+  return user ? <DashboardNav /> : (
     <div className="Navbar">
       <Navbar>
         <Navbar.Brand href="/" className="logo">
