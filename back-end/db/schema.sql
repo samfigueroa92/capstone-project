@@ -11,7 +11,7 @@ CREATE TABLE users (
     lastname TEXT NOT NULL,
     dob DATE NOT NULL,
     address TEXT NOT NULL,
-    address2 TEXT,
+    unit TEXT,
     city TEXT NOT NULL,
     state TEXT NOT NULL,
     zipcode VARCHAR(5),
