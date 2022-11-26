@@ -11,6 +11,7 @@ const SeniorsPage = () => {
   const navigate = useNavigate();
 
   return (
+    <>
     <div>
       <div className="senior-page">
         <div className="senior-paragraph">
@@ -73,11 +74,7 @@ const SeniorsPage = () => {
         </p>
       </div>
       <Button className='button' onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
-      </div>
-      <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
-    </div>
-      <Footer />
-    </div>
+    </div><img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" /><Footer /></>
   );
 };
 
