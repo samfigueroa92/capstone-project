@@ -18,7 +18,10 @@ const Home = () => {
           <div>
             <h1>How it works...</h1>
             <p>
-              We aim to connect seniors who need an extra hand with everyday tasks with local volunteers who are willing and able to lend their time and skills.    
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
+              ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate
+              ligula in accumsan accumsan. Class aptent taciti sociosqu ad
+              litora torquent per conubia nostra, per inceptos himenaeos.
               <br />
               <br />
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
