@@ -13,9 +13,10 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
 
   useEffect(() => {
     if (user) {
-      navigate("loggedInPage");
+      navigate("/");
     }
   }, [user, navigate]);
+  console.log(user)
 
   //stopPropagation prevents the "login-modal" onClick event to happen
 
