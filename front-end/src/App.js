@@ -10,16 +10,18 @@ import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
+import SignUpPage from "./Components/SignUpPage";
+import { UserProvider } from "./Providers/UserProviders";
 
 //CSS
 import "./App.css";
-
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="App">
+      <UserProvider>
       <Router>
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
@@ -30,8 +32,10 @@ const App = () => {
           <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen}/> } />
+          <Route path="/sign-up" element={<SignUpPage/>} />
         </Routes>
       </Router>
+      </UserProvider>
     </div>
   );
 };
