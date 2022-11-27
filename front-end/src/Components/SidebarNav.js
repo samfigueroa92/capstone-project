@@ -45,7 +45,8 @@ const SidebarNav = () => {
             <p onClick ={handlePersonalAchievement}>Achievements</p>
             <div className="under-click"></div>
         </Link>
-        <Link>
+
+        <Link to="/users/:id/settings">
             <p onClick ={handleSettings}>Settings</p>
             <div className="under-click"></div>
         </Link>
