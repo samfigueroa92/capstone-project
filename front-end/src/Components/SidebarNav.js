@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 //Component Import
-import Calender from "./Calendar"
+import Calender from "./CalendarView"
 
 //CSS Import
 import "./SidebarNav.css"
