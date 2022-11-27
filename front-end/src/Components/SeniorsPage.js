@@ -1,14 +1,12 @@
 //Component Imports
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
 
 //CSS Imports
 import "./SeniorsPage.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const SeniorsPage = () => {
-  const navigate = useNavigate();
+const SeniorsPage = ({setModalOpen}) => {
 
   return (
     <div>
@@ -42,7 +40,7 @@ const SeniorsPage = () => {
           per conubia nostra, per inceptos himenaeos.
         </p>
       </div>
-      <Button className='button' onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
+      <Button className='button' onClick={() => setModalOpen(true)}>SIGN UP NOW</Button>
       </div>
       <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
     </div>
