@@ -12,21 +12,20 @@ import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
-import DashboardNav from "./Components/DashboardNav";
+
 
 //CSS
 import "./App.css";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [ userAuth, setUserAuth ] = useState({})
+  const [userAuth, setUserAuth] = useState({})
   console.log(userAuth)
   return (
     <div className="App">
       <UserProvider>
       <Router>
-        <NavBar setModalOpen={setModalOpen} />
-        <DashboardNav  userAuth = {userAuth}/>
+        <NavBar setModalOpen={setModalOpen} userAuth={userAuth} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setUserAuth ={setUserAuth}/>
         <Routes>
           <Route path='/open-requests' element= {<OpenRequestPage />}/>

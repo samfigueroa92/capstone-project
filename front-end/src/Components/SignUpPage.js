@@ -180,11 +180,6 @@ const SignUpPage = () => {
                   <option>Drivers Liscense</option>
                 </Form.Select>
               </Form.Group>
-
-              <Form.Group as={Col} className="mb-3" controlId="formBasicSSI">
-                <Form.Label>Social Security Number</Form.Label>
-                <Form.Control type="number" placeholder="1-123-456-7890" />
-              </Form.Group>
             </Row>
 
             <Row>
