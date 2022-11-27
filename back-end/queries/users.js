@@ -83,7 +83,7 @@ const editUser = async (user, uuid) => {
         user.phonenumber,
         user.profilephoto,
         user.languages,
-        user.uuid,
+        uuid,
       ]
     );
     return editedUser;

@@ -13,8 +13,8 @@ app.use(express.json()); // Parse incoming JSON
 const usersController = require("./controllers/usersController");
 app.use("/users", usersController);
 
-const requestController = require("./controllers/requestController");
-app.use("/requests", requestController);
+const requestsController = require("./controllers/requestsController");
+app.use("/requests", requestsController);
 
 const reviewsController = require("./controllers/reviewsController");
 app.use("/reviews", reviewsController);

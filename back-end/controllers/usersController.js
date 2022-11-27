@@ -40,7 +40,11 @@ users.put("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const editedUser = await editUser(req.body, id);
-    res.status(200).send(editedUser);
+    if(editedUser.uuid === id){
+      res.status(200).send(editedUser);
+    }else{
+      res.status(404).json({ error: 'User not found'})
+    }
   } catch (error) {
     return error;
   }
@@ -62,7 +66,7 @@ users.post("/", async (req, res) => {
 users.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedUser = await deleteUser(id);
-  if (deletedUser.id) {
+  if (deletedUser.uuid === id) {
     res.status(200).json(deletedUser);
   } else {
     res.status(400).json("User Not Found");

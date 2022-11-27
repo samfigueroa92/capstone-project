@@ -20,9 +20,9 @@ const makeRequest = async (request) => {
   try {
     console.log("Adding request to database");
     request = await db.one(
-      "INSERT INTO requests (elder, description, req_date, location, time) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO requests (elder_id, description, req_date, location, time) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [
-        request.elder,
+        request.elder_id,
         request.description,
         request.req_date,
         request.location,
@@ -55,10 +55,10 @@ const editRequest = async (request, id) => {
   try {
     console.log("Editing request with id of " + id);
     const req = await db.one(
-      "UPDATE requests SET elder=$1, volunteer=$2, req_date=$3, description=$4, location=$5, time=$6, assigned=$7 WHERE id=$8 RETURNING *",
+      "UPDATE requests SET elder_id=$1, volunteer_id=$2, req_date=$3, description=$4, location=$5, time=$6, assigned=$7 WHERE id=$8 RETURNING *",
       [
-        request.elder,
-        request.volunteer,
+        request.elder_id,
+        request.volunteer_id,
         request.req_date,
         request.description,
         request.location,
@@ -88,7 +88,7 @@ const assignVolunteer = async (request, volunteer) => {
 };
 
 //Update Request - Remove Volunteer, mark request assigned as FALSE
-const removeVolunter = async (id) => {
+const removeVolunteer = async (id) => {
   try {
     console.log("Removing volunteer from request");
     const unAssign = await db.one(

@@ -18,9 +18,15 @@ const leaveReview = async (review) => {
   try {
     console.log("Adding review to request");
     review = await db.one(
-      "INSERT INTO reviews (reviewer, description, post_date, request_id) VALUES ($1, $2, $3, $4) RETURNING *",
-      [review.reviewer, review.description, review.post_date, review.request_id]
+      "INSERT INTO reviews (reviewer_id, description, post_date, request_id) VALUES ($1, $2, $3, $4) RETURNING *",
+      [
+        review.reviewer_id,
+        review.description,
+        review.post_date,
+        review.request_id,
+      ]
     );
+    return review;
   } catch (error) {
     return error;
   }
@@ -42,8 +48,8 @@ const editReview = async (review, id) => {
   try {
     console.log("Editing single review with id of " + id);
     const updatedReview = await db.one(
-      "UPDATE reviews SET reviewer=$1, description=$2, post_date=$3, request_id=$4 WHERE id=$5 RETURNING *",
-      [review.reviewer, review.description, review.post_date, review.request_id]
+      "UPDATE reviews SET description=$1 WHERE id=$2 RETURNING *",
+      [review.description, id]
     );
     return updatedReview;
   } catch (error) {
