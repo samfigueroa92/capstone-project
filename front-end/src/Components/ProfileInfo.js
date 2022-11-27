@@ -77,36 +77,30 @@ const ProfileInfo = () => {
       <Container>
         <h3>General Information</h3>
         <div className="form-profile">
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <Form.Group className="mb-3" controlId="formBasicFirstName">
               <Form.Label>First Name</Form.Label>
-              <Form.Control 
-              type="text"
-              value={user.firstname} 
-              />
+              <Form.Control type="text" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicMiddleName">
+              <Form.Label>Middle Name</Form.Label>
+              <Form.Control type="text" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicLastName">
               <Form.Label>Last Name</Form.Label>
-              <Form.Control 
-              type="text" 
-              value={user.lastname}
-              />
+              <Form.Control type="text" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicDOB">
               <Form.Label>Date of Birth</Form.Label>
-              <Form.Control 
-              type="date" 
-              value={user.dob} 
-              />
+              <Form.Control type="date"  />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control 
-              type="email" 
-              value={user.email}/>
+              <Form.Control type="email" />
               <Form.Text className="text-muted">
               </Form.Text>
             </Form.Group>
