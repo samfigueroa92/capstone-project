@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 // import Container from "react-bootstrap/esm/Container";
 // import Nav from "react-bootstrap/Nav";
 // import Navbar from "react-bootstrap/Navbar";
+import DashboardNav from "./DashboardNav";
+import { UserContext } from "../Providers/UserProviders";
+import { useContext } from "react";
 
 //CSS Imports
 import "./NavBar.css";
@@ -12,6 +15,7 @@ import logo from "../images/logoGS.png";
 import Button from "react-bootstrap/Button";
 
 const NavBar = ({ setModalOpen }) => {
+  const user = useContext(UserContext);
 
   const [click, setClick] = useState(false);
 
@@ -19,7 +23,7 @@ const NavBar = ({ setModalOpen }) => {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  return (
+  return user ? <DashboardNav /> : (
     <div className="Navbar">
       <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
       <img src={logo} alt="logo" />

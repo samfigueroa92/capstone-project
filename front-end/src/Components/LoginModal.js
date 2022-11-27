@@ -37,8 +37,8 @@ const LoginModal = ({ modalOpen, setModalOpen, setUserAuth }) => {
         <div className="signin-buttons">
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-          <Button onClick={signOut}> Sign out</Button>
-          <p>Not a user? Sign up here.</p>
+          {/* <Button onClick={signOut}> Sign out</Button> */}
+        <p>Not a user? Sign up here.</p>
         </div>
       </div>
     </div>

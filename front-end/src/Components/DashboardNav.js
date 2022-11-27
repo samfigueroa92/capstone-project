@@ -1,9 +1,10 @@
 import Container from "react-bootstrap/esm/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Image from "react-bootstrap/Image";
-import Dropdown from 'react-bootstrap/Dropdown';
-
+import Dropdown from "react-bootstrap/Dropdown";
+import { signOut } from "../Services/Firebase";
+import { UserContext } from "../Providers/UserProviders";
+import { useContext } from "react";
 
 //Component Import
 import logo from "../images/logoGS.png";
@@ -11,31 +12,31 @@ import logo from "../images/logoGS.png";
 //CSS Import
 import "./DashboardNav.css";
 
-const DashboardNav = ({ userAuth }) => {
-  const { displayName, photoURL } = userAuth;
+const DashboardNav = () => {
+  const user = useContext(UserContext);
+
+  const { displayName, photoURL } = user;
+
   return (
-    <div className="Navbar">
-      <Navbar>
-        <Navbar.Brand href="/" className="logo">
+      <Navbar className="dash-navbar">
+        <Navbar.Brand href="/" className="nav-logo">
           <img src={logo} alt="logo" />
         </Navbar.Brand>
-        <div className = "leftside">
-        <img src={photoURL} className="profile-pic" alt={displayName} />
-        <Dropdown >
-          <Dropdown.Toggle variant="success" id="dropdown">
-            {displayName}
-          </Dropdown.Toggle>
+        <Container className="dashboard-nav">
+          <Nav className="me-auto.">
+            <img src={photoURL} className="profile-pic" alt={displayName} />
+            <Dropdown>
+              <Dropdown.Toggle id="dropdown">{displayName}</Dropdown.Toggle>
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-3">Sign-Out</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        {/* <i class="fa-light fa-envelope"></i>
-        <i class="fa-light fa-bell"></i> */}
-        </div>
-
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={signOut}>Sign-Out</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <i className="fa-regular fa-envelope" id="envelope"></i>
+            <i className="fa-regular fa-bell" id="bell"></i>
+          </Nav>
+        </Container>
       </Navbar>
-    </div>
   );
 };
 
