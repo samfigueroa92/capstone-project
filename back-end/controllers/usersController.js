@@ -8,6 +8,7 @@ const {
   getUser,
   deleteUser,
   editUser,
+  addUser,
 } = require("../queries/users.js");
 
 // ROUTES
@@ -37,11 +38,22 @@ users.get("/:id", async (req, res) => {
 // !--- The id being passed here is the uid of the user from Firebase ---!
 users.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const editedUser = await editUser(req.body, id);
-  if (editedUser) {
-    res.status(200).json(editedUser);
-  } else {
-    res.status(400).json({ error: "User not updated" });
+  try {
+    const editedUser = await editUser(req.body, id);
+    res.status(200).send(editedUser);
+  } catch (error) {
+    return error;
+  }
+});
+
+// CREATE USER
+users.post("/", async (req, res) => {
+  console.log("Creating new user");
+  try {
+    const newUser = await addUser(req.body);
+    res.status(200).json({ payload: newUser, success: true });
+  } catch (error) {
+    res.status(400).json({ error: error, success: false });
   }
 });
 
