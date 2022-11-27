@@ -24,10 +24,10 @@ const NavBar = ({ setModalOpen }) => {
       <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
       <img src={logo} alt="logo" />
         </Link>
-        <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
+        <ul className={click ? "nav-menu acti
+        <div className="menu-icon" onClick={handleClick}>ve" : "nav-menu"}>
           <li className="nav-item">
             <Link to="/volunteers" className="nav-links" onClick={closeMobileMenu}>
               Volunteers

@@ -13,11 +13,11 @@ const getAllUsers = async () => {
 // --Routes--
 
 //Single user
-const getUser = async (fb_uid) => {
+const getUser = async (uuid) => {
   try {
     console.log("Retreiving user from table users");
     const user = await db.one(
-      "SELECT * FROM users WHERE firebase_id=$1",
+      "SELECT * FROM users WHERE uuid=$1",
       fb_uid
     );
     return user;
@@ -30,9 +30,9 @@ const newUser = async (user) => {
   console.log("Adding new user to the DB");
   try {
     user = await db.one(
-      "INSERT INTO users (firebase_id, firstname, lastname, dob, address, unit, city, state, zipcode, phonenumber, email, user_type, profile_photo, languages, SSN, verification_type) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING *",
+      "INSERT INTO users (uuid, firstname, lastname, dob, address, unit, city, state, zipcode, phonenumber, email, user_type, profile_photo, languages, verification_type) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *",
       [
-        user.firebase_id,
+        user.uuid,
         user.firstname,
         user.lastname,
         user.dob,
@@ -46,7 +46,6 @@ const newUser = async (user) => {
         user.user_type,
         user.profile_photo,
         user.languages,
-        user.SSN,
         user.verification_type,
       ]
     );
@@ -56,12 +55,12 @@ const newUser = async (user) => {
 };
 
 //Delete user - requires admin auth
-const deleteUser = async (fb_uid) => {
-  console.log("Removing user " + fb_uid);
+const deleteUser = async (uuid) => {
+  console.log("Removing user " + uuid);
   try {
     const user = await db.one(
-      "DELETE FROM users WHERE id=$1 RETURNING *",
-      fb_uid
+      "DELETE FROM users WHERE uuid=$1 RETURNING *",
+      uuid
     );
     return user;
   } catch (error) {
@@ -70,11 +69,11 @@ const deleteUser = async (fb_uid) => {
 };
 
 //Edit user - profile details and such. Not all of these should be accessible to the user. For instance
-const editUser = async (user, fb_uid) => {
+const editUser = async (user, uuid) => {
   try {
-    console.log("Editing user with id of " + fb_uid);
-    const req = await db.one(
-      "UPDATE users SET firstname=$1, lastname=$2, dob=$3, address=$4, unit=$5, city=$6, state=$7, zipcode=$8, phonenumber=$9, profilephoto=$13, languages=$14 WHERE id=$15 RETURNING *",
+    console.log("Editing user with id of " + uuid);
+    const editedUser = await db.one(
+      "UPDATE users SET firstname=$1, lastname=$2, dob=$3, address=$4, unit=$5, city=$6, state=$7, zipcode=$8, phonenumber=$9, profilephoto=$10, languages=$11 WHERE uuid=$12 RETURNING *",
       [
         user.firstname,
         user.lastname,
@@ -87,8 +86,10 @@ const editUser = async (user, fb_uid) => {
         user.telephonenumber,
         user.profilephoto,
         user.languages,
+        user.uuid
       ]
     );
+    return editedUser;
   } catch (error) {
     return error;
   }
