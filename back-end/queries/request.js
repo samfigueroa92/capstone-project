@@ -36,11 +36,15 @@ const makeRequest = async (request) => {
 };
 
 //Single request
+//Looking at this makes me think - we'll probably need some helper functions to validate that a person is able to review this request,
+// at least from a volunteer side. A query that checks to see if the users firebase_id is in the row they are attempting to look at, 
+// and if so, the request info is sent back. At least for the future - not necessarily important to have in for the short term.
+
 const getRequest = async (id) => {
   try {
     console.log("Retreiving request from request table");
-    const req = await db.one("SELECT * FROM requests WHERE id=$1", id);
-    return req;
+    const request = await db.one("SELECT * FROM requests WHERE id=$1", id);
+    return request;
   } catch (error) {
     return error;
   }
@@ -63,13 +67,39 @@ const editRequest = async (request, id) => {
         id,
       ]
     );
+    return req;
   } catch (error) {
     return error;
   }
 };
 
 //Update Request - Assign Volunteer, mark request assigned as TRUE
+const assignVolunteer = async (request, volunteer) => {
+  try {
+    console.log(`Assigning volunteer ${volunteer.id} to request ${request.id}`);
+    const assign = await db.one(
+      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [volunteer.id, "TRUE", request.id]
+    );
+    return assign;
+  } catch (error) {
+    return error;
+  }
+};
+
 //Update Request - Remove Volunteer, mark request assigned as FALSE
+const removeVolunter = async (id) => {
+  try {
+    console.log("Removing volunteer from request");
+    const unAssign = await db.one(
+      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [NULL, "FALSE", id]
+    );
+    return unAssign;
+  } catch (error) {
+    return error;
+  }
+};
 
 //Delete Request
 const deleteRequest = async (id) => {
@@ -90,5 +120,5 @@ module.exports = {
   getRequest,
   editRequest,
   makeRequest,
-  deleteRequest
+  deleteRequest,
 };

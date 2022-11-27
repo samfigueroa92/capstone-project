@@ -15,6 +15,7 @@ const getRatings = async () => {
 
 // Create rating
 const leaveRating = async (rating) => {
+  //rating_user and rated_user should both be referencing firebase_id
   try {
     console.log("Adding rating to request");
     rating = await db.one(
@@ -40,5 +41,5 @@ const viewRating = async (id) => {
 module.exports = {
   getRatings,
   leaveRating,
-  viewRating
+  viewRating,
 };
