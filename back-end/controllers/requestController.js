@@ -16,8 +16,8 @@ const {
 // INDEX / ALL REQUEST
 request.get("/", async (req, res) => {
   const allRequest = await getAllRequests();
-  if (allRequest[0]) {
-    res.status(200).json(allRequest);
+  if (allRequests[0]) {
+    res.status(200).json(allRequests);
   } else {
     res.status(500).json({ error: "server error!" });
   }
