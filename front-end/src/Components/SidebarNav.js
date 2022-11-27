@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 //Component Import
-import Calender from "./CalendarView"
+import CalendarView from "./CalendarView"
 
 //CSS Import
 import "./SidebarNav.css"
@@ -57,7 +57,7 @@ const SidebarNav = () => {
             <p>Submit A Request</p>
             <p>Settings</p>
             </>}
-            <Calender/>
+            <CalendarView/>
         </div>
     );
 };
