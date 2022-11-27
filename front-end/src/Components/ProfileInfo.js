@@ -1,3 +1,6 @@
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import "./ProfileInfo.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
@@ -7,7 +10,6 @@ const API = process.env.REACT_APP_API_URL;
 //Component Imports
 
 //CSS Imports
-import "./ProfileInfo.css"
 
 //Cannot be edited: Name, Date of Birth, Email
 //Should not be visible: SSN, Verification Type
@@ -90,7 +92,7 @@ function ProfileInfo () {
     user_type: "",
     state: "",
   });
-
+//axios needs to be work on base on login model
     const updateUser = (updatedUser) => {
       axios
       .put(`${API}/users/${id}`, updatedUser) 
@@ -109,8 +111,8 @@ function ProfileInfo () {
 
   useEffect(() => {
     axios.get(`${API}/users/${id}`)
-      .then(response => setUser(response.data),
-      (error) => navigate(`/not-found`)
+      .then(response => setUser(response.data))
+      .catch((error) => console.log("not found")
       );
     }, [id, navigate]);
 
@@ -143,7 +145,7 @@ function ProfileInfo () {
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicFirstName">
               <Form.Label>First Name</Form.Label>
-              <Form.Control 
+              <Form.Control disabled
               id="firstname"
               value={user.firstname}
               type="text"
@@ -153,7 +155,7 @@ function ProfileInfo () {
 
             <Form.Group className="mb-3" controlId="formBasicLastName">
               <Form.Label>Last Name</Form.Label>
-              <Form.Control 
+              <Form.Control disabled
               id="lastname"
               value={user.lastname}
               type="text"
@@ -163,7 +165,7 @@ function ProfileInfo () {
 
             <Form.Group className="mb-3" controlId="formBasicDOB">
               <Form.Label>Date of Birth</Form.Label>
-              <Form.Control 
+              <Form.Control disabled
               id="dob"
               value={user.dob}
               type="date"  
@@ -173,7 +175,7 @@ function ProfileInfo () {
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control 
+              <Form.Control disabled
               id="email"
               value={user.email}
               type="email"

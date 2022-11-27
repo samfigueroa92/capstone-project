@@ -14,7 +14,7 @@ const LoginModal = ({ modalOpen, setModalOpen, setUserAuth }) => {
   useEffect(() => {
     if (user) {
       setUserAuth(user)
-      navigate("/user-dashboard");
+     // navigate("/user-dashboard");
     }
   }, [user, navigate]);
   console.log(user)
