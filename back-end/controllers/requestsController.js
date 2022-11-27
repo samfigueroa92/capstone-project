@@ -33,6 +33,10 @@ requests.get("/:id", async (req, res) => {
   }
 });
 
+// SHOW ALL REQUESTS ASSIGNED TO A VOLUNTEER
+requests.get("/", async (req, res) => {
+})
+
 // CREATE OR MAKE A REQUEST
 requests.post("/", async (req, res) => {
   try {

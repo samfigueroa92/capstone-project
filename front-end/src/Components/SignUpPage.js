@@ -8,61 +8,61 @@ import "./SignUpPage.css";
 
 const SignUpPage = () => {
   const states = {
-    "Alabama": "AL",
-    "Alaska": "AK",
-    "Arizona": "AZ",
-    "Arkansas": "AR",
-    "California": "CA",
+    Alabama: "AL",
+    Alaska: "AK",
+    Arizona: "AZ",
+    Arkansas: "AR",
+    California: "CA",
     "Canal Zone": "CZ",
-    "Colorado": "CO",
-    "Connecticut": "CT",
-    "Delaware": "DE",
+    Colorado: "CO",
+    Connecticut: "CT",
+    Delaware: "DE",
     "District of Columbia": "DC",
-    "Florida": "FL",
-    "Georgia": "GA",
-    "Guam": "GU",
-    "Hawaii": "HI",
-    "Idaho": "ID",
-    "Illinois": "IL",
-    "Indiana": "IN",
-    "Iowa": "IA",
-    "Kansas": "KS",
-    "Kentucky": "KY",
-    "Louisiana": "LA",
-    "Maine": "ME",
-    "Maryland": "MD",
-    "Massachusetts": "MA",
-    "Michigan": "MI",
-    "Minnesota": "MN",
-    "Mississippi": "MS",
-    "Missouri": "MO",
-    "Montana": "MT",
-    "Nebraska": "NE",
-    "Nevada": "NV",
+    Florida: "FL",
+    Georgia: "GA",
+    Guam: "GU",
+    Hawaii: "HI",
+    Idaho: "ID",
+    Illinois: "IL",
+    Indiana: "IN",
+    Iowa: "IA",
+    Kansas: "KS",
+    Kentucky: "KY",
+    Louisiana: "LA",
+    Maine: "ME",
+    Maryland: "MD",
+    Massachusetts: "MA",
+    Michigan: "MI",
+    Minnesota: "MN",
+    Mississippi: "MS",
+    Missouri: "MO",
+    Montana: "MT",
+    Nebraska: "NE",
+    Nevada: "NV",
     "New Hampshire": "NH",
     "New Jersey": "NJ",
     "New Mexico": "NM",
     "New York": "NY",
     "North Carolina": "NC",
     "North Dakota": "ND",
-    "Ohio": "OH",
-    "Oklahoma": "OK",
-    "Oregon": "OR",
-    "Pennsylvania": "PA",
+    Ohio: "OH",
+    Oklahoma: "OK",
+    Oregon: "OR",
+    Pennsylvania: "PA",
     "Puerto Rico": "PR",
     "Rhode Island": "RI",
     "South Carolina": "SC",
     "South Dakota": "SD",
-    "Tennessee": "TN",
-    "Texas": "TX",
-    "Utah": "UT",
-    "Vermont": "VT",
+    Tennessee: "TN",
+    Texas: "TX",
+    Utah: "UT",
+    Vermont: "VT",
     "Virgin Islands": "VI",
-    "Virginia": "VA",
-    "Washington": "WA",
+    Virginia: "VA",
+    Washington: "WA",
     "West Virginia": "WV",
-    "Wisconsin": "WI",
-    "Wyoming": "WY",
+    Wisconsin: "WI",
+    Wyoming: "WY",
   };
 
   // const handleSubmit = (e) => {
@@ -79,8 +79,11 @@ const SignUpPage = () => {
   return (
     <div className="sign-up">
       <div className="signup-text">
-      <h1>Sign Up Today!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <h1>Sign Up Today!</h1>
+        <p>
+          Welcome! Before we get started, please fill out the following form
+          with the required information.
+        </p>
       </div>
       <div className="form">
         <Container>
@@ -188,14 +191,14 @@ const SignUpPage = () => {
             </Row>
 
             <Row>
-            <Form.Group as={Col} className="mb-3" controlId="formBasicPhoto">
-              <Form.Label>Upload Photo</Form.Label>
-              <Form.Control type="file" placeholder="image" />
-              <Form.Text className="text-muted">
-                Please upload a photo in which your face is visible.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group as={Col} className="mb-3" controlId="formBasicUser">
+              <Form.Group as={Col} className="mb-3" controlId="formBasicPhoto">
+                <Form.Label>Upload Photo</Form.Label>
+                <Form.Control type="file" placeholder="image" />
+                <Form.Text className="text-muted">
+                  Please upload a photo in which your face is visible.
+                </Form.Text>
+              </Form.Group>
+              <Form.Group as={Col} className="mb-3" controlId="formBasicUser">
                 <Form.Label>User Type</Form.Label>
                 <Form.Select>
                   <option>--Select Option--</option>
@@ -207,11 +210,9 @@ const SignUpPage = () => {
           </Form>
         </Container>
       </div>
-        <div className="form-button">
-        <Button type="submit">
-          Submit
-        </Button>
-        </div>
+      <div className="form-button">
+        <Button type="submit">Submit</Button>
+      </div>
     </div>
   );
 };
