@@ -3,51 +3,51 @@ CREATE DATABASE task_capstone;
 
 \c task_capstone;
 
-
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    firebase_id TEXT,
+    uuid TEXT PRIMARY KEY UNIQUE NOT NULL,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
-    dob DATE NOT NULL,
+    dob TEXT NOT NULL,
     address TEXT NOT NULL,
     unit TEXT,
     city TEXT NOT NULL,
     state TEXT NOT NULL,
-    zipcode VARCHAR(5),
-    phonenumber VARCHAR(10),
+    zipcode VARCHAR(5) NOT NULL,
+    phonenumber VARCHAR(10) NOT NULL,
     email TEXT NOT NULL,
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
     profilephoto TEXT,
-    languages TEXT
+    languages TEXT,
+    verification_type TEXT
 );
 
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
-    elder INT references users(id),
-    volunteer INT references users(id),
-    req_date DATE NOT NULL,
+    elder_id TEXT references users(uuid),
+    volunteer_id TEXT references users(uuid),
+    req_date TEXT NOT NULL,
+    title TEXT,
     description TEXT NOT NULL,
     location TEXT NOT NULL,
     time TEXT,
     assigned BOOLEAN DEFAULT false,
-    complete BOOLEAN DEFAULT false
+    complete BOOLEAN DEFAULT false,
+    image TEXT
 );
 
 CREATE TABLE ratings (
     id SERIAL PRIMARY KEY,
     rating INT NOT NULL,
     request_id INT references requests(id),
-    rating_user INT references users(id),
-    rated_user INT references users(id)
+    rating_user_id TEXT references users(uuid),
+    rated_user_id TEXT references users(uuid)
 );
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    reviewer INT references users(id),
+    reviewer_id TEXT references users(uuid),
     description TEXT NOT NULL,
     post_date DATE NOT NULL,
     request_id INT references requests(id)
 );
-

@@ -1,0 +1,53 @@
+.dash-navbar img {
+  width: 300px;
+}
+
+.dash-navbar {
+  background-color: #42999b;
+  color: black;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.dash-navbar Button {
+  background-color: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+  padding: 10px 40px 10px 40px;
+  border-radius: 25px;
+  letter-spacing: 0.2em;
+  font-size: 19px;
+  min-width: 200px;
+  margin-right: 10px;
+}
+
+.dash-navbar Button:hover {
+  background-color: #b8dedc;
+}
+
+.dashboard-nav {
+  justify-content: flex-end !important;
+}
+
+.dash-navbar .profile-pic {
+  border-radius: 50%;
+  width: 45px;
+}
+
+#dropdown {
+  background-color: #42999b;
+  font-size: 15px;
+  color: white;
+}
+#dropdown:hover {
+  color: black;
+}
+
+#envelope,
+#bell {
+  margin: 12px 5px;
+}

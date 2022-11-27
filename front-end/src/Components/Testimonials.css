@@ -34,3 +34,43 @@
     margin: 20px;
     padding: 10px;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px) {
+    .testimonials {
+        text-align: center;
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-areas: 
+        "o t"
+        "s f";
+    }
+    .testimonials img {
+        width: 90%;
+    }
+    .testimonials h1 {
+        font-size: 1rem;
+    }
+    .testimonial-one {
+        grid-area: o;
+    }
+    .testimonial-two {
+        grid-area: t;
+    }
+    .testimonial-three {
+        grid-area: s;
+    }
+    .testimonial-four {
+        grid-area: f;
+    }
+    .testimonials h1 {
+        display: none;
+    }
+    .testimonials h3 {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+    .testimonials p {
+        font-size: 0.75rem;
+    }
+}

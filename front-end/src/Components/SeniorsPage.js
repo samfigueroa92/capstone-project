@@ -1,5 +1,3 @@
-
-
 //Component Imports
 import Footer from "./Footer";
 
@@ -9,6 +7,7 @@ import "./SeniorsPage.css";
 import Button from "react-bootstrap/Button";
 
 const SeniorsPage = ({setModalOpen}) => {
+
   return (
     <div>
     <div className="senior-page">

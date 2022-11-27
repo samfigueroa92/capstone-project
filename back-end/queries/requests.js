@@ -20,9 +20,9 @@ const makeRequest = async (request) => {
   try {
     console.log("Adding request to database");
     request = await db.one(
-      "INSERT INTO requests (elder, description, req_date, location, time) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO requests (elder_id, description, req_date, location, time) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [
-        request.elder,
+        request.elder_id,
         request.description,
         request.req_date,
         request.location,
@@ -36,11 +36,15 @@ const makeRequest = async (request) => {
 };
 
 //Single request
+//Looking at this makes me think - we'll probably need some helper functions to validate that a person is able to review this request,
+// at least from a volunteer side. A query that checks to see if the users firebase_id is in the row they are attempting to look at, 
+// and if so, the request info is sent back. At least for the future - not necessarily important to have in for the short term.
+
 const getRequest = async (id) => {
   try {
     console.log("Retreiving request from request table");
-    const req = await db.one("SELECT * FROM requests WHERE id=$1", id);
-    return req;
+    const request = await db.one("SELECT * FROM requests WHERE id=$1", id);
+    return request;
   } catch (error) {
     return error;
   }
@@ -51,10 +55,10 @@ const editRequest = async (request, id) => {
   try {
     console.log("Editing request with id of " + id);
     const req = await db.one(
-      "UPDATE requests SET elder=$1, volunteer=$2, req_date=$3, description=$4, location=$5, time=$6, assigned=$7 WHERE id=$8 RETURNING *",
+      "UPDATE requests SET elder_id=$1, volunteer_id=$2, req_date=$3, description=$4, location=$5, time=$6, assigned=$7 WHERE id=$8 RETURNING *",
       [
-        request.elder,
-        request.volunteer,
+        request.elder_id,
+        request.volunteer_id,
         request.req_date,
         request.description,
         request.location,
@@ -63,13 +67,39 @@ const editRequest = async (request, id) => {
         id,
       ]
     );
+    return req;
   } catch (error) {
     return error;
   }
 };
 
 //Update Request - Assign Volunteer, mark request assigned as TRUE
+const assignVolunteer = async (request, volunteer) => {
+  try {
+    console.log(`Assigning volunteer ${volunteer.id} to request ${request.id}`);
+    const assign = await db.one(
+      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [volunteer.id, "TRUE", request.id]
+    );
+    return assign;
+  } catch (error) {
+    return error;
+  }
+};
+
 //Update Request - Remove Volunteer, mark request assigned as FALSE
+const removeVolunteer = async (id) => {
+  try {
+    console.log("Removing volunteer from request");
+    const unAssign = await db.one(
+      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [NULL, "FALSE", id]
+    );
+    return unAssign;
+  } catch (error) {
+    return error;
+  }
+};
 
 //Delete Request
 const deleteRequest = async (id) => {
@@ -90,5 +120,5 @@ module.exports = {
   getRequest,
   editRequest,
   makeRequest,
-  deleteRequest
+  deleteRequest,
 };

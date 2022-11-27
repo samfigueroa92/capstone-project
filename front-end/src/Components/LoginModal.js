@@ -7,13 +7,14 @@ import { signInWithGoogle, signOut } from "../Services/Firebase";
 import "./LoginModal.css";
 import Button from "react-bootstrap/esm/Button";
 
-const LoginModal = ({ modalOpen, setModalOpen }) => {
+const LoginModal = ({ modalOpen, setModalOpen, setUserAuth }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      setUserAuth(user)
+      navigate("/user-dashboard");
     }
   }, [user, navigate]);
   console.log(user)
@@ -36,7 +37,7 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
         <div className="signin-buttons">
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-          <Button onClick={signOut}> Sign out</Button>
+          {/* <Button onClick={signOut}> Sign out</Button> */}
         <p>Not a user? Sign up here.</p>
         </div>
       </div>
