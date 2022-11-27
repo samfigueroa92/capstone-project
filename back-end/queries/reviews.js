@@ -45,6 +45,7 @@ const editReview = async (review, id) => {
       "UPDATE reviews SET reviewer=$1, description=$2, post_date=$3, request_id=$4 WHERE id=$5 RETURNING *",
       [review.reviewer, review.description, review.post_date, review.request_id]
     );
+    return updatedReview;
   } catch (error) {
     return error;
   }
@@ -54,5 +55,5 @@ module.exports = {
   getReviews,
   getReview,
   leaveReview,
-  editReview
+  editReview,
 };
