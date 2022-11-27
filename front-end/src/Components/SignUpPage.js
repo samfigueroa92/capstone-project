@@ -1,10 +1,22 @@
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Providers/UserProviders";
+import { useContext } from "react";
+
+
+//Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
+//CSS
 import "./SignUpPage.css";
+
+//API
+const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const SignUpPage = () => {
   const states = {
@@ -65,16 +77,48 @@ const SignUpPage = () => {
     Wyoming: "WY",
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+  const user = useContext(UserContext);
 
-  //   //logic that will send all the gathered information to the back-end
 
-  // }
+  const [newUser, setNewUser] = useState({
+    uuid: "",
+    firstname: "",
+    lastname: "",
+    dob: "",
+    address: "",
+    unit: "",
+    city: "",
+    state: "",
+    zipcode: 0,
+    phonenumber: 0,
+    email: "",
+    verified: false,
+    user_type: "",
+    profilephoto: "",
+    languagues: "",
+    verification_type: "",
+  });
 
-  // const handleChange = (e) => {
-  //   //logic that will save value from input into a useState
-  // }
+  const navigate = useNavigate();
+
+  const addNewUser = (userInfo) => {
+    axios
+      .post(`${API}/users`, userInfo)
+      .then(() => navigate("/user-dashboard"))
+      .catch((err) => console.error(err));
+  };
+
+  const handleInput = (e) => {
+    setNewUser({ ...newUser, [e.target.id]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addNewUser(newUser);
+  };
+  const handleUUID = (id) => {
+    setNewUser({...newUser, uuid: id})
+
+  }
 
   return (
     <div className="sign-up">
@@ -87,70 +131,105 @@ const SignUpPage = () => {
       </div>
       <div className="form">
         <Container>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Row className="mb-3">
-              <Form.Group
-                as={Col}
-                className="mb-3"
-                controlId="formBasicFirstName"
-              >
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="text" placeholder="John" />
+                <Form.Control
+                  type="text"
+                  placeholder="John"
+                  id="firstname"
+                  value={newUser.name}
+                  onChange={handleInput}
+                  required
+                />
               </Form.Group>
 
-              <Form.Group
-                as={Col}
-                className="mb-3"
-                controlId="formBasicMiddleName"
-              >
-                <Form.Label>Middle Name</Form.Label>
-                <Form.Control type="text" placeholder="Alfred" />
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                className="mb-3"
-                controlId="formBasicLastName"
-              >
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="text" placeholder="Smith" />
+                <Form.Control
+                  type="text"
+                  placeholder="Smith"
+                  id="lastname"
+                  value={newUser.lastname}
+                  onChange={handleInput}
+                  required
+                />
               </Form.Group>
             </Row>
 
             <Row>
-              <Form.Group as={Col} className="mb-3" controlId="formBasicDOB">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Date of Birth</Form.Label>
-                <Form.Control type="date" placeholder="YYYY/MM/DD" />
+                <Form.Control
+                  type="date"
+                  id="dob"
+                  value={newUser.dob}
+                  onChange={handleInput}
+                  required
+                />
               </Form.Group>
 
-              <Form.Group as={Col} className="mb-3" controlId="formBasicEmail">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="johnsmith@gmail.com" />
+                <Form.Control
+                  type="email"
+                  placeholder="johnsmith@gmail.com"
+                  id="email"
+                  value={newUser.email}
+                  onChange={handleInput}
+                  required
+                />
                 <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
             </Row>
 
-            <Form.Group className="mb-3" controlId="formBasicAddressLine1">
+            <Form.Group className="mb-3">
               <Form.Label>Address Line 1</Form.Label>
-              <Form.Control type="text" placeholder="124 Faker Lane" />
+              <Form.Control
+                type="text"
+                placeholder="124 Faker Lane"
+                id="address"
+                value={newUser.address}
+                onChange={handleInput}
+                required
+              />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicAddressLine2">
+            <Form.Group className="mb-3">
               <Form.Label>Address Line 2</Form.Label>
-              <Form.Control type="text" placeholder="Apt 333" />
+              <Form.Control
+                type="text"
+                placeholder="Apt 333"
+                id="unit"
+                value={newUser.unit}
+                onChange={handleInput}
+              />
             </Form.Group>
 
             <Row>
-              <Form.Group as={Col} className="mb-3" controlId="formBasicCity">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>City</Form.Label>
-                <Form.Control type="text" placeholder="Bronx" />
+                <Form.Control
+                  type="text"
+                  placeholder="Bronx"
+                  id="city"
+                  value={newUser.city}
+                  onChange={handleInput}
+                  required
+                />
               </Form.Group>
 
-              <Form.Group as={Col} className="mb-3" controlId="formBasicState">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>State</Form.Label>
-                <Form.Select>
+                <Form.Select
+                  id="state"
+                  value={newUser.state}
+                  onChange={handleInput}
+                  required
+                >
                   <option>--Select State--</option>
                   {Object.values(states).map((state) => (
                     <option>{state}</option>
@@ -158,16 +237,30 @@ const SignUpPage = () => {
                 </Form.Select>
               </Form.Group>
 
-              <Form.Group as={Col} className="mb-3" controlId="formBasicZip">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Zip Code</Form.Label>
-                <Form.Control type="number" placeholder="12345" />
+                <Form.Control
+                  type="number"
+                  placeholder="12345"
+                  id="zipcode"
+                  value={newUser.zipcode}
+                  onChange={handleInput}
+                  required
+                />
               </Form.Group>
             </Row>
 
             <Row>
-              <Form.Group as={Col} className="mb-3" controlId="formBasicPhone">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="tel" placeholder="1234567890" />
+                <Form.Control
+                  type="tel"
+                  placeholder="1234567890"
+                  id="phonenumber"
+                  value={newUser.phonenumber}
+                  onChange={handleInput}
+                  required
+                />
               </Form.Group>
 
               <Form.Group
@@ -176,7 +269,11 @@ const SignUpPage = () => {
                 controlId="formBasicVerificationType"
               >
                 <Form.Label>Verification Type</Form.Label>
-                <Form.Select>
+                <Form.Select
+                  id="verification_type"
+                  value={newUser.verification_type}
+                  onChange={handleInput}
+                >
                   <option>--Select Option--</option>
                   <option>State ID</option>
                   <option>Passport</option>
@@ -184,23 +281,41 @@ const SignUpPage = () => {
                 </Form.Select>
               </Form.Group>
 
-              <Form.Group as={Col} className="mb-3" controlId="formBasicPhone">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Preferred Language</Form.Label>
-                <Form.Control type="text" placeholder="English" />
+                <Form.Control
+                  type="text"
+                  placeholder="English"
+                  id="languages"
+                  value={newUser.languages}
+                  onChange={handleInput}
+                />
               </Form.Group>
             </Row>
 
             <Row>
-              <Form.Group as={Col} className="mb-3" controlId="formBasicPhoto">
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>Upload Photo</Form.Label>
-                <Form.Control type="file" placeholder="image" />
+                <Form.Control
+                  type="file"
+                  placeholder="image"
+                  id="profilephoto"
+                  value={newUser.profilephoto}
+                  onChange={handleInput}
+                />
                 <Form.Text className="text-muted">
                   Please upload a photo in which your face is visible.
                 </Form.Text>
               </Form.Group>
-              <Form.Group as={Col} className="mb-3" controlId="formBasicUser">
+
+              <Form.Group as={Col} className="mb-3">
                 <Form.Label>User Type</Form.Label>
-                <Form.Select>
+                <Form.Select
+                  id="user_type"
+                  value={newUser.user_type}
+                  onChange={handleInput}
+                  required
+                >
                   <option>--Select Option--</option>
                   <option>Senior</option>
                   <option>Volunteer</option>
