@@ -18,14 +18,12 @@ const DashboardNav = () => {
   const { displayName, photoURL } = user;
 
   return (
-    <div className="dash-navbar">
-      <Navbar>
-        <Navbar.Brand href="/" className="logo">
+      <Navbar className="dash-navbar">
+        <Navbar.Brand href="/" className="nav-logo">
           <img src={logo} alt="logo" />
         </Navbar.Brand>
         <Container className="dashboard-nav">
           <Nav className="me-auto.">
-            {/* <div className="leftside"> */}
             <img src={photoURL} className="profile-pic" alt={displayName} />
             <Dropdown>
               <Dropdown.Toggle id="dropdown">{displayName}</Dropdown.Toggle>
@@ -36,11 +34,9 @@ const DashboardNav = () => {
             </Dropdown>
             <i className="fa-regular fa-envelope" id="envelope"></i>
             <i className="fa-regular fa-bell" id="bell"></i>
-            {/* </div> */}
           </Nav>
         </Container>
       </Navbar>
-    </div>
   );
 };
 
