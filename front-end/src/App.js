@@ -12,6 +12,7 @@ import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
+import RequestDetails from "./Components/RequestDetails";
 
 
 //CSS
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/user-dashboard' element={ <UserDashboard /> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={ <Home /> } />
+          <Route path="/requests/:id" element={<RequestDetails />} />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
           <Route path="/sign-up" element={<SignUpPage/>} />
