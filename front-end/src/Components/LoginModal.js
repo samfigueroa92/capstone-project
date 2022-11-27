@@ -1,23 +1,41 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { useNavigate } from "react-router-dom";
-import { signInWithGoogle, signOut } from "../Services/Firebase";
+import { signInWithGoogle } from "../Services/Firebase";
+import axios from "axios";
+import { useState } from "react";
 
 //CSS Imports
 import "./LoginModal.css";
 import Button from "react-bootstrap/esm/Button";
 
-const LoginModal = ({ modalOpen, setModalOpen, setUserAuth }) => {
+const API = process.env.REACT_APP_BACKEND_API_KEY;
+
+const LoginModal = ({ modalOpen, setModalOpen }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
+  const [loggedInUser, setLoggedInUser] = useState();
+
+  const userCheck = (user) => {
+    axios.get(`${API}/users/${user.uid}`).then((res) => {
+      if (res.data.name === "QueryResultError") {
+        //alert("No user has been found. Join us today!");
+        navigate("/sign-up");
+      } else {
+        setLoggedInUser(res.data);
+      }
+    });
+  };
+  console.log(loggedInUser);
 
   useEffect(() => {
     if (user) {
-      setUserAuth(user)
-     // navigate("/user-dashboard");
+      userCheck(user);
+      setModalOpen(false);
+      navigate("/user-dashboard");
     }
-  }, [user, navigate]);
-  console.log(user)
+  }, [user]);
+  // console.log(user);
 
   //stopPropagation prevents the "login-modal" onClick event to happen
 
@@ -37,8 +55,7 @@ const LoginModal = ({ modalOpen, setModalOpen, setUserAuth }) => {
         <div className="signin-buttons">
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-          {/* <Button onClick={signOut}> Sign out</Button> */}
-        <p>Not a user? Sign up here.</p>
+          <p>Not a user? Sign up here.</p>
         </div>
       </div>
     </div>
