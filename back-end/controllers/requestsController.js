@@ -1,7 +1,6 @@
 // CONFIGURATIONS
-const e = require("express");
 const express = require("express");
-const request = express.Router();
+const requests = express.Router();
 
 // IMPORTING QUERIES
 const {
@@ -10,21 +9,21 @@ const {
   editRequest,
   makeRequest,
   deleteRequest,
-} = require("../queries/request.js");
+} = require("../queries/requests.js");
 
 // BUILDING ROUTES
 // INDEX / ALL REQUEST
-request.get("/", async (req, res) => {
-  const allRequest = await getAllRequests();
-  if (allRequest[0]) {
-    res.status(200).json(allRequest);
+requests.get("/", async (req, res) => {
+  const allRequests = await getAllRequests();
+  if (allRequests[0]) {
+    res.status(200).json(allRequests);
   } else {
     res.status(500).json({ error: "server error!" });
   }
 });
 
 // SHOW / SINGLE REQUEST
-request.get("/:id", async (req, res) => {
+requests.get("/:id", async (req, res) => {
   const { id } = req.params;
   const requests = await getRequest(id);
   if (requests) {
@@ -35,7 +34,7 @@ request.get("/:id", async (req, res) => {
 });
 
 // CREATE OR MAKE A REQUEST
-request.post("/", async (req, res) => {
+requests.post("/", async (req, res) => {
   try {
     const createdRequest = await makeRequest(req.body);
     res.json(createdRequest);
@@ -45,7 +44,7 @@ request.post("/", async (req, res) => {
 });
 
 // UPDATE OR EDIT A REQUEST
-request.put("/:id", async (req, res) => {
+requests.put("/:id", async (req, res) => {
   const { id } = req.params;
   const editedRequest = await editRequest(req.body, id);
   if (editedRequest.id) {
@@ -56,7 +55,7 @@ request.put("/:id", async (req, res) => {
 });
 
 // DELETE A REQUEST
-request.delete("/:id", async (req, res) => {
+requests.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedRequest = await deleteRequest(id);
   if (deletedRequest.id) {
@@ -66,4 +65,4 @@ request.delete("/:id", async (req, res) => {
   }
 });
 
-module.exports = request;
+module.exports = requests;

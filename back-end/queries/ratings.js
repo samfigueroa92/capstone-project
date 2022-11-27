@@ -19,9 +19,10 @@ const leaveRating = async (rating) => {
   try {
     console.log("Adding rating to request");
     rating = await db.one(
-      "INSERT INTO ratings (rating, request_id, rating_user, rated_user) VALUES ($1, $2, $3, $4) RETURNING *",
-      [rating.rating, rating.request_id, rating.rating_user, rating.rated_user]
+      "INSERT INTO ratings (rating, request_id, rating_user_id, rated_user_id) VALUES ($1, $2, $3, $4) RETURNING *",
+      [rating.rating, rating.request_id, rating.rating_user_id, rating.rated_user_id]
     );
+    return rating;
   } catch (error) {
     return error;
   }

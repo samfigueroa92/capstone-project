@@ -164,7 +164,7 @@ const SignUpPage = () => {
             <Row>
               <Form.Group as={Col} className="mb-3" controlId="formBasicPhone">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="tel" placeholder="1-123-456-7890" />
+                <Form.Control type="tel" placeholder="1234567890" />
               </Form.Group>
 
               <Form.Group
@@ -179,6 +179,11 @@ const SignUpPage = () => {
                   <option>Passport</option>
                   <option>Drivers Liscense</option>
                 </Form.Select>
+              </Form.Group>
+
+              <Form.Group as={Col} className="mb-3" controlId="formBasicPhone">
+                <Form.Label>Preferred Language</Form.Label>
+                <Form.Control type="text" placeholder="English" />
               </Form.Group>
             </Row>
 
