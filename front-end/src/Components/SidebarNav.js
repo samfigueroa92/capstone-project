@@ -1,66 +1,53 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 //Component Import
-import CalendarView from "./CalendarView"
+import CalendarView from "./CalendarView";
 
 //CSS Import
-import "./SidebarNav.css"
+import "./SidebarNav.css";
 
 const SidebarNav = () => {
-    const [volunteer, setVolunteer] = useState(true)
+  const [userType, setUserType] = useState("volunteer");
 
-    const handleAcceptedRequest = () =>{
-        console.log('hello')
-    }
+  return (
+    <div className="SideBar">
+      {userType === "volunteer" ? (
+        <div className="text">
+          <Link to="/user-dashboard">
+            <p className="header">Volunteer Dashboard</p>
+            <div className="under-click"></div>
+          </Link>
+          <Link>
+            <p>Accepted Requests</p>
+            <div className="under-click"></div>
+          </Link>
+          <Link to="/open-requests">
+            <p>Open Requests</p>
+            <div className="under-click"></div>
+          </Link>
+          <Link>
+            <p>Achievements</p>
+            <div className="under-click"></div>
+          </Link>
 
-    const handleOpenRequest = () => {
-        console.log('Bye')
-    }
-    const handlePersonalAchievement = () => {
-        console.log('Bonjour')
-    }
-
-    const handleSettings = () =>{
-        console.log('Au Revoir')
-    }
-
-    return (
-        <div className='SideBar'>
-            {volunteer ? 
-            <div className = 'text'>
-        <Link to='/user-dashboard'>
-            <p className="header" onClick>Volunteer Dashboard</p>
-            <div className="under-click"></div>
-        </Link>
-        <Link>
-            <p onClick ={handleAcceptedRequest}>Accepted Requests</p>
-            <div className="under-click"></div>
-        </Link>
-        <Link to='/open-requests'>
-            <p onClick ={handleOpenRequest}>Open Requests</p>
-            <div className="under-click"></div>
-        </Link>
-        <Link>
-            <p onClick ={handlePersonalAchievement}>Achievements</p>
-            <div className="under-click"></div>
-        </Link>
-
-        <Link to="/users/:id/settings">
-            <p onClick ={handleSettings}>Settings</p>
-            <div className="under-click"></div>
-        </Link>
-            </div>:
-            <>
-            <p>Senior Dashboard</p>
-            <p>My Requests</p>
-            <p>Volunteers</p>
-            <p>Submit A Request</p>
+          <Link to="/users/:id/settings">
             <p>Settings</p>
-            </>}
-            <CalendarView/>
+            <div className="under-click"></div>
+          </Link>
         </div>
-    );
+      ) : (
+        <>
+          <p>Senior Dashboard</p>
+          <p>My Requests</p>
+          <p>Volunteers</p>
+          <p>Submit A Request</p>
+          <p>Settings</p>
+        </>
+      )}
+      <CalendarView />
+    </div>
+  );
 };
 
 export default SidebarNav;
