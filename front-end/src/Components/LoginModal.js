@@ -55,7 +55,7 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
         <div className="signin-buttons">
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-          <p>Not a user? Sign up here.</p>
+          <p>New user? Click above to sign in and create your profile</p>
         </div>
       </div>
     </div>
