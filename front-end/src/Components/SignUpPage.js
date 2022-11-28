@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Providers/UserProviders";
 import { useContext } from "react";
+import { signUpWithGoogle } from "../Services/Firebase";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
@@ -103,13 +104,11 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const addNewUser = (userInfo) => {
-    // console.log(userInfo);
-    return axios
+    axios
       .post(`${API}/users`, userInfo)
-      .then(res => res)
+      .then((res) => res.data)
       //.then(() => navigate("/user-dashboard"))
       .catch((err) => console.error(err));
-
   };
 
   const handleInput = (e) => {
@@ -118,40 +117,10 @@ const SignUpPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    debugger;
     // using signupwithgoogle function, await
-    // if (user.uid) {
-    if (true) {
-      // setNewUser({ ...newUser, uuid: user.uid });
-      const dummyData = {
-        uuid: "14d3ba1b-b313-409e-ad4b-3a7e205d2b80",
-        firstname: "Angela",
-        lastname: "White",
-        dob: "1950-11-16",
-        address: "123 FAKER STREET",
-        unit: "Unit 24",
-        city: "New York",
-        state: "NY",
-        zipcode: "10108",
-        phonenumber: "5555555555",
-        email: "fakeoldman@gmail.com",
-        verified: false,
-        user_type: "Elderly",
-        profilephoto: "testPhoto",
-        languages: null,
-        verification_type: null,
-      };
-      const addedUser = await addNewUser(dummyData);
-
-      console.log(addedUser);
-      // if (addedUser)
-    } else {
-      // Create error state
-      setAuthErrors([
-        ...authErrors,
-        "User not created in firebase, please try again",
-      ]);
-    }
+    await signUpWithGoogle()
+      .then(setNewUser({ ...newUser, uuid: user.uid }))
+      .then(addNewUser(newUser));
   };
 
   return (
@@ -368,3 +337,8 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+
+// setAuthErrors([
+//   ...authErrors,
+//   "User not created in firebase, please try again",
+// ]);
