@@ -17,21 +17,35 @@ const Home = () => {
         <div className="info">
           <div>
             <h1>How it works...</h1>
-            <br/>
+            <br />
             <p>
-            As you grow you become wiser and have many life experiences. Getting older is a normal part of life with it's up's and down's. You may also find that basic everday tasks become a little bit more difficult and you could use some help.
+              As you grow you become wiser and have many life experiences.
+              Getting older is a normal part of life with it's up's and down's.
+              You may also find that basic everday tasks become a little bit
+              more difficult and you could use some help.
               <br />
               <br />
-            That's where we come in! Our goal at GoldenSolutions is to relieve some of the stress and anxiety of these situations by connecting seniors, who need an extra hand with everyday tasks, with local, friendly volunteers who are willing and able to lend their time and skills. 
+              That's where we come in! Our goal at GoldenSolutions is to relieve
+              some of the stress and anxiety of these situations by connecting
+              seniors, who need an extra hand with everyday tasks, with local,
+              friendly volunteers who are willing and able to lend their time
+              and skills.
               <br />
               <br />
-            Immediate families and friends may not always be available to offer help. But New York has thousands of helpful individuals just a button click away ready to lend a hand. Together, we can continue to foster a sense of community! 
-            <br/>
-            <br/>
-            All of our users are verified after a rigrous background check. With a few simple and straightforward steps, you will seamlessly be connected with someone who best meets your needs.
+              Immediate families and friends may not always be available to
+              offer help. But New York has thousands of helpful individuals just
+              a button click away ready to lend a hand. Together, we can
+              continue to foster a sense of community!
+              <br />
+              <br />
+              All of our users are verified after a rigrous background check.
+              With a few simple and straightforward steps, you will seamlessly
+              be connected with someone who best meets your needs. Press the
+              button below, and you'll be directed to Sign In with Google before
+              filling out your profile information.
             </p>
           </div>
-          <Button onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
+          <Button onClick={() => navigate("/sign-up")}>Join us today!</Button>
         </div>
         <div className="gallery">
           <img
