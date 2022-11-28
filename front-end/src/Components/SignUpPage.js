@@ -117,7 +117,8 @@ const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // using signupwithgoogle function, await
+    setNewUser({ ...newUser, uuid: user.uid });
+    console.log(newUser);
     addNewUser(newUser);
     //navigate to their dashboard. maybe a popup or alert saying "Thanks, bringing you to your dashboard" ?
   };
