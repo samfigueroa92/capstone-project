@@ -143,7 +143,7 @@ function ProfileInfo () {
         <h3>General Information</h3>
         <div className="form-profile">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicFirstName">
+            <Form.Group className="mb-3" >
               <Form.Label>First Name</Form.Label>
               <Form.Control disabled
               id="firstname"
@@ -153,7 +153,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicLastName">
+            <Form.Group className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control disabled
               id="lastname"
@@ -163,7 +163,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicDOB">
+            <Form.Group className="mb-3" >
               <Form.Label>Date of Birth</Form.Label>
               <Form.Control disabled
               id="dob"
@@ -173,7 +173,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
               <Form.Label>Email</Form.Label>
               <Form.Control disabled
               id="email"
@@ -185,7 +185,7 @@ function ProfileInfo () {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicAddressLine1">
+            <Form.Group className="mb-3" >
               <Form.Label>Address</Form.Label>
               <Form.Control 
               id="address"
@@ -195,7 +195,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicCity">
+            <Form.Group className="mb-3" >
               <Form.Label>City</Form.Label>
               <Form.Control
               id="city" 
@@ -205,7 +205,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicState">
+            <Form.Group className="mb-3" >
               <Form.Label>State</Form.Label>
               <Form.Select value={user.state} onChange={handleTextChange} >
                 <option>--Select State--</option>
@@ -213,7 +213,7 @@ function ProfileInfo () {
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicZip">
+            <Form.Group className="mb-3" >
               <Form.Label>Zip Code</Form.Label>
               <Form.Control
               id="zipcode" 
@@ -223,7 +223,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPhone">
+            <Form.Group className="mb-3" >
               <Form.Label>Phone Number</Form.Label>
               <Form.Control 
               id="phonenumber"
@@ -233,7 +233,7 @@ function ProfileInfo () {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPhoto">
+            <Form.Group className="mb-3" >
               <Form.Label>Upload New Photo</Form.Label>
               <Form.Control 
               id="profilephoto"
