@@ -18,10 +18,12 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
 
   const userCheck = async (user) => {
     axios.get(`${API}/users/${user.uid}`).then((res) => {
-      if (res.data.name === "QueryResultError") {
-        //alert("No user has been found. Join us today!");
+      if (!res.data.uuid) {
+        console.log("No user found, redirecting to user page.");
+        setModalOpen(false);
         navigate("/sign-up");
       } else {
+        navigate("/user-dashboard");
         setLoggedInUser(res.data);
       }
     });
@@ -32,10 +34,9 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
     if (user) {
       userCheck(user);
       setModalOpen(false);
-      //navigate("/user-dashboard");
     }
   }, [user]);
-  // console.log(user);
+  console.log(user);
 
   //stopPropagation prevents the "login-modal" onClick event to happen
 
