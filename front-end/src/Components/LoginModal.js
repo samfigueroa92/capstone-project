@@ -32,7 +32,7 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
     if (user) {
       userCheck(user);
       setModalOpen(false);
-      navigate("/user-dashboard");
+      //navigate("/user-dashboard");
     }
   }, [user]);
   // console.log(user);

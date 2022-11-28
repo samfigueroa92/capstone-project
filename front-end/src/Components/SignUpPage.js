@@ -115,20 +115,19 @@ const SignUpPage = () => {
     setNewUser({ ...newUser, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // using signupwithgoogle function, await
-    await signUpWithGoogle()
-      .then(setNewUser({ ...newUser, uuid: user.uid }))
-      .then(addNewUser(newUser));
+    addNewUser(newUser);
+    //navigate to their dashboard. maybe a popup or alert saying "Thanks, bringing you to your dashboard" ?
   };
 
   return (
     <div className="sign-up">
       <div className="signup-text">
-        <h1>Sign Up Today!</h1>
+        <h1>Complete Your Profile</h1>
         <p>
-          Welcome! Before we get started, please fill out the following form
+          Welcome! Before we can continue, please fill out the following form
           with the required information.
         </p>
       </div>

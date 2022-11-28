@@ -35,21 +35,11 @@ export const signOut = async () => {
 export const signInWithGoogle = () => {
   try {
     signInWithPopup(auth, googleProvider).then((res) => {
-      const loggedInUser = res.user;
-      const isNewUser = getAdditionalUserInfo(res).isNewUser;
-
-      if (isNewUser) {
-        //delete user if the user is not in our database, regardless of signing in with Google
-        loggedInUser.delete().then(() => {
-          signOut().then(() => {
-            console.log("Signed Out!");
-            alert("Please Sign Up First!!");
-          });
-        });
-      }
+      const user = res.user;
+      console.log(user);
     });
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.log(err);
   }
 };
 
