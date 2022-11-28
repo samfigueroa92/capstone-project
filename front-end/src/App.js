@@ -12,7 +12,9 @@ import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
-import RequestDetails from "./Components/RequestDetails";
+import RequestDetails from "./Components/RequestDetails;
+import ProfileInfo from "./Components/ProfileInfo";
+
 
 
 //CSS
@@ -20,14 +22,13 @@ import "./App.css";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [userAuth, setUserAuth] = useState({})
-  console.log(userAuth)
+  
   return (
     <div className="App">
       <UserProvider>
       <Router>
-        <NavBar setModalOpen={setModalOpen} userAuth={userAuth} />
-        <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setUserAuth ={setUserAuth}/>
+        <NavBar setModalOpen={setModalOpen} />
+        <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
           <Route path='/open-requests' element= {<OpenRequestPage />}/>
           <Route path='/user-dashboard' element={ <UserDashboard /> }/>
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
           <Route path="/sign-up" element={<SignUpPage/>} />
+          <Route path="/users/:id/settings" element={<ProfileInfo/>}/>
         </Routes>
       </Router>
       </UserProvider>

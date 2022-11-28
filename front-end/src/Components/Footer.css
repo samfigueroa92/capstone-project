@@ -65,7 +65,7 @@ width: 200%;
 }
 
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 400px) {
     .footer{
         background-color: #42999B;
         color: white;

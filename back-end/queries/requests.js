@@ -50,6 +50,17 @@ const getRequest = async (id) => {
   }
 };
 
+// Listing of a volunteers requests
+const volunteerRequests = async(uuid) => {
+  try {
+    console.log(`Retreiving assigned requests for user ${uid}`);
+    const requests = await db.one("SELECT * FROM requests WHERE volunteer_id=$1", uuid)
+    return requests;
+  } catch (error) {
+    return error;
+  }
+}
+
 //Edit Request
 const editRequest = async (request, id) => {
   try {
@@ -121,4 +132,5 @@ module.exports = {
   editRequest,
   makeRequest,
   deleteRequest,
+  volunteerRequests,
 };

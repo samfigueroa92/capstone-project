@@ -17,28 +17,19 @@ const VolunteerPage = ({setModalOpen}) => {
       <div>
         <h5>What does a volunteer do?</h5>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
-          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
-          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos.
+          Growing up we are told to expand our friend circle and get to know people of all ages. As a volunteer you have access to older friends. A volunteer is able to accept jobs within their dashboard and ....
         </p>
       </div>
       <div>
         <h5>How do I apply?</h5>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
-          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
-          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos.
+         As an organization we take our clients and our volunteers safety seriously. To become a volunteer just click the signup button below. Once you have completed the sign-up form and you have been verified your dashboard will be available. Accepting senior support is simple just click accept and arrive to the location to support your new neighbor.
         </p>
       </div>
       <div>
         <h5>What are the benefits?</h5>
         <p>
-          orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed
-          ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula
-          in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos.
+          We all love doing good deeds we are able to see the smile on another persons face. And if that's not enough we have incentivized volunteering. Monthly our volunteer receive a thank you gift from us, Golden Solutions. We appreciate all of your support as we support our elderly clients one volunteer at a time. 
         </p>
       </div>
       <Button className='button' onClick={() => setModalOpen(true)}>SIGN UP NOW</Button>
