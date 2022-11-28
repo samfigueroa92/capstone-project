@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Providers/UserProviders";
 import { useContext } from "react";
 
-
 //Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -19,6 +18,9 @@ import "./SignUpPage.css";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const SignUpPage = () => {
+  const [authErrors, setAuthErrors] = useState([]);
+
+  //for later https://www.npmjs.com/package/usa-states
   const states = {
     Alabama: "AL",
     Alaska: "AK",
@@ -79,7 +81,6 @@ const SignUpPage = () => {
 
   const user = useContext(UserContext);
 
-
   const [newUser, setNewUser] = useState({
     uuid: "",
     firstname: "",
@@ -89,36 +90,69 @@ const SignUpPage = () => {
     unit: "",
     city: "",
     state: "",
-    zipcode: 0,
-    phonenumber: 0,
+    zipcode: "",
+    phonenumber: "",
     email: "",
     verified: false,
     user_type: "",
     profilephoto: "",
-    languagues: "",
+    languages: "",
     verification_type: "",
   });
 
   const navigate = useNavigate();
 
   const addNewUser = (userInfo) => {
-    axios
+    // console.log(userInfo);
+    return axios
       .post(`${API}/users`, userInfo)
-      .then(() => navigate("/user-dashboard"))
+      .then(res => res)
+      //.then(() => navigate("/user-dashboard"))
       .catch((err) => console.error(err));
+
   };
 
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.id]: e.target.value });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addNewUser(newUser);
-  };
-  const handleUUID = (id) => {
-    setNewUser({...newUser, uuid: id})
 
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    debugger;
+    // using signupwithgoogle function, await
+    // if (user.uid) {
+    if (true) {
+      // setNewUser({ ...newUser, uuid: user.uid });
+      const dummyData = {
+        uuid: "14d3ba1b-b313-409e-ad4b-3a7e205d2b80",
+        firstname: "Angela",
+        lastname: "White",
+        dob: "1950-11-16",
+        address: "123 FAKER STREET",
+        unit: "Unit 24",
+        city: "New York",
+        state: "NY",
+        zipcode: "10108",
+        phonenumber: "5555555555",
+        email: "fakeoldman@gmail.com",
+        verified: false,
+        user_type: "Elderly",
+        profilephoto: "testPhoto",
+        languages: null,
+        verification_type: null,
+      };
+      const addedUser = await addNewUser(dummyData);
+
+      console.log(addedUser);
+      // if (addedUser)
+    } else {
+      // Create error state
+      setAuthErrors([
+        ...authErrors,
+        "User not created in firebase, please try again",
+      ]);
+    }
+  };
 
   return (
     <div className="sign-up">
@@ -173,6 +207,7 @@ const SignUpPage = () => {
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
+                  // disabled
                   type="email"
                   placeholder="johnsmith@gmail.com"
                   id="email"
@@ -322,11 +357,11 @@ const SignUpPage = () => {
                 </Form.Select>
               </Form.Group>
             </Row>
+            <div className="form-button">
+              <Button type="submit">Submit</Button>
+            </div>
           </Form>
         </Container>
-      </div>
-      <div className="form-button">
-        <Button type="submit">Submit</Button>
       </div>
     </div>
   );
