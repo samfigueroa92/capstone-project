@@ -47,7 +47,7 @@ const NavBar = ({ setModalOpen }) => {
           </ul>
       
           <Button onClick={() => setModalOpen(true)}>
-            <i id="avatar" className="fa-solid fa-user"></i>Login
+            <i id="avatar" className="fa-solid fa-user"></i>Sign In
           </Button>
        
     </div>

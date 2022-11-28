@@ -31,7 +31,7 @@ const App = () => {
           <Route path='/open-requests' element= {<OpenRequestPage />}/>
           <Route path='/user-dashboard' element={ <UserDashboard /> }/>
           <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/" element={ <Home /> } />
+          <Route path="/" element={ <Home setModalOpen={setModalOpen}/> } />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
           <Route path="/sign-up" element={<SignUpPage/>} />

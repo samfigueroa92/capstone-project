@@ -8,7 +8,7 @@ import "./Home.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const Home = () => {
+const Home = ({ setModalOpen }) => {
   const navigate = useNavigate();
 
   return (
@@ -45,7 +45,9 @@ const Home = () => {
               filling out your profile information.
             </p>
           </div>
-          <Button onClick={() => navigate("/sign-up")}>Join us today!</Button>
+          <Button onClick={() => setModalOpen(true)}>
+            Join Us Today!
+          </Button>
         </div>
         <div className="gallery">
           <img
