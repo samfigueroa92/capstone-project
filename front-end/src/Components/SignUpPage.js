@@ -1,9 +1,9 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Providers/UserProviders";
 import { useContext } from "react";
-import { signUpWithGoogle } from "../Services/Firebase";
+//import { signUpWithGoogle } from "../Services/Firebase";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
@@ -19,7 +19,7 @@ import "./SignUpPage.css";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const SignUpPage = () => {
-  const [authErrors, setAuthErrors] = useState([]);
+  //const [authErrors, setAuthErrors] = useState([]);
 
   //for later https://www.npmjs.com/package/usa-states
   const states = {
@@ -83,7 +83,7 @@ const SignUpPage = () => {
   const user = useContext(UserContext);
 
   const [newUser, setNewUser] = useState({
-    uuid: "",
+    uuid: user.uid,
     firstname: "",
     lastname: "",
     dob: "",
@@ -93,7 +93,7 @@ const SignUpPage = () => {
     state: "",
     zipcode: "",
     phonenumber: "",
-    email: "",
+    email: user.email,
     verified: false,
     user_type: "",
     profilephoto: "",
@@ -104,6 +104,7 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const addNewUser = (userInfo) => {
+    console.log(userInfo);
     axios
       .post(`${API}/users`, userInfo)
       .then((res) => res.data)
@@ -117,8 +118,7 @@ const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setNewUser({ ...newUser, uuid: user.uid });
-    console.log(newUser);
+    //setNewUser({ ...newUser, uuid: user.uid });
     addNewUser(newUser);
     //navigate to their dashboard. maybe a popup or alert saying "Thanks, bringing you to your dashboard" ?
   };
@@ -147,7 +147,6 @@ const SignUpPage = () => {
                   required
                 />
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
@@ -327,7 +326,7 @@ const SignUpPage = () => {
               </Form.Group>
             </Row>
             <div className="form-button">
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Submit Profile</Button>
             </div>
           </Form>
         </Container>
