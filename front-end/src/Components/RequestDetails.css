@@ -1,0 +1,157 @@
+.cards {
+    padding: 4rem;
+    background: #fff;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .card-holder {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1120px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .card-wrap {
+    position: relative;
+    margin: 50px 0 45px;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    border-radius: 10px;
+  }
+  
+  .cards-items {
+    margin-bottom: 24px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  .back {
+      margin-right: 15px;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background: black;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+  }
+  .accept {
+      margin-right: 15px;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background: rgb(3, 145, 3);
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+  }
+  
+  .card-fig {
+    position: relative;
+    width: 100%;
+    padding-top: 67%;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .fade-img {
+    animation-name: fade-img;
+    animation-duration: 2s;
+  }
+  
+  .card-fig::after {
+    content: attr(data-category);
+    position: absolute;
+    bottom: 0;
+    margin-left: 10px;
+    padding: 6px 8px;
+    max-width: calc((100%) - 60px);
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #42999b;
+    box-sizing: border-box;
+  }
+  
+  .cardImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: all 0.2s linear;
+  }
+  
+  .cardImg:hover {
+    transform: scale(1.1);
+  }
+  
+  .info {
+    padding: 20px 30px 30px;
+  }
+  
+  .card-text {
+    color: #252e48;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  /* media queries */
+  @media only screen and (min-width: 1200px) {
+    .content__blog__container {
+      width: 84%;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .cards-items {
+      display: flex;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .carditem {
+      margin-bottom: 2rem;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .buttons {
+      display: flex;
+      /* flex-flow: column; */
+      justify-content: center;
+    }
+    .back {
+      justify-content: center;
+      margin-bottom: 2rem;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 7px;
+    }
+    .accept {
+      justify-content: center;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: center;
+      border-radius: 7px;
+    }
+    
+  }
+  

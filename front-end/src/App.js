@@ -12,6 +12,7 @@ import VolunteerPage from "./Components/VolunteerPage";
 import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
+import RequestDetails from "./Components/RequestDetails";
 import ProfileInfo from "./Components/ProfileInfo";
 
 
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
           <Route path="/sign-up" element={<SignUpPage/>} />
           <Route path="/users/:id/settings" element={<ProfileInfo/>}/>
+          <Route path="/requests/:id" element={<RequestDetails />} />
         </Routes>
       </Router>
       </UserProvider>
