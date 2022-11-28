@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { useNavigate } from "react-router-dom";
-import { signInWithGoogle } from "../Services/Firebase";
+import { signInWithGoogle, deleteUser } from "../Services/Firebase";
 import axios from "axios";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState();
 
-  const userCheck = (user) => {
+  const userCheck = async (user) => {
     axios.get(`${API}/users/${user.uid}`).then((res) => {
       if (res.data.name === "QueryResultError") {
         //alert("No user has been found. Join us today!");
