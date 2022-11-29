@@ -94,7 +94,7 @@
   
   /* media query  */
   
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 400px) {
     .NavbarItems {
       position: relative;
     }

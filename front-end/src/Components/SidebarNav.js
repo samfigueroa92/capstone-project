@@ -2,53 +2,37 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 //Component Import
-import Calender from "./Calendar";
+import CalendarView from "./CalendarView";
 
 //CSS Import
 import "./SidebarNav.css";
 
 const SidebarNav = () => {
-  const [volunteer, setVolunteer] = useState(true);
-
-  const handleAcceptedRequest = () => {
-    console.log("hello");
-  };
-
-  const handleOpenRequest = () => {
-    console.log("Bye");
-  };
-  const handlePersonalAchievement = () => {
-    console.log("Bonjour");
-  };
-
-  const handleSettings = () => {
-    console.log("Au Revoir");
-  };
+  const [userType, setUserType] = useState("volunteer");
 
   return (
     <div className="SideBar">
-      {volunteer ? (
+      {userType === "volunteer" ? (
         <div className="text">
           <Link to="/user-dashboard">
-            <p className="header" onClick>
-              Volunteer Dashboard
-            </p>
+            <p className="header">Volunteer Dashboard</p>
             <div className="under-click"></div>
           </Link>
           <Link>
-            <p onClick={handleAcceptedRequest}>Accepted Requests</p>
+            <p>Accepted Requests</p>
             <div className="under-click"></div>
           </Link>
           <Link to="/open-requests">
-            <p onClick={handleOpenRequest}>Open Requests</p>
+            <p>Open Requests</p>
             <div className="under-click"></div>
           </Link>
           <Link>
-            <p onClick={handlePersonalAchievement}>Achievements</p>
+            <p>Achievements</p>
             <div className="under-click"></div>
           </Link>
-          <Link>
-            <p onClick={handleSettings}>Settings</p>
+
+          <Link to="/users/:id/settings">
+            <p>Settings</p>
             <div className="under-click"></div>
           </Link>
         </div>
@@ -61,7 +45,7 @@ const SidebarNav = () => {
           <p>Settings</p>
         </>
       )}
-      <Calender />
+      <CalendarView />
     </div>
   );
 };
