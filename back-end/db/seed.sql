@@ -13,7 +13,10 @@ INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "lo
 ('14d3ba1b-b313-409e-ad4b-3a7e205d2a47', '', '2022-12-20', 'Looking for some assistance is putting together an artificial Christmas tree','Brooklyn','12pm-5pm', 'FALSE','FALSE') RETURNING *;
 
 INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-06','','','','','') RETURNING *;
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-06','I got a new dresser from Ikea, and I hate putting these things together. It would be nice to have someone give me a hand with this.','Manhattan','10am-7pm','FALSE','FALSE') RETURNING *;
+
+INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-10','A light in my closet blew, and I am unable to reach it. Looking for someone that could handle this small thing for me.','Bronx','10am','FALSE','FALSE') RETURNING *;
 
 
 INSERT INTO ratings ("rating","request_id","rating_user_id","rated_user_id") VALUES
