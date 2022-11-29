@@ -40,10 +40,10 @@ users.put("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const editedUser = await editUser(req.body, id);
-    if(editedUser.uuid === id){
+    if (editedUser.uuid === id) {
       res.status(200).send(editedUser);
-    }else{
-      res.status(404).json({ error: 'User not found'})
+    } else {
+      res.status(404).json({ error: "User not found" });
     }
   } catch (error) {
     return error;
@@ -55,9 +55,14 @@ users.post("/", async (req, res) => {
   console.log("Creating new user");
   try {
     const newUser = await addUser(req.body);
-    res.status(200).json({ payload: newUser, success: true });
+    console.log(newUser)
+    if (newUser.uuid) {
+      res.status(200).json({ payload: newUser, success: true });
+    } else {
+      throw error;
+    }
   } catch (error) {
-    res.status(400).json({ error: error, success: false });
+    res.status(400).json({ error: "error", success: false });
   }
 });
 
