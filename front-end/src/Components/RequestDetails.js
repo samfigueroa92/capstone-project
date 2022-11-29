@@ -19,9 +19,9 @@ const RequestDetails = () => {
   }, [id, navigate, API]);
 
   return (
-    <>
+    <div className="details">
     <div className="sidebar-Nav">
-    {/* <SidebarNav /> */}
+    <SidebarNav />
     </div>
     <div className="cards">
       <h1>REQUESTS DETAILS</h1>
@@ -58,7 +58,7 @@ const RequestDetails = () => {
         </div> */}
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

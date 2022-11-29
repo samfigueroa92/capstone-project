@@ -1,3 +1,10 @@
+.details {
+    display: grid;
+    grid-template-columns: 0.25fr 2fr;
+}
+/* .sidebar-nav {
+    /* grid-area: s; */
+/* } */
 .cards {
     padding: 4rem;
     background: #fff;
@@ -153,5 +160,11 @@
       border-radius: 7px;
     }
     
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .sidebar-nav {
+        display: none;
+    }
   }
   
