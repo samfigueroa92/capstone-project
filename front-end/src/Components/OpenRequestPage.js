@@ -11,7 +11,8 @@ import "./OpenRequestPage.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const OpenRequestPage = () => {
+const OpenRequestPage = ({date, setDate}) => {
+  setDate('')
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const OpenRequestPage = () => {
 
   return (
     <div className="user-dashboard">
-      <SidebarNav />
+      <SidebarNav setDate ={setDate} />
       <div className="main-page">
         <h3>Open Request</h3>
         <div className="open-request-page">{neighborhood}</div>

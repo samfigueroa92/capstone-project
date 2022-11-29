@@ -23,7 +23,7 @@ const SidebarNav = ({setDate}) => {
             <div className="under-click"></div>
           </Link>
           <Link to="/open-requests">
-            <p>Open Requests</p>
+            <p onClick={()=>setDate('')}>Open Requests</p>
             <div className="under-click"></div>
           </Link>
           <Link>

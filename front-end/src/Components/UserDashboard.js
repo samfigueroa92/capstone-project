@@ -15,7 +15,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 // Function to query the database with the users uid, and return their posted / assigned requests
 
 
-const UserDashboard = ( {date, setDate}) => {
+const UserDashboard = ({date, setDate}) => {
     const [requests, setRequests] = useState([]);
 
     useEffect(() => {
