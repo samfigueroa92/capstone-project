@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Providers/UserProviders";
@@ -83,7 +83,6 @@ const SignUpPage = () => {
   const user = useContext(UserContext);
 
   const [newUser, setNewUser] = useState({
-    uuid: "",
     firstname: "",
     lastname: "",
     dob: "",
@@ -101,15 +100,36 @@ const SignUpPage = () => {
     verification_type: "",
   });
 
+  useEffect(() => {
+    const submitUser = async () => {
+      if (user?.uid) {
+        axios
+        .post(`${API}/users`, { ...newUser, uuid: user.uid })
+        .then(res => {
+          if(res.data.payload.uuid){
+            setAuthErrors([]);
+            navigate("/user-dashboard");
+          }else{
+            user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
+          }
+        })
+        // const addedUser = await addNewUser({ ...newUser, uuid: user.uid });
+        // console.log(addedUser);
+      }
+    };
+
+    submitUser();
+  }, [user]);
+
   const navigate = useNavigate();
 
-  const addNewUser = (userInfo) => {
-    axios
-      .post(`${API}/users`, userInfo)
-      .then((res) => res.data)
-      //.then(() => navigate("/user-dashboard"))
-      .catch((err) => console.error(err));
-  };
+  // const addNewUser = (userInfo) => {
+  //   axios
+  //     .post(`${API}/users`, userInfo)
+  //     .then((res) => res.data)
+  //     //.then(() => navigate("/user-dashboard"))
+  //     .catch((err) => console.error(err));
+  // };
 
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.id]: e.target.value });
@@ -118,9 +138,7 @@ const SignUpPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // using signupwithgoogle function, await
-    await signUpWithGoogle()
-      .then(setNewUser({ ...newUser, uuid: user.uid }))
-      .then(addNewUser(newUser));
+    await signUpWithGoogle();
   };
 
   return (
@@ -244,7 +262,7 @@ const SignUpPage = () => {
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Zip Code</Form.Label>
                 <Form.Control
-                  type="number"
+                  type="text"
                   placeholder="12345"
                   id="zipcode"
                   value={newUser.zipcode}

@@ -7,6 +7,9 @@ import {
   getAdditionalUserInfo,
 } from "firebase/auth";
 
+import axios from "axios";
+
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -60,7 +63,6 @@ export const signUpWithGoogle = async () => {
   try {
     signInWithPopup(auth, googleProvider).then((res) => {
       const user = res.user;
-      console.log(user);
     });
   } catch (error) {
     console.log(error);
