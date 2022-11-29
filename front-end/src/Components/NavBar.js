@@ -1,10 +1,5 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-
-//Component Imports
-// import Container from "react-bootstrap/esm/Container";
-// import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
 import DashboardNav from "./DashboardNav";
 import { UserContext } from "../Providers/UserProviders";
 import { useContext } from "react";
@@ -57,18 +52,4 @@ const NavBar = ({ setModalOpen }) => {
 export default NavBar;
 
 
-{/* <Navbar>
-        <Navbar.Brand href="/" className="logo">
-          <img src={logo} alt="logo" />
-        </Navbar.Brand>
-        <Container className="nav-content">
-          <Nav className="me-auto.">
-            <Nav.Link href="/volunteers" className="links">
-              Volunteers
-            </Nav.Link>
-            <Nav.Link href="/seniors" className="links">
-              Seniors
-            </Nav.Link>
-             </Container>
-      </Navbar>
-          </Nav> */}
+
