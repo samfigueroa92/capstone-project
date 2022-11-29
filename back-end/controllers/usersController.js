@@ -55,8 +55,9 @@ users.post("/", async (req, res) => {
   console.log("Creating new user");
   try {
     const newUser = await addUser(req.body);
-    if (newUser.name !== "error") {
-      res.status(200).json({ newUser, success: true });
+    console.log(newUser)
+    if (newUser.uuid) {
+      res.status(200).json({ payload: newUser, success: true });
     } else {
       throw error;
     }
