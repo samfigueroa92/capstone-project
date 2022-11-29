@@ -15,7 +15,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 // Function to query the database with the users uid, and return their posted / assigned requests
 
 
-const UserDashboard = () => {
+const UserDashboard = ( {date, setDate}) => {
     const [requests, setRequests] = useState([]);
 
     useEffect(() => {
@@ -27,14 +27,14 @@ const UserDashboard = () => {
     return (
         <div className='user-dashboard'>
             <div className="sidebar-nav">
-            <SidebarNav />
+            <SidebarNav setDate = {setDate}/>
             </div>
             <div className="requests">
             <div>
-                <MyRequests requests={requests} />
+                <MyRequests date = {date} requests={requests} />
             </div>
             <div>
-                <OpenRequests requests={requests}/>
+                <OpenRequests date = {date} requests={requests}/>
             </div>
             </div>
         </div>

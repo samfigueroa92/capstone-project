@@ -26,7 +26,7 @@ const LoginModal = ({ modalOpen, setModalOpen }) => {
       }
     });
   };
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
 
   useEffect(() => {
     if (user) {

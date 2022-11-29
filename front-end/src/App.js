@@ -20,6 +20,10 @@ import "./App.css";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  // const [value,setvalue] = (new Date())
+
+  const [date , setDate] = useState('')
+  console.log(date)
   
   return (
     <div className="App">
@@ -28,8 +32,8 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
-          <Route path='/open-requests' element= {<OpenRequestPage />}/>
-          <Route path='/user-dashboard' element={ <UserDashboard /> }/>
+          <Route path='/open-requests' element= {<OpenRequestPage date = {date}/>}/>
+          <Route path='/user-dashboard' element={ <UserDashboard date = {date} setDate = {setDate}/> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={ <Home /> } />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />

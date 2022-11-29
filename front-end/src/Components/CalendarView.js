@@ -6,10 +6,11 @@ import Calendar from 'react-calendar';
 //CSS Import
 import "./CalendarView.css"
 import 'react-calendar/dist/Calendar.css';
-const CalendarView = () => {
+const CalendarView = ({setDate}) => {
     const [value, onChange] = useState(new Date());
-
-    // console.log(value)
+    setDate(value)
+    // let newValue =((value.getUTCFullYear()+"/"+ (value.getUTCMonth() + 1)+"/"+ value.getDate()))
+    // setDate(newValue)
     return (
         <div className="calendar">
              <Calendar  id = "react-calendar"onChange={onChange} value={value} />

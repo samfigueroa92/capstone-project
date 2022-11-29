@@ -7,7 +7,7 @@ import CalendarView from "./CalendarView";
 //CSS Import
 import "./SidebarNav.css";
 
-const SidebarNav = () => {
+const SidebarNav = ({setDate}) => {
   const [userType, setUserType] = useState("volunteer");
 
   return (
@@ -45,7 +45,7 @@ const SidebarNav = () => {
           <p>Settings</p>
         </>
       )}
-      <CalendarView />
+      <CalendarView setDate={setDate}/>
     </div>
   );
 };
