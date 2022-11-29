@@ -14,25 +14,25 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const LoginModal = ({ modalOpen, setModalOpen }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
-  const [loggedInUser, setLoggedInUser] = useState();
+  // const [loggedInUser, setLoggedInUser] = useState();
 
-  const userCheck = async (user) => {
-    axios.get(`${API}/users/${user.uid}`).then((res) => {
-      if (res.data.name === "QueryResultError") {
-        //alert("No user has been found. Join us today!");
-        navigate("/sign-up");
-      } else {
-        setLoggedInUser(res.data);
-      }
-    });
-  };
+  // const userCheck = async (user) => {
+  //   axios.get(`${API}/users/${user.uid}`).then((res) => {
+  //     if (res.data.name === "QueryResultError") {
+  //       //alert("No user has been found. Join us today!");
+  //       navigate("/sign-up");
+  //     } else {
+  //       setLoggedInUser(res.data);
+  //     }
+  //   });
+  // };
   // console.log(loggedInUser);
 
   useEffect(() => {
     if (user) {
-      userCheck(user);
+      // userCheck(user);
       setModalOpen(false);
-      navigate("/user-dashboard");
+      // navigate("/user-dashboard");
     }
   }, [user]);
   // console.log(user);

@@ -46,11 +46,7 @@ const addUser = async (user) => {
         user.verification_type,
       ]
     );
-    if (user.uuid) {
-      return newUser;
-    } else {
-      throw error;
-    }
+    return newUser;
   } catch (error) {
     return error;
   }
