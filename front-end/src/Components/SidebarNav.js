@@ -23,7 +23,7 @@ const SidebarNav = ({setDate}) => {
             <div className="under-click"></div>
           </Link>
           <Link to="/open-requests">
-            <p onClick={()=>setDate('')}>Open Requests</p>
+            <p>Open Requests</p>
             <div className="under-click"></div>
           </Link>
           <Link>
@@ -31,7 +31,7 @@ const SidebarNav = ({setDate}) => {
             <div className="under-click"></div>
           </Link>
 
-          <Link to="/users/:id/settings">
+          <Link to="/user/:id/settings">
             <p>Settings</p>
             <div className="under-click"></div>
           </Link>
