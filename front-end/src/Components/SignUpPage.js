@@ -81,7 +81,7 @@ const SignUpPage = () => {
   };
 
   const user = useContext(UserContext);
-
+  console.log(user)
   const [newUser, setNewUser] = useState({
     firstname: "",
     lastname: "",
@@ -113,9 +113,7 @@ const SignUpPage = () => {
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
           }
         })
-        // const addedUser = await addNewUser({ ...newUser, uuid: user.uid });
-        // console.log(addedUser);
-      }
+      };
     };
 
     submitUser();
@@ -123,32 +121,36 @@ const SignUpPage = () => {
 
   const navigate = useNavigate();
 
-  // const addNewUser = (userInfo) => {
-  //   axios
-  //     .post(`${API}/users`, userInfo)
-  //     .then((res) => res.data)
-  //     //.then(() => navigate("/user-dashboard"))
-  //     .catch((err) => console.error(err));
-  // };
-
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // using signupwithgoogle function, await
     await signUpWithGoogle();
   };
 
   return (
     <div className="sign-up">
       <div className="signup-text">
-        <h1>Sign Up Today!</h1>
-        <p>
+        <h1>Join us today!</h1>
+        <div className="instructions">
+        <p className="p1">
           Welcome! Before we get started, please fill out the following form
-          with the required information.
+          with the required information. 
         </p>
+        <p className="p2"><strong>Verification Process:</strong></p>
+        <ol>
+          <li>Shortly after submitting your information, you should receive an email from us with further instructions.
+            <ul>
+            <li><em>{"If you are signing up to our website on behalf of a senior (you are a family member, caregiver, etc.) please include that information when emailing us back."}</em></li>
+            </ul>
+          </li>
+          <li>Once all of the proper information is submitted, a background check will be done.</li>
+          <li>A cleared background check will verify your account so you may begin using our site!</li>
+        </ol>
+        <p className="p3">It's as simple as 1, 2, 3!</p>
+        </div>
       </div>
       <div className="form">
         <Container>

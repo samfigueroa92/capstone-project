@@ -1,7 +1,14 @@
 import RequestCard from "./RequestCard";
 import "./MyRequests.css"
 
-const MyRequests = ({requests}) => {
+const MyRequests = ({requests, date}) => {
+    const [elder_id, volunteer_id, req_date,description,location,time, assigned, complete] = requests
+
+
+
+    
+
+
     return (
         <div className='my-requests'>
              <h3>My Requests</h3>
