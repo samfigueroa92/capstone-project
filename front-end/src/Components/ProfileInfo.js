@@ -114,7 +114,7 @@ function ProfileInfo () {
       .then(response => setUser(response.data))
       .catch((error) => console.log("not found")
       );
-    }, [id, navigate]);
+    }, [id]);
 
     const handleSubmit = (event) => {
       event.preventDefault();
