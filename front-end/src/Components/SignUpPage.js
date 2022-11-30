@@ -81,7 +81,7 @@ const SignUpPage = () => {
   };
 
   const user = useContext(UserContext);
-
+  console.log(user)
   const [newUser, setNewUser] = useState({
     firstname: "",
     lastname: "",

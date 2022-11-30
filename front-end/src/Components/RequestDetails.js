@@ -4,7 +4,8 @@ import "./RequestDetails.css";
 import SidebarNav from "./SidebarNav";
 import axios from "axios";
 
-const RequestDetails = () => {
+const RequestDetails = ({setDate, date}) => {
+  setDate('')
   const [user, setUser] = useState([]);
   let { id } = useParams();
   let navigate = useNavigate();
@@ -21,7 +22,7 @@ const RequestDetails = () => {
   return (
     <div className="details">
     <div className="sidebar-Nav">
-    <SidebarNav />
+    <SidebarNav setDate = {setDate} date = {date}/>
     </div>
     <div className="cards">
       <h1>REQUESTS DETAILS</h1>
