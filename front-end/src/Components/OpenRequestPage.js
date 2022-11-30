@@ -13,9 +13,14 @@ import "./OpenRequestPage.css";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const OpenRequestPage = ({date, setDate}) => {
-  setDate('')
   const [requests, setRequests] = useState([]);
-
+  const [value, setValue] = useState('')
+    useEffect(()=>{
+            if(date){
+                setValue((date.getFullYear()+"-"+ (date.getMonth() + 1)+"-"+ date.getDate()))
+            }
+        },[date])
+    
   useEffect(() => {
     axios
       .get(`${API}/requests`)
@@ -23,16 +28,11 @@ const OpenRequestPage = ({date, setDate}) => {
       .catch((err) => console.error(err));
   }, []);
 
-  // requests.sort((a, b) => a.req_date - b.req_date);
-  // const neighborhood = requests.map((request) =>
-  //   request.location.toLowerCase() === "bronx" &&
-  //   !request.assigned &&
-  //   request.req_date >= date ? (
-  //     <RequestCard request={request} />
-  //   ) : null
-  // );
+  requests.sort((a, b) => a.req_date - b.req_date);
+  console.log(date)
+
   // Location Needs to be changed per UseState of UsersProfile location
-  const neighborhood = requests.map((request) => (request.location.toLowerCase() === "bronx" && !request.assigned) ? <RequestCard request={request} /> : null);
+  const neighborhood = requests.map((request) => (request.location.toLowerCase() === "bronx" && !request.assigned && (request.req_date >= value)) ? <RequestCard key={request.id} request={request} /> : null);
 
   return (
     <div className="user-dashboard">
