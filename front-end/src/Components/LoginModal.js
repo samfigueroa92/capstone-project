@@ -13,7 +13,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
   const user = useContext(UserContext);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   // const [loggedInUser, setLoggedInUser] = useState();
 
    const userCheck = async (user) => {
