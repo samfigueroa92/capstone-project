@@ -1,9 +1,10 @@
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import "./ProfileInfo.css"
+import "./Settings.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
+import App from "../App";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -16,8 +17,8 @@ const API = process.env.REACT_APP_API_URL;
 
 //Everything else should be visible and a button to Edit info
 
-function ProfileInfo () {
-  let { id } = useParams();
+function Settings ({applicationUser}) {
+
   let navigate = useNavigate();
 
   const states = {
@@ -78,7 +79,7 @@ function ProfileInfo () {
     'Wyoming': 'WY'
     }
 //"dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type", "state"
-  const [user, setUser] = useState({
+  const [editedUser, setEditedUser] = useState({
     firstname: "",
     lastname: "",
     dob: "",
@@ -95,10 +96,10 @@ function ProfileInfo () {
 //axios needs to be work on base on login model
     const updateUser = (updatedUser) => {
       axios
-      .put(`${API}/users/${id}`, updatedUser) 
+      .put(`${API}/users`, updatedUser) 
       .then(
         () => {
-          navigate(`/users/${id}`);
+          navigate(`/user-dashboard`);
         },
         (error) => console.error(error)
       )
@@ -106,38 +107,23 @@ function ProfileInfo () {
     }
  
   const handleTextChange = (event) => {
-    setUser({ ...user, [event.target.id]: event.target.value });
+    setEditedUser({ ...editedUser, [event.target.id]: event.target.value });
   };
 
   useEffect(() => {
-    axios.get(`${API}/users/${id}`)
-      .then(response => setUser(response.data))
+    axios.get(`${API}/users/${applicationUser.uuid}`)
+      .then(response => setEditedUser(response.data))//probably be change to response.data.payload
       .catch((error) => console.log("not found")
       );
-    }, [id, navigate]);
+    }, [navigate]);
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      updateUser(user, id);
+      updateUser(editedUser, applicationUser.uuid);
     };
 
   return (
-   /* <div>
-        <form>
-        <h3>General Information</h3>
-        <label>First Name: <input type="text"/></label>
-        <label>Last Name: <input type="text"/></label>
-        <label>Middle: <input type="text"/></label>
-
-        <h3>Address</h3>
-        <label>Address Line 1: <input type="text"/></label>
-        <label>Address Line 2: <input type="text"/></label>
-        <label>City: <input type="text"/></label>
-        <label>State: <select> </select></label>
-        <label>City: <input type="text"/></label>
-        <button>Next</button>
-        </form>
-    </div> */
+   
     <div className="profileInfo">
       <Container>
         <h3>General Information</h3>
@@ -147,7 +133,7 @@ function ProfileInfo () {
               <Form.Label>First Name</Form.Label>
               <Form.Control disabled
               id="firstname"
-              value={user.firstname}
+              value={applicationUser.firstname}
               type="text"
               onChange={handleTextChange} 
               />
@@ -157,7 +143,7 @@ function ProfileInfo () {
               <Form.Label>Last Name</Form.Label>
               <Form.Control disabled
               id="lastname"
-              value={user.lastname}
+              value={applicationUser.lastname}
               type="text"
               onChange={handleTextChange}  
               />
@@ -167,7 +153,7 @@ function ProfileInfo () {
               <Form.Label>Date of Birth</Form.Label>
               <Form.Control disabled
               id="dob"
-              value={user.dob}
+              value={applicationUser.dob}
               type="date"  
               onChange={handleTextChange} 
               />
@@ -177,7 +163,7 @@ function ProfileInfo () {
               <Form.Label>Email</Form.Label>
               <Form.Control disabled
               id="email"
-              value={user.email}
+              value={applicationUser.email}
               type="email"
               onChange={handleTextChange} 
               />
@@ -189,7 +175,7 @@ function ProfileInfo () {
               <Form.Label>Address</Form.Label>
               <Form.Control 
               id="address"
-              value={user.address}
+              value={applicationUser.address}
               type="text"
               onChange={handleTextChange}
               />
@@ -199,7 +185,7 @@ function ProfileInfo () {
               <Form.Label>City</Form.Label>
               <Form.Control
               id="city" 
-              value={user.city}
+              value={applicationUser.city}
               type="text" 
               onChange={handleTextChange} 
               />
@@ -207,7 +193,7 @@ function ProfileInfo () {
 
             <Form.Group className="mb-3" controlId="formBasicState">
               <Form.Label>State</Form.Label>
-              <Form.Select value={user.state} onChange={handleTextChange} >
+              <Form.Select value={applicationUser.state} onChange={handleTextChange} >
                 <option>--Select State--</option>
                 {Object.values(states).map(state => <option>{state}</option>)}
               </Form.Select>
@@ -217,7 +203,7 @@ function ProfileInfo () {
               <Form.Label>Zip Code</Form.Label>
               <Form.Control
               id="zipcode" 
-              value={user.zipcode}
+              value={applicationUser.zipcode}
               type="number"
               onChange={handleTextChange} 
               />
@@ -227,7 +213,7 @@ function ProfileInfo () {
               <Form.Label>Phone Number</Form.Label>
               <Form.Control 
               id="phonenumber"
-              value={user.phonenumber}
+              value={applicationUser.phonenumber}
               type="tel" 
               onChange={handleTextChange}
               />
@@ -237,7 +223,7 @@ function ProfileInfo () {
               <Form.Label>Upload New Photo</Form.Label>
               <Form.Control 
               id="profilephoto"
-              value={user.profilephoto}
+              value={applicationUser.profilephoto}
               type="file"
               onChange={handleTextChange} 
               />
@@ -246,7 +232,7 @@ function ProfileInfo () {
             </Form.Group>
             <input type="submit" />
           </Form>
-          <Link to={`/users/${id}`}>
+          <Link to={`/users/${applicationUser.uuid}`}>
         <button>Nevermind!</button>
       </Link>
         </div>
@@ -256,4 +242,4 @@ function ProfileInfo () {
   )
 }
 
-export default ProfileInfo;
+export default Settings;
