@@ -22,7 +22,6 @@ import "./App.css";
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // const [value,setvalue] = (new Date())
-
   const [date , setDate] = useState('')
   const [currentUser, setCurrentUser] = useState('')
   // console.log(currentUser)

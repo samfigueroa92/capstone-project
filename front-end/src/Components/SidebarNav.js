@@ -50,7 +50,9 @@ const SidebarNav = ({setDate}) => {
           </Link>
         </>
       )}
+      <div className="calender-view">
       <CalendarView setDate={setDate}/>
+      </div>
     </div>
   );
 };
