@@ -32,7 +32,7 @@ const OpenRequestPage = ({date, setDate}) => {
   console.log(date)
 
   // Location Needs to be changed per UseState of UsersProfile location
-  const neighborhood = requests.map((request) => (request.location.toLowerCase() === "bronx" && !request.assigned && (request.req_date >= value)) ? <RequestCard key={request.id} request={request} /> : null);
+  const neighborhood = requests.map((request) => (!request.assigned && (request.req_date >= value)) ? <RequestCard key={request.id} request={request} /> : null);
 
   return (
     <div className="user-dashboard">
