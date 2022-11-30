@@ -1,3 +1,7 @@
+//CSS
+import "./SignUpPage.css";
+
+//DEPENDENCIES
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -12,76 +16,18 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-//CSS
-import "./SignUpPage.css";
-
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
+//STATES PACKAGE --> https://www.npmjs.com/package/usa-states
+const UsaStates = require('usa-states').UsaStates;
+
 const SignUpPage = () => {
   const [authErrors, setAuthErrors] = useState([]);
-
-  //for later https://www.npmjs.com/package/usa-states
-  const states = {
-    Alabama: "AL",
-    Alaska: "AK",
-    Arizona: "AZ",
-    Arkansas: "AR",
-    California: "CA",
-    "Canal Zone": "CZ",
-    Colorado: "CO",
-    Connecticut: "CT",
-    Delaware: "DE",
-    "District of Columbia": "DC",
-    Florida: "FL",
-    Georgia: "GA",
-    Guam: "GU",
-    Hawaii: "HI",
-    Idaho: "ID",
-    Illinois: "IL",
-    Indiana: "IN",
-    Iowa: "IA",
-    Kansas: "KS",
-    Kentucky: "KY",
-    Louisiana: "LA",
-    Maine: "ME",
-    Maryland: "MD",
-    Massachusetts: "MA",
-    Michigan: "MI",
-    Minnesota: "MN",
-    Mississippi: "MS",
-    Missouri: "MO",
-    Montana: "MT",
-    Nebraska: "NE",
-    Nevada: "NV",
-    "New Hampshire": "NH",
-    "New Jersey": "NJ",
-    "New Mexico": "NM",
-    "New York": "NY",
-    "North Carolina": "NC",
-    "North Dakota": "ND",
-    Ohio: "OH",
-    Oklahoma: "OK",
-    Oregon: "OR",
-    Pennsylvania: "PA",
-    "Puerto Rico": "PR",
-    "Rhode Island": "RI",
-    "South Carolina": "SC",
-    "South Dakota": "SD",
-    Tennessee: "TN",
-    Texas: "TX",
-    Utah: "UT",
-    Vermont: "VT",
-    "Virgin Islands": "VI",
-    Virginia: "VA",
-    Washington: "WA",
-    "West Virginia": "WV",
-    Wisconsin: "WI",
-    Wyoming: "WY",
-  };
-
+  const usStates = new UsaStates();
+  
   const user = useContext(UserContext);
-  console.log(user)
+
   const [newUser, setNewUser] = useState({
     firstname: "",
     lastname: "",
@@ -141,10 +87,7 @@ const SignUpPage = () => {
         </p>
         <p className="p2"><strong>Verification Process:</strong></p>
         <ol>
-          <li>Shortly after submitting your information, you should receive an email from us with further instructions.
-            <ul>
-            <li><em>{"If you are signing up to our website on behalf of a senior (you are a family member, caregiver, etc.) please include that information when emailing us back."}</em></li>
-            </ul>
+          <li>Shortly after submitting your information, you should receive an email from us with further instructions. <em>{"If you are signing up to our website on behalf of a senior (you are a family member, caregiver, etc.) please include that information when emailing us back."}</em>
           </li>
           <li>Once all of the proper information is submitted, a background check will be done.</li>
           <li>A cleared background check will verify your account so you may begin using our site!</li>
@@ -255,9 +198,10 @@ const SignUpPage = () => {
                   required
                 >
                   <option>--Select State--</option>
-                  {Object.values(states).map((state) => (
+                  {usStates.states.map(state => <option key={state.name}>{state.abbreviation}</option>)}
+                  {/* {Object.values(usStates).map((state) => (
                     <option>{state}</option>
-                  ))}
+                  ))} */}
                 </Form.Select>
               </Form.Group>
 
