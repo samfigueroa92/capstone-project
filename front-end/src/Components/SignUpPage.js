@@ -91,7 +91,7 @@ const SignUpPage = ({setApplicationUser}) => {
           <li>Shortly after submitting your information, you should receive an email from us with further instructions. <em>{"If you are signing up to our website on behalf of a senior (you are a family member, caregiver, etc.) please include that information when emailing us back."}</em>
           </li>
           <li>Once all of the proper information is submitted, a background check will be done.</li>
-          <li>A cleared background check will verify your account so you may begin using our site!</li>
+          <li>A cleared background check will verify your account so you may begin using our site.</li>
         </ol>
         <p className="p3">It's as simple as 1, 2, 3!</p>
         </div>

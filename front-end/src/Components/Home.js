@@ -62,7 +62,7 @@ const Home = () => {
               alt="support-icon"
             />
             <h4>Support</h4>
-            <p>Everyone needs a little help sometimes.</p>
+            <p>Everyone needs a little help sometimes!</p>
           </section>
           <section className="community">
             <img
@@ -70,7 +70,7 @@ const Home = () => {
               alt="community-icon"
             />
             <h4>Community</h4>
-            <p>Get to know new people or help old friends.</p>
+            <p>Get to know new people or help old friends!</p>
           </section>
           <section className="safety">
             <img

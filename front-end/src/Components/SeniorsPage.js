@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 //Component Imports
 import Footer from "./Footer";
 
@@ -7,6 +9,7 @@ import "./SeniorsPage.css";
 import Button from "react-bootstrap/Button";
 
 const SeniorsPage = ({setModalOpen}) => {
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -31,7 +34,7 @@ const SeniorsPage = ({setModalOpen}) => {
           As a client you're able to met new people within your neighborhood as well as receive additional support in your daily life. Whether it is help grocery shopping, electronic help, or even just someone to accompany you to the park. Golden Solution is here to help in your daily life and so are our volunteers.
         </p>
       </div>
-      <Button className='button' onClick={() => setModalOpen(true)}>SIGN UP NOW</Button>
+      <Button className='button' onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
       </div>
       <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
     </div>
