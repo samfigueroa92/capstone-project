@@ -38,14 +38,21 @@ const SidebarNav = ({setDate}) => {
         </div>
       ) : (
         <>
+          <Link to='/user-dashboard'>
           <p>Senior Dashboard</p>
+          </Link>
+
           <p>My Requests</p>
           <p>Volunteers</p>
           <p>Submit A Request</p>
+          <Link to ="/user/:id/settings">
           <p>Settings</p>
+          </Link>
         </>
       )}
+      <div className="calender-view">
       <CalendarView setDate={setDate}/>
+      </div>
     </div>
   );
 };
