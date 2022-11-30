@@ -22,7 +22,7 @@ INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "lo
 ('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-01','I need a few grocery items, but am currently recovering from knee surgery for a few more days. If someone would be kind enough to run this errand for me, I would be extremely grateful.','Queens','4pm','FALSE','FALSE') RETURNING *;
 
 INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2023-01-04','Looking for a little help','','','','') RETURNING *;
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2023-01-04','Looking for a little help removing some Christmas decorations','Manhattan','7am','FALSE','FALSE') RETURNING *;
 
 INSERT INTO ratings ("rating","request_id","rating_user_id","rated_user_id") VALUES
 ('5','1','14d3ba1b-b313-409e-ad4b-3a7e205d2a89','14d3ba1b-b313-409e-ad4b-3a7e205d2a47') RETURNING *;
