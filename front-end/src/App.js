@@ -25,6 +25,7 @@ const App = () => {
 
   const [date , setDate] = useState('')
   console.log(date)
+  const [applicationUser , setApplicationUser] = useState({});
   
   return (
     <div className="App">
@@ -39,7 +40,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
-          <Route path="/sign-up" element={<SignUpPage/>} />
+          <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
           <Route path="/user/:id/settings" element={<Protected><ProfileInfo/></Protected>}/>
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate = {setDate} date = {date}/></Protected>} />
         </Routes>

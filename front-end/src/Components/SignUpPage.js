@@ -18,7 +18,7 @@ import "./SignUpPage.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const SignUpPage = () => {
+const SignUpPage = ({setApplicationUser}) => {
   const [authErrors, setAuthErrors] = useState([]);
 
   //for later https://www.npmjs.com/package/usa-states
@@ -108,6 +108,7 @@ const SignUpPage = () => {
         .then(res => {
           if(res.data.payload.uuid){
             setAuthErrors([]);
+            setApplicationUser(res.data.payload);
             navigate("/user-dashboard");
           }else{
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
