@@ -13,7 +13,7 @@ import OurTeam from "./Components/OurTeam";
 import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
 import RequestDetails from "./Components/RequestDetails";
-import ProfileInfo from "./Components/ProfileInfo";
+import Settings from "./Components/Settings";
 import Protected from "./Components/Protected";
 
 //CSS
@@ -23,24 +23,25 @@ const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // const [value,setvalue] = (new Date())
   const [date , setDate] = useState('')
-  const [currentUser, setCurrentUser] = useState('')
-  console.log(currentUser)
+  console.log(date)
+  const [applicationUser , setApplicationUser] = useState({});
+
   
   return (
     <div className="App">
       <UserProvider>
       <Router>
-        <NavBar setModalOpen={setModalOpen} setCurrentUser={setCurrentUser} />
-        <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        <NavBar setModalOpen={setModalOpen} />
+        <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setApplicationUser = {setApplicationUser} />
         <Routes>
           <Route path='/open-requests' element= {<Protected><OpenRequestPage date = {date} setDate = {setDate} /></Protected>}/>
-          <Route path='/user-dashboard' element={ <Protected><UserDashboard date = {date} setDate = {setDate} currentUser = {currentUser} /></Protected> }/>
+          <Route path='/user-dashboard' element={ <Protected><UserDashboard date = {date} setDate = {setDate} currentUser = {applicationUser} /></Protected> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
-          <Route path="/sign-up" element={<SignUpPage/>} />
-          <Route path="/user/:id/settings" element={<Protected><ProfileInfo/></Protected>}/>
+          <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
+          <Route path="/user/settings" element={<Settings applicationUser = {applicationUser}/>}/>
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate = {setDate} date = {date}/></Protected>} />
         </Routes>
       </Router>
