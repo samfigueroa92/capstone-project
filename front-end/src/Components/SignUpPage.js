@@ -18,11 +18,10 @@ import Container from "react-bootstrap/Container";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
-
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require('usa-states').UsaStates;
 
-const SignUpPage = () => {
+const SignUpPage = ({setApplicationUser}) => {
   const [authErrors, setAuthErrors] = useState([]);
   const usStates = new UsaStates();
   
@@ -54,6 +53,7 @@ const SignUpPage = () => {
         .then(res => {
           if(res.data.payload.uuid){
             setAuthErrors([]);
+            setApplicationUser(res.data.payload);
             navigate("/user-dashboard");
           }else{
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
