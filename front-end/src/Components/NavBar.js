@@ -14,10 +14,8 @@ import "./NavBar.css";
 import logo from "../images/logoGS.png";
 import Button from "react-bootstrap/Button";
 
-const NavBar = ({ setModalOpen, setCurrentUser }) => {
+const NavBar = ({ setModalOpen }) => {
   const user = useContext(UserContext);
-  setCurrentUser(user)
-
   const [click, setClick] = useState(false);
 
   // methods 
