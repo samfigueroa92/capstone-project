@@ -10,6 +10,8 @@
     grid-template-columns: repeat(4,1fr);
 }
 .main-page h3 {
+    margin: 0px;
+    margin-top: -25px;
     margin-left: 10px;
    
 }

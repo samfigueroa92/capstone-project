@@ -22,19 +22,19 @@ import "./App.css";
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // const [value,setvalue] = (new Date())
-
   const [date , setDate] = useState('')
-  console.log(date)
+  const [currentUser, setCurrentUser] = useState('')
+  console.log(currentUser)
   
   return (
     <div className="App">
       <UserProvider>
       <Router>
-        <NavBar setModalOpen={setModalOpen} />
+        <NavBar setModalOpen={setModalOpen} setCurrentUser={setCurrentUser} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
           <Route path='/open-requests' element= {<Protected><OpenRequestPage date = {date} setDate = {setDate} /></Protected>}/>
-          <Route path='/user-dashboard' element={ <Protected><UserDashboard date = {date} setDate = {setDate} /></Protected> }/>
+          <Route path='/user-dashboard' element={ <Protected><UserDashboard date = {date} setDate = {setDate} currentUser = {currentUser} /></Protected> }/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
