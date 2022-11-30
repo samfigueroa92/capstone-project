@@ -16,6 +16,7 @@ const OpenRequestPage = ({date, setDate}) => {
   setDate('')
   const [requests, setRequests] = useState([]);
 
+
   useEffect(() => {
     axios
       .get(`${API}/requests`)

@@ -22,9 +22,8 @@ import "./App.css";
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // const [value,setvalue] = (new Date())
-
   const [date , setDate] = useState('')
-  console.log(date)
+  // console.log(date)
   
   return (
     <div className="App">

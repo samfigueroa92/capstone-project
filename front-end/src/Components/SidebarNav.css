@@ -17,3 +17,10 @@
     padding-right: 30px;
     color:black
 }
+.calendar-view{
+    width: 20px;
+}
+.react-calendar{
+    width: 300px;
+    margin: 0px 10px;
+}
