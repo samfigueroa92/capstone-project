@@ -14,6 +14,7 @@ import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
 import RequestDetails from "./Components/RequestDetails";
 import Settings from "./Components/Settings";
+import NewRequestForm from "./Components/NewRequestForm";
 import Protected from "./Components/Protected";
 
 //CSS
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
           <Route path="/user/settings" element={<Settings applicationUser = {applicationUser}/>}/>
+          <Route path="/requests/new" element={<NewRequestForm />} />
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate = {setDate} date = {date}/></Protected>} />
         </Routes>
       </Router>

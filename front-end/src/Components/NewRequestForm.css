@@ -1,0 +1,26 @@
+.request-form {
+        /* margin-top: 30px; */
+        padding-top: 30px;
+        border: 1px solid black;
+        border-radius: 25px;
+        margin: 0px 100px 30px 100px;
+        padding: 10px;
+}
+
+.form-button Button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 25px 50px 25px 50px;
+    border-radius: 50px;
+    letter-spacing: .2em;
+}
+
+.form-button Button:hover{
+    background-color: #B8DEDC;
+}
+
+.form-button{
+    text-align: end;
+}
