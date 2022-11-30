@@ -6,23 +6,23 @@ INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "c
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type", "state") VALUES
 ('14d3ba1b-b313-409e-ad4b-3a7e205d2a89', 'Test','Volunteer','1990-01-01','123 EVEN FAKER STREET', 'Apt 42', 'New York', '10108', '5555555554','fakevolunteer@gmail.com', 'testPhoto', 'Volunteer', 'NY') RETURNING *;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','14d3ba1b-b313-409e-ad4b-3a7e205d2a89','2022-12-20', 'I need help with a few things around the house right before Christmas', 'Bronx', '12pm-3pm', 'FALSE','FALSE') RETURNING *;
+INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','14d3ba1b-b313-409e-ad4b-3a7e205d2a89','2022-12-20', 'General Help', 'I need help with a few things around the house right before Christmas', 'Bronx', '12pm-3pm', 'FALSE','FALSE') RETURNING *;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47', '', '2022-12-20', 'Looking for some assistance is putting together an artificial Christmas tree','Brooklyn','12pm-5pm', 'FALSE','FALSE') RETURNING *;
+INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47', 'l5WHcZxrujV5tAGs6g3jKEfMK472', '2022-12-20', 'Christmas Tree Help', 'Looking for some assistance is putting together an artificial Christmas tree','Brooklyn','12pm-5pm', 'FALSE','FALSE') RETURNING *;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-06','I got a new dresser from Ikea, and I hate putting these things together. It would be nice to have someone give me a hand with this.','Manhattan','10am-7pm','FALSE','FALSE') RETURNING *;
+INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','2022-12-06', 'I HATE IKEA', 'I got a new dresser from Ikea, and I hate putting these things together. It would be nice to have someone give me a hand with this.','Manhattan','10am-7pm','TRUE','FALSE') RETURNING *;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-10','A light in my closet blew, and I am unable to reach it. Looking for someone that could handle this small thing for me.','Bronx','10am','FALSE','FALSE') RETURNING *;
+INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47', '2022-12-10','Dead Closet Light', 'A light in my closet blew, and I am unable to reach it. Looking for someone that could handle this small thing for me.','Bronx','10am','FALSE','FALSE') RETURNING *;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2022-12-01','I need a few grocery items, but am currently recovering from knee surgery for a few more days. If someone would be kind enough to run this errand for me, I would be extremely grateful.','Queens','4pm','FALSE','FALSE') RETURNING *;
+INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','l5WHcZxrujV5tAGs6g3jKEfMK472','2022-12-01','Grocery Assistance','I need a few grocery items, but am currently recovering from knee surgery for a few more days. If someone would be kind enough to run this errand for me, I would be extremely grateful.','Queens','4pm','FALSE','FALSE') RETURNING *;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "description", "location", "time", "assigned", "complete") VALUES
-('14d3ba1b-b313-409e-ad4b-3a7e205d2a47','','2023-01-04','Looking for a little help removing some Christmas decorations','Manhattan','7am','FALSE','FALSE') RETURNING *;
+INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+('14d3ba1b-b313-409e-ad4b-3a7e205d2a47', '2023-01-04','Holiday Cleanup','Looking for a little help removing some Christmas decorations','Manhattan','7am','FALSE','FALSE') RETURNING *;
 
 INSERT INTO ratings ("rating","request_id","rating_user_id","rated_user_id") VALUES
 ('5','1','14d3ba1b-b313-409e-ad4b-3a7e205d2a89','14d3ba1b-b313-409e-ad4b-3a7e205d2a47') RETURNING *;

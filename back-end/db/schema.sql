@@ -25,7 +25,7 @@ CREATE TABLE users (
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
     elder_id TEXT references users(uuid),
-    volunteer_id TEXT references users(uuid),
+    volunteer_id TEXT references users(uuid) DEFAULT NULL,
     req_date TEXT NOT NULL,
     title TEXT,
     description TEXT NOT NULL,
