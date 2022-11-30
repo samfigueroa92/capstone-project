@@ -1,9 +1,8 @@
 .request-form {
-        /* margin-top: 30px; */
         padding-top: 30px;
         border: 1px solid black;
         border-radius: 25px;
-        margin: 0px 100px 30px 100px;
+        margin: 40px 150px 30px 150px;
         padding: 10px;
 }
 
@@ -12,7 +11,7 @@
     color: white;
     border: none;
     font-weight: bold;
-    padding: 25px 50px 25px 50px;
+    padding: 20px 40px 20px 40px;
     border-radius: 50px;
     letter-spacing: .2em;
 }

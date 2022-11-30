@@ -48,6 +48,7 @@ const NewRequestForm = () => {
 }
 
   return (
+    <div className="new-req">
     <div className="request-form">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
@@ -110,6 +111,7 @@ const NewRequestForm = () => {
               <Button type="submit">Submit</Button>
             </div>
       </Form>
+    </div>
     </div>
   );
 };
