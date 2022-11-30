@@ -1,13 +1,32 @@
 .signup-text{
-    text-align: center;
     margin: 15px;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.instructions .p1{
+    text-align: center;
+}
+.instructions .p2{
+    text-align: center;
+}
+.instructions .p3{
+    text-align: center;
+}
+
+.instructions{
+    text-align: left;
+    width: 75%;
+    margin-top: 5px;
 }
 
 .form{
     border: 1px solid black;
     border-radius: 25px;
-    margin: 0px 100px;
+    margin: 0px 100px 30px 100px;
     padding: 10px;
 }
 
@@ -27,5 +46,4 @@
 
 .form-button{
     text-align: end;
-    margin-right: 150px;
 }

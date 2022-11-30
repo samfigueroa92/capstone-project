@@ -14,7 +14,7 @@ import UserDashboard from "./Components/UserDashboard";
 import OpenRequestPage from "./Components/OpenRequestPage";
 import RequestDetails from "./Components/RequestDetails";
 import ProfileInfo from "./Components/ProfileInfo";
-
+import Protected from "./Components/Protected";
 
 //CSS
 import "./App.css";
@@ -33,15 +33,15 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         <Routes>
-          <Route path='/open-requests' element= {<OpenRequestPage date = {date} setDate = {setDate}/>}/>
-          <Route path='/user-dashboard' element={ <UserDashboard date = {date} setDate = {setDate}/> }/>
+          <Route path='/open-requests' element= {<Protected><OpenRequestPage date = {date} setDate = {setDate} /></Protected>}/>
+          <Route path='/user-dashboard' element={ <Protected><UserDashboard date = {date} setDate = {setDate} /></Protected> }/>
           <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/" element={ <Home /> } />
+          <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
           <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
           <Route path="/sign-up" element={<SignUpPage/>} />
-          <Route path="/user/:id/settings" element={<ProfileInfo/>}/>
-          <Route path="/requests/:id" element={<RequestDetails setDate = {setDate} date = {date}/>} />
+          <Route path="/user/:id/settings" element={<Protected><ProfileInfo/></Protected>}/>
+          <Route path="/requests/:id" element={<Protected><RequestDetails setDate = {setDate} date = {date}/></Protected>} />
         </Routes>
       </Router>
       </UserProvider>
