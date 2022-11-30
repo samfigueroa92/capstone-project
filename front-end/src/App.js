@@ -24,7 +24,7 @@ const App = () => {
   // const [value,setvalue] = (new Date())
   const [date , setDate] = useState('')
   const [currentUser, setCurrentUser] = useState('')
-  // console.log(currentUser)
+  console.log(currentUser)
   
   return (
     <div className="App">
