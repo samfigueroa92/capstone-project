@@ -41,9 +41,14 @@ const NavBar = ({ setModalOpen }) => {
             Seniors
           </Link>
         </li>
+        <li className="nav-item" onClick={closeMobileMenu}>
+          <button onClick={() => setModalOpen(true)} className="nav-links-mobile" >
+            Login
+          </button>
+        </li>
       </ul>
 
-      <Button onClick={() => setModalOpen(true)}>
+      <Button  className="batt1" onClick={() => setModalOpen(true)}>
         <i id="avatar" className="fa-solid fa-user"></i>Login
       </Button>
     </div>
