@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
-
 //Component Import
 import SidebarNav from "./SidebarNav";
 import RequestCard from "./RequestCard";
@@ -9,26 +7,16 @@ import RequestCard from "./RequestCard";
 //CSS Imports
 import "./OpenRequestPage.css";
 
-//API
-const API = process.env.REACT_APP_BACKEND_API_KEY;
+const OpenRequestPage = ({date, setDate, requests}) => {
+  const [value, setValue] = useState('');
 
-const OpenRequestPage = ({date, setDate}) => {
-  const [requests, setRequests] = useState([]);
-  const [value, setValue] = useState('')
     useEffect(()=>{
             if(date){
                 setValue((date.getFullYear()+"-"+ (date.getMonth() + 1)+"-"+ date.getDate()))
             }
         },[date])
     
-  useEffect(() => {
-    axios
-      .get(`${API}/requests`)
-      .then((res) => setRequests(res.data))
-      .catch((err) => console.error(err));
-  }, []);
 
-  
   requests.sort((a, b) => a.req_date - b.req_date);
   console.log(date)
 
