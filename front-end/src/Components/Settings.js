@@ -81,7 +81,7 @@ function Settings({ applicationUser }) {
   };
   //"dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type", "state"
   const [editedUser, setEditedUser] = useState({
-    firstname: applicationUser.firstname,
+    firstname: "",
     lastname: "",
     dob: "",
     address: "",
