@@ -21,3 +21,35 @@
 .button:hover{
     background-color:#B8DEDC;
 }
+
+@media (max-width: 991px) {
+    .seniors{
+        margin-bottom: 20px;
+    }
+    .senior-page{
+        margin: 30px 25px;
+        display: grid;
+        grid-template-columns: 4fr 1.5fr;
+        /* margin-bottom: 20% */
+    }
+    .button{
+        background-color: #42999B;
+        color: white;
+        border: none;
+        font-weight: bold;
+        padding: 10px 10px 10px 10px;
+        border-radius: 25px;
+        letter-spacing: 0 em;
+        /* margin-left: 50%; */
+    }
+    
+    .button:hover{
+        background-color:#B8DEDC;
+    }
+    .seniorsImage{
+        margin-top: 160%;
+            width: 50%;
+            height: 40%;
+    }
+
+}
