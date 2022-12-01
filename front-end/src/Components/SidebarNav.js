@@ -32,7 +32,6 @@ const SidebarNav = ({ setDate, currentUser }) => {
             <div className="under-click"></div>
           </Link>
         )}
-
         {/* For a volunteer, this will display a link to the requests that are available to take on. We can replace
             this with... view all currently submitted requests for the user */}
         {currentUser.user_type === "Volunteer" ? (
@@ -41,7 +40,6 @@ const SidebarNav = ({ setDate, currentUser }) => {
             <div className="under-click"></div>
           </Link>
         ) : null}
-
         <Link>
           <p>Achievements</p>
           <div className="under-click"></div>
