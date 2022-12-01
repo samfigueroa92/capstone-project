@@ -37,7 +37,7 @@ const App = () => {
         <Routes>
           <Route path='/open-requests' element= {<Protected><OpenRequestPage date = {date} setDate = {setDate} /></Protected>}/>
           <Route path='/user-dashboard' element={ <Protected><UserDashboard date = {date} setDate = {setDate} currentUser = {applicationUser} /></Protected> }/>
-          <Route path='accepted-requests' element={<Protected><AcceptRequestPage date = {date} setDate ={setDate} applicationUser = {applicationUser}/></Protected>}/>
+          <Route path='/accepted-requests' element={<Protected><AcceptRequestPage date = {date} setDate ={setDate} applicationUser = {applicationUser}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />

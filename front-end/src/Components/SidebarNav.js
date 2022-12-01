@@ -27,7 +27,7 @@ const SidebarNav = ({ setDate, currentUser }) => {
             <div className="under-click"></div>
           </Link>
         ) : (
-          <Link to="/new-request">
+          <Link to="/requests/new">
             <p>Submit a New Request</p>
             <div className="under-click"></div>
           </Link>
