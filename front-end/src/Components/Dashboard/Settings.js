@@ -11,7 +11,7 @@ import Container from "react-bootstrap/Container";
 import "./Settings.css";
 
 //API
-const API = process.env.REACT_APP_API_URL;
+const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
@@ -137,10 +137,7 @@ function Settings({ applicationUser }) {
 
             <Form.Group className="mb-3">
               <Form.Label>State</Form.Label>
-              <Form.Select
-                value={editedUser.state}
-                onChange={handleTextChange}
-              >
+              <Form.Select value={editedUser.state} onChange={handleTextChange}>
                 <option>--Select State--</option>
                 {usStates.states.map((state) => (
                   <option key={state.name}>{state.abbreviation}</option>
