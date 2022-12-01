@@ -9,7 +9,7 @@ import "./RequestDetails.css";
 //Components
 import SidebarNav from "./SidebarNav";
 
-const RequestDetails = ({ setDate, date }) => {
+const RequestDetails = ({ setDate, date, applicationUser }) => {
   setDate("");
   const [user, setUser] = useState([]);
   let { id } = useParams();
@@ -27,7 +27,7 @@ const RequestDetails = ({ setDate, date }) => {
   return (
     <div className="details">
       <div className="sidebar-Nav">
-        <SidebarNav setDate={setDate} date={date} />
+        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
       </div>
       <div className="cards">
         <h1>REQUESTS DETAILS</h1>
