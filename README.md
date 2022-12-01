@@ -1,4 +1,4 @@
-![logo](front-end/src/images/logoGS.png) 
+![logo](front-end/public/images/logoGS.png)
 
 ## Table of Contents
 

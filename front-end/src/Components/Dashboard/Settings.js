@@ -1,87 +1,28 @@
+//Dependencies
+import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+//Bootstrap
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import "./Settings.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import App from "../App";
 
+//CSS
+import "./Settings.css";
+
+//API
 const API = process.env.REACT_APP_API_URL;
 
-//Component Imports
-
-//CSS Imports
-
-//Cannot be edited: Name, Date of Birth, Email
-//Should not be visible: SSN, Verification Type
-
-//Everything else should be visible and a button to Edit info
+//STATES PACKAGE --> https://www.npmjs.com/package/usa-states
+const UsaStates = require('usa-states').UsaStates;
 
 function Settings({ applicationUser }) {
-  console.log(applicationUser);
 
   let navigate = useNavigate();
+  const usStates = new UsaStates();
 
-  const states = {
-    Alabama: "AL",
-    Alaska: "AK",
-    Arizona: "AZ",
-    Arkansas: "AR",
-    California: "CA",
-    "Canal Zone": "CZ",
-    Colorado: "CO",
-    Connecticut: "CT",
-    Delaware: "DE",
-    "District of Columbia": "DC",
-    Florida: "FL",
-    Georgia: "GA",
-    Guam: "GU",
-    Hawaii: "HI",
-    Idaho: "ID",
-    Illinois: "IL",
-    Indiana: "IN",
-    Iowa: "IA",
-    Kansas: "KS",
-    Kentucky: "KY",
-    Louisiana: "LA",
-    Maine: "ME",
-    Maryland: "MD",
-    Massachusetts: "MA",
-    Michigan: "MI",
-    Minnesota: "MN",
-    Mississippi: "MS",
-    Missouri: "MO",
-    Montana: "MT",
-    Nebraska: "NE",
-    Nevada: "NV",
-    "New Hampshire": "NH",
-    "New Jersey": "NJ",
-    "New Mexico": "NM",
-    "New York": "NY",
-    "North Carolina": "NC",
-    "North Dakota": "ND",
-    Ohio: "OH",
-    Oklahoma: "OK",
-    Oregon: "OR",
-    Pennsylvania: "PA",
-    "Puerto Rico": "PR",
-    "Rhode Island": "RI",
-    "South Carolina": "SC",
-    "South Dakota": "SD",
-    Tennessee: "TN",
-    Texas: "TX",
-    Utah: "UT",
-    Vermont: "VT",
-    "Virgin Islands": "VI",
-    Virginia: "VA",
-    Washington: "WA",
-    "West Virginia": "WV",
-    Wisconsin: "WI",
-    Wyoming: "WY",
-  };
-  //"dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type", "state"
   const [editedUser, setEditedUser] = useState({
-    firstname: applicationUser.firstname,
+    firstname: "",
     lastname: "",
     dob: "",
     address: "",
@@ -95,7 +36,7 @@ function Settings({ applicationUser }) {
     state: "",
   });
 
-  //axios needs to be work on base on login model
+  
   const updateUser = (updatedUser) => {
     axios
       .put(`${API}/users`, updatedUser)
@@ -112,13 +53,6 @@ function Settings({ applicationUser }) {
     setEditedUser({ ...editedUser, [event.target.id]: event.target.value });
   };
 
-  // useEffect(() => {
-  //   axios.get(`${API}/users/${applicationUser.uuid}`)
-  //     .then(response => setEditedUser(response.data))//probably be change to response.data.payload
-  //     .catch((error) => console.log("not found")
-  //     );
-  //   }, [navigate]);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     updateUser(editedUser, applicationUser.uuid);
@@ -130,7 +64,11 @@ function Settings({ applicationUser }) {
         <h3>General Information</h3>
         <div className="form-profile">
           <Form onSubmit={handleSubmit}>
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 disabled
@@ -141,7 +79,11 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 disabled
@@ -152,7 +94,11 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>Date of Birth</Form.Label>
               <Form.Control
                 disabled
@@ -175,7 +121,11 @@ function Settings({ applicationUser }) {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>Address</Form.Label>
               <Form.Control
                 id="address"
@@ -195,20 +145,26 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>State</Form.Label>
               <Form.Select
                 value={applicationUser.state}
                 onChange={handleTextChange}
               >
                 <option>--Select State--</option>
-                {Object.values(states).map((state) => (
-                  <option>{state}</option>
-                ))}
+                {usStates.states.map(state => <option key={state.name}>{state.abbreviation}</option>)}
               </Form.Select>
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>Zip Code</Form.Label>
               <Form.Control
                 id="zipcode"
@@ -218,7 +174,11 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 id="phonenumber"
@@ -228,7 +188,11 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
+<<<<<<< HEAD:front-end/src/Components/Settings.js
             <Form.Group className="mb-3">
+=======
+            <Form.Group className="mb-3" >
+>>>>>>> e60ce9e99993ca686edae3dde5168a01c40ead8f:front-end/src/Components/Dashboard/Settings.js
               <Form.Label>Upload New Photo</Form.Label>
               <Form.Control
                 id="profilephoto"

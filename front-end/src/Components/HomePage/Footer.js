@@ -1,13 +1,12 @@
 //CSS Imports
 import './Footer.css';
-import logo from "../images/logoGS.png";
 
 const Footer = () => {
     return (
         <div className="footer">
             <div className = 'brand-culture'>
             <div className="brand-box">
-            <img  className='brand'src={logo} alt="GoldenSolutions Logo" width="300"/>
+            <img  className='brand'src="/images/logoGS.png" alt="GoldenSolutions Logo" width="300"/>
             </div>
             <div className="quote">
                 <p><em>"All the beautiful sentiments in the world weigh less than a single lovely action."</em> - James Russell Lowell</p>

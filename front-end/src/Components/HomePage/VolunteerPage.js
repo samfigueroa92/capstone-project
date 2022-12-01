@@ -1,3 +1,4 @@
+//Dependencies
 import { useNavigate } from "react-router-dom";
 
 //Component Imports
@@ -9,7 +10,7 @@ import "./VolunteerPage.css";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const VolunteerPage = ({setModalOpen}) => {
+const VolunteerPage = () => {
   const navigate = useNavigate()
 
   return (
