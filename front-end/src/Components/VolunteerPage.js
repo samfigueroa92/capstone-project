@@ -26,7 +26,7 @@ const VolunteerPage = ({setModalOpen}) => {
       <div>
         <h5>How do I apply?</h5>
         <p>
-         As an organization we take our clients and our volunteers safety seriously. To become a volunteer just click the signup button below. Once you have completed the sign-up form and you will be notified via email for some additional information. Once a background check has been completed your account will be verified and you can begin accepting requests to help seniors near you.
+         As an organization we take our clients and our volunteers safety seriously. To become a volunteer just click the signup button below. Once you have completed the sign-up form you will be notified via email for some additional information. Once a background check has been completed your account will be verified and you can begin accepting requests to help seniors near you.
         </p>
       </div>
       <div>
