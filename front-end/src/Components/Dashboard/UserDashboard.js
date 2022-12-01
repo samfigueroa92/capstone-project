@@ -9,7 +9,7 @@ import "./UserDashboard.css";
 
 // Function to query the database with the users uid, and return their posted / assigned requests
 
-const UserDashboard = ({date, setDate, applicationUser, requests, stringCurrentDate}) => {
+const UserDashboard = ({date, setDate, applicationUser, requests, stringCurrentDate, users}) => {
 
     return (
         <div className='user-dashboard'>
@@ -22,7 +22,7 @@ const UserDashboard = ({date, setDate, applicationUser, requests, stringCurrentD
             </div>
             <div>
                {applicationUser.user_type === "Volunteer" ? <OpenRequests date={date} requests={requests} stringCurrentDate = {stringCurrentDate}/> :
-               <MyFavorites/>
+               <MyFavorites users={users}/>
                }
             </div>
             </div>

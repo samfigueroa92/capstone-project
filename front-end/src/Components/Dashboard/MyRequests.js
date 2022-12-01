@@ -32,6 +32,7 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
       <div className="my-list">
         { (currentDate === value) ? 
         requests.map((request) =>
+          applicationUser.city === request.location &&
           request.assigned &&
           request.req_date >= value &&
           applicationUser.uid === request.volunteer_id ? (
@@ -39,6 +40,7 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
           ) : null
         ):
         requests.map((request) =>
+        applicationUser.city === request.location &&
         request.assigned &&
         request.req_date >= value &&
         applicationUser.uid === request.volunteer_id ? (

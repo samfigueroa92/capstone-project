@@ -33,15 +33,17 @@ const OpenRequestPage = ({
     }
   }, [date]);
 
-  console.log(date);
+  console.log(applicationUser, applicationUser.city);
 
   // Location Needs to be changed per UseState of UsersProfile location
   const neighborhood = requests.map((request) =>
+    applicationUser.city.toLowerCase() === request.location.toLowerCase() &&
     !request.assigned && request.req_date >= value ? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );
   const currentNeighborhood = requests.map((request) =>
+    applicationUser.city === request.location &&
     !request.assigned && request.req_date === value ? (
       <RequestCard key={request.id} request={request} />
     ) : null

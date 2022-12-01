@@ -31,6 +31,7 @@ const App = () => {
   const [stringCurrentDate, setStringCurrentDate] = useState(new Date())
   const [date, setDate] = useState("");
   const [requests, setRequests] = useState([]);
+  const [users,setUsers] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
     uuid:"",
     firstname: "",
@@ -49,16 +50,22 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-
   useEffect(() => {
     axios
       .get(`${API}/requests`)
       .then((res) => setRequests(res.data))
       .catch((err) => console.error(err));
   }, [requests]);
+  useEffect(() => {
+    axios
+      .get(`${API}/users`)
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.error(err));
+  }, [users]);
+
 
   requests.sort((a, b) => a.req_date - b.req_date);
-
+  users.sort((a,b)=> a.lastname - b.lastname)
   return (
     <div className="App">
       <UserProvider>
@@ -67,7 +74,7 @@ const App = () => {
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setApplicationUser={setApplicationUser} />
         <Routes>
           <Route path='/open-requests' element= {<Protected><OpenRequestPage date={date} setDate={setDate} requests={requests} applicationUser={applicationUser} stringCurrentDate={stringCurrentDate}/></Protected>}/>
-          <Route path='/user-dashboard' element={ <Protected><UserDashboard date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} stringCurrentDate={stringCurrentDate} /></Protected> }/>
+          <Route path='/user-dashboard' element={ <Protected><UserDashboard users={users} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} stringCurrentDate={stringCurrentDate} /></Protected> }/>
           <Route path='accepted-requests' element={<Protected><AcceptRequestPage stringCurrentDate={stringCurrentDate} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={<Home />} />
