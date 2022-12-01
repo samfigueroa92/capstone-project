@@ -243,7 +243,7 @@ const SignUpPage = ({setApplicationUser}) => {
                   <option>--Select Option--</option>
                   <option>State ID</option>
                   <option>Passport</option>
-                  <option>Drivers Liscense</option>
+                  <option>Driver's License</option>
                 </Form.Select>
               </Form.Group>
 
