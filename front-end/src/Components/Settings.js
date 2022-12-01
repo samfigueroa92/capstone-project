@@ -130,7 +130,7 @@ function Settings({ applicationUser }) {
         <h3>General Information</h3>
         <div className="form-profile">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicFirstName">
+            <Form.Group className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 disabled
@@ -141,7 +141,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicLastName">
+            <Form.Group className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 disabled
@@ -152,7 +152,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicDOB">
+            <Form.Group className="mb-3">
               <Form.Label>Date of Birth</Form.Label>
               <Form.Control
                 disabled
@@ -163,7 +163,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
               <Form.Label>Email</Form.Label>
               <Form.Control
                 disabled
@@ -175,7 +175,7 @@ function Settings({ applicationUser }) {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicAddressLine1">
+            <Form.Group className="mb-3">
               <Form.Label>Address</Form.Label>
               <Form.Control
                 id="address"
@@ -185,7 +185,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicCity">
+            <Form.Group className="mb-3" >
               <Form.Label>City</Form.Label>
               <Form.Control
                 id="city"
@@ -195,7 +195,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicState">
+            <Form.Group className="mb-3">
               <Form.Label>State</Form.Label>
               <Form.Select
                 value={applicationUser.state}
@@ -208,7 +208,7 @@ function Settings({ applicationUser }) {
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicZip">
+            <Form.Group className="mb-3">
               <Form.Label>Zip Code</Form.Label>
               <Form.Control
                 id="zipcode"
@@ -218,7 +218,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPhone">
+            <Form.Group className="mb-3">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 id="phonenumber"
@@ -228,7 +228,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPhoto">
+            <Form.Group className="mb-3">
               <Form.Label>Upload New Photo</Form.Label>
               <Form.Control
                 id="profilephoto"
