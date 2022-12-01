@@ -52,7 +52,18 @@ const SidebarNav = ({ setDate, currentUser }) => {
           <div className="under-click"></div>
         </Link>
       </div>
-      <>
+
+      <div className="calender-view">
+        <CalendarView setDate={setDate} />
+      </div>
+    </div>
+  );
+};
+
+export default SidebarNav;
+
+{
+  /* <>
         <Link to="/user-dashboard">
           <p>Senior Dashboard</p>
         </Link>
@@ -63,12 +74,5 @@ const SidebarNav = ({ setDate, currentUser }) => {
         <Link to="/user/settings">
           <p>Settings</p>
         </Link>
-      </>
-      <div className="calender-view">
-        <CalendarView setDate={setDate} />
-      </div>
-    </div>
-  );
-};
-
-export default SidebarNav;
+      </> */
+}
