@@ -1,14 +1,14 @@
+//Dependencies
+import { useNavigate } from "react-router-dom";
+import { signOut } from "../../Services/Firebase";
+import { UserContext } from "../../Providers/UserProviders";
+import { useContext } from "react";
+
+//Bootstrap
 import Container from "react-bootstrap/esm/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
-import { useNavigate } from "react-router-dom";
-import { signOut } from "../Services/Firebase";
-import { UserContext } from "../Providers/UserProviders";
-import { useContext } from "react";
-
-//Component Import
-import logo from "../images/logoGS.png";
 
 //CSS Import
 import "./DashboardNav.css";
@@ -21,7 +21,7 @@ const DashboardNav = () => {
   return (
       <Navbar className="dash-navbar">
         <Navbar.Brand href="/" className="nav-logo">
-          <img src={logo} alt="logo" />
+          <img src="/images/logoGS.png" alt="logo" />
         </Navbar.Brand>
         <Container className="dashboard-nav">
           <Nav className="me-auto.">

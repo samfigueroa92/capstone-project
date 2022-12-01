@@ -1,8 +1,10 @@
+//Dependencies
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./NewRequestForm.css";
 
+//Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -24,8 +26,6 @@ const NewRequestForm = () => {
       )
       .catch((c) => console.warn("catch", c));
   };
-
-
 
   const [request, setRequest] = useState({
     title: "",

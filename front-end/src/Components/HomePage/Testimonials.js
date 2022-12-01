@@ -1,6 +1,3 @@
-
-//Component Imports
-
 //CSS Imports
 import "./Testimonials.css";
 
