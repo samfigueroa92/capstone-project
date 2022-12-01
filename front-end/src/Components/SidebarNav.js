@@ -31,9 +31,8 @@ const SidebarNav = ({ setDate, currentUser }) => {
             <div className="under-click"></div>
           </Link>
         )}
-        {/* For a volunteer, this will display a link to the requests that are available to take on. We can replace
-            this with... view all currently submitted requests for the elder user */}
 
+        {/* This link will go to the same route for both user types, however Kalilah is doing a ternary within the route that will show all requests available to claim if the user is a volunteer, and all the requests currently submitted by the user if they are an elder */}
         <Link to="/open-requests">
           <p>Open Requests</p>
           <div className="under-click"></div>
