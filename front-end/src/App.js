@@ -52,7 +52,7 @@ const App = () => {
     verification_type: "",
   });
 
-  const [team, setTeam] = useState(["samantha","tom","kalilah","adnan","sabrina","gigi","tim","amber"])
+  //const [team, setTeam] = useState(["samantha","tom","kalilah","adnan","sabrina","gigi","tim","amber"])
    useEffect(() => {
     axios
       .get(`${API}/requests`)
@@ -80,7 +80,8 @@ const App = () => {
           <Route path='/user-dashboard' element={ <Protected><UserDashboard users={users} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} stringCurrentDate={stringCurrentDate} /></Protected> }/>
           <Route path='accepted-requests' element={<Protected><AcceptRequestPage stringCurrentDate={stringCurrentDate} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
-          { team.map((staff)=> <Route path={`/our-page/${staff}`} element={<PersonalPage/>}/> )}
+          <Route path="/our-page/:staffMember" element={<PersonalPage/>}/>
+          {/* {team.map((staff)=> <Route path={`/our-page/${staff}`} element={<PersonalPage/>}/> )} */}
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage /> } />
           <Route path="/seniors" element={ <SeniorsPage /> } />
