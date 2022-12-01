@@ -28,6 +28,7 @@ const OpenRequestPage = ({date, setDate}) => {
       .catch((err) => console.error(err));
   }, []);
 
+  
   requests.sort((a, b) => a.req_date - b.req_date);
   console.log(date)
 
