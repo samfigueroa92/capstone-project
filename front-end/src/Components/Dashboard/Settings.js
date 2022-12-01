@@ -1,6 +1,6 @@
 //Dependencies
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 //Bootstrap
@@ -14,29 +14,35 @@ import "./Settings.css";
 const API = process.env.REACT_APP_API_URL;
 
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
-const UsaStates = require('usa-states').UsaStates;
+const UsaStates = require("usa-states").UsaStates;
 
 function Settings({ applicationUser }) {
-
   let navigate = useNavigate();
   const usStates = new UsaStates();
 
   const [editedUser, setEditedUser] = useState({
-    firstname: "",
-    lastname: "",
-    dob: "",
     address: "",
-    unit: "",
     city: "",
-    zipcode: "",
-    phonenumber: "",
+    dob: "",
     email: "",
+    firstname: "",
+    languages: "",
+    lastname: "",
+    phonenumber: "",
     profilephoto: "",
-    user_type: "",
     state: "",
+    unit: "",
+    user_type: "",
+    uuid: "",
+    verification_type: "",
+    verified: "",
+    zipcode: "",
   });
 
-  
+  useEffect(() => {
+    setEditedUser(applicationUser);
+  }, []);
+
   const updateUser = (updatedUser) => {
     axios
       .put(`${API}/users`, updatedUser)
@@ -64,7 +70,7 @@ function Settings({ applicationUser }) {
         <h3>General Information</h3>
         <div className="form-profile">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 disabled
@@ -75,7 +81,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 disabled
@@ -86,7 +92,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Date of Birth</Form.Label>
               <Form.Control
                 disabled
@@ -97,7 +103,7 @@ function Settings({ applicationUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 disabled
@@ -109,62 +115,64 @@ function Settings({ applicationUser }) {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Address</Form.Label>
               <Form.Control
                 id="address"
-                value={applicationUser.address}
+                value={editedUser.address}
                 type="text"
                 onChange={handleTextChange}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>City</Form.Label>
               <Form.Control
                 id="city"
-                value={applicationUser.city}
+                value={editedUser.city}
                 type="text"
                 onChange={handleTextChange}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>State</Form.Label>
               <Form.Select
-                value={applicationUser.state}
+                value={editedUser.state}
                 onChange={handleTextChange}
               >
                 <option>--Select State--</option>
-                {usStates.states.map(state => <option key={state.name}>{state.abbreviation}</option>)}
+                {usStates.states.map((state) => (
+                  <option key={state.name}>{state.abbreviation}</option>
+                ))}
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Zip Code</Form.Label>
               <Form.Control
                 id="zipcode"
-                value={applicationUser.zipcode}
+                value={editedUser.zipcode}
                 type="number"
                 onChange={handleTextChange}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 id="phonenumber"
-                value={applicationUser.phonenumber}
+                value={editedUser.phonenumber}
                 type="tel"
                 onChange={handleTextChange}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
               <Form.Label>Upload New Photo</Form.Label>
               <Form.Control
                 id="profilephoto"
-                value={applicationUser.profilephoto}
+                value={editedUser.profilephoto}
                 type="file"
                 onChange={handleTextChange}
               />
@@ -172,7 +180,7 @@ function Settings({ applicationUser }) {
             </Form.Group>
             <input type="submit" />
           </Form>
-          <Link to={`/users/${applicationUser.uuid}`}>
+          <Link to={`/users/${editedUser.uuid}`}>
             <button>Nevermind!</button>
           </Link>
         </div>
