@@ -18,7 +18,7 @@ const SidebarNav = ({ setDate }) => {
             <p className="header">Volunteer Dashboard</p>
             <div className="under-click"></div>
           </Link>
-          <Link>
+          <Link to ="/accepted-requests">
             <p>Accepted Requests</p>
             <div className="under-click"></div>
           </Link>
