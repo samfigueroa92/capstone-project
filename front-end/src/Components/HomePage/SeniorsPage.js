@@ -1,3 +1,4 @@
+//Dependencies
 import { useNavigate } from "react-router-dom";
 
 //Component Imports
@@ -5,10 +6,11 @@ import Footer from "./Footer";
 
 //CSS Imports
 import "./SeniorsPage.css";
+
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
 
-const SeniorsPage = ({setModalOpen}) => {
+const SeniorsPage = () => {
   const navigate = useNavigate();
 
   return (

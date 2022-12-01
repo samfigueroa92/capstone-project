@@ -1,9 +1,14 @@
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import "./Settings.css";
+//Dependencies
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+//Bootstrap
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+
+//CSS
+import "./Settings.css";
 
 //API
 const API = process.env.REACT_APP_API_URL;

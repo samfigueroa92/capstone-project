@@ -70,8 +70,8 @@ const App = () => {
           <Route path='accepted-requests' element={<Protected><AcceptRequestPage date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/" element={<Home />} />
-          <Route path="/volunteers" element={ <VolunteerPage setModalOpen={setModalOpen}/> } />
-          <Route path="/seniors" element={ <SeniorsPage setModalOpen={setModalOpen} /> } />
+          <Route path="/volunteers" element={ <VolunteerPage /> } />
+          <Route path="/seniors" element={ <SeniorsPage /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
           <Route path="/user/settings" element={<Settings applicationUser={applicationUser}/>}/>
           <Route path="/requests/new" element={<Protected><NewRequestForm /></Protected>} />
