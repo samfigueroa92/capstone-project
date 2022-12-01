@@ -155,6 +155,7 @@
         width: 100%;
     }
     .image3 {
+        display: none;
         grid-area: p4;
         width: 100%;
     }

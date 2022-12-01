@@ -1,0 +1,25 @@
+.request-form {
+        padding-top: 30px;
+        border: 1px solid black;
+        border-radius: 25px;
+        margin: 40px 150px 30px 150px;
+        padding: 10px;
+}
+
+.form-button Button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 20px 40px 20px 40px;
+    border-radius: 50px;
+    letter-spacing: .2em;
+}
+
+.form-button Button:hover{
+    background-color: #B8DEDC;
+}
+
+.form-button{
+    text-align: end;
+}
