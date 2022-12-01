@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import "./OurTeam.css";
 
 const OurTeam = () => {
+  const [team, setTeam] = useState(['samantha','tom','kalilah', 'adnan', 'sabrina', 'gigi', 'tim', 'amber'])
   const [learnMore, setLearnMore] = useState({
     sam: false,
     tom: false,
@@ -120,7 +121,7 @@ const OurTeam = () => {
         </div>
        
         <div className= 'team'>
-        <a href="https://www.gigiscarborough.com">
+        <a href={`/our-page/${team[0]}`}>
           <img
             className="our-team-img"
             src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
@@ -144,7 +145,7 @@ const OurTeam = () => {
           {handleLearnMore('tim')}
         </div>
         <div className= 'team'>
-        <a href="">
+        <a href="https://www.linkedin.com/in/positivelyamber/">
           <img
             className="our-team-img"
             src="https://ca.slack-edge.com/TCVA3PF24-U04CMRUKB6U-8ad816fd1907-512"

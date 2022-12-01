@@ -22,6 +22,7 @@ import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 
 //CSS
 import "./App.css";
+import PersonalPage from "./Components/HomePage/PersonalPage";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -50,7 +51,9 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-  useEffect(() => {
+
+  const [team, setTeam] = useState(["samantha","tom","kalilah","adnan","sabrina","gigi","tim","amber"])
+   useEffect(() => {
     axios
       .get(`${API}/requests`)
       .then((res) => setRequests(res.data))
@@ -77,6 +80,7 @@ const App = () => {
           <Route path='/user-dashboard' element={ <Protected><UserDashboard users={users} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} stringCurrentDate={stringCurrentDate} /></Protected> }/>
           <Route path='accepted-requests' element={<Protected><AcceptRequestPage stringCurrentDate={stringCurrentDate} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
+          { team.map((staff)=> <Route path={`/our-page/${staff}`} element={<PersonalPage/>}/> )}
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage /> } />
           <Route path="/seniors" element={ <SeniorsPage /> } />
