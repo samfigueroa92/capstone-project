@@ -13,7 +13,7 @@ const UserDashboard = ({date, setDate, applicationUser, requests}) => {
     return (
         <div className='user-dashboard'>
             <div className="sidebar-nav">
-            <SidebarNav setDate = {setDate}/>
+            <SidebarNav setDate = {setDate} currentUser={currentUser}/>
             </div>
             <div className="requests">
             <div>
