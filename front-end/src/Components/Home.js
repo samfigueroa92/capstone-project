@@ -62,7 +62,7 @@ const Home = () => {
               alt="support-icon"
             />
             <h4>Support</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Everyone needs a little help sometimes!</p>
           </section>
           <section className="community">
             <img
@@ -70,7 +70,7 @@ const Home = () => {
               alt="community-icon"
             />
             <h4>Community</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Get to know new people or help old friends!</p>
           </section>
           <section className="safety">
             <img
@@ -78,7 +78,7 @@ const Home = () => {
               alt="safety-icon"
             />
             <h4>Safety Guaranteed</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>All users are checked and verified!</p>
           </section>
         </div>
         <div className="bottom-banner">
