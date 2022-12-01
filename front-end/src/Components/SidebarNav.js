@@ -18,7 +18,6 @@ const SidebarNav = ({ setDate, currentUser }) => {
           <p className="header">User Dashboard</p>
           <div className="under-click"></div>
         </Link>
-
         {/* For a volunteer, this will display a link to their accepted request. For an elder, this will be a link to post a new request */}
         {currentUser.user_type === "Volunteer" ? (
           <Link to="/accepted-requests">
@@ -31,24 +30,20 @@ const SidebarNav = ({ setDate, currentUser }) => {
             <div className="under-click"></div>
           </Link>
         )}
-
         {/* This link will go to the same route for both user types, however Kalilah is doing a ternary within the route that will show all requests available to claim if the user is a volunteer, and all the requests currently submitted by the user if they are an elder */}
         <Link to="/open-requests">
           <p>Open Requests</p>
           <div className="under-click"></div>
         </Link>
-
         <Link>
           <p>Achievements</p>
           <div className="under-click"></div>
         </Link>
-
         <Link to="/user/settings">
           <p>Settings</p>
           <div className="under-click"></div>
         </Link>
       </div>
-
       <div className="calender-view">
         <CalendarView setDate={setDate} />
       </div>
@@ -57,18 +52,3 @@ const SidebarNav = ({ setDate, currentUser }) => {
 };
 
 export default SidebarNav;
-
-{
-  /* <>
-        <Link to="/user-dashboard">
-          <p>Senior Dashboard</p>
-        </Link>
-
-        <p>My Requests</p>
-        <p>Volunteers</p>
-        <p>Submit A Request</p>
-        <Link to="/user/settings">
-          <p>Settings</p>
-        </Link>
-      </> */
-}
