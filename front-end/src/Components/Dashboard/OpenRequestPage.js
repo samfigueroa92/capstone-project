@@ -8,7 +8,7 @@ import RequestCard from "./RequestCard";
 //CSS Imports
 import "./OpenRequestPage.css";
 
-const OpenRequestPage = ({ date, setDate, requests }) => {
+const OpenRequestPage = ({ date, setDate, requests, applicationUser }) => {
   const [value, setValue] = useState("");
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const OpenRequestPage = ({ date, setDate, requests }) => {
 
   return (
     <div className="user-dashboard">
-      <SidebarNav setDate={setDate} />
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
       <div className="main-page">
         <h3>Open Request</h3>
         <div className="open-request-page">{neighborhood}</div>

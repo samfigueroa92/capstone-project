@@ -20,7 +20,7 @@ const AcceptRequestPage = ({ date, setDate, applicationUser, requests }) => {
 
   return (
     <div className="user-dashboard">
-      <SidebarNav setDate={setDate} />
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
       <div className="main-page">
         <h3 className="accepted-request">Accepted Request</h3>
         <div className="Accepted">

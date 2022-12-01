@@ -65,7 +65,7 @@ const App = () => {
         <NavBar setModalOpen={setModalOpen} />
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setApplicationUser={setApplicationUser} />
         <Routes>
-          <Route path='/open-requests' element= {<Protected><OpenRequestPage date={date} setDate={setDate} requests={requests} /></Protected>}/>
+          <Route path='/open-requests' element= {<Protected><OpenRequestPage date={date} setDate={setDate} requests={requests} applicationUser={applicationUser} /></Protected>}/>
           <Route path='/user-dashboard' element={ <Protected><UserDashboard date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} /></Protected> }/>
           <Route path='accepted-requests' element={<Protected><AcceptRequestPage date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
@@ -75,7 +75,7 @@ const App = () => {
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
           <Route path="/user/settings" element={<Settings applicationUser={applicationUser}/>}/>
           <Route path="/requests/new" element={<Protected><NewRequestForm /></Protected>} />
-          <Route path="/requests/:id" element={<Protected><RequestDetails setDate={setDate} date={date}/></Protected>} />
+          <Route path="/requests/:id" element={<Protected><RequestDetails setDate={setDate} date={date} applicationUser={applicationUser}/></Protected>} />
         </Routes>
       </Router>
       </UserProvider>
