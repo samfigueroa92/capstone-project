@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DashboardNav from "./DashboardNav";
-import { UserContext } from "../Providers/UserProviders";
+import { UserContext } from "../../Providers/UserProviders";
 import { useContext } from "react";
 
 //CSS Imports
 import "./NavBar.css";
-import logo from "../images/logoGS.png";
 import Button from "react-bootstrap/Button";
 
 const NavBar = ({ setModalOpen }) => {
@@ -22,7 +21,7 @@ const NavBar = ({ setModalOpen }) => {
   ) : (
     <div className="Navbar">
       <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
-        <img src={logo} alt="logo" />
+        <img src="/images/logoGS.png" alt="logo" />
       </Link>
       <div className="menu-icon" onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
