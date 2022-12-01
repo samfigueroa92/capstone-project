@@ -26,3 +26,13 @@
 .SideBar{
     height: 730px;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  color: #006D77;
+}
+
