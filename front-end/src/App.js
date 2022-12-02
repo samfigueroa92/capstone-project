@@ -86,7 +86,7 @@ const App = () => {
           <Route path="/volunteers" element={ <VolunteerPage /> } />
           <Route path="/seniors" element={ <SeniorsPage /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
-          <Route path="/user/settings" element={<Settings applicationUser={applicationUser}/>}/>
+          <Route path="/user/settings" element={<Settings applicationUser={applicationUser} setDate={setDate}/>}/>
           <Route path="/requests/new" element={<Protected><NewRequestForm /></Protected>} />
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate={setDate} date={date} applicationUser={applicationUser}/></Protected>} />
         </Routes>

@@ -84,6 +84,8 @@ const [email, setEmail] = useState({
     tim: ["javascript","react","html","css","postgres","heroku","github"],
     amber: ["javascript","react","html","css","postgres","heroku","github"]
   })
+  //Java, Spring, OpenAPI, Python, SQL, React/Redux, Agile Methodologies.
+
   const [skillImages, setSkillImages] = useState({
     javascript: "",
     react:"",
@@ -94,7 +96,12 @@ const [email, setEmail] = useState({
     github:"",
     java: "",
     ruby: "",
-
+    spring:"",
+    openAPI:"",
+    python: "",
+    sql:"",
+    redux:"",
+    agilemethodologies:""
   })
 
   return (

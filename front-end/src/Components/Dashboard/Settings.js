@@ -3,6 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+//Component
+import SidebarNav from "./SidebarNav";
+
 //Bootstrap
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
@@ -16,7 +19,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
 
-function Settings({ applicationUser }) {
+function Settings({ applicationUser, setDate }) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
 
@@ -66,10 +69,13 @@ function Settings({ applicationUser }) {
 
   return (
     <div className="profileInfo">
-      <Container>
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <Container className="settings">
         <h3>General Information</h3>
         <div className="form-profile">
+    
           <Form onSubmit={handleSubmit}>
+            <div className="settings-unedited">
             <Form.Group className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -114,69 +120,75 @@ function Settings({ applicationUser }) {
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
+            </div>
+            <div className= "setting-grid">
+              <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  id="address"
+                  value={editedUser.address}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                id="address"
-                value={editedUser.address}
-                type="text"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  id="city"
+                  value={editedUser.city}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                id="city"
-                value={editedUser.city}
-                type="text"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>State</Form.Label>
+                <Form.Select
+                  value={editedUser.state}
+                  onChange={handleTextChange}
+                >
+                  <option>--Select State--</option>
+                  {usStates.states.map((state) => (
+                    <option key={state.name}>{state.abbreviation}</option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>State</Form.Label>
-              <Form.Select value={editedUser.state} onChange={handleTextChange}>
-                <option>--Select State--</option>
-                {usStates.states.map((state) => (
-                  <option key={state.name}>{state.abbreviation}</option>
-                ))}
-              </Form.Select>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Zip Code</Form.Label>
+                <Form.Control
+                  id="zipcode"
+                  value={editedUser.zipcode}
+                  type="number"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Zip Code</Form.Label>
-              <Form.Control
-                id="zipcode"
-                value={editedUser.zipcode}
-                type="number"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control
+                  id="phonenumber"
+                  value={editedUser.phonenumber}
+                  type="tel"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                id="phonenumber"
-                value={editedUser.phonenumber}
-                type="tel"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Upload New Photo</Form.Label>
-              <Form.Control
-                id="profilephoto"
-                value={editedUser.profilephoto}
-                type="file"
-                onChange={handleTextChange}
-              />
-              <Form.Text className="text-muted"></Form.Text>
-            </Form.Group>
-            <input type="submit" />
+              <Form.Group className="mb-3">
+                <Form.Label>Upload New Photo</Form.Label>
+                <Form.Control
+                  id="profilephoto"
+                  value={editedUser.profilephoto}
+                  type="file"
+                  onChange={handleTextChange}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
+              <input type="submit" />
+            </div>
           </Form>
+
           <Link to={`/users/${editedUser.uuid}`}>
             <button>Nevermind!</button>
           </Link>
