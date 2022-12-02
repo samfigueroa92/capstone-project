@@ -1,6 +1,6 @@
 //Dependencies
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 //Components
 import Footer from "./Footer";
@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import "./PersonalPage.css";
 
 const PersonalPage = () => {
+  const navigate = useNavigate()
   const {staffMember} = useParams();
 
   const [ourTeam, setOurTeam] = useState({
@@ -73,6 +74,9 @@ const PersonalPage = () => {
     tim: ["javascript","react","html","css","postgres","heroku","github"],
     amber: ["javascript","react","html","css","postgres","heroku","github"]
   })
+  const [skillImages, setSkillImages] = useState({
+    javascript: ""
+  })
 
   return (
     <div className ='personal'>
@@ -94,16 +98,19 @@ const PersonalPage = () => {
         </div>
       </div>
       <div className="grid">
-      <div className='team-skills'></div>
+      <div className='team-skills'>
+        <h2 className="skills">Skills</h2>
+        <img src = ""/>
+      </div>
       <div className="contact">
         <h2 className="contact-form">Contact Form</h2>
+        <form className="bottom-center">
         <p>Interested in working with me or just want to say hello? Don't hesitate to send a message!</p>
-        <form>
         <label>Your Name:<input className ='email'type='name' align="left"/></label>
         <label>Your Email: <input className ='email'type='email' align="left"/></label>
         <label>Your Message: <textarea name='message' rows="4" cols="50"></textarea></label>
         <br></br>
-        <button className="talktoyousoon">Talk To You Soon ...</button>
+        <button className="talktoyousoon" onClick = {()=>navigate("/our-team")}>Talk To You Soon ...</button>
         </form>
       </div>
       </div>
