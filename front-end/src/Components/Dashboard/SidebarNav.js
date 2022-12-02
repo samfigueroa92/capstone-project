@@ -38,7 +38,7 @@ const SidebarNav = ({ setDate, applicationUser }) => {
           <div className="under-click"></div>
         </Link>
         <Link to="/user/settings">
-          <p>Settings</p>
+          <p>Settings <i class="fa-sharp fa-solid fa-gear"></i></p>
           <div className="under-click"></div>
         </Link>
       </div>

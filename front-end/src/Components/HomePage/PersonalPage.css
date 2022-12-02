@@ -1,0 +1,30 @@
+.personal{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    position:fixed;
+}
+
+.personal-page{
+    background-color: #B8DEDC;
+    height: 750px;
+
+}
+.linked img{
+    width: 120px;
+    margin-top: 50px;
+    justify-content: center;
+    padding: 5px;
+    margin-left: 40px 
+}
+.personal-page .image{
+    width: 350px;
+    margin-top: 110px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 25%
+}
+.staff-name{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 30px;
+}
