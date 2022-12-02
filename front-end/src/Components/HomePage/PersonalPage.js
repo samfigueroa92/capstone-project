@@ -59,9 +59,9 @@ const PersonalPage = () => {
     <div>
       <div>
         <h1>{staffMember}</h1>
-        <h1>{linkedIn[staffMember]}</h1>
-        <h1>{gitHub[staffMember]}</h1>
-        <h1>{personalWebsite[staffMember]}</h1>
+        <a>{linkedIn[staffMember]}</a>
+        <a>{gitHub[staffMember]}</a>
+        <a>{personalWebsite[staffMember]}</a>
       </div>
     </div>
   );

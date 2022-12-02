@@ -24,6 +24,7 @@ const SeniorsPage = () => {
           As a company we value all of our clients and volunteers safety and because of this we require a background check. Once verified both clients and volunteers have access to their personal dashboard. When you need support, the dashboard is available to request assistance using the request form. When accepted you will receive a notification of who will be assisting you. Once the service has been provided you can review and rate your volunteer and even create your own favorite's list.
         </p>
       </div>
+      <img className='none'src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
       <div>
         <h5><b>How do I apply?</b></h5>
         <p>
@@ -38,7 +39,7 @@ const SeniorsPage = () => {
       </div>
       <Button className='button' onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
       </div>
-      <img src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
+      <img className='senior-image'src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
     </div>
       <Footer />
     </div>

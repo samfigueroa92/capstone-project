@@ -51,14 +51,14 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-
-  //const [team, setTeam] = useState(["samantha","tom","kalilah","adnan","sabrina","gigi","tim","amber"])
-   useEffect(() => {
+  
+  useEffect(() => {
     axios
       .get(`${API}/requests`)
       .then((res) => setRequests(res.data))
       .catch((err) => console.error(err));
-  }, [requests]);
+  }, []);
+  
   useEffect(() => {
     axios
       .get(`${API}/users`)
@@ -66,9 +66,9 @@ const App = () => {
       .catch((err) => console.error(err));
   }, [users]);
 
-
   requests.sort((a, b) => a.req_date - b.req_date);
   users.sort((a,b)=> a.lastname - b.lastname)
+  
   return (
     <div className="App">
       <UserProvider>
