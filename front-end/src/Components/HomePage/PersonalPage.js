@@ -1,14 +1,15 @@
 //Dependencies
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 //Components
-
+import Footer from "./Footer";
 
 //CSS
 import "./PersonalPage.css";
 
 const PersonalPage = () => {
+  const navigate = useNavigate()
   const {staffMember} = useParams();
 
   const [ourTeam, setOurTeam] = useState({
@@ -21,6 +22,16 @@ const PersonalPage = () => {
     tim:"Tim McKiernan",
     anber:"Amber Bennett",
 });
+const [email, setEmail] = useState({
+    samantha: "samanthafigueroa@pursuit.org",
+    tom: "tomlatulipe@pursuit.org",
+    kalilah: "kalilahclarke@pursuit.org",
+    adnan: "abubakaradnanadams@pursuit.org",
+    sabrina: "sabrinaescobarflores@pursuit.org",
+    gigi: "gigi@pursuit.org",
+    tim: "tim@pursuit.org",
+    amber: "amber.bennett@bettercloud.com",
+})
 
   const [linkedIn, setLinkedIn] = useState({
     samantha: "https://www.linkedin.com/in/samantha-figueroa-fs/",
@@ -63,9 +74,33 @@ const PersonalPage = () => {
     tim:'https://media-exp1.licdn.com/dms/image/C4D03AQEWmXUHScBZkQ/profile-displayphoto-shrink_400_400/0/1581017635510?e=1675296000&v=beta&t=zz8K7_ZDPyoOiXg56wcIUflKCijsbzsNpQ55IOm67No',
     amber:'https://media-exp1.licdn.com/dms/image/C5603AQFVQE55R7tcAA/profile-displayphoto-shrink_400_400/0/1601486381610?e=1675296000&v=beta&t=E-aQajVlSTPpHVqZxu7AEh1S7Uma34D4ddMUGxmCBS8'
   })
+  const [skills, setskills] = useState({
+    samantha: ["javascript","react","html","css","postgres","heroku","github"],
+    tom: ["javascript","react","html","css","postgres","heroku","github"],
+    kalilah: ["javascript","react","html","css","postgres","heroku","github"],
+    adnan: ["javascript","react","html","css","postgres","heroku","github"],
+    sabrina: ["javascript","react","html","css","postgres","heroku","github"],
+    gig:["javascript","react","html","css","postgres","heroku","github"],
+    tim: ["javascript","react","html","css","postgres","heroku","github"],
+    amber: ["javascript","react","html","css","postgres","heroku","github"]
+  })
+  const [skillImages, setSkillImages] = useState({
+    javascript: "",
+    react:"",
+    html:"",
+    css: "",
+    postgress: "",
+    heroku: "",
+    github:"",
+    java: "",
+    ruby: "",
+
+  })
 
   return (
     <div className ='personal'>
+      <div className="upper">
+
       <div className = "personal-page">
         <a href= {personalWebsite[staffMember.toLowerCase()]} >
           <img className = "image"src={personalImage[staffMember.toLowerCase()]} alt={`${staffMember}'s Website`}/>  
@@ -81,7 +116,26 @@ const PersonalPage = () => {
         </a>
         </div>
       </div>
-      <div className='team-description'></div>
+      <div className="grid">
+      <div className='team-skills'>
+        <h2 className="skills">Skills</h2>
+        <img src = ""/>
+      </div>
+      <div className="contact">
+        <h2 className="contact-form">Contact Form</h2>
+        <form className="bottom-center" action={`https://formsubmit.co/${email[staffMember]}`} method ="Post">
+        <p>Interested in working with me or just want to say hello? Don't hesitate to send a message!</p>
+        <input type="hidden" name= "subject" value ="GoldenSolutions Contact"/>
+        <label>Your Name:<input className ='email'type='name' align="left" required/></label>
+        <label>Your Email: <input className ='email'type='email' align="left" required/></label>
+        <label>Your Message: <textarea name='message' rows="4" cols="50" required></textarea></label>
+        <br></br>
+        <button className="talktoyousoon" onClick = {()=>navigate("/our-team")}>Talk To You Soon ...</button>
+        </form>
+      </div>
+      </div>
+      </div>
+      <Footer/>
     </div>
   );
 };
