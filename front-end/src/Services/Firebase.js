@@ -7,9 +7,6 @@ import {
   getAdditionalUserInfo,
 } from "firebase/auth";
 
-import axios from "axios";
-
-
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -55,9 +52,6 @@ export const signInWithGoogle = () => {
     console.error(error);
   }
 };
-
-//new func for sign up
-//sign up will have signin with popup
 
 export const signUpWithGoogle = async () => {
   try {

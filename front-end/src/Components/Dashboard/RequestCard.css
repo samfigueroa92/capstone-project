@@ -1,14 +1,26 @@
 .req-card{
-    width: 250px;
+    width: 450px;
     margin: 10px;
 }
 
 /* .req-card img{
     width: 200px;
 } */
+.card-img{
+    position: relative;
+    width: 80%;
+    padding-top: 20%;
+    overflow: hidden;
+    border-radius: 10px;
+    animation-name: card-img;
+    animation-duration: 2s;
+}
 
 .card-bottom{
     border-top: 1px solid gray;
+}
+h4{
+    text-align: center;
 }
 
 .assignment{

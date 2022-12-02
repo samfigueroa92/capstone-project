@@ -28,7 +28,7 @@ users.get("/:id", async (req, res) => {
   const { id } = req.params;
   const user = await getUser(id);
   if (user) {
-    res.json(user);
+    res.json({ payload: user, success: true });
   } else {
     res.status(404).json({ error: "not Found" });
   }
@@ -55,7 +55,7 @@ users.post("/", async (req, res) => {
   console.log("Creating new user");
   try {
     const newUser = await addUser(req.body);
-    console.log(newUser)
+    console.log(newUser);
     if (newUser.uuid) {
       res.status(200).json({ payload: newUser, success: true });
     } else {
