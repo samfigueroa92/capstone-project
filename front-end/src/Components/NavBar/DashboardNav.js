@@ -27,7 +27,7 @@ const DashboardNav = ({applicationUser}) => {
           <Nav className="me-auto.">
             <img src={photoURL} className="profile-pic" alt={displayName} />
             <Dropdown>
-              <Dropdown.Toggle id="dropdown">{applicationUser.verified ? <i class="fa-solid fa-circle-check"></i> : null}{displayName}</Dropdown.Toggle>
+              <Dropdown.Toggle id="dropdown">{applicationUser.verified ? <i className="fa-solid fa-circle-check"></i> : null} {displayName.split(" ").shift()}</Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item onClick={() => navigate("/user-dashboard")}>Dashboard</Dropdown.Item>
                 <Dropdown.Item onClick={signOut}>Sign-Out</Dropdown.Item>
