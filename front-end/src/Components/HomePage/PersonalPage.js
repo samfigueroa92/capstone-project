@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 //Components
-
+import Footer from "./Footer";
 
 //CSS
 import "./PersonalPage.css";
@@ -76,6 +76,8 @@ const PersonalPage = () => {
 
   return (
     <div className ='personal'>
+      <div className="upper">
+
       <div className = "personal-page">
         <a href= {personalWebsite[staffMember.toLowerCase()]} >
           <img className = "image"src={personalImage[staffMember.toLowerCase()]} alt={`${staffMember}'s Website`}/>  
@@ -100,6 +102,8 @@ const PersonalPage = () => {
         <label>Your Message: <textarea name='message' rows="4" cols="50"></textarea></label>
       </div>
       </div>
+      </div>
+      <Footer/>
     </div>
   );
 };
