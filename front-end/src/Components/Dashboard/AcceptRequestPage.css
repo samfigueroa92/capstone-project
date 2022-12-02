@@ -1,0 +1,22 @@
+.main-page{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    margin-top: 50px;
+    margin-bottom: auto;
+
+    /* height: 700px; */
+}
+
+.main-page h3 .accepted-request{
+    margin: 0px;
+    margin-top: -25px;
+    margin-left: 10px;  
+}
+.user-dashboard{
+    position:fixed;
+}
+
+.main-page h3 .completed{
+    margin: 0px;
+    margin-left: 10px;  
+}

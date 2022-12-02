@@ -5,9 +5,9 @@ import "./SignUpPage.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../Providers/UserProviders";
+import { UserContext } from '../../Providers/UserProviders';
 import { useContext } from "react";
-import { signUpWithGoogle } from "../Services/Firebase";
+import { signUpWithGoogle } from "../../Services/Firebase";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
@@ -18,6 +18,7 @@ import Container from "react-bootstrap/Container";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
+
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require('usa-states').UsaStates;
 
@@ -90,7 +91,7 @@ const SignUpPage = ({setApplicationUser}) => {
           <li>Shortly after submitting your information, you should receive an email from us with further instructions. <em>{"If you are signing up to our website on behalf of a senior (you are a family member, caregiver, etc.) please include that information when emailing us back."}</em>
           </li>
           <li>Once all of the proper information is submitted, a background check will be done.</li>
-          <li>A cleared background check will verify your account so you may begin using our site!</li>
+          <li>A cleared background check will verify your account so you may begin using our site.</li>
         </ol>
         <p className="p3">It's as simple as 1, 2, 3!</p>
         </div>
@@ -199,9 +200,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 >
                   <option>--Select State--</option>
                   {usStates.states.map(state => <option key={state.name}>{state.abbreviation}</option>)}
-                  {/* {Object.values(usStates).map((state) => (
-                    <option>{state}</option>
-                  ))} */}
                 </Form.Select>
               </Form.Group>
 
@@ -245,7 +243,7 @@ const SignUpPage = ({setApplicationUser}) => {
                   <option>--Select Option--</option>
                   <option>State ID</option>
                   <option>Passport</option>
-                  <option>Drivers Liscense</option>
+                  <option>Driver's License</option>
                 </Form.Select>
               </Form.Group>
 
