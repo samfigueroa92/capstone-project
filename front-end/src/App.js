@@ -54,7 +54,7 @@ const App = () => {
       .get(`${API}/requests`)
       .then((res) => setRequests(res.data))
       .catch((err) => console.error(err));
-  }, [requests]);
+  }, []);
 
   requests.sort((a, b) => a.req_date - b.req_date);
 
