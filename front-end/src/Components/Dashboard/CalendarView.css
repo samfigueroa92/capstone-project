@@ -1,4 +1,6 @@
 .react-calendar{
     padding-left: 10px;
     width: 300px;
+    background-color: #edf6f9 !important;
+    border: none !important;
 }
