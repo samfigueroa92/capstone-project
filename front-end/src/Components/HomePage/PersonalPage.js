@@ -1,6 +1,6 @@
 //Dependencies
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 //Components
 
@@ -63,6 +63,16 @@ const PersonalPage = () => {
     tim:'https://media-exp1.licdn.com/dms/image/C4D03AQEWmXUHScBZkQ/profile-displayphoto-shrink_400_400/0/1581017635510?e=1675296000&v=beta&t=zz8K7_ZDPyoOiXg56wcIUflKCijsbzsNpQ55IOm67No',
     amber:'https://media-exp1.licdn.com/dms/image/C5603AQFVQE55R7tcAA/profile-displayphoto-shrink_400_400/0/1601486381610?e=1675296000&v=beta&t=E-aQajVlSTPpHVqZxu7AEh1S7Uma34D4ddMUGxmCBS8'
   })
+  const [skills, setskills] = useState({
+    samantha: ["javascript","react","html","css","postgres","heroku","github"],
+    tom: ["javascript","react","html","css","postgres","heroku","github"],
+    kalilah: ["javascript","react","html","css","postgres","heroku","github"],
+    adnan: ["javascript","react","html","css","postgres","heroku","github"],
+    sabrina: ["javascript","react","html","css","postgres","heroku","github"],
+    gig:["javascript","react","html","css","postgres","heroku","github"],
+    tim: ["javascript","react","html","css","postgres","heroku","github"],
+    amber: ["javascript","react","html","css","postgres","heroku","github"]
+  })
 
   return (
     <div className ='personal'>
@@ -81,7 +91,15 @@ const PersonalPage = () => {
         </a>
         </div>
       </div>
-      <div className='team-description'></div>
+      <div className="grid">
+      <div className='team-skills'></div>
+      <div className="contact">
+        <h2>Contact Form</h2>
+        <p>Interested in working with me or just want to say hello? Don't hesitate to send a message!</p>
+        <label>Your Email: <input type='email'/></label>
+        <label>Your Message: <textarea name='message' rows="4" cols="50"></textarea></label>
+      </div>
+      </div>
     </div>
   );
 };
