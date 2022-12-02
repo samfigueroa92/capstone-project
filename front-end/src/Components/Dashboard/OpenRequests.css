@@ -11,6 +11,9 @@
     white-space: nowrap;
     border: #F6EAE6 solid 1px;
     height: 380px;
+    width: 1200px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .open-requests h3{
