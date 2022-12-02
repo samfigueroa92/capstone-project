@@ -123,14 +123,14 @@ const [email, setEmail] = useState({
       </div>
       <div className="contact">
         <h2 className="contact-form">Contact Form</h2>
-        <form className="bottom-center" action={`https://formsubmit.co/${email[staffMember]}`} method ="Post">
+        <form className = 'bottom-center' action={`https://formsubmit.co/${email[staffMember]}`} method="POST">
         <p>Interested in working with me or just want to say hello? Don't hesitate to send a message!</p>
         <input type="hidden" name= "subject" value ="GoldenSolutions Contact"/>
         <label>Your Name:<input className ='email'type='name' align="left" required/></label>
         <label>Your Email: <input className ='email'type='email' align="left" required/></label>
         <label>Your Message: <textarea name='message' rows="4" cols="50" required></textarea></label>
         <br></br>
-        <button className="talktoyousoon" onClick = {()=>navigate("/our-team")}>Talk To You Soon ...</button>
+        <button className="talktoyousoon" type= 'submit' onClick = {()=>navigate("/our-team")}>Talk To You Soon ...</button>
         </form>
       </div>
       </div>
