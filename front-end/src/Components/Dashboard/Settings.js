@@ -45,7 +45,7 @@ function Settings({ applicationUser }) {
 
   const updateUser = (updatedUser) => {
     axios
-      .put(`${API}/users`, updatedUser)
+      .put(`${API}/users/${applicationUser.uuid}`, updatedUser)
       .then(
         () => {
           navigate(`/user-dashboard`);
