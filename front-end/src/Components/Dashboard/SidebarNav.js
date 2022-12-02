@@ -34,7 +34,7 @@ const SidebarNav = ({ setDate, applicationUser }) => {
           <div className="under-click"></div>
         </Link>
         <Link>
-          <p>Achievements</p>
+          <p>Achievements<br/><span className="coming-soon" >*coming soon</span></p>
           <div className="under-click"></div>
         </Link>
         <Link to="/user/settings">

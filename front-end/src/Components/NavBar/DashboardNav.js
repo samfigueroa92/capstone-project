@@ -13,7 +13,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 //CSS Import
 import "./DashboardNav.css";
 
-const DashboardNav = () => {
+const DashboardNav = ({applicationUser}) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
@@ -27,7 +27,7 @@ const DashboardNav = () => {
           <Nav className="me-auto.">
             <img src={photoURL} className="profile-pic" alt={displayName} />
             <Dropdown>
-              <Dropdown.Toggle id="dropdown">{displayName}</Dropdown.Toggle>
+              <Dropdown.Toggle id="dropdown">{applicationUser.verified ? <i className="fa-solid fa-circle-check"></i> : null} {displayName.split(" ").shift()}</Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item onClick={() => navigate("/user-dashboard")}>Dashboard</Dropdown.Item>
                 <Dropdown.Item onClick={signOut}>Sign-Out</Dropdown.Item>
