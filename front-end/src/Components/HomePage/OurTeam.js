@@ -107,11 +107,13 @@ const OurTeam = () => {
           {handleLearnMore("tom")}
         </div>
         <div className="team">
+        <a href={`/our-page/${team[2]}`}>
           <img
             className="our-team-img"
             src="https://media-exp1.licdn.com/dms/image/C5603AQFIoVA0ltC1Fg/profile-displayphoto-shrink_800_800/0/1592177861401?e=1674086400&v=beta&t=gGt0ISX9GlFHHDdsgcf4t97d5fpQs00mMEcWSSwQoV8"
             alt="Kalilah Clarke"
           />
+          </a>
           <p className="name">Kalilah Clarke</p>
           <p className="position">
             Director of Engineering-User Facing Technologies
@@ -119,28 +121,31 @@ const OurTeam = () => {
           {handleLearnMore("kalilah")}
         </div>
         <div className="team">
+          <a href={`/our-page/${team[3]}`}>
           <img
             className="our-team-img"
             src="https://ca.slack-edge.com/TCVA3PF24-U02LBBUQM39-804e6eb0aa9f-512"
             alt="Adnan Abubakar Adams"
-          />
+            />
+            </a>
           <p className="name">Adnan Abubakar Adams</p>
           <p className="position">Senior Principal Engineer</p>
           {handleLearnMore("adnan")}
         </div>
         <div className="team">
+        <a href={`/our-page/${team[4]}`}>
           <img
             className="our-team-img"
             src="https://ca.slack-edge.com/TCVA3PF24-U02M4L7LAV7-07a20f756bae-512"
             alt="Sabrina"
           />
+          </a>
           <p className="name">Sabrina Escobar Flores</p>
           <p className="position">Mobile/Tablet Front-End Developer</p>
           {handleLearnMore("sabrina")}
         </div>
-
         <div className="team">
-          <a href={`/our-page/${team[0]}`}>
+          <a href={`/our-page/${team[5]}`}>
             <img
               className="our-team-img"
               src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
@@ -152,7 +157,7 @@ const OurTeam = () => {
           {handleLearnMore("gigi")}
         </div>
         <div className="team">
-          <a href="https://mckiernantim.github.io/">
+          <a href={`/our-page/${team[6]}`}>
             <img
               className="our-team-img"
               src="https://ca.slack-edge.com/TCVA3PF24-U022H04SBPF-6e9b68170b60-512"
@@ -164,7 +169,7 @@ const OurTeam = () => {
           {handleLearnMore("tim")}
         </div>
         <div className="team">
-          <a href="https://www.linkedin.com/in/positivelyamber/">
+          <a href={`/our-page/${team[7]}`}>
             <img
               className="our-team-img"
               src="https://ca.slack-edge.com/TCVA3PF24-U04CMRUKB6U-8ad816fd1907-512"
