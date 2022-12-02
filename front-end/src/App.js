@@ -73,7 +73,7 @@ const App = () => {
     <div className="App">
       <UserProvider>
       <Router>
-        <NavBar setModalOpen={setModalOpen} />
+        <NavBar setModalOpen={setModalOpen} applicationUser={applicationUser}/>
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setApplicationUser={setApplicationUser} />
         <Routes>
           <Route path='/open-requests' element= {<Protected><OpenRequestPage date={date} setDate={setDate} requests={requests} applicationUser={applicationUser} stringCurrentDate={stringCurrentDate}/></Protected>}/>
