@@ -37,10 +37,15 @@
     background-color: #F1B9A5;
     display:grid;
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
 }
 .team-skills{
     background-color: #F6EAE6;
     height: 300px;
     
+}
+.email{
+    padding-left: 200px;
+    margin-left: 25px;
+    margin-bottom: 10px;
 }

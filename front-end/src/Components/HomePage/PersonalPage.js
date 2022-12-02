@@ -98,8 +98,11 @@ const PersonalPage = () => {
       <div className="contact">
         <h2>Contact Form</h2>
         <p>Interested in working with me or just want to say hello? Don't hesitate to send a message!</p>
-        <label>Your Email: <input type='email'/></label>
+        <form>
+        <label>Your Email: <input className ='email'type='email'/></label>
         <label>Your Message: <textarea name='message' rows="4" cols="50"></textarea></label>
+          <button>Talk To You Soon ...</button>
+        </form>
       </div>
       </div>
       </div>
