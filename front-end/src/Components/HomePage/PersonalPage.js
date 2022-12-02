@@ -22,6 +22,16 @@ const PersonalPage = () => {
     tim:"Tim McKiernan",
     anber:"Amber Bennett",
 });
+const [email, setEmail] = useState({
+    samantha: "samanthafigueroa@pursuit.org",
+    tom: "tomlatulipe@pursuit.org",
+    kalilah: "kalilahclarke@pursuit.org",
+    adnan: "abubakaradnanadams@pursuit.org",
+    sabrina: "sabrinaescobarflores@pursuit.org",
+    gigi: "gigi@pursuit.org",
+    tim: "tim@pursuit.org",
+    amber: "amber.bennett@bettercloud.com",
+})
 
   const [linkedIn, setLinkedIn] = useState({
     samantha: "https://www.linkedin.com/in/samantha-figueroa-fs/",
@@ -75,7 +85,16 @@ const PersonalPage = () => {
     amber: ["javascript","react","html","css","postgres","heroku","github"]
   })
   const [skillImages, setSkillImages] = useState({
-    javascript: ""
+    javascript: "",
+    react:"",
+    html:"",
+    css: "",
+    postgress: "",
+    heroku: "",
+    github:"",
+    java: "",
+    ruby: "",
+
   })
 
   return (
@@ -104,11 +123,12 @@ const PersonalPage = () => {
       </div>
       <div className="contact">
         <h2 className="contact-form">Contact Form</h2>
-        <form className="bottom-center">
+        <form className="bottom-center" action={`https://formsubmit.co/${email[staffMember]}`} method ="Post">
         <p>Interested in working with me or just want to say hello? Don't hesitate to send a message!</p>
-        <label>Your Name:<input className ='email'type='name' align="left"/></label>
-        <label>Your Email: <input className ='email'type='email' align="left"/></label>
-        <label>Your Message: <textarea name='message' rows="4" cols="50"></textarea></label>
+        <input type="hidden" name= "subject" value ="GoldenSolutions Contact"/>
+        <label>Your Name:<input className ='email'type='name' align="left" required/></label>
+        <label>Your Email: <input className ='email'type='email' align="left" required/></label>
+        <label>Your Message: <textarea name='message' rows="4" cols="50" required></textarea></label>
         <br></br>
         <button className="talktoyousoon" onClick = {()=>navigate("/our-team")}>Talk To You Soon ...</button>
         </form>
