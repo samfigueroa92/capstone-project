@@ -1,7 +1,8 @@
 DROP DATABASE IF EXISTS task_capstone;
+
 CREATE DATABASE task_capstone;
 
-\c task_capstone;
+\ c task_capstone;
 
 CREATE TABLE users (
     uuid TEXT PRIMARY KEY UNIQUE NOT NULL,
@@ -19,7 +20,8 @@ CREATE TABLE users (
     user_type TEXT NOT NULL,
     profilephoto TEXT,
     languages TEXT,
-    verification_type TEXT
+    verification_type TEXT,
+    favorites TEXT []
 );
 
 CREATE TABLE requests (
