@@ -38,6 +38,7 @@
     display:grid;
     grid-template-columns: 1fr;
     text-align: left;
+    margin-top: 0px;
 }
 .team-skills{
     background-color: #F6EAE6;
@@ -45,7 +46,11 @@
     
 }
 .email{
-    padding-left: 200px;
+    padding-right: 200px;
     margin-left: 25px;
     margin-bottom: 10px;
+}
+.contact-form{
+    padding-top: -10px;
+    padding-left: 200px;
 }
