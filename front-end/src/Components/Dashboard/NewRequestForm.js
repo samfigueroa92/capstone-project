@@ -20,7 +20,7 @@ const NewRequestForm = () => {
       .post(`${API}/requests`, newRequest)
       .then(
         () => {
-          navigate(`/requests`);
+          navigate("/user-dashboard");
         },
         (error) => console.error(error)
       )
@@ -64,8 +64,7 @@ const NewRequestForm = () => {
           <Form.Label>Request Date</Form.Label>
           <Form.Control 
           type="date" 
-          id="request-date" 
-          placeholder="Date" 
+          id="req_date" 
           value={request.req_date} 
           onChange={textChange} />
         </Form.Group>
@@ -92,10 +91,11 @@ const NewRequestForm = () => {
         <Form.Group className="mb-3">
           <Form.Label>Time</Form.Label>
           <Form.Control 
-          type="text" 
+          type="time" 
           id="time" 
-          placeholder="Time" 
+          placeholder="2pm" 
           value={request.time} 
+          onChange={textChange} 
           required/>
         </Form.Group>
         <Form.Group className="mb-3">
@@ -103,9 +103,8 @@ const NewRequestForm = () => {
           <Form.Control 
           type="text" 
           id="image" 
-          placeholder="Image" 
           value={request.image} 
-          onChangea={textChange}/>
+          onChange={textChange}/>
         </Form.Group>
         <div className="form-button">
               <Button type="submit">Submit</Button>
