@@ -57,7 +57,7 @@ const App = () => {
       .get(`${API}/requests`)
       .then((res) => setRequests(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [requests]);
   
   useEffect(() => {
     axios

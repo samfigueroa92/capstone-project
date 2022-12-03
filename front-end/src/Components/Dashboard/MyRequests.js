@@ -15,17 +15,19 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
     if (date) {
       setValue(
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-      );
-      setCurrentDate(
-        stringCurrentDate.getFullYear() +
+        );
+        setCurrentDate(
+          stringCurrentDate.getFullYear() +
           "-" +
           (stringCurrentDate.getMonth() + 1) +
           "-" +
           stringCurrentDate.getDate()
-      );
-    }
-  }, [date]);
-
+          );
+        }
+      }, [date]);
+      // console.log(value, "--value")
+      // console.log(currentDate, "current DATE")
+      
   return (
     <div className="my-requests">
       <h3>My Requests</h3>
@@ -36,29 +38,27 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
                 applicationUser.city === request.location &&
                 request.assigned &&
                 request.req_date >= value &&
-                applicationUser.uid === request.volunteer_id ? (
-                  <RequestCard request={request} />
+                applicationUser.uuid === request.volunteer_id ? (
+                  <RequestCard key={request.id} request={request} />
                 ) : null
               )
             : requests.map((request) =>
                 applicationUser.city === request.location &&
                 request.assigned &&
                 request.req_date >= value &&
-                applicationUser.uid === request.volunteer_id ? (
-                  <RequestCard request={request} />
+                applicationUser.uuid === request.volunteer_id ? (
+                  <RequestCard key={request.id} request={request} />
                 ) : null
               )
           : currentDate === value
           ? requests.map((request) =>
-              applicationUser.uuid === request.elder_id &&
-              request.req_date >= value ? (
-                <RequestCard request={request} />
+              applicationUser.uuid === request.elder_id ? (
+                <RequestCard key={request.id} request={request} />
               ) : null
             )
           : requests.map((request) =>
-              applicationUser.uuid === request.elder_id &&
-              request.req_date >= value ? (
-                <RequestCard request={request} />
+              applicationUser.uuid === request.elder_id ? (
+                <RequestCard key={request.id} request={request} />
               ) : null
             )}
       </div>
@@ -67,3 +67,5 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
 };
 
 export default MyRequests;
+
+// request.req_date === value
