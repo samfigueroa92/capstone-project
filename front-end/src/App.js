@@ -64,7 +64,7 @@ const App = () => {
       .get(`${API}/users`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
-  }, [users]);
+  }, []);
 
   requests.sort((a, b) => a.req_date - b.req_date);
   users.sort((a,b)=> a.lastname - b.lastname)
@@ -86,8 +86,8 @@ const App = () => {
           <Route path="/volunteers" element={ <VolunteerPage /> } />
           <Route path="/seniors" element={ <SeniorsPage /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
-          <Route path="/user/settings" element={<Settings applicationUser={applicationUser} setDate={setDate}/>}/>
-          <Route path="/requests/new" element={<Protected><NewRequestForm /></Protected>} />
+          <Route path="/user/settings" element={<Protected><Settings applicationUser={applicationUser} setDate={setDate}/></Protected>}/>
+          <Route path="/requests/new" element={<Protected><NewRequestForm applicationUser={applicationUser} /></Protected>} />
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate={setDate} date={date} applicationUser={applicationUser}/></Protected>} />
         </Routes>
       </Router>

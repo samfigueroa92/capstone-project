@@ -20,13 +20,15 @@ const makeRequest = async (request) => {
   try {
     console.log("Adding request to database");
     request = await db.one(
-      "INSERT INTO requests (elder_id, description, req_date, location, time) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO requests (elder_id, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [
         request.elder_id,
         request.description,
         request.req_date,
         request.location,
         request.time,
+        request.title,
+        request.image,
       ]
     );
     return request;
@@ -53,7 +55,7 @@ const getRequest = async (id) => {
 // Listing of a volunteers requests
 const volunteerRequests = async(uuid) => {
   try {
-    console.log(`Retreiving assigned requests for user ${uid}`);
+    console.log(`Retreiving assigned requests for user ${uuid}`);
     const requests = await db.one("SELECT * FROM requests WHERE volunteer_id=$1", uuid)
     return requests;
   } catch (error) {

@@ -67,7 +67,7 @@ function Settings({ applicationUser, setDate }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateUser(editedUser, applicationUser.uuid);
+    updateUser(editedUser);
   };
 
   return (
