@@ -9,6 +9,7 @@ const {
   editRequest,
   makeRequest,
   deleteRequest,
+  volunteerRequests
 } = require("../queries/requests.js");
 
 // BUILDING ROUTES
@@ -34,19 +35,19 @@ requests.get("/:id", async (req, res) => {
 });
 
 // SHOW ALL REQUESTS ASSIGNED TO A VOLUNTEER
-requests.get("/", async (req, res) => {
+requests.get("/my-requests", async (req, res) => {
   try {
-    const uuid = req.body.data.uuid;
+    console.log("Showing all requests for volunteer " + req.body.uuid)
+    const uuid = req.body.uuid;
     const assignedRequests = await volunteerRequests(uuid);
+    res.json(assignedRequests);
   } catch (error) {
     return error;
   }
 });
 
 // ASSIGN VOLUNTEER TO REQUEST
-requests.put("/", async (req, res) => {
-  
-})
+requests.put("/", async (req, res) => {});
 
 // CREATE OR MAKE A REQUEST
 requests.post("/", async (req, res) => {
