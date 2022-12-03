@@ -263,7 +263,7 @@ const SignUpPage = ({setApplicationUser}) => {
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Upload Photo</Form.Label>
                 <Form.Control
-                  type="file"
+                  type="text"
                   placeholder="image"
                   id="profilephoto"
                   value={newUser.profilephoto}
