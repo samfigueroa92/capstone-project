@@ -19,10 +19,12 @@ import Settings from "./Components/Dashboard/Settings";
 import NewRequestForm from "./Components/Dashboard/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
+import Achievements from "./Components/ComingSoon/Achievements";
 
 //CSS
 import "./App.css";
 import PersonalPage from "./Components/HomePage/PersonalPage";
+
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -80,6 +82,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage /> } />
           <Route path="/seniors" element={ <SeniorsPage /> } />
+          <Route path="/achievements" element={ <Achievements /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
           <Route path="/user/settings" element={<Protected><Settings applicationUser={applicationUser} setDate={setDate}/></Protected>}/>
           <Route path="/requests/new" element={<Protected><NewRequestForm applicationUser={applicationUser} setDate={setDate} /></Protected>} />
