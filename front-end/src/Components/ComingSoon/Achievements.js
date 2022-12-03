@@ -9,7 +9,11 @@ import SvgIcon from './SvgIcon';
 
 const Achievements = () => {
   return (
-    <div>Achievements</div>
+    <div className='achieve'>
+        {/* <SvgIcon /> */}
+        {/* <SidebarNav /> */}
+        hello
+    </div>
   )
 }
 
