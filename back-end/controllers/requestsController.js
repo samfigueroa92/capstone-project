@@ -35,6 +35,17 @@ requests.get("/:id", async (req, res) => {
 
 // SHOW ALL REQUESTS ASSIGNED TO A VOLUNTEER
 requests.get("/", async (req, res) => {
+  try {
+    const uuid = req.body.data.uuid;
+    const assignedRequests = await volunteerRequests(uuid);
+  } catch (error) {
+    return error;
+  }
+});
+
+// ASSIGN VOLUNTEER TO REQUEST
+requests.put("/", async (req, res) => {
+  
 })
 
 // CREATE OR MAKE A REQUEST

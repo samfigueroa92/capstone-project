@@ -39,7 +39,7 @@ const makeRequest = async (request) => {
 
 //Single request
 //Looking at this makes me think - we'll probably need some helper functions to validate that a person is able to review this request,
-// at least from a volunteer side. A query that checks to see if the users firebase_id is in the row they are attempting to look at, 
+// at least from a volunteer side. A query that checks to see if the users firebase_id is in the row they are attempting to look at,
 // and if so, the request info is sent back. At least for the future - not necessarily important to have in for the short term.
 
 const getRequest = async (id) => {
@@ -53,15 +53,18 @@ const getRequest = async (id) => {
 };
 
 // Listing of a volunteers requests
-const volunteerRequests = async(uuid) => {
+const volunteerRequests = async (uuid) => {
   try {
     console.log(`Retreiving assigned requests for user ${uuid}`);
-    const requests = await db.one("SELECT * FROM requests WHERE volunteer_id=$1", uuid)
+    const requests = await db.any(
+      "SELECT * FROM requests WHERE volunteer_id=$1",
+      uuid
+    );
     return requests;
   } catch (error) {
     return error;
   }
-}
+};
 
 //Edit Request
 const editRequest = async (request, id) => {
@@ -135,4 +138,6 @@ module.exports = {
   makeRequest,
   deleteRequest,
   volunteerRequests,
+  assignVolunteer,
+  removeVolunteer,
 };
