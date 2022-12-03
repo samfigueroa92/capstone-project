@@ -87,7 +87,7 @@ const App = () => {
           <Route path="/seniors" element={ <SeniorsPage /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
           <Route path="/user/settings" element={<Protected><Settings applicationUser={applicationUser} setDate={setDate}/></Protected>}/>
-          <Route path="/requests/new" element={<Protected><NewRequestForm applicationUser={applicationUser} /></Protected>} />
+          <Route path="/requests/new" element={<Protected><NewRequestForm applicationUser={applicationUser} setDate={setDate} /></Protected>} />
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate={setDate} date={date} applicationUser={applicationUser}/></Protected>} />
         </Routes>
       </Router>

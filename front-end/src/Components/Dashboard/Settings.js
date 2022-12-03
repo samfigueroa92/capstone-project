@@ -207,7 +207,7 @@ function Settings({ applicationUser, setDate }) {
               <Form.Control
                 id="profilephoto"
                 value={editedUser.profilephoto}
-                type="file"
+                type="text"
                 onChange={handleTextChange}
               />
               <Form.Text className="text-muted"></Form.Text>
