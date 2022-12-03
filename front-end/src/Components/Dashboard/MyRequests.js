@@ -11,22 +11,18 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
   const [value, setValue] = useState("");
   const [currentDate, setCurrentDate] = useState("");
   let count = 0;
+  
   useEffect(() => {
     if (date) {
+      setCurrentDate(stringCurrentDate.getFullYear() + "-" + (stringCurrentDate.getMonth() + 1) + "-" + stringCurrentDate.getDate());
       setValue(
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
         );
-        setCurrentDate(
-          stringCurrentDate.getFullYear() +
-          "-" +
-          (stringCurrentDate.getMonth() + 1) +
-          "-" +
-          stringCurrentDate.getDate()
-          );
         }
       }, [date]);
       // console.log(value, "--value")
       // console.log(currentDate, "current DATE")
+   
       
   return (
     <div className="my-requests">
@@ -52,12 +48,14 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
               )
           : currentDate === value
           ? requests.map((request) =>
-              applicationUser.uuid === request.elder_id ? (
+              ( applicationUser.uuid === request.elder_id &&  request.req_date >= value) 
+              ? (
                 <RequestCard key={request.id} request={request} />
               ) : null
+              //console.log(request.req_date >= currentDate , request.req_date)
             )
           : requests.map((request) =>
-              applicationUser.uuid === request.elder_id ? (
+              (applicationUser.uuid === request.elder_id &&  request.req_date === value) ?  (
                 <RequestCard key={request.id} request={request} />
               ) : null
             )}
