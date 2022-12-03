@@ -80,7 +80,7 @@ const SignUpPage = ({setApplicationUser}) => {
   return (
     <div className="sign-up">
       <div className="signup-text">
-        <h1>Join us today!</h1>
+        <h1>Join Us Today!</h1>
         <div className="instructions">
         <p className="p1">
           Welcome! Before we get started, please fill out the following form
@@ -94,6 +94,7 @@ const SignUpPage = ({setApplicationUser}) => {
           <li>A cleared background check will verify your account so you may begin using our site.</li>
         </ol>
         <p className="p3">It's as simple as 1, 2, 3!</p>
+        <p className="p4"><span className="required-field">*</span><em>Required Fields</em></p>
         </div>
       </div>
       <div className="form">
@@ -101,7 +102,7 @@ const SignUpPage = ({setApplicationUser}) => {
           <Form onSubmit={handleSubmit}>
             <Row className="mb-3">
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label>First Name<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="John"
@@ -113,7 +114,7 @@ const SignUpPage = ({setApplicationUser}) => {
               </Form.Group>
 
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label>Last Name<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Smith"
@@ -127,7 +128,7 @@ const SignUpPage = ({setApplicationUser}) => {
 
             <Row>
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>Date of Birth</Form.Label>
+                <Form.Label>Date of Birth<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   type="date"
                   id="dob"
@@ -138,7 +139,7 @@ const SignUpPage = ({setApplicationUser}) => {
               </Form.Group>
 
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   // disabled
                   type="email"
@@ -155,7 +156,7 @@ const SignUpPage = ({setApplicationUser}) => {
             </Row>
 
             <Form.Group className="mb-3">
-              <Form.Label>Address Line 1</Form.Label>
+              <Form.Label>Address Line 1<span className="required-field">*</span></Form.Label>
               <Form.Control
                 type="text"
                 placeholder="124 Faker Lane"
@@ -179,7 +180,7 @@ const SignUpPage = ({setApplicationUser}) => {
 
             <Row>
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>City</Form.Label>
+                <Form.Label>City<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Bronx"
@@ -191,7 +192,7 @@ const SignUpPage = ({setApplicationUser}) => {
               </Form.Group>
 
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>State</Form.Label>
+                <Form.Label>State<span className="required-field">*</span></Form.Label>
                 <Form.Select
                   id="state"
                   value={newUser.state}
@@ -204,7 +205,7 @@ const SignUpPage = ({setApplicationUser}) => {
               </Form.Group>
 
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>Zip Code</Form.Label>
+                <Form.Label>Zip Code<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="12345"
@@ -218,7 +219,7 @@ const SignUpPage = ({setApplicationUser}) => {
 
             <Row>
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>Phone Number</Form.Label>
+                <Form.Label>Phone Number<span className="required-field">*</span></Form.Label>
                 <Form.Control
                   type="tel"
                   placeholder="1234567890"
@@ -275,7 +276,7 @@ const SignUpPage = ({setApplicationUser}) => {
               </Form.Group>
 
               <Form.Group as={Col} className="mb-3">
-                <Form.Label>User Type</Form.Label>
+                <Form.Label>User Type<span className="required-field">*</span></Form.Label>
                 <Form.Select
                   id="user_type"
                   value={newUser.user_type}
@@ -299,8 +300,3 @@ const SignUpPage = ({setApplicationUser}) => {
 };
 
 export default SignUpPage;
-
-// setAuthErrors([
-//   ...authErrors,
-//   "User not created in firebase, please try again",
-// ]);

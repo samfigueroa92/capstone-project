@@ -1,9 +1,18 @@
-.request-form {
-        padding-top: 30px;
-        border: 1px solid black;
-        border-radius: 25px;
-        margin: 40px 150px 30px 150px;
-        padding: 10px;
+.new-req{
+    display: grid;
+    grid-template-columns: 7fr 25fr;
+    position: fixed;
+}
+
+.request-form{
+    height: 100%;
+    width: 100%;
+    margin: 15px;
+}
+
+.request-form h3{
+    text-align: center;
+    margin: 50px 15px;
 }
 
 .form-button Button{
@@ -21,5 +30,5 @@
 }
 
 .form-button{
-    text-align: end;
+    text-align: center;
 }

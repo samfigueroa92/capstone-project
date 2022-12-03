@@ -16,6 +16,9 @@
 .instructions .p3{
     text-align: center;
 }
+.instructions .p4{
+    text-align: center;
+}
 
 .instructions{
     text-align: left;
@@ -46,6 +49,10 @@
 
 .form-button{
     text-align: end;
+}
+
+.required-field{
+    color: red;
 }
 
 @media screen and (max-width: 400px) {

@@ -4,14 +4,20 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./NewRequestForm.css";
 
+//Components
+import SidebarNav from "./SidebarNav";
+
 //Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = ({ applicationUser }) => {
+const NewRequestForm = ({ applicationUser, setDate }) => {
   let navigate = useNavigate();
 
   // CREATE OR ADD A NEW REQUEST
@@ -53,20 +59,24 @@ const NewRequestForm = ({ applicationUser }) => {
 
   return (
     <div className="new-req">
-      <div className="request-form">
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <Container className="request-form">
+        <h3>Submit A Request</h3>
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Title</Form.Label>
+          <Row>
+
+          <Form.Group as={Col} className="mb-3">
+            <Form.Label>Request Title</Form.Label>
             <Form.Control
               type="text"
-              placeholder="I need..."
+              placeholder="Grocery Pick Up"
               id="title"
               value={request.title}
               onChange={textChange}
             />
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Request Date</Form.Label>
+          <Form.Group as={Col} className="mb-3">
+            <Form.Label>Request Date<span className="required-field">*</span></Form.Label>
             <Form.Control
               type="date"
               id="req_date"
@@ -74,8 +84,9 @@ const NewRequestForm = ({ applicationUser }) => {
               onChange={textChange}
             />
           </Form.Group>
+          </Row>
           <Form.Group className="mb-3">
-            <Form.Label>Description</Form.Label>
+            <Form.Label>Request Description<span className="required-field">*</span></Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
@@ -86,18 +97,19 @@ const NewRequestForm = ({ applicationUser }) => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Location</Form.Label>
+          <Row>
+          <Form.Group as={Col} className="mb-3">
+            <Form.Label>Location<span className="required-field">*</span></Form.Label>
             <Form.Control
               type="text"
               id="location"
-              placeholder="location"
+              placeholder="123 Somewhere St"
               value={request.location}
               onChange={textChange}
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3">
+          <Form.Group as={Col} className="mb-3">
             <Form.Label>Time</Form.Label>
             <Form.Control
               type="time"
@@ -108,8 +120,8 @@ const NewRequestForm = ({ applicationUser }) => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Image</Form.Label>
+          <Form.Group as={Col} className="mb-3">
+            <Form.Label>Request Image</Form.Label>
             <Form.Control
               type="text"
               id="image"
@@ -117,11 +129,12 @@ const NewRequestForm = ({ applicationUser }) => {
               onChange={textChange}
             />
           </Form.Group>
+          </Row>
           <div className="form-button">
             <Button type="submit">Submit</Button>
           </div>
         </Form>
-      </div>
+      </Container>
     </div>
   );
 };
