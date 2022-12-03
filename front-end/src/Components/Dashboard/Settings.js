@@ -213,8 +213,7 @@ function Settings({ applicationUser, setDate }) {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
             <div className="buttons-container">
-            <Button>Submit</Button>
-
+            <Button type="submit">Submit</Button>
             <Link to={`/users/${editedUser.uuid}`}>
               <Button>Nevermind</Button>
             </Link>
