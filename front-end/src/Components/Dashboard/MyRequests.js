@@ -9,7 +9,7 @@ import "./MyRequests.css";
 
 const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
   const [value, setValue] = useState("");
-  const [currentDate, setCurrentDate] = useState('')
+  const [currentDate, setCurrentDate] = useState("");
   let count = 0;
   useEffect(() => {
     if (date) {
@@ -22,7 +22,7 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
           (stringCurrentDate.getMonth() + 1) +
           "-" +
           stringCurrentDate.getDate()
-      )
+      );
     }
   }, [date]);
 
@@ -30,23 +30,37 @@ const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
     <div className="my-requests">
       <h3>My Requests</h3>
       <div className="my-list">
-        { (currentDate === value) ? 
-        requests.map((request) =>
-          applicationUser.city === request.location &&
-          request.assigned &&
-          request.req_date >= value &&
-          applicationUser.uid === request.volunteer_id ? (
-            <RequestCard request={request} />
-          ) : null
-        ):
-        requests.map((request) =>
-        applicationUser.city === request.location &&
-        request.assigned &&
-        request.req_date >= value &&
-        applicationUser.uid === request.volunteer_id ? (
-          <RequestCard request={request} />
-        ) : null)
-        }
+        {applicationUser === "Volunteer"
+          ? currentDate === value
+            ? requests.map((request) =>
+                applicationUser.city === request.location &&
+                request.assigned &&
+                request.req_date >= value &&
+                applicationUser.uid === request.volunteer_id ? (
+                  <RequestCard request={request} />
+                ) : null
+              )
+            : requests.map((request) =>
+                applicationUser.city === request.location &&
+                request.assigned &&
+                request.req_date >= value &&
+                applicationUser.uid === request.volunteer_id ? (
+                  <RequestCard request={request} />
+                ) : null
+              )
+          : currentDate === value
+          ? requests.map((request) =>
+              applicationUser.uuid === request.elder_id &&
+              request.req_date >= value ? (
+                <RequestCard request={request} />
+              ) : null
+            )
+          : requests.map((request) =>
+              applicationUser.uuid === request.elder_id &&
+              request.req_date >= value ? (
+                <RequestCard request={request} />
+              ) : null
+            )}
       </div>
     </div>
   );
