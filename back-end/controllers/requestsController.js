@@ -24,7 +24,7 @@ requests.get("/", async (req, res) => {
 });
 
 // SHOW / SINGLE REQUEST
-requests.get("/single/:id", async (req, res) => {
+requests.get("/help_req/:id", async (req, res) => {
   const { id } = req.params;
   const requests = await getRequest(id);
   if (requests) {
@@ -35,7 +35,7 @@ requests.get("/single/:id", async (req, res) => {
 });
 
 // SHOW ALL REQUESTS ASSIGNED TO A VOLUNTEER
-requests.get("/myrequests", async (req, res) => {
+requests.get("/my_requests", async (req, res) => {
   try {
     console.log("Showing all requests for volunteer " + req.body.uuid)
     const uuid = req.body.uuid;
@@ -60,7 +60,7 @@ requests.post("/", async (req, res) => {
 });
 
 // UPDATE OR EDIT A REQUEST
-requests.put("/single/:id", async (req, res) => {
+requests.put("/edit_req/:id", async (req, res) => {
   const { id } = req.params;
   const editedRequest = await editRequest(req.body, id);
   if (editedRequest.id) {
@@ -71,7 +71,7 @@ requests.put("/single/:id", async (req, res) => {
 });
 
 // DELETE A REQUEST
-requests.delete("/single/:id", async (req, res) => {
+requests.delete("/delete_req/:id", async (req, res) => {
   const { id } = req.params;
   const deletedRequest = await deleteRequest(id);
   if (deletedRequest.id) {
