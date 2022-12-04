@@ -19,7 +19,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
 
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   useEffect(() => {
-    axios.get(`${API}/requests/${id}`).then((response) => {
+    axios.get(`${API}/requests/help_req/${id}`).then((response) => {
       setUser(response.data);
     });
   }, [id, navigate, API]);
