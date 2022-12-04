@@ -11,6 +11,7 @@ const {
   deleteRequest,
   volunteerRequests,
   seniorRequests,
+  openRequests,
 } = require("../queries/requests.js");
 
 // BUILDING ROUTES
@@ -59,10 +60,33 @@ requests.post("/my_assigned_requests", async (req, res) => {
   }
 });
 
+requests.get("/open_requests", async (req, res) => {
+  try {
+    console.log("Showing all requests not currently assigned to a volunteer");
+    const requests = await openRequests();
+    res.status(200).json(requests);
+    console.log(requests);
+  } catch (error) {
+    return error;
+  }
+});
+
 // SHOW ALL REQUESTS POSTED BY THE USER
 
 // ASSIGN VOLUNTEER TO REQUEST
-requests.put("/", async (req, res) => {});
+requests.put("/", async (req, res) => {
+  try {
+    console.log("Assigning volunteer to request");
+    const assignedRequest = await assignVolunteer();
+    if (assignedRequest.assigned === "true") {
+      res.status(200).json(assignedRequest)
+    } else {
+      res.status(400).json({error: "Request failed to be assigned"})
+    }
+  } catch (error) {
+    return error;
+  }
+});
 
 // CREATE OR MAKE A REQUEST
 requests.post("/", async (req, res) => {
