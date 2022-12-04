@@ -2,6 +2,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from '../../Providers/UserProviders';
+import { useContext } from "react";
 
 //Component
 import SidebarNav from "./SidebarNav";
@@ -25,6 +27,7 @@ const UsaStates = require("usa-states").UsaStates;
 function Settings({ applicationUser, setDate }) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
+  const user = useContext(UserContext);
 
   const [editedUser, setEditedUser] = useState({
     address: "",
@@ -80,7 +83,7 @@ function Settings({ applicationUser, setDate }) {
           src={
             applicationUser.profilephoto
               ? applicationUser.profilephoto
-              : "https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+              : user.photoURL
           }
           alt="profile-photo"
         />

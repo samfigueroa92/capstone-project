@@ -1,7 +1,9 @@
 //Dependencies
 import { Link } from "react-router-dom";
+
 //CSS Imports
 import "./RequestCard.css";
+
 const RequestCard = ({ request }) => {
   return (
     <div className="req-card">
