@@ -21,7 +21,7 @@ const UserDashboard = ({
   stringCurrentDate,
   users,
   openRequests,
-  setOpenRequests
+  setOpenRequests,
 }) => {
   const API = process.env.REACT_APP_BACKEND_API_KEY;
   const data = JSON.stringify({ uuid: applicationUser.uuid });
@@ -40,6 +40,7 @@ const UserDashboard = ({
 
   useEffect(() => {
     axios(config).then((res) => setRequests(res.data));
+    console.log(requests);
     axios
       .get(`${API}/requests/open_requests`)
       .then((res) => setOpenRequests(res.data));
@@ -51,13 +52,12 @@ const UserDashboard = ({
         <SidebarNav setDate={setDate} applicationUser={applicationUser} />
       </div>
       <div className="requests">
-        <div className="my-requests">
-          <h3>My Requests</h3>
-          <div className="my-list">
-            {requests.map((request) => {
-              return <RequestCard request={request} />;
-            })}
-          </div>
+        <div className="my-list">
+          <MyRequests
+            requests={requests}
+            date={date}
+            stringCurrentDate={stringCurrentDate}
+          />
         </div>
         <div>
           {applicationUser.user_type === "Volunteer" ? (
