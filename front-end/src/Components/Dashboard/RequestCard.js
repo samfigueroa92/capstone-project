@@ -16,14 +16,14 @@ const RequestCard = ({ request }) => {
                   <img
                     className="reqImg"
                     alt="vol"
-                    src="/images/volunteer3.jpeg"
+                    src={request.image ? request.image : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"}
                   />
                 </figure>
                 <div className="req-info">
                   <div>
                     <h4>{request.title}</h4>
                   </div>
-                  <div className="card-text">
+                  <div className="card-date">
                     <p>{request.req_date}</p>
                   </div>
                   <div className="card-bottom">

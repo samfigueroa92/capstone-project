@@ -41,7 +41,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                 <img
                   className="cardImg"
                   alt="vol"
-                  src="/images/volunteer3.jpeg"
+                  src={request.image ? request.image : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"}
                 />
               </figure>
               <div className="card-info">
