@@ -11,7 +11,7 @@ import SidebarNav from "./SidebarNav";
 
 const RequestDetails = ({ setDate, date, applicationUser }) => {
   setDate("");
-  const [user, setUser] = useState([]);
+  const [request, setRequest] = useState([]);
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   useEffect(() => {
     axios.get(`${API}/requests/help_req/${id}`).then((response) => {
-      setUser(response.data);
+      setRequest(response.data);
     });
   }, [id, navigate, API]);
 
@@ -44,11 +44,11 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               <div className="info">
                 <h5 className="card-text">
                   {" "}
-                  Job Description: {user.description}
+                  Job Description: {request.description}
                 </h5>
-                <h4 className="card-text">Location: {user.location}</h4>
-                <h4 className="card-text">Requested: {user.req_date}</h4>
-                <h4 className="card-text">Time: {user.time}</h4>
+                <h4 className="card-text">Location: {request.location}</h4>
+                <h4 className="card-text">Requested: {request.req_date}</h4>
+                <h4 className="card-text">Time: {request.time}</h4>
               </div>
             </div>
           </div>

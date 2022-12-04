@@ -2,9 +2,7 @@
     display: grid;
     grid-template-columns: 0.25fr 2fr;
 }
-/* .sidebar-nav {
-    /* grid-area: s; */
-/* } */
+
 .cards {
     padding: 4rem;
     background: #fff;
