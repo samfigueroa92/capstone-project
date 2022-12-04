@@ -1,5 +1,7 @@
 //Dependencies
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 
 //Components
 import RequestCard from "./RequestCard";
@@ -7,11 +9,20 @@ import RequestCard from "./RequestCard";
 //CSS
 import "./MyRequests.css";
 
-const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
+const API = process.env.REACT_APP_BACKEND_API_KEY;
+
+const MyRequests = ({ date, applicationUser, stringCurrentDate }) => {
   const [value, setValue] = useState("");
   const [currentDate, setCurrentDate] = useState("");
+  const [requests, setRequests] = useState([]);
   let count = 0;
   useEffect(() => {
+    axios
+      .get(`${API}/requests/my_requests`, applicationUser.uuid)
+      .then((res) => setRequests(res.data))
+      .catch((err) => console.log(err));
+
+
     if (date) {
       setValue(
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
