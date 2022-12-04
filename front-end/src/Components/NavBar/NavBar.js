@@ -8,7 +8,7 @@ import { useContext } from "react";
 import "./NavBar.css";
 import Button from "react-bootstrap/Button";
 
-const NavBar = ({ setModalOpen }) => {
+const NavBar = ({ setModalOpen, applicationUser }) => {
   const user = useContext(UserContext);
   const [click, setClick] = useState(false);
 
@@ -17,7 +17,7 @@ const NavBar = ({ setModalOpen }) => {
   const closeMobileMenu = () => setClick(false);
 
   return user ? (
-    <DashboardNav />
+    <DashboardNav applicationUser={applicationUser} />
   ) : (
     <div className="Navbar">
       <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
@@ -41,9 +41,14 @@ const NavBar = ({ setModalOpen }) => {
             Seniors
           </Link>
         </li>
+        <li className="nav-item" onClick={closeMobileMenu}>
+          <button onClick={() => setModalOpen(true)} className="nav-links-mobile" >
+            Login
+          </button>
+        </li>
       </ul>
 
-      <Button onClick={() => setModalOpen(true)}>
+      <Button  className="batt1" onClick={() => setModalOpen(true)}>
         <i id="avatar" className="fa-solid fa-user"></i>Login
       </Button>
     </div>

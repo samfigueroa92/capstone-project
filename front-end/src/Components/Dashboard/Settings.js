@@ -1,45 +1,57 @@
 //Dependencies
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+//Component
+import SidebarNav from "./SidebarNav";
 
 //Bootstrap
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 //CSS
 import "./Settings.css";
 
 //API
-const API = process.env.REACT_APP_API_URL;
+const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
-const UsaStates = require('usa-states').UsaStates;
+const UsaStates = require("usa-states").UsaStates;
 
-function Settings({ applicationUser }) {
-
+function Settings({ applicationUser, setDate }) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
 
   const [editedUser, setEditedUser] = useState({
-    firstname: "",
-    lastname: "",
-    dob: "",
     address: "",
-    unit: "",
     city: "",
-    zipcode: "",
-    phonenumber: "",
+    dob: "",
     email: "",
+    firstname: "",
+    languages: "",
+    lastname: "",
+    phonenumber: "",
     profilephoto: "",
-    user_type: "",
     state: "",
+    unit: "",
+    user_type: "",
+    uuid: "",
+    verification_type: "",
+    verified: "",
+    zipcode: "",
   });
 
-  
+  useEffect(() => {
+    setEditedUser(applicationUser);
+  }, []);
+
   const updateUser = (updatedUser) => {
     axios
-      .put(`${API}/users`, updatedUser)
+      .put(`${API}/users/${applicationUser.uuid}`, updatedUser)
       .then(
         () => {
           navigate(`/user-dashboard`);
@@ -55,126 +67,158 @@ function Settings({ applicationUser }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateUser(editedUser, applicationUser.uuid);
+    updateUser(editedUser);
   };
 
   return (
     <div className="profileInfo">
-      <Container>
-        <h3>General Information</h3>
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <Container className="settings">
+        <h3 className="settings-header">Update Your Profile</h3>
+        <div className="profile-image">
+        <img
+          src={
+            applicationUser.profilephoto
+              ? applicationUser.profilephoto
+              : "https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+          }
+          alt="profile-photo"
+        />
+        </div>
         <div className="form-profile">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" >
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                disabled
-                id="firstname"
-                value={applicationUser.firstname}
-                type="text"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+            <Row>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  disabled
+                  id="firstname"
+                  value={applicationUser.firstname}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                disabled
-                id="lastname"
-                value={applicationUser.lastname}
-                type="text"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  disabled
+                  id="lastname"
+                  value={applicationUser.lastname}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
+            </Row>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Date of Birth</Form.Label>
-              <Form.Control
-                disabled
-                id="dob"
-                value={applicationUser.dob}
-                type="date"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+            <Row>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Date of Birth</Form.Label>
+                <Form.Control
+                  disabled
+                  id="dob"
+                  value={applicationUser.dob}
+                  type="date"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                disabled
-                id="email"
-                value={applicationUser.email}
-                type="email"
-                onChange={handleTextChange}
-              />
-              <Form.Text className="text-muted"></Form.Text>
-            </Form.Group>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  disabled
+                  id="email"
+                  value={applicationUser.email}
+                  type="email"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
+            </Row>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                id="address"
-                value={applicationUser.address}
-                type="text"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+            <Row>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Address Line 1</Form.Label>
+                <Form.Control
+                  id="address"
+                  value={editedUser.address}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                id="city"
-                value={applicationUser.city}
-                type="text"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Address Line 2</Form.Label>
+                <Form.Control
+                  id="unit"
+                  value={editedUser.unit}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>State</Form.Label>
-              <Form.Select
-                value={applicationUser.state}
-                onChange={handleTextChange}
-              >
-                <option>--Select State--</option>
-                {usStates.states.map(state => <option key={state.name}>{state.abbreviation}</option>)}
-              </Form.Select>
-            </Form.Group>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  id="city"
+                  value={editedUser.city}
+                  type="text"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
+            </Row>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Zip Code</Form.Label>
-              <Form.Control
-                id="zipcode"
-                value={applicationUser.zipcode}
-                type="number"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+            <Row>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>State</Form.Label>
+                <Form.Select
+                  value={editedUser.state}
+                  onChange={handleTextChange}
+                >
+                  <option>--Select State--</option>
+                  {usStates.states.map((state) => (
+                    <option key={state.name}>{state.abbreviation}</option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                id="phonenumber"
-                value={applicationUser.phonenumber}
-                type="tel"
-                onChange={handleTextChange}
-              />
-            </Form.Group>
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Zip Code</Form.Label>
+                <Form.Control
+                  id="zipcode"
+                  value={editedUser.zipcode}
+                  type="number"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
+              <Form.Group as={Col} className="mb-3">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control
+                  id="phonenumber"
+                  value={editedUser.phonenumber}
+                  type="tel"
+                  onChange={handleTextChange}
+                />
+              </Form.Group>
+            </Row>
+
+            <Form.Group className="mb-3">
               <Form.Label>Upload New Photo</Form.Label>
               <Form.Control
                 id="profilephoto"
-                value={applicationUser.profilephoto}
-                type="file"
+                value={editedUser.profilephoto}
+                type="text"
                 onChange={handleTextChange}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
-            <input type="submit" />
+            <div className="buttons-container">
+            <Button type="submit">Submit</Button>
+            <Link to={`/users/${editedUser.uuid}`}>
+              <Button>Nevermind</Button>
+            </Link>
+            </div>
           </Form>
-          <Link to={`/users/${applicationUser.uuid}`}>
-            <button>Nevermind!</button>
-          </Link>
         </div>
       </Container>
     </div>

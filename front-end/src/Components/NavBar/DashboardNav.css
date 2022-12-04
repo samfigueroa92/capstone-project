@@ -42,6 +42,7 @@
   background-color: #42999b;
   font-size: 15px;
   color: white;
+  padding: 10px;
 }
 #dropdown:hover {
   color: black;

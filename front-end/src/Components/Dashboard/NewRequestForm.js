@@ -3,24 +3,38 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./NewRequestForm.css";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/UserProviders";
+
+//Components
+import SidebarNav from "./SidebarNav";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = () => {
+const NewRequestForm = ({ applicationUser, setDate }) => {
   let navigate = useNavigate();
+  let user = useContext(UserContext);
+  console.log(user);
 
   // CREATE OR ADD A NEW REQUEST
   const makeRequest = (newRequest) => {
+    debugger;
     axios
-      .post(`${API}/requests`, newRequest)
+      .post(`${API}/requests`, {
+        ...newRequest,
+        elder_id: user.uid,
+      })
       .then(
         () => {
-          navigate(`/requests`);
+          navigate("/user-dashboard");
         },
         (error) => console.error(error)
       )
@@ -28,6 +42,7 @@ const NewRequestForm = () => {
   };
 
   const [request, setRequest] = useState({
+    elder_id: "",
     title: "",
     req_date: "",
     description: "",
@@ -45,73 +60,91 @@ const NewRequestForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     makeRequest(request);
-}
+  };
 
   return (
     <div className="new-req">
-    <div className="request-form">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Title</Form.Label>
-          <Form.Control 
-          type="text" 
-          placeholder="I need..." 
-          id="title" 
-          value={request.title} 
-          onChange={textChange} />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Request Date</Form.Label>
-          <Form.Control 
-          type="date" 
-          id="request-date" 
-          placeholder="Date" 
-          value={request.req_date} 
-          onChange={textChange} />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Description</Form.Label>
-          <Form.Control 
-          as="textarea" rows={3} 
-          id="description" 
-          placeholder="Tell us what you need..." 
-          value={request.description} 
-          onChange={textChange}
-          required/>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Location</Form.Label>
-          <Form.Control 
-          type="text" 
-          id="location" 
-          placeholder="location" 
-          value={request.location} 
-          onChange={textChange} 
-          required/>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Time</Form.Label>
-          <Form.Control 
-          type="text" 
-          id="time" 
-          placeholder="Time" 
-          value={request.time} 
-          required/>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Image</Form.Label>
-          <Form.Control 
-          type="text" 
-          id="image" 
-          placeholder="Image" 
-          value={request.image} 
-          onChangea={textChange}/>
-        </Form.Group>
-        <div className="form-button">
-              <Button type="submit">Submit</Button>
-            </div>
-      </Form>
-    </div>
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <Container className="request-form">
+        <h3>Submit A Request</h3>
+        <Form onSubmit={handleSubmit}>
+          <Row>
+            <Form.Group as={Col} className="mb-3">
+              <Form.Label>Request Title</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Grocery Pick Up"
+                id="title"
+                value={request.title}
+                onChange={textChange}
+              />
+            </Form.Group>
+            <Form.Group as={Col} className="mb-3">
+              <Form.Label>
+                Request Date<span className="required-field">*</span>
+              </Form.Label>
+              <Form.Control
+                type="date"
+                id="req_date"
+                value={request.req_date}
+                onChange={textChange}
+              />
+            </Form.Group>
+          </Row>
+          <Form.Group className="mb-3">
+            <Form.Label>
+              Request Description<span className="required-field">*</span>
+            </Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              id="description"
+              placeholder="Tell us what you need..."
+              value={request.description}
+              onChange={textChange}
+              required
+            />
+          </Form.Group>
+          <Row>
+            <Form.Group as={Col} className="mb-3">
+              <Form.Label>
+                Location<span className="required-field">*</span>
+              </Form.Label>
+              <Form.Control
+                type="text"
+                id="location"
+                placeholder="123 Somewhere St"
+                value={request.location}
+                onChange={textChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group as={Col} className="mb-3">
+              <Form.Label>Time</Form.Label>
+              <Form.Control
+                type="time"
+                id="time"
+                placeholder="2pm"
+                value={request.time}
+                onChange={textChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group as={Col} className="mb-3">
+              <Form.Label>Request Image</Form.Label>
+              <Form.Control
+                type="text"
+                id="image"
+                value={request.image}
+                onChange={textChange}
+              />
+            </Form.Group>
+          </Row>
+          <div className="form-button">
+            <Button type="submit">Submit</Button>
+          </div>
+        </Form>
+      </Container>
     </div>
   );
 };
