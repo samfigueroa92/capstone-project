@@ -22,13 +22,17 @@ import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 
 //CSS
 import "./App.css";
+import PersonalPage from "./Components/HomePage/PersonalPage";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [stringCurrentDate, setStringCurrentDate] = useState(new Date())
   const [date, setDate] = useState("");
+  const [requests, setRequests] = useState([]);
+  const [users,setUsers] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
     uuid:"",
     firstname: "",
@@ -47,34 +51,38 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-  const [requests, setRequests] = useState([]);
-
+  
+  
+  
   useEffect(() => {
     axios
-      .get(`${API}/requests`)
-      .then((res) => setRequests(res.data))
+      .get(`${API}/users`)
+      .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
-  }, [requests]);
+  }, []);
 
   requests.sort((a, b) => a.req_date - b.req_date);
-
+  users.sort((a,b)=> a.lastname - b.lastname)
+  
   return (
     <div className="App">
       <UserProvider>
       <Router>
-        <NavBar setModalOpen={setModalOpen} />
+        <NavBar setModalOpen={setModalOpen} applicationUser={applicationUser}/>
         <LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} setApplicationUser={setApplicationUser} />
         <Routes>
-          <Route path='/open-requests' element= {<Protected><OpenRequestPage date={date} setDate={setDate} requests={requests} applicationUser={applicationUser} /></Protected>}/>
-          <Route path='/user-dashboard' element={ <Protected><UserDashboard date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} /></Protected> }/>
-          <Route path='accepted-requests' element={<Protected><AcceptRequestPage date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
+          <Route path='/open-requests' element= {<Protected><OpenRequestPage date={date} setDate={setDate} requests={requests} applicationUser={applicationUser} stringCurrentDate={stringCurrentDate}/></Protected>}/>
+          <Route path='/user-dashboard' element={ <Protected><UserDashboard users={users} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests} setRequests={setRequests} stringCurrentDate={stringCurrentDate} /></Protected> }/>
+          <Route path='accepted-requests' element={<Protected><AcceptRequestPage stringCurrentDate={stringCurrentDate} date={date} setDate={setDate} applicationUser={applicationUser} requests={requests}/></Protected>}/>
           <Route path="/our-team" element={<OurTeam />} />
+          <Route path="/our-page/:staffMember" element={<PersonalPage/>}/>
+          {/* {team.map((staff)=> <Route path={`/our-page/${staff}`} element={<PersonalPage/>}/> )} */}
           <Route path="/" element={<Home />} />
           <Route path="/volunteers" element={ <VolunteerPage /> } />
           <Route path="/seniors" element={ <SeniorsPage /> } />
           <Route path="/sign-up" element={<SignUpPage setApplicationUser={setApplicationUser}/>} />
-          <Route path="/user/settings" element={<Settings applicationUser={applicationUser}/>}/>
-          <Route path="/requests/new" element={<Protected><NewRequestForm /></Protected>} />
+          <Route path="/user/settings" element={<Protected><Settings applicationUser={applicationUser} setDate={setDate}/></Protected>}/>
+          <Route path="/requests/new" element={<Protected><NewRequestForm applicationUser={applicationUser} setDate={setDate} /></Protected>} />
           <Route path="/requests/:id" element={<Protected><RequestDetails setDate={setDate} date={date} applicationUser={applicationUser}/></Protected>} />
         </Routes>
       </Router>

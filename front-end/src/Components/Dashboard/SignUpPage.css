@@ -16,6 +16,9 @@
 .instructions .p3{
     text-align: center;
 }
+.instructions .p4{
+    text-align: center;
+}
 
 .instructions{
     text-align: left;
@@ -46,4 +49,31 @@
 
 .form-button{
     text-align: end;
+}
+
+.required-field{
+    color: red;
+}
+
+@media screen and (max-width: 400px) {
+    .signup-text{
+        margin: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
+    }
+    .instructions{
+        text-align: left;
+        width: 100%;
+        margin-top: 5px;
+    }
+    .form{
+        border: 1px solid black;
+        border-radius: 25px;
+        margin: 0px 5px 20px 5px;
+        padding: 10px;
+    }
+    
+
 }

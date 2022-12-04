@@ -1,7 +1,7 @@
 .SideBar {
   background-color: #edf6f9;
-  height: 750px;
-  padding-top: 120px;
+  height: 100%;
+  padding-top: 100px;
   color: black;
 }
 .header {
@@ -20,7 +20,7 @@
 
 .react-calendar {
   width: 300px;
-  margin: 0px 10px;
+  margin: 0px 0px;
 }
 .SideBar {
   height: 730px;
@@ -33,5 +33,9 @@ a{
 
 a:hover{
   color: #006D77;
+}
+
+.coming-soon{
+  font-size: small;
 }
 

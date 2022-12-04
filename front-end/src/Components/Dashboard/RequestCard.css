@@ -1,6 +1,7 @@
 .req-card{
     width: 250px;
     margin: 10px;
+    gap: 5%
 }
 
 /* .req-card img{

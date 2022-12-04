@@ -29,6 +29,7 @@ const VolunteerPage = () => {
         <p>
          As an organization we take our clients and our volunteers safety seriously. To become a volunteer just click the signup button below. Once you have completed the sign-up form you will be notified via email for some additional information. Once a background check has been completed your account will be verified and you can begin accepting requests to help seniors near you.
         </p>
+        <img className = "none" src ="https://static.vecteezy.com/system/resources/previews/006/795/116/original/volunteer-man-walking-in-park-with-elderly-disabled-or-handicapped-woman-in-wheelchair-help-and-support-to-senior-people-with-health-problems-banner-for-5th-december-cartoon-illustration-vector.jpg"/>
       </div>
       <div>
         <h5>What are the benefits?</h5>
