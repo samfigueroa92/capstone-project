@@ -3,6 +3,7 @@ import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
+import RequestCard from "./RequestCard";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -39,8 +40,6 @@ const UserDashboard = ({
     axios(config).then((res) => setRequests(res.data));
   }, []);
 
-  console.log(requests);
-
   //   useEffect(() => {
   //     if (applicationUser.user_type === "Volunteer") {
   //       axios
@@ -71,18 +70,15 @@ const UserDashboard = ({
         <SidebarNav setDate={setDate} applicationUser={applicationUser} />
       </div>
       <div className="requests">
-        <div></div>
-      </div>
-      {/* <div className="requests">
-        <div>
-          <MyRequests
-            date={date}
-            requests={requests}
-            applicationUser={applicationUser}
-            stringCurrentDate={stringCurrentDate}
-          />
+        <div className="my-requests">
+          <h3>My Requests</h3>
+          <div className="my-list">
+            {requests.map((request) => {
+              return <RequestCard request={request} />;
+            })}
+          </div>
         </div>
-        <div>
+        {/* <div>
           {applicationUser.user_type === "Volunteer" ? (
             <OpenRequests
               date={date}
@@ -92,8 +88,8 @@ const UserDashboard = ({
           ) : (
             <MyFavorites users={users} />
           )}
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </div>
   );
 };
