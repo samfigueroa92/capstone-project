@@ -1,6 +1,6 @@
 .details {
     display: grid;
-    grid-template-columns: 0.25fr 2fr;
+    grid-template-columns: 7fr 25fr;
 }
 
 .cards {
@@ -8,7 +8,7 @@
     background: #fff;
   }
   
-  h1 {
+  .details h3 {
     text-align: center;
   }
   
@@ -17,13 +17,13 @@
     flex-flow: column;
     align-items: center;
     max-width: 1120px;
-    width: 90%;
+    width: 50%;
     margin: 0 auto;
   }
   
   .card-wrap {
     position: relative;
-    margin: 50px 0 45px;
+    margin: 25px 0 25px;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
@@ -38,7 +38,6 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
-    margin-top: 15px;
   }
   .back {
       margin-right: 15px;
@@ -47,20 +46,30 @@
       padding-top: 5px;
       padding-bottom: 5px;
       background: black;
+      border: none;
       font-size: 18px;
       font-weight: 700;
       color: white;
+      background: #42999B;
+      letter-spacing: .2em;
   }
   .accept {
       margin-right: 15px;
       padding-left: 80px;
+      border: none;
       padding-right: 80px;
       padding-top: 5px;
       padding-bottom: 5px;
-      background: rgb(3, 145, 3);
+      background: #42999B;
       font-size: 18px;
       font-weight: 700;
       color: white;
+      letter-spacing: .2em;
+  }
+
+  .back:hover,
+  .accept:hover{
+    background-color: #B8DEDC;
   }
   
   .card-fig {
@@ -109,8 +118,9 @@
     transform: scale(1.1);
   }
   
-  .info {
+  .card-info {
     padding: 20px 30px 30px;
+    text-align: center;
   }
   
   .card-text {

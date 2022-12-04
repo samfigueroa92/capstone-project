@@ -6,6 +6,9 @@ import axios from "axios";
 //CSS
 import "./RequestDetails.css";
 
+//Bootstrap
+import Button from "react-bootstrap/Button";
+
 //Components
 import SidebarNav from "./SidebarNav";
 
@@ -30,7 +33,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
         <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
       </div>
       <div className="cards">
-        <h1>REQUESTS DETAILS</h1>
+        <h3>Request Details</h3>
         <div className="card-holder">
           <div className="card-wrap">
             <div className="card-items">
@@ -41,14 +44,14 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                   src="/images/volunteer3.jpeg"
                 />
               </figure>
-              <div className="info">
+              <div className="card-info">
                 <h5 className="card-text">
                   {" "}
-                  Job Description: {request.description}
+                  <strong>Job Description:</strong> {request.description}
                 </h5>
-                <h4 className="card-text">Location: {request.location}</h4>
-                <h4 className="card-text">Requested: {request.req_date}</h4>
-                <h4 className="card-text">Time: {request.time}</h4>
+                <h4 className="card-text"><strong>Location:</strong> {request.location}</h4>
+                <h4 className="card-text"><strong>Requested:</strong> {request.req_date}</h4>
+                <h4 className="card-text"><strong>Time:</strong> {request.time}</h4>
               </div>
             </div>
           </div>
@@ -56,12 +59,12 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
         <div className="buttons">
           <div>
             <Link to="/user-dashboard">
-              <button className="back">BACK</button>
+              <Button className="back">BACK</Button>
             </Link>
           </div>
           <div>
             <Link to="/user-dashboard">
-              <button className="accept">ACCEPT</button>
+              <Button className="accept">ACCEPT</Button>
             </Link>
           </div>
           {/* <div>
