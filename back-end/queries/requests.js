@@ -66,6 +66,20 @@ const volunteerRequests = async (uuid) => {
   }
 };
 
+// Listing of a senior's requests
+const seniorRequests = async (uuid) => {
+  try {
+    console.log(`Retreiving posted requests by user ` + uuid);
+    const requests = await db.any(
+      "SELECT * FROM requests WHERE elder_id=$1",
+      uuid
+    );
+    return requests;
+  } catch (error) {
+    return error;
+  }
+};
+
 //Edit Request
 const editRequest = async (request, id) => {
   try {
@@ -138,6 +152,7 @@ module.exports = {
   makeRequest,
   deleteRequest,
   volunteerRequests,
+  seniorRequests,
   assignVolunteer,
   removeVolunteer,
 };
