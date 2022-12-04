@@ -32,3 +32,9 @@
 .form-button{
     text-align: center;
 }
+
+ .new-req .mb-3{
+    margin-right: 2rem !important;
+    margin-left: 1rem !important;
+
+}
