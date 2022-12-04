@@ -9,7 +9,8 @@ const {
   editRequest,
   makeRequest,
   deleteRequest,
-  volunteerRequests
+  volunteerRequests,
+  seniorRequests,
 } = require("../queries/requests.js");
 
 // BUILDING ROUTES
@@ -34,17 +35,31 @@ requests.get("/help_req/:id", async (req, res) => {
   }
 });
 
-// SHOW ALL REQUESTS ASSIGNED TO A VOLUNTEER
-requests.get("/my_requests", async (req, res) => {
+// SHOW ALL REQUESTS ASSIGNED TO A USER (VOLUNTEER)
+// requests.get("/my_assigned_requests", async (req, res) => {
+//   try {
+//     console.log("Showing all requests for volunteer " + req.body.uuid)
+//     const uuid = req.body.uuid;
+//     const requests = await volunteerRequests(uuid);
+//     res.json(requests);
+//   } catch (error) {
+//     return error;
+//   }
+// });
+
+requests.post("/my_assigned_requests", async (req, res) => {
   try {
-    console.log("Showing all requests for volunteer " + req.body.uuid)
     const uuid = req.body.uuid;
+    console.log("Showing all assigned requests for volunteer " + uuid);
     const requests = await volunteerRequests(uuid);
     res.json(requests);
+    console.log(requests);
   } catch (error) {
     return error;
   }
 });
+
+// SHOW ALL REQUESTS POSTED BY THE USER
 
 // ASSIGN VOLUNTEER TO REQUEST
 requests.put("/", async (req, res) => {});

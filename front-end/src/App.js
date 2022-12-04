@@ -62,8 +62,8 @@ const App = () => {
   //     .catch((err) => console.error(err));
   // }, []);
 
-  requests.sort((a, b) => a.req_date - b.req_date);
-  users.sort((a, b) => a.lastname - b.lastname);
+  // requests.sort((a, b) => a.req_date - b.req_date);
+  // users.sort((a, b) => a.lastname - b.lastname);
 
   return (
     <div className="App">
