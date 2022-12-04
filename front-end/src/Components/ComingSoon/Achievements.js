@@ -4,15 +4,15 @@ import React from 'react';
 import "./Achievements.css"
 
 // Components
-import SidebarNav from "../Dashboard/SidebarNav.js";
+// import SidebarNav from "../Dashboard/SidebarNav.js";
 import SvgIcon from './SvgIcon';
 
 const Achievements = () => {
   return (
-    <div className='achieve'>
-        {/* <SvgIcon /> */}
+    <div className='achieve'  style={{paddingTop: "110px"}}>
         {/* <SidebarNav /> */}
-        hello
+        <SvgIcon />
+        
     </div>
   )
 }

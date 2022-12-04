@@ -1,4 +1,28 @@
 .achieve {
-    display: grid;
-    grid-template-columns: 0.25fr 2fr;
+    /* display: grid; */
+    /* grid-template-columns: 0.25fr 2fr; */
+    background-image: url("/Users/adnan/Desktop/pursuit/PROJECT/capstone-project/front-end/public/images/floating-cogs.svg");
+    background-position: center;
+    align-items: center;
+    background-color: #c6eaf6;;
+    height: 100vh;
+    background-size: 20%;
+    justify-content: center;
+    background-repeat: repeat;
 }
+
+.logo {
+    animation: logo-spin infinite 20s linear;
+    pointer-events: none;
+    align-items: center;
+    text-align: center;
+}
+
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

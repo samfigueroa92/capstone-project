@@ -1,8 +1,9 @@
 import React from "react";
+import "./Achievements.css"
 
 const SvgIcon = () => {
   return (
-    <div className="SVG">
+    <div className="logo">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100mm"
@@ -14,8 +15,7 @@ const SvgIcon = () => {
       >
         <g transform="translate(0 -87)">
           <path
-            fill="#ffcc5f"
-            // fill="#4ECDC4" // Another color
+            fill="#42999b"
             fillOpacity="1"
             stroke="#000103"
             strokeDasharray="none"
