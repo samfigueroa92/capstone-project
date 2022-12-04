@@ -7,6 +7,7 @@ import "./RequestCard.css";
 // making a comment so we know this is updated
 
 const RequestCard = ({ request }) => {
+  console.log(request)
   return (
     <div className="req-card">
       <Link className="link" to={`/requests/${request.id}`}>
