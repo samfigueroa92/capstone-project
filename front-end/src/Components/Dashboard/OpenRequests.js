@@ -7,29 +7,58 @@ import RequestCard from "./RequestCard";
 //CSS
 import "./OpenRequests.css";
 
-const OpenRequests = ({ requests, date, stringCurrentDate}) => {
+const OpenRequests = ({ openRequests, date, stringCurrentDate }) => {
   const [value, setValue] = useState("");
-  const [currentDate, setCurrentDate] = useState('')
-  
+  const [currentDate, setCurrentDate] = useState("");
+
   useEffect(() => {
-    if (date) {      
+    if (date) {
+      setCurrentDate(
+        stringCurrentDate.getFullYear() +
+          "-" +
+          ((stringCurrentDate.getMonth() + 1).toString().length === 1
+            ? "0" + (setCurrentDate.getMonth() + 1)
+            : stringCurrentDate.getMonth() + 1) +
+          "-" +
+          (stringCurrentDate.getDate().toString().length === 1
+            ? "0" + (stringCurrentDate.getDate())
+            : stringCurrentDate.getDate())
+      );
       setValue(
-        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        date.getFullYear() +
+          "-" +
+          ((date.getMonth() + 1).toString().length === 1
+            ? "0" + (date.getMonth() + 1)
+            : date.getMonth() + 1) +
+          "-" +
+          (date.getDate().toString().length === 1
+            ? "0" + date.getDate()
+            : date.getDate())
       );
     }
   }, [date]);
 
-  console.log(currentDate, value);
+  console.log(value, currentDate);
+  const specifiedrequests = openRequests.map((openRequest) => {
+    if (openRequest.req_date === value) {
+      return <RequestCard key={openRequest.id} request={openRequest} />;
+    }
+  });
+
+  const requests = openRequests.map((openRequest) => {
+    if (openRequest.req_date >= value) {
+      return <RequestCard key={openRequest.id} request={openRequest} />;
+    }
+  });
+  //console.log(openRequests)
   return (
     <div className="open-requests">
       <h3>Open Requests</h3>
       <div className="open-list">
-        {requests.map((request) =>
-          (!request.assigned) && (request.req_date >= value) ? (
-            <RequestCard key={request.id} request={request} />
-            ) : null)}
+        {currentDate === value ? requests : specifiedrequests}
       </div>
     </div>
   );
 };
 export default OpenRequests;
+

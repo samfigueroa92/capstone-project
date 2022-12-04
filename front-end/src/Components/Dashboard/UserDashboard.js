@@ -20,6 +20,8 @@ const UserDashboard = ({
   setRequests,
   stringCurrentDate,
   users,
+  openRequests,
+  setOpenRequests
 }) => {
   const API = process.env.REACT_APP_BACKEND_API_KEY;
   const data = JSON.stringify({ uuid: applicationUser.uuid });
@@ -38,34 +40,11 @@ const UserDashboard = ({
 
   useEffect(() => {
     axios(config).then((res) => setRequests(res.data));
+    axios
+      .get(`${API}/requests/open_requests`)
+      .then((res) => setOpenRequests(res.data));
   }, []);
 
-
-  //   useEffect(() => {
-  //     if (applicationUser.user_type === "Volunteer") {
-  //       axios
-  //         .post(`${API}/requests/my_assigned_requests`, {
-  //           body: { uuid: applicationUser.uuid },
-  //         })
-  //         .then((res) => setRequests(res.data))
-  //         .catch((error) => console.log(error));
-  //       console.log(requests);
-  //     } else {
-  //       axios
-  //         .get(`${API}/requests/my_created_requests`, {
-  //           params: { uuid: applicationUser.uuid },
-  //         })
-  //         .then((res) => setRequests(res.data))
-  //         .catch((error) => console.log(error));
-  //       console.log(requests);
-  //     }
-  // axios
-  //   .get(`${API}/requests`)
-  //   .then((res) => setRequests(res.data))
-  //   .catch((err) => console.error(err));
-  //   }, []);
-
-  requests.sort((a, b) => a.req_date - b.req_date);
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">
@@ -80,17 +59,17 @@ const UserDashboard = ({
             })}
           </div>
         </div>
-        {/* <div>
+        <div>
           {applicationUser.user_type === "Volunteer" ? (
             <OpenRequests
               date={date}
-              requests={requests}
+              openRequests={openRequests}
               stringCurrentDate={stringCurrentDate}
             />
           ) : (
             <MyFavorites users={users} />
           )}
-        </div> */}
+        </div>
       </div>
     </div>
   );
