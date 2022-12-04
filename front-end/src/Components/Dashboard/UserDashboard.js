@@ -40,6 +40,7 @@ const UserDashboard = ({
     axios(config).then((res) => setRequests(res.data));
   }, []);
 
+
   //   useEffect(() => {
   //     if (applicationUser.user_type === "Volunteer") {
   //       axios
@@ -64,6 +65,7 @@ const UserDashboard = ({
   //   .catch((err) => console.error(err));
   //   }, []);
 
+  requests.sort((a, b) => a.req_date - b.req_date);
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">

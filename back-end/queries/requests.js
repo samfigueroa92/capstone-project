@@ -57,7 +57,7 @@ const volunteerRequests = async (uuid) => {
   try {
     console.log(`Retreiving assigned requests for user ${uuid}`);
     const requests = await db.any(
-      "SELECT * FROM requests WHERE volunteer_id=$1",
+      "SELECT * FROM requests WHERE volunteer_id=$1 ORDER BY req_date ASC",
       uuid
     );
     return requests;
