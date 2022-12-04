@@ -31,12 +31,12 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [stringCurrentDate, setStringCurrentDate] = useState(new Date())
+  const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
   const [date, setDate] = useState("");
   const [requests, setRequests] = useState([]);
-  const [users,setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
-    uuid:"",
+    uuid: "",
     firstname: "",
     lastname: "",
     dob: "",
@@ -53,19 +53,20 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-  
-  
-  
-  useEffect(() => {
-    axios
-      .get(`${API}/users`)
-      .then((res) => setUsers(res.data))
-      .catch((err) => console.error(err));
-  }, []);
 
-  requests.sort((a, b) => a.req_date - b.req_date);
-  users.sort((a,b)=> a.lastname - b.lastname)
-  
+  // useEffect(() => {
+  // })
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API}/users`)
+  //     .then((res) => setUsers(res.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
+  // requests.sort((a, b) => a.req_date - b.req_date);
+  // users.sort((a, b) => a.lastname - b.lastname);
+
   return (
     <div className="App">
       <UserProvider>
