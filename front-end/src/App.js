@@ -32,6 +32,7 @@ const App = () => {
   const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
   const [date, setDate] = useState("");
   const [requests, setRequests] = useState([]);
+  const [openRequests, setOpenRequests] = useState([]);
   const [users, setUsers] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
@@ -114,6 +115,8 @@ const App = () => {
                     requests={requests}
                     setRequests={setRequests}
                     stringCurrentDate={stringCurrentDate}
+                    openRequests={openRequests}
+                    setOpenRequests={setOpenRequests}
                   />
                 </Protected>
               }

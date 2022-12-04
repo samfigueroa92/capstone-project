@@ -15,6 +15,20 @@ const getAllRequests = async () => {
 
 // --Routes--
 
+// Get all requests that are currently unassigned
+const openRequests = async () => {
+  try {
+    console.log("Listing all open requests");
+    requests = await db.any(
+      "SELECT * FROM requests WHERE assigned=FALSE ORDER BY req_date ASC"
+    );
+    return requests;
+  } catch (error) {
+    return error;
+  }
+};
+
+//Create request
 const makeRequest = async (request) => {
   try {
     console.log("Adding request to database");
@@ -137,6 +151,7 @@ const deleteRequest = async (id) => {
 module.exports = {
   getAllRequests,
   getRequest,
+  openRequests,
   editRequest,
   makeRequest,
   deleteRequest,

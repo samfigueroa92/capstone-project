@@ -11,6 +11,7 @@ const CalendarView = ({ setDate }) => {
   const [value, onChange] = useState(new Date());
   setDate(value);
 
+  
   return (
     <div className="calendar">
       <Calendar id="react-calendar" onChange={onChange} value={value} />
