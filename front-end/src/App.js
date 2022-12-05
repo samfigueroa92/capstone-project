@@ -34,6 +34,7 @@ const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
   const [date, setDate] = useState("");
+  //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [users, setUsers] = useState([]);
