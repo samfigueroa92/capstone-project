@@ -52,12 +52,15 @@ const OpenRequests = ({ openRequests, date, stringCurrentDate }) => {
   });
   //console.log(openRequests)
   return (
+    <>
+    <h3 className="head">Open Requests</h3>
     <div className="open-requests">
-      <h3>Open Requests</h3>
-      <div className="open-list">
+      
+      {/* <div className="open-list"> */}
         {currentDate === value ? requests : specifiedrequests}
-      </div>
+      {/* </div> */}
     </div>
+    </>
   );
 };
 export default OpenRequests;
