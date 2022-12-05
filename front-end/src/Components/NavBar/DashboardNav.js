@@ -20,7 +20,7 @@ const DashboardNav = ({applicationUser}) => {
 
   return (
       <Navbar className="dash-navbar">
-        <Navbar.Brand href="/" className="nav-logo">
+        <Navbar.Brand className="nav-logo">
           <img src="/images/logoGS.png" alt="logo" />
         </Navbar.Brand>
         <Container className="dashboard-nav">

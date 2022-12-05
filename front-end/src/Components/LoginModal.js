@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { signInWithGoogle, } from "../Services/Firebase";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 //CSS Imports
 import "./LoginModal.css";
@@ -46,7 +47,7 @@ const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
         <div className="signin-buttons">
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-          <p>Not a user? Please sign up first.</p>
+          <p>Not a user? <Link to="/sign-up" onClick={() => setModalOpen(false)}>Please sign up first.</Link></p>
         </div>
       </div>
     </div>
