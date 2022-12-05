@@ -1,6 +1,5 @@
 const db = require("../db/dbConfig.js");
 
-// Index --- all posted requests *** This should only show OPEN requests ***
 const getAllRequests = async () => {
   try {
     console.log("Listing all posted requests");
@@ -31,7 +30,7 @@ const openRequests = async () => {
 //Create request
 const makeRequest = async (request) => {
   try {
-    console.log("Adding request to database");
+    console.log("QUERY : Adding request to database");
     request = await db.one(
       "INSERT INTO requests (elder_id, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [
@@ -50,11 +49,6 @@ const makeRequest = async (request) => {
   }
 };
 
-//Single request
-//Looking at this makes me think - we'll probably need some helper functions to validate that a person is able to review this request,
-// at least from a volunteer side. A query that checks to see if the users firebase_id is in the row they are attempting to look at,
-// and if so, the request info is sent back. At least for the future - not necessarily important to have in for the short term.
-
 const getRequest = async (id) => {
   try {
     console.log("Retreiving request from request table");
@@ -65,7 +59,6 @@ const getRequest = async (id) => {
   }
 };
 
-// Listing of a volunteers requests
 const volunteerRequests = async (uuid) => {
   try {
     console.log(`Retreiving assigned requests for user ${uuid}`);
@@ -79,7 +72,6 @@ const volunteerRequests = async (uuid) => {
   }
 };
 
-// Listing of a senior's requests
 const seniorRequests = async (uuid) => {
   try {
     console.log(`Retreiving posted requests by user ` + uuid);
@@ -93,7 +85,6 @@ const seniorRequests = async (uuid) => {
   }
 };
 
-//Edit Request
 const editRequest = async (request, id) => {
   try {
     console.log("Editing request with id of " + id);
@@ -116,13 +107,12 @@ const editRequest = async (request, id) => {
   }
 };
 
-//Update Request - Assign Volunteer, mark request assigned as TRUE
-const assignVolunteer = async (request, volunteer) => {
+const assignVolunteer = async (request) => {
   try {
-    console.log(`Assigning volunteer ${volunteer.id} to request ${request.id}`);
+    console.log(`QUERY : Assigning volunteer ${request.volunteer} to request ${request.req_id}`);
     const assign = await db.one(
-      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
-      [volunteer.id, "TRUE", request.id]
+      "UPDATE requests SET volunteer_id=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [request.volunteer, "TRUE", request.req_id]
     );
     return assign;
   } catch (error) {
@@ -130,7 +120,6 @@ const assignVolunteer = async (request, volunteer) => {
   }
 };
 
-//Update Request - Remove Volunteer, mark request assigned as FALSE
 const removeVolunteer = async (id) => {
   try {
     console.log("Removing volunteer from request");
@@ -144,7 +133,6 @@ const removeVolunteer = async (id) => {
   }
 };
 
-//Delete Request
 const deleteRequest = async (id) => {
   try {
     console.log("Deleting request with id of " + id);

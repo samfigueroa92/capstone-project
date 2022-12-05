@@ -4,6 +4,7 @@ const requests = express.Router();
 
 // IMPORTING QUERIES
 const {
+  assignVolunteer,
   getAllRequests,
   getRequest,
   editRequest,
@@ -35,18 +36,6 @@ requests.get("/help_req/:id", async (req, res) => {
     res.status(404).json({ error: "not Found" });
   }
 });
-
-// SHOW ALL REQUESTS ASSIGNED TO A USER (VOLUNTEER)
-// requests.get("/my_assigned_requests", async (req, res) => {
-//   try {
-//     console.log("Showing all requests for volunteer " + req.body.uuid)
-//     const uuid = req.body.uuid;
-//     const requests = await volunteerRequests(uuid);
-//     res.json(requests);
-//   } catch (error) {
-//     return error;
-//   }
-// });
 
 requests.post("/my_assigned_requests", async (req, res) => {
   try {
@@ -86,11 +75,11 @@ requests.get("/open_requests", async (req, res) => {
 // SHOW ALL REQUESTS POSTED BY THE USER
 
 // ASSIGN VOLUNTEER TO REQUEST
-requests.put("/", async (req, res) => {
+requests.put("/accept_request", async (req, res) => {
   try {
-    console.log("Assigning volunteer to request");
-    const assignedRequest = await assignVolunteer();
-    if (assignedRequest.assigned === "true") {
+    console.log(req.body);
+    const assignedRequest = await assignVolunteer(req.body);
+    if (assignedRequest.assigned) {
       res.status(200).json(assignedRequest);
     } else {
       res.status(400).json({ error: "Request failed to be assigned" });
@@ -103,6 +92,7 @@ requests.put("/", async (req, res) => {
 // CREATE OR MAKE A REQUEST
 requests.post("/", async (req, res) => {
   try {
+    console.log("CONTROLLER : Adding request to database");
     const createdRequest = await makeRequest(req.body);
     res.json(createdRequest);
   } catch (error) {

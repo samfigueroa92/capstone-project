@@ -27,10 +27,34 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
     });
   }, [id, navigate, API]);
 
+  // const data = JSON.stringify({ req_id: id, volunteer: applicationUser.uuid });
+  // const config = {
+  //   method: "put",
+  //   url: `${API}/requests/accept_request`,
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   data: data,
+  // };
+
+  const missionAccepted = () => {
+    axios
+      .put(`${API}/requests/accept_request`, {
+        volunteer: applicationUser.uuid,
+        req_id: id,
+      })
+      .then((res) => console.log(res.data))
+      .then(navigate("/user-dashboard"));
+  };
+
   return (
     <div className="details">
       <div className="sidebar-Nav">
-        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
+        <SidebarNav
+          setDate={setDate}
+          date={date}
+          applicationUser={applicationUser}
+        />
       </div>
       <div className="cards">
         <h3>Request Details</h3>
@@ -41,7 +65,11 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                 <img
                   className="cardImg"
                   alt="vol"
-                  src={request.image ? request.image : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"}
+                  src={
+                    request.image
+                      ? request.image
+                      : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
+                  }
                 />
               </figure>
               <div className="card-info">
@@ -49,9 +77,15 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                   {" "}
                   <strong>Job Description:</strong> {request.description}
                 </h5>
-                <h4 className="card-text"><strong>Location:</strong> {request.location}</h4>
-                <h4 className="card-text"><strong>Requested:</strong> {request.req_date}</h4>
-                <h4 className="card-text"><strong>Time:</strong> {request.time}</h4>
+                <h4 className="card-text">
+                  <strong>Location:</strong> {request.location}
+                </h4>
+                <h4 className="card-text">
+                  <strong>Requested:</strong> {request.req_date}
+                </h4>
+                <h4 className="card-text">
+                  <strong>Time:</strong> {request.time}
+                </h4>
               </div>
             </div>
           </div>
@@ -64,7 +98,9 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
           </div>
           <div>
             <Link to="/user-dashboard">
-              <Button className="accept">ACCEPT</Button>
+              <Button className="accept" onClick={missionAccepted}>
+                ACCEPT
+              </Button>
             </Link>
           </div>
           {/* <div>
