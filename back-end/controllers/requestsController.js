@@ -36,18 +36,6 @@ requests.get("/help_req/:id", async (req, res) => {
   }
 });
 
-// SHOW ALL REQUESTS ASSIGNED TO A USER (VOLUNTEER)
-// requests.get("/my_assigned_requests", async (req, res) => {
-//   try {
-//     console.log("Showing all requests for volunteer " + req.body.uuid)
-//     const uuid = req.body.uuid;
-//     const requests = await volunteerRequests(uuid);
-//     res.json(requests);
-//   } catch (error) {
-//     return error;
-//   }
-// });
-
 requests.post("/my_assigned_requests", async (req, res) => {
   try {
     const uuid = req.body.uuid;
@@ -86,7 +74,7 @@ requests.get("/open_requests", async (req, res) => {
 // SHOW ALL REQUESTS POSTED BY THE USER
 
 // ASSIGN VOLUNTEER TO REQUEST
-requests.put("/", async (req, res) => {
+requests.put("/accept_request", async (req, res) => {
   try {
     console.log("Assigning volunteer to request");
     const assignedRequest = await assignVolunteer();

@@ -27,6 +27,11 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
     });
   }, [id, navigate, API]);
 
+  const missionAccepted = () => {
+    axios
+      .put(`${API}/requests/accept_request`)
+  }
+
   return (
     <div className="details">
       <div className="sidebar-Nav">
@@ -64,7 +69,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
           </div>
           <div>
             <Link to="/user-dashboard">
-              <Button className="accept">ACCEPT</Button>
+              <Button className="accept" onClick={missionAccepted}>ACCEPT</Button>
             </Link>
           </div>
           {/* <div>
