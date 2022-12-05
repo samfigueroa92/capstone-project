@@ -91,6 +91,7 @@ requests.put("/accept_request", async (req, res) => {
 // CREATE OR MAKE A REQUEST
 requests.post("/", async (req, res) => {
   try {
+    console.log("CONTROLLER : Adding request to database")
     const createdRequest = await makeRequest(req.body);
     res.json(createdRequest);
   } catch (error) {

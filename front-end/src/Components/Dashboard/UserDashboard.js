@@ -24,11 +24,12 @@ const UserDashboard = ({
   openRequests,
   setOpenRequests,
 }) => {
+  console.log(applicationUser);
   
-  let route = "";
+  let route ;
   if (applicationUser.user_type === "Volunteer") {
     route = "my_assigned_requests";
-  } else if (applicationUser.user_type === "Senior") {
+  } else {
     route = "my_created_requests";
   }
   
@@ -46,7 +47,6 @@ const UserDashboard = ({
 
   useEffect(() => {
     axios(config).then((res) => setRequests(res.data));
-    console.log(requests);
     if (applicationUser.user_type === "Volunteer") {
       axios
         .get(`${API}/requests/open_requests`)

@@ -31,7 +31,7 @@ const openRequests = async () => {
 //Create request
 const makeRequest = async (request) => {
   try {
-    console.log("Adding request to database");
+    console.log("QUERY : Adding request to database");
     request = await db.one(
       "INSERT INTO requests (elder_id, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [
