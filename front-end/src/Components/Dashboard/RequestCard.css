@@ -1,4 +1,41 @@
-.req-card{
+.req-card-details {
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 2.5rem;
+}
+.req-card {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.reqImg {
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+}
+.req-fig {
+  position: absolute;
+  width: 100%;
+  padding-top: 67%;
+  overflow: hidden;
+  border-radius: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .req-card{
   padding: 5px;
   margin: auto;
 }
@@ -11,7 +48,8 @@ background: #fff;
 display: flex;
 flex-flow: column;
 align-items: center;
-width: 100%;
+max-width: 1120px;
+width: 50%;
 margin: 0 auto;
 
 }
@@ -86,4 +124,4 @@ float: left;
 
 .time{
 float: right;
-}
+} */

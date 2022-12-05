@@ -6,9 +6,18 @@ import "./RequestCard.css";
 
 const RequestCard = ({ request }) => {
   return (
-    <div className="req-card">
-      <Link className="link" to={`/requests/${request.id}`}>
-        <div className="request">
+    <div className="req-card-details">
+       <Link className="link" to={`/requests/${request.id}`}>
+        <div className="req-card">
+        <figure className="req-fig" data-category="GoldenSolutions">
+                  <img
+                    className="reqImg"
+                    alt="vol"
+                    src={request.image ? request.image : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"}
+                  />
+                </figure>
+        </div>
+        {/* <div className="request">
           <div className="req-holder">
             <div className="req-wrap">
               <div className="req-items">
@@ -37,8 +46,8 @@ const RequestCard = ({ request }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> */} 
+        {/* </div> */}
       </Link>
     </div>
   );
