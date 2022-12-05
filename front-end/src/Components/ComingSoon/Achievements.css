@@ -23,8 +23,8 @@
   color: #42999b;
   text-align: center;
   align-items: center;
-  text-shadow: 2px 0 gold, -2px 0 gold, 0 2px gold, 0 -2px gold,
-             1px 1px gold, -1px -1px gold, 1px -1px gold, -1px 1px gold;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
 }
 
 @keyframes logo-spin {
