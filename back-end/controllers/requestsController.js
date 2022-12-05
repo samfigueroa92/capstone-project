@@ -60,6 +60,18 @@ requests.post("/my_assigned_requests", async (req, res) => {
   }
 });
 
+requests.post("/my_created_requests", async (req, res) => {
+  try {
+    const uuid = req.body.uuid;
+    console.log("Showing all requests created by current user");
+    const requests = await seniorRequests(uuid);
+    res.json(requests);
+    console.log(requests);
+  } catch (error) {
+    return error;
+  }
+});
+
 requests.get("/open_requests", async (req, res) => {
   try {
     console.log("Showing all requests not currently assigned to a volunteer");
