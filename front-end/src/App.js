@@ -19,11 +19,13 @@ import Settings from "./Components/Dashboard/Settings";
 import NewRequestForm from "./Components/Dashboard/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
+import Achievements from "./Components/ComingSoon/Achievements";
 import Unprotected from "./Components/Unprotected";
 
 //CSS
 import "./App.css";
 import PersonalPage from "./Components/HomePage/PersonalPage";
+
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -77,6 +79,7 @@ const App = () => {
             <Route path="/seniors" element={<Unprotected><SeniorsPage /></Unprotected>} />
             <Route path="/our-team" element={<Unprotected><OurTeam /></Unprotected>} />
             <Route path="/our-page/:staffMember" element={<Unprotected><PersonalPage /></Unprotected>} />
+            <Route path="/achievements" element={<Achievements/>} />
             <Route
               path="/open-requests"
               element={

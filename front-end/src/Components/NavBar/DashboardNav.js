@@ -13,12 +13,19 @@ import Dropdown from "react-bootstrap/Dropdown";
 //CSS Import
 import "./DashboardNav.css";
 
-const DashboardNav = ({applicationUser}) => {
+const DashboardNav = ({ applicationUser }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
 
+  // const [click, setClick] = useState(false);
+
+  // methods
+  // const handleClick = () => setClick(!click);
+  // const closeMobileMenu = () => setClick(false);
+
   return (
+
       <Navbar className="dash-navbar">
         <Navbar.Brand className="nav-logo">
           <img src="/images/logoGS.png" alt="logo" />
@@ -26,18 +33,30 @@ const DashboardNav = ({applicationUser}) => {
         <Container className="dashboard-nav">
           <Nav className="me-auto.">
             <img src={photoURL} className="profile-pic" alt={displayName} />
+        
             <Dropdown>
-              <Dropdown.Toggle id="dropdown">{applicationUser.verified ? <i className="fa-solid fa-circle-check"></i> : null} {displayName.split(" ").shift()}</Dropdown.Toggle>
+              <Dropdown.Toggle id="dropdown">
+                {applicationUser.verified ? (
+                  <i className="fa-solid fa-circle-check"></i>
+                ) : null}{" "}
+                {displayName.split(" ").shift()}
+              </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item onClick={() => navigate("/user-dashboard")}>Dashboard</Dropdown.Item>
+                <Dropdown.Item onClick={() => navigate("/user-dashboard")}>
+                  Dashboard
+                </Dropdown.Item>
                 <Dropdown.Item onClick={signOut}>Sign-Out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+      
+
             <i className="fa-regular fa-envelope" id="envelope"></i>
             <i className="fa-regular fa-bell" id="bell"></i>
+          
           </Nav>
-        </Container>
-      </Navbar>
+        {/* </div> */}
+      </Container>
+    </Navbar>
   );
 };
 

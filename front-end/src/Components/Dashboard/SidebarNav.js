@@ -33,7 +33,7 @@ const SidebarNav = ({ setDate, applicationUser }) => {
           <p>Browse Requests</p>
           <div className="under-click"></div>
         </Link>
-        <Link>
+        <Link to="/achievements">
           <p>Achievements<br/><span className="coming-soon" >*coming soon</span></p>
           <div className="under-click"></div>
         </Link>
