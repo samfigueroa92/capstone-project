@@ -47,6 +47,14 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       .then(navigate("/user-dashboard"));
   };
 
+  const missionFailed = () => {
+    axios
+      .put(`${API}/requests/reject_request`, {
+        req_id: id,
+      })
+      .then((res) => console.log(res.data));
+  };
+
   return (
     <div className="details">
       <div className="sidebar-Nav">

@@ -120,12 +120,12 @@ const assignVolunteer = async (request) => {
   }
 };
 
-const removeVolunteer = async (id) => {
+const removeVolunteer = async (request) => {
   try {
     console.log("Removing volunteer from request");
     const unAssign = await db.one(
-      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
-      [NULL, "FALSE", id]
+      "UPDATE requests SET volunteer_id=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [NULL, "FALSE", request.req_id]
     );
     return unAssign;
   } catch (error) {

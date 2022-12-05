@@ -13,6 +13,7 @@ const {
   volunteerRequests,
   seniorRequests,
   openRequests,
+  removeVolunteer,
 } = require("../queries/requests.js");
 
 // BUILDING ROUTES
@@ -83,6 +84,21 @@ requests.put("/accept_request", async (req, res) => {
       res.status(200).json(assignedRequest);
     } else {
       res.status(400).json({ error: "Request failed to be assigned" });
+    }
+  } catch (error) {
+    return error;
+  }
+});
+
+// REMOVE VOLUNTEER FROM REQUEST
+requests.put("/reject_request", async (req, res) => {
+  try {
+    console.log("CONTROLLER : REMOVING VOLUNTEER FROM REQUEST");
+    const rejectRequest = await removeVolunteer(req.body);
+    if (rejectRequest.assigned === false) {
+      res.status(200).json(rejectRequest);
+    } else {
+      res.status(400).json({ error: "Failed to remove request assignment" });
     }
   } catch (error) {
     return error;
