@@ -91,6 +91,7 @@ const App = () => {
             <Route path="/seniors" element={<SeniorsPage />} />
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/our-page/:staffMember" element={<PersonalPage />} />
+            <Route path="/achievements" element={<Achievements/>} />
             <Route
               path="/open-requests"
               element={

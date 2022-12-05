@@ -1,12 +1,12 @@
 .achieve {
     /* display: grid; */
     /* grid-template-columns: 0.25fr 2fr; */
-    background-image: url("/Users/adnan/Desktop/pursuit/PROJECT/capstone-project/front-end/public/images/floating-cogs.svg");
+    background-image: url("/Users/adnan/Desktop/pursuit/PROJECT/capstone-project/front-end/public/images/floating-cogs 2.svg");
     background-position: center;
     align-items: center;
-    background-color: #c6eaf6;;
+    background-color: #c6eaf6;
     height: 100vh;
-    background-size: 20%;
+    background-size: 10%;
     justify-content: center;
     background-repeat: repeat;
 }
@@ -16,6 +16,15 @@
     pointer-events: none;
     align-items: center;
     text-align: center;
+}
+.achieve p {
+  font-size: 60px;
+  font-weight: bold;
+  color: #42999b;
+  text-align: center;
+  align-items: center;
+  text-shadow: 2px 0 gold, -2px 0 gold, 0 2px gold, 0 -2px gold,
+             1px 1px gold, -1px -1px gold, 1px -1px gold, -1px 1px gold;
 }
 
 @keyframes logo-spin {

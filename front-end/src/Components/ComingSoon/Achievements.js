@@ -12,6 +12,8 @@ const Achievements = () => {
     <div className='achieve'  style={{paddingTop: "110px"}}>
         {/* <SidebarNav /> */}
         <SvgIcon />
+        <p>GoldenSolutions Achievements</p>
+        <p> Coming Soon!</p>
         
     </div>
   )
