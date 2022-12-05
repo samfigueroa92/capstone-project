@@ -51,6 +51,7 @@ const UserDashboard = ({
       axios
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
+        
     }
   }, []);
 
