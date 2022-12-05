@@ -4,6 +4,7 @@ const requests = express.Router();
 
 // IMPORTING QUERIES
 const {
+  assignVolunteer,
   getAllRequests,
   getRequest,
   editRequest,
@@ -76,9 +77,9 @@ requests.get("/open_requests", async (req, res) => {
 // ASSIGN VOLUNTEER TO REQUEST
 requests.put("/accept_request", async (req, res) => {
   try {
-    console.log("Assigning volunteer to request");
-    const assignedRequest = await assignVolunteer();
-    if (assignedRequest.assigned === "true") {
+    console.log(req.body);
+    const assignedRequest = await assignVolunteer(req.body);
+    if (assignedRequest.assigned) {
       res.status(200).json(assignedRequest);
     } else {
       res.status(400).json({ error: "Request failed to be assigned" });
@@ -91,7 +92,7 @@ requests.put("/accept_request", async (req, res) => {
 // CREATE OR MAKE A REQUEST
 requests.post("/", async (req, res) => {
   try {
-    console.log("CONTROLLER : Adding request to database")
+    console.log("CONTROLLER : Adding request to database");
     const createdRequest = await makeRequest(req.body);
     res.json(createdRequest);
   } catch (error) {

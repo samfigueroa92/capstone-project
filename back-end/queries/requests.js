@@ -1,6 +1,5 @@
 const db = require("../db/dbConfig.js");
 
-
 const getAllRequests = async () => {
   try {
     console.log("Listing all posted requests");
@@ -60,7 +59,6 @@ const getRequest = async (id) => {
   }
 };
 
-
 const volunteerRequests = async (uuid) => {
   try {
     console.log(`Retreiving assigned requests for user ${uuid}`);
@@ -109,12 +107,12 @@ const editRequest = async (request, id) => {
   }
 };
 
-const assignVolunteer = async (request, volunteer) => {
+const assignVolunteer = async (request) => {
   try {
-    console.log(`Assigning volunteer ${volunteer.id} to request ${request.id}`);
+    console.log(`QUERY : Assigning volunteer ${request.volunteer} to request ${request.req_id}`);
     const assign = await db.one(
-      "UPDATE requests SET volunteer=$1, assigned=$2 WHERE id=$3 RETURNING *",
-      [volunteer.id, "TRUE", request.id]
+      "UPDATE requests SET volunteer_id=$1, assigned=$2 WHERE id=$3 RETURNING *",
+      [request.volunteer, "TRUE", request.req_id]
     );
     return assign;
   } catch (error) {
