@@ -81,13 +81,13 @@ const App = () => {
             <Route path="/our-page/:staffMember" element={<Unprotected><PersonalPage /></Unprotected>} />
             <Route path="/achievements" element={<Achievements/>} />
             <Route
-              path="/open-requests"
+              path="/browse-requests"
               element={
                 <Protected>
                   <OpenRequestPage
                     date={date}
                     setDate={setDate}
-                    requests={requests}
+                    openRequests={openRequests}
                     applicationUser={applicationUser}
                     stringCurrentDate={stringCurrentDate}
                   />
