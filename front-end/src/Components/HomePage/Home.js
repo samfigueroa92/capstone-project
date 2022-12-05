@@ -1,7 +1,7 @@
+import { useNavigate } from "react-router-dom";
 //Component Imports
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
-import { useNavigate } from "react-router-dom";
 
 //CSS Imports
 import "./Home.css";

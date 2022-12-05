@@ -25,12 +25,12 @@ const DashboardNav = ({ applicationUser }) => {
   // const closeMobileMenu = () => setClick(false);
 
   return (
-    <Navbar className="dash-navbar">
-      <Navbar.Brand href="/" className="nav-logo">
-        <img src="/images/logoGS.png" alt="logo" />
-      </Navbar.Brand>
-      <Container className="dashboard-nav">
-        {/* <div className="hidden"> */}
+
+      <Navbar className="dash-navbar">
+        <Navbar.Brand className="nav-logo">
+          <img src="/images/logoGS.png" alt="logo" />
+        </Navbar.Brand>
+        <Container className="dashboard-nav">
           <Nav className="me-auto.">
             <img src={photoURL} className="profile-pic" alt={displayName} />
         
