@@ -4,6 +4,7 @@ import { UserContext } from "../Providers/UserProviders";
 import { signInWithGoogle, } from "../Services/Firebase";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //CSS Imports
 import "./LoginModal.css";
@@ -14,6 +15,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
   const user = useContext(UserContext);
+  const navigate = useNavigate();
 
   const userCheck = async (user) => {
     axios.get(`${API}/users/${user.uid}`).then((res) => {
@@ -27,6 +29,7 @@ const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
     if (user) {
       userCheck(user);
       setModalOpen(false);
+      navigate("/user-dashboard")
     }
   }, [user]);
 

@@ -80,7 +80,7 @@ const App = () => {
             <Route path="/seniors" element={<Unprotected><SeniorsPage /></Unprotected>} />
             <Route path="/our-team" element={<Unprotected><OurTeam /></Unprotected>} />
             <Route path="/our-page/:staffMember" element={<Unprotected><PersonalPage /></Unprotected>} />
-            <Route path="/achievements" element={<Achievements/>} />
+            <Route path="/achievements" element={<Protected><Achievements/></Protected>} />
             <Route
               path="/browse-requests"
               element={
