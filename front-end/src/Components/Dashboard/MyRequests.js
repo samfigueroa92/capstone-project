@@ -7,60 +7,54 @@ import RequestCard from "./RequestCard";
 //CSS
 import "./MyRequests.css";
 
-const MyRequests = ({ requests, date, applicationUser, stringCurrentDate }) => {
+const MyRequests = ({ requests, date, stringCurrentDate }) => {
   const [value, setValue] = useState("");
   const [currentDate, setCurrentDate] = useState("");
-  let count = 0;
+
   useEffect(() => {
     if (date) {
+      setCurrentDate(
+        stringCurrentDate.getFullYear() +
+          "-" +
+          ((stringCurrentDate.getMonth() + 1).toString().length === 1
+            ? "0" + (setCurrentDate.getMonth() + 1)
+            : stringCurrentDate.getMonth() + 1) +
+          "-" +
+          (stringCurrentDate.getDate().toString().length === 1
+            ? "0" + (stringCurrentDate.getDate())
+            : stringCurrentDate.getDate())
+      );
       setValue(
-        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-        );
-        setCurrentDate(
-          stringCurrentDate.getFullYear() +
+        date.getFullYear() +
           "-" +
-          (stringCurrentDate.getMonth() + 1) +
+          ((date.getMonth() + 1).toString().length === 1
+            ? "0" + (date.getMonth() + 1)
+            : date.getMonth() + 1) +
           "-" +
-          stringCurrentDate.getDate()
-          );
-        }
-      }, [date]);
-      // console.log(value, "--value")
-      // console.log(currentDate, "current DATE")
-      
+          (date.getDate().toString().length === 1
+            ? "0" + date.getDate()
+            : date.getDate())
+      );
+    }
+  }, [date]);
+  
+  const myspecifiedrequests = requests.map((request) => {
+    if (request.req_date === value) {
+      return <RequestCard key={request.id} request={request} />;
+    }
+  });
+
+  const myrequests = requests.map((request) => {
+    if (request.req_date >= value) {
+      return <RequestCard key={request.id} request={request} />;
+    }
+  });
+      console.log(currentDate,value)
   return (
     <div className="my-requests">
       <h3>My Requests</h3>
       <div className="my-list">
-        {applicationUser === "Volunteer"
-          ? currentDate === value
-            ? requests.map((request) =>
-                applicationUser.city === request.location &&
-                request.assigned &&
-                request.req_date >= value &&
-                applicationUser.uuid === request.volunteer_id ? (
-                  <RequestCard key={request.id} request={request} />
-                ) : null
-              )
-            : requests.map((request) =>
-                applicationUser.city === request.location &&
-                request.assigned &&
-                request.req_date >= value &&
-                applicationUser.uuid === request.volunteer_id ? (
-                  <RequestCard key={request.id} request={request} />
-                ) : null
-              )
-          : currentDate === value
-          ? requests.map((request) =>
-              applicationUser.uuid === request.elder_id ? (
-                <RequestCard key={request.id} request={request} />
-              ) : null
-            )
-          : requests.map((request) =>
-              applicationUser.uuid === request.elder_id ? (
-                <RequestCard key={request.id} request={request} />
-              ) : null
-            )}
+          {currentDate === value ? myrequests : myspecifiedrequests}
       </div>
     </div>
   );

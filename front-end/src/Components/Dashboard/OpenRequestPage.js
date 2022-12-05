@@ -1,5 +1,6 @@
 //Dependencies
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 //Component Import
 import SidebarNav from "./SidebarNav";
@@ -8,42 +9,57 @@ import RequestCard from "./RequestCard";
 //CSS Imports
 import "./OpenRequestPage.css";
 
+const API = process.env.REACT_APP_BACKEND_API_KEY;
+
 const OpenRequestPage = ({
   date,
   setDate,
-  requests,
   applicationUser,
   stringCurrentDate,
+  openRequests
 }) => {
   const [value, setValue] = useState("");
   const [currentDate, setCurrentDate] = useState("");
 
+  console.log(openRequests)
+
+
+
   useEffect(() => {
     if (date) {
-      setValue(
-        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-      );
       setCurrentDate(
         stringCurrentDate.getFullYear() +
           "-" +
-          (stringCurrentDate.getMonth() + 1) +
+          ((stringCurrentDate.getMonth() + 1).toString().length === 1
+            ? "0" + (setCurrentDate.getMonth() + 1)
+            : stringCurrentDate.getMonth() + 1) +
           "-" +
-          stringCurrentDate.getDate()
+          (stringCurrentDate.getDate().toString().length === 1
+            ? "0" + (stringCurrentDate.getDate())
+            : stringCurrentDate.getDate())
+      );
+      setValue(
+        date.getFullYear() +
+          "-" +
+          ((date.getMonth() + 1).toString().length === 1
+            ? "0" + (date.getMonth() + 1)
+            : date.getMonth() + 1) +
+          "-" +
+          (date.getDate().toString().length === 1
+            ? "0" + date.getDate()
+            : date.getDate())
       );
     }
   }, [date]);
 
-  console.log(applicationUser, applicationUser.city);
 
   // Location Needs to be changed per UseState of UsersProfile location
-  const neighborhood = requests.map((request) =>
-    applicationUser.city.toLowerCase() === request.location.toLowerCase() &&
+  const neighborhood = openRequests.map((request) =>
     !request.assigned && request.req_date >= value ? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );
-  const currentNeighborhood = requests.map((request) =>
-    applicationUser.city === request.location &&
+  const currentNeighborhood = openRequests.map((request) =>
     !request.assigned && request.req_date === value ? (
       <RequestCard key={request.id} request={request} />
     ) : null

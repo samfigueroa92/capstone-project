@@ -8,24 +8,34 @@ const RequestCard = ({ request }) => {
   return (
     <div className="req-card">
       <Link className="link" to={`/requests/${request.id}`}>
-        <div className="card-img">
-          <figure className="card-fig" data-category="GoldenSolutions">
-            <img
-              src={request.image ? request.image : "/images/volunteer3.jpeg"}
-              alt="volunteers img"
-            />
-          </figure>
-          <div>
-            <div> {request.title} </div>
-            <div className="card-text">{<h4>{request.req_date}</h4>}</div>
-            <div className="card-bottom">
-              <h4 className="assignment">
-                {request.assigned ? "Assigned" : "Pending"}
-              </h4>
-              <h4 className="time">
-                <i className="fa-regular fa-clock clock"></i>
-                {request.time}
-              </h4>
+        <div className="request">
+          <div className="req-holder">
+            <div className="req-wrap">
+              <div className="req-items">
+                <figure className="req-fig" data-category="GoldenSolutions">
+                  <img
+                    className="reqImg"
+                    alt="vol"
+                    src={request.image ? request.image : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"}
+                  />
+                </figure>
+                <div className="req-info">
+                  <div>
+                    <h4>{request.title}</h4>
+                  </div>
+                  <div className="card-date">
+                    <p>{request.req_date}</p>
+                  </div>
+                  <div className="card-bottom">
+                    <p className="assignment">
+                      {request.assigned ? "Assigned" : "Pending"}
+                    </p>
+                    <p className="time">
+                      <i className="fa-regular fa-clock clock"></i> {request.time}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

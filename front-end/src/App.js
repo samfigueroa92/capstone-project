@@ -19,10 +19,13 @@ import Settings from "./Components/Dashboard/Settings";
 import NewRequestForm from "./Components/Dashboard/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
+import Achievements from "./Components/ComingSoon/Achievements";
+import Unprotected from "./Components/Unprotected";
 
 //CSS
 import "./App.css";
 import PersonalPage from "./Components/HomePage/PersonalPage";
+
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -53,19 +56,6 @@ const App = () => {
     verification_type: "",
   });
 
-  // useEffect(() => {
-  // })
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API}/users`)
-  //     .then((res) => setUsers(res.data))
-  //     .catch((err) => console.error(err));
-  // }, []);
-
-  // requests.sort((a, b) => a.req_date - b.req_date);
-  // users.sort((a, b) => a.lastname - b.lastname);
-
   return (
     <div className="App">
       <UserProvider>
@@ -80,23 +70,24 @@ const App = () => {
             setApplicationUser={setApplicationUser}
           />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Unprotected><Home /></Unprotected>} />
             <Route
               path="/sign-up"
-              element={<SignUpPage setApplicationUser={setApplicationUser} />}
+              element={<Unprotected><SignUpPage setApplicationUser={setApplicationUser} /></Unprotected>}
             />
-            <Route path="/volunteers" element={<VolunteerPage />} />
-            <Route path="/seniors" element={<SeniorsPage />} />
-            <Route path="/our-team" element={<OurTeam />} />
-            <Route path="/our-page/:staffMember" element={<PersonalPage />} />
+            <Route path="/volunteers" element={<Unprotected><VolunteerPage /></Unprotected>} />
+            <Route path="/seniors" element={<Unprotected><SeniorsPage /></Unprotected>} />
+            <Route path="/our-team" element={<Unprotected><OurTeam /></Unprotected>} />
+            <Route path="/our-page/:staffMember" element={<Unprotected><PersonalPage /></Unprotected>} />
+            <Route path="/achievements" element={<Achievements/>} />
             <Route
-              path="/open-requests"
+              path="/browse-requests"
               element={
                 <Protected>
                   <OpenRequestPage
                     date={date}
                     setDate={setDate}
-                    requests={requests}
+                    openRequests={openRequests}
                     applicationUser={applicationUser}
                     stringCurrentDate={stringCurrentDate}
                   />
@@ -170,7 +161,6 @@ const App = () => {
                 </Protected>
               }
             />
-            {/* {team.map((staff)=> <Route path={`/our-page/${staff}`} element={<PersonalPage/>}/> )} */}
           </Routes>
         </Router>
       </UserProvider>

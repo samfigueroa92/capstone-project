@@ -1,18 +1,9 @@
 .user-dashboard{
     display: grid;
     grid-template-columns: 7fr 25fr;
-    
-}
-/* .user-dashboard{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 }
 
-.sidebar-nav{
-    grid-column: 1/2;
-}
-
-.requests{
-    display: grid;
-    grid-template-columns: 1fr;
+/* .requests{
+    overflow: scroll;
+    height: 800px;
 } */
