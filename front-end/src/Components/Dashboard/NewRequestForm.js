@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./NewRequestForm.css";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/UserProviders";
 
@@ -16,6 +15,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
+import "./NewRequestForm.css";
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 

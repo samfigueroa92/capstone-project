@@ -91,9 +91,9 @@ requests.put("/", async (req, res) => {
     console.log("Assigning volunteer to request");
     const assignedRequest = await assignVolunteer();
     if (assignedRequest.assigned === "true") {
-      res.status(200).json(assignedRequest)
+      res.status(200).json(assignedRequest);
     } else {
-      res.status(400).json({error: "Request failed to be assigned"})
+      res.status(400).json({ error: "Request failed to be assigned" });
     }
   } catch (error) {
     return error;
