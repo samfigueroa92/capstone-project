@@ -4,7 +4,7 @@
 -- Volunteers
 
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto","languages", "user_type", "state") VALUES
-('7OSUXCjXySh97xYcidAn4Ura1sG2', 'Cassandra', 'Oliver', '2022-10-01', '123 Fake Ave','','Brooklyn','10220','2028703049', 'cassandraoliver91@gmail.com', 'https://media-exp1.licdn.com/dms/image/D5603AQGGZ-qNh8vcJA/profile-displayphoto-shrink_800_800/0/1670167152785?e=1675900800&v=beta&t=irHW96Z4AMj5yWQluHHkGTCslbsG7wqdswIwa2gGVDA','Spanish', 'Drivers License','NY' ) RETURNING *;
+('XIqDn8IRYUWLg79g7fY62Yuz7v92', 'Cassandra', 'Oliver', '2022-10-01', '123 Fake Ave','','Brooklyn','10220','2028703049', 'cassandraoliver91@gmail.com', 'https://media-exp1.licdn.com/dms/image/D5603AQGGZ-qNh8vcJA/profile-displayphoto-shrink_800_800/0/1670167152785?e=1675900800&v=beta&t=irHW96Z4AMj5yWQluHHkGTCslbsG7wqdswIwa2gGVDA','Spanish', 'Drivers License','NY' ) RETURNING *;
 
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto","languages", "user_type", "state") VALUES
 ('befMUMBrp3dCTI0EfL4LmFRPE2m2','Lucas','Somerling', '2038-11-16', '136281 Himalayan Rock Salt Quarry', '1','Staten Island','18221','215664211','lucasdaman@gmail.com','https://media-exp1.licdn.com/dms/image/C4E03AQFeo2w8_jMXOQ/profile-displayphoto-shrink_400_400/0/1658926484758?e=1675900800&v=beta&t=3cuuk5TfOHJvlNUoOMpzRATzfa5QXBB7Oj8ZwObM6oU','English','Volunteer','NY') RETURNING *;
