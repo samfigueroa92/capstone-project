@@ -195,6 +195,8 @@ const App = () => {
                     setDate={setDate}
                     date={date}
                     applicationUser={applicationUser}
+                    setOpenRequests={setOpenRequests}
+                    setRequests={setRequests}
                   />
                 </Protected>
               }

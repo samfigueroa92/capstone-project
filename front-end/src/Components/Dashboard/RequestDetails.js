@@ -12,7 +12,13 @@ import Button from "react-bootstrap/Button";
 //Components
 import SidebarNav from "./SidebarNav";
 
-const RequestDetails = ({ setDate, date, applicationUser }) => {
+const RequestDetails = ({
+  setDate,
+  date,
+  applicationUser,
+  setOpenRequests,
+  setRequests,
+}) => {
   setDate("");
   const [request, setRequest] = useState([]);
   let { id } = useParams();
@@ -37,19 +43,51 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
   //   data: data,
   // };
 
+  const updateRequests = () => {
+    let route;
+    if (applicationUser.user_type === "Volunteer") {
+      route = "my_assigned_requests";
+    } else {
+      route = "my_created_requests";
+    }
+
+    const data = JSON.stringify({ uuid: applicationUser.uuid });
+    const config = {
+      method: "post",
+      url: `${API}/requests/${route}`,
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    //update open requests
+    axios
+      .get(`${API}/requests/open_requests`)
+      .then((res) => setOpenRequests(res.data));
+
+    //update users requests
+    axios(config).then((res) => setRequests(res.data));
+
+    navigate("/user-dashboard");
+  };
+
   const missionAccepted = () => {
+    console.log("Assigning to current request");
     axios
       .put(`${API}/requests/accept_request`, {
         volunteer: applicationUser.uuid,
         req_id: id,
       })
-      .then(navigate("/user-dashboard"));
+      .then(updateRequests());
   };
   const missionFailed = () => {
+    console.log("Removing from assigned request");
     axios
       .put(`${API}/requests/reject_request`, {
         req_id: id,
       })
+      .then(updateRequests());
   };
 
   return (

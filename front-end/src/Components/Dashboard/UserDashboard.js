@@ -26,9 +26,6 @@ const UserDashboard = ({
   openRequests,
   setOpenRequests,
 }) => {
-
-
-  
   const user = useContext(UserContext);
 
   let route;
@@ -40,24 +37,23 @@ const UserDashboard = ({
 
   const data = JSON.stringify({ uuid: applicationUser.uuid });
 
-  const config = {
-    method: "post",
-    url: `${API}/requests/${route}`,
-
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: data,
-  };
-
   useEffect(() => {
+    const config = {
+      method: "post",
+      url: `${API}/requests/${route}`,
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
     axios(config).then((res) => setRequests(res.data));
     if (applicationUser.user_type === "Volunteer") {
       axios
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
     }
-  }, [user, applicationUser, openRequests]);
+  }, [user, applicationUser]);
 
   return (
     <div className="user-dashboard">

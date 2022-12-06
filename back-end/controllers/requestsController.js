@@ -44,7 +44,7 @@ requests.post("/my_assigned_requests", async (req, res) => {
     console.log("Showing all assigned requests for volunteer " + uuid);
     const requests = await volunteerRequests(uuid);
     res.json(requests);
-    console.log(requests);
+    //console.log(requests);
   } catch (error) {
     return error;
   }
@@ -56,7 +56,7 @@ requests.post("/my_created_requests", async (req, res) => {
     console.log("Showing all requests created by current user");
     const requests = await seniorRequests(uuid);
     res.json(requests);
-    console.log(requests);
+    //console.log(requests);
   } catch (error) {
     return error;
   }
@@ -67,7 +67,7 @@ requests.get("/open_requests", async (req, res) => {
     console.log("Showing all requests not currently assigned to a volunteer");
     const requests = await openRequests();
     res.status(200).json(requests);
-    console.log(requests);
+    //console.log(requests);
   } catch (error) {
     return error;
   }

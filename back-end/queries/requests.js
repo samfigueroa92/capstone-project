@@ -17,7 +17,7 @@ const getAllRequests = async () => {
 // Get all requests that are currently unassigned
 const openRequests = async () => {
   try {
-    console.log("Listing all open requests");
+    //console.log("Listing all open requests");
     requests = await db.any(
       "SELECT * FROM requests WHERE assigned=FALSE ORDER BY req_date ASC"
     );
