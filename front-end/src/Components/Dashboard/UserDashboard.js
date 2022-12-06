@@ -26,7 +26,8 @@ const UserDashboard = ({
   openRequests,
   setOpenRequests,
 }) => {
-  console.log(applicationUser);
+
+
   
   const user = useContext(UserContext);
 

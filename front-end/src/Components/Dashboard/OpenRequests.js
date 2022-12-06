@@ -38,7 +38,6 @@ const OpenRequests = ({ openRequests, date, stringCurrentDate }) => {
     }
   }, [date]);
 
-  console.log(value, currentDate);
   const specifiedrequests = openRequests.map((openRequest) => {
     if (openRequest.req_date === value) {
       return <RequestCard key={openRequest.id} request={openRequest} />;
@@ -50,7 +49,7 @@ const OpenRequests = ({ openRequests, date, stringCurrentDate }) => {
       return <RequestCard key={openRequest.id} request={openRequest} />;
     }
   });
-  //console.log(openRequests)
+
   return (
     <>
     <h3 className="head">Open Requests</h3>

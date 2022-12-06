@@ -22,7 +22,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const NewRequestForm = ({ applicationUser, setDate }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
-  console.log(user);
+
 
   // CREATE OR ADD A NEW REQUEST
   const makeRequest = (newRequest) => {
