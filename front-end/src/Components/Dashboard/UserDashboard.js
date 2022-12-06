@@ -28,26 +28,9 @@ const UserDashboard = ({
 }) => {
   const user = useContext(UserContext);
 
-  let route;
-  if (applicationUser.user_type === "Volunteer") {
-    route = "my_assigned_requests";
-  } else {
-    route = "my_created_requests";
-  }
-
-  const data = JSON.stringify({ uuid: applicationUser.uuid });
-
-  const config = {
-    method: "post",
-    url: `${API}/requests/${route}`,
-
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: data,
-  };
-
   useEffect(() => {
+    let route;
+    //console.log(user.uid);
     if (applicationUser.uuid === "") {
       console.log("No one's home");
       axios.get(`${API}/users/${user.uid}`).then((res) => {
@@ -55,14 +38,36 @@ const UserDashboard = ({
           setApplicationUser(res.data.payload);
         }
       });
-      axios(config).then((res) => setRequests(res.data));
+      const data = JSON.stringify({ uuid: applicationUser.uuid });
+      setTimeout(() => {
+        console.log("Checking for user type");
+        if (applicationUser.user_type === "Volunteer") {
+          route = "my_assigned_requests";
+        } else {
+          route = "my_created_requests";
+        }
+      }, 5000);
+
+      const config = {
+        method: "post",
+        url: `${API}/requests/${route}`,
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: data,
+      };
+      setTimeout(() => {
+        console.log("Setting requests");
+        axios(config).then((res) => setRequests(res.data));
+      }, 8000);
       if (applicationUser.user_type === "Volunteer") {
         axios
           .get(`${API}/requests/open_requests`)
           .then((res) => setOpenRequests(res.data));
       }
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="user-dashboard">
