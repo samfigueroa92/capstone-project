@@ -4,8 +4,10 @@ import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
 import RequestCard from "./RequestCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+
+import { UserContext } from "../../Providers/UserProviders";
 
 //CSS Imports
 import "./UserDashboard.css";
@@ -25,6 +27,8 @@ const UserDashboard = ({
   setOpenRequests,
 }) => {
   console.log(applicationUser);
+  
+  const user = useContext(UserContext);
 
   let route;
   if (applicationUser.user_type === "Volunteer") {
@@ -52,7 +56,7 @@ const UserDashboard = ({
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
     }
-  }, []);
+  }, [user, applicationUser, openRequests]);
 
   return (
     <div className="user-dashboard">
