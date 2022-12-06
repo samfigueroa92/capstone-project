@@ -46,6 +46,13 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       .then((res) => console.log(res.data))
       .then(navigate("/user-dashboard"));
   };
+  const missionFailed = () => {
+    axios
+      .put(`${API}/requests/reject_request`, {
+        req_id: id,
+      })
+      .then((res) => console.log(res.data));
+  };
 
   return (
     <div className="details">
@@ -98,9 +105,15 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
           </div>
           <div>
             <Link to="/user-dashboard">
-              <Button className="accept" onClick={missionAccepted}>
-                ACCEPT
-              </Button>
+              {request.volunteer_id !== applicationUser.uuid ? (
+                <Button className="accept" onClick={missionAccepted}>
+                  ACCEPT
+                </Button>
+              ) : (
+                <Button className="reject" onClick={missionFailed}>
+                  REJECT
+                </Button>
+              )}
             </Link>
           </div>
           {/* <div>
