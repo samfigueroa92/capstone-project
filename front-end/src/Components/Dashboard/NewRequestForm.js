@@ -28,7 +28,7 @@ const NewRequestForm = ({ applicationUser, setDate }) => {
   const makeRequest = (newRequest) => {
     debugger;
     axios
-      .post(`${API}/requests`, {
+      .post(`${API}/requests/new-request`, {
         ...newRequest,
         elder_id: user.uid,
       })
