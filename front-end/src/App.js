@@ -26,7 +26,6 @@ import Unprotected from "./Components/Unprotected";
 import "./App.css";
 import PersonalPage from "./Components/HomePage/PersonalPage";
 
-
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
@@ -71,16 +70,62 @@ const App = () => {
             setApplicationUser={setApplicationUser}
           />
           <Routes>
-            <Route path="/" element={<Unprotected><Home /></Unprotected>} />
+            <Route
+              path="/"
+              element={
+                <Unprotected>
+                  <Home />
+                </Unprotected>
+              }
+            />
             <Route
               path="/sign-up"
-              element={<Unprotected><SignUpPage setApplicationUser={setApplicationUser} /></Unprotected>}
+              element={
+                <Unprotected>
+                  <SignUpPage setApplicationUser={setApplicationUser} />
+                </Unprotected>
+              }
             />
-            <Route path="/volunteers" element={<Unprotected><VolunteerPage /></Unprotected>} />
-            <Route path="/seniors" element={<Unprotected><SeniorsPage /></Unprotected>} />
-            <Route path="/our-team" element={<Unprotected><OurTeam /></Unprotected>} />
-            <Route path="/our-page/:staffMember" element={<Unprotected><PersonalPage /></Unprotected>} />
-            <Route path="/achievements" element={<Protected><Achievements/></Protected>} />
+            <Route
+              path="/volunteers"
+              element={
+                <Unprotected>
+                  <VolunteerPage />
+                </Unprotected>
+              }
+            />
+            <Route
+              path="/seniors"
+              element={
+                <Unprotected>
+                  <SeniorsPage />
+                </Unprotected>
+              }
+            />
+            <Route
+              path="/our-team"
+              element={
+                <Unprotected>
+                  <OurTeam />
+                </Unprotected>
+              }
+            />
+            <Route
+              path="/our-page/:staffMember"
+              element={
+                <Unprotected>
+                  <PersonalPage />
+                </Unprotected>
+              }
+            />
+            <Route
+              path="/achievements"
+              element={
+                <Protected>
+                  <Achievements />
+                </Protected>
+              }
+            />
             <Route
               path="/browse-requests"
               element={
@@ -104,6 +149,7 @@ const App = () => {
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}
+                    setApplicationUser={setApplicationUser}
                     requests={requests}
                     setRequests={setRequests}
                     stringCurrentDate={stringCurrentDate}

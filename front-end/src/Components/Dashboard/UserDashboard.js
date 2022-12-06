@@ -3,8 +3,9 @@ import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
+import { UserContext } from "../../Providers/UserProviders";
 import RequestCard from "./RequestCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 //CSS Imports
@@ -17,6 +18,7 @@ const UserDashboard = ({
   date,
   setDate,
   applicationUser,
+  setApplicationUser,
   requests,
   setRequests,
   stringCurrentDate,
@@ -24,7 +26,7 @@ const UserDashboard = ({
   openRequests,
   setOpenRequests,
 }) => {
-  console.log(applicationUser);
+  const user = useContext(UserContext);
 
   let route;
   if (applicationUser.user_type === "Volunteer") {
@@ -46,11 +48,19 @@ const UserDashboard = ({
   };
 
   useEffect(() => {
-    axios(config).then((res) => setRequests(res.data));
-    if (applicationUser.user_type === "Volunteer") {
-      axios
-        .get(`${API}/requests/open_requests`)
-        .then((res) => setOpenRequests(res.data));
+    if (applicationUser.uuid === "") {
+      console.log("No one's home");
+      axios.get(`${API}/users/${user.uid}`).then((res) => {
+        if (res.data.payload.uuid) {
+          setApplicationUser(res.data.payload);
+        }
+      });
+      axios(config).then((res) => setRequests(res.data));
+      if (applicationUser.user_type === "Volunteer") {
+        axios
+          .get(`${API}/requests/open_requests`)
+          .then((res) => setOpenRequests(res.data));
+      }
     }
   }, []);
 
