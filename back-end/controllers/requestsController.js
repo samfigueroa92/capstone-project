@@ -106,7 +106,7 @@ requests.put("/reject_request", async (req, res) => {
 });
 
 // CREATE OR MAKE A REQUEST
-requests.post("/", async (req, res) => {
+requests.post("/new-request", async (req, res) => {
   try {
     console.log("CONTROLLER : Adding request to database");
     const createdRequest = await makeRequest(req.body);
