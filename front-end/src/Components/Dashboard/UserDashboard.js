@@ -25,14 +25,14 @@ const UserDashboard = ({
   setOpenRequests,
 }) => {
   console.log(applicationUser);
-  
-  let route ;
+
+  let route;
   if (applicationUser.user_type === "Volunteer") {
     route = "my_assigned_requests";
   } else {
     route = "my_created_requests";
   }
-  
+
   const data = JSON.stringify({ uuid: applicationUser.uuid });
 
   const config = {
@@ -51,7 +51,6 @@ const UserDashboard = ({
       axios
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
-        
     }
   }, []);
 
