@@ -49,7 +49,7 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
       return <RequestCard key={request.id} request={request} />;
     }
   });
-      console.log(currentDate,value)
+
   return (
     <>
     <h3 className="head">My Requests</h3>
