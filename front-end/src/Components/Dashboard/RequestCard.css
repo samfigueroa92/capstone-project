@@ -1,4 +1,76 @@
-.req-card{
+/* .req-card-details {
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 2.5rem;
+} */
+.req-card {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  /* margin-bottom: 5px; */
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    border-radius: 10px;
+}
+.reqImg {
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+}
+/* .req-fig {
+  position: relative;
+  width: 100%;
+  padding-top: 67%;
+  overflow: hidden;
+  border-radius: 10px;
+  } */
+  .req-info {
+    margin: 16px;
+  }
+  .reqdate {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .req-title {
+    font-weight: 700;
+  }
+  /* .assignment {
+
+  } */
+  /* .reqtime {
+
+  } */
+  .our-badge {
+    background-color: #42999b;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    /* border-radius: 10px; */
+    padding: 5px;
+    position:absolute;
+    top: 90px;
+    /* margin-left: 8px; */
+    margin-top: 8px;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .req-card{
   padding: 5px;
   margin: auto;
 }
@@ -11,7 +83,8 @@ background: #fff;
 display: flex;
 flex-flow: column;
 align-items: center;
-width: 100%;
+max-width: 1120px;
+width: 50%;
 margin: 0 auto;
 
 }
@@ -86,4 +159,4 @@ float: left;
 
 .time{
 float: right;
-}
+} */
