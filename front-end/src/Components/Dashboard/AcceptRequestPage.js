@@ -89,7 +89,7 @@ const AcceptRequestPage = ({
       {applicationUser.user_type === "Senior" ? <div className="pending"> {currentDate === value ? notaccepted : notacceptedspecified} </div> : null}
 
         {/* Favorites Logic for Seniors */}
-        <h3>Completed Request</h3>
+        <h3 className="comphead">Completed Request</h3>
         <div className="History">
           {currentDate === value ? completed : completedspecified}
         </div>

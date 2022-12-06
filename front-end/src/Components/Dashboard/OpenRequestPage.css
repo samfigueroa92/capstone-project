@@ -7,10 +7,16 @@
     /* height: 700px; */
 }
 .open-request-page{
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(4,1fr);
     overflow: scroll;
-    height: 700px;
+    height: 700px; */
+    margin: 15px;
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    gap: 2.5rem;
 }
 .main-page h3 {
     margin: 0px;
