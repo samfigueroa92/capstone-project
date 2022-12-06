@@ -51,12 +51,12 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
   });
       console.log(currentDate,value)
   return (
+    <>
+    <h3 className="head">My Requests</h3>
     <div className="my-requests">
-      <h3>My Requests</h3>
-      <div className="my-list">
           {currentDate === value ? myrequests : myspecifiedrequests}
-      </div>
     </div>
+    </>
   );
 };
 
