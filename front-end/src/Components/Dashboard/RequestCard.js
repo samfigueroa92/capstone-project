@@ -20,7 +20,7 @@ const RequestCard = ({ request }) => {
               <span className="reqdate">{request.req_date}</span>
               <span className="assignment">{request.assigned ? "Assigned" : "Pending"}</span>
               <br/>
-              <span className="reqtime"><i className="fa-regular fa-clock clock"></i>{request.time}</span>
+              <span className="reqtime"><i className="fa-regular fa-clock clock"></i> {request.time}</span>
             </div>
             <div className="our-badge">
               <span>GoldenSolutions</span>
