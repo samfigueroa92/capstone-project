@@ -8,7 +8,6 @@ import CalendarView from "./CalendarView";
 import "./SidebarNav.css";
 
 const SidebarNav = ({ setDate, applicationUser }) => {
-
   return (
     <div className="SideBar">
       <div className="text">
@@ -29,16 +28,38 @@ const SidebarNav = ({ setDate, applicationUser }) => {
           </Link>
         )}
         {/* This link will go to the same route for both user types, however Kalilah is doing a ternary within the route that will show all requests available to claim if the user is a volunteer, and all the requests applicationly submitted by the user if they are an elder */}
-        <Link to="/browse-requests">
-          <p>Browse Requests</p>
+        {applicationUser.user_type === "Volunteer" ? (
+          <Link to="/browse-requests">
+            <p>Browse Requests</p>
+            <div className="under-click"></div>
+          </Link>
+        ) : (
+          <>
+          <p>Favorites</p>
+          <div className="under-click"></div>
+          </>
+        )}
+
+        {applicationUser.user_type === "Volunteer" ? (
+          <Link to="/achievements">
+          <p>
+            Achievements
+            <br />
+            <span className="coming-soon">*coming soon</span>
+          </p>
           <div className="under-click"></div>
         </Link>
-        <Link to="/achievements">
-          <p>Achievements<br/><span className="coming-soon" >*coming soon</span></p>
+        ) : (
+          <Link to="/accepted-requests">
+          <p>Submitted Requests</p>
           <div className="under-click"></div>
         </Link>
+        )}
+
         <Link to="/user/settings">
-          <p>Settings <i className="fa-sharp fa-solid fa-gear"></i></p>
+          <p>
+            Settings <i className="fa-sharp fa-solid fa-gear"></i>
+          </p>
           <div className="under-click"></div>
         </Link>
       </div>
