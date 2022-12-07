@@ -30,18 +30,18 @@ const OurTeam = () => {
   });
 
   const STAFFBIOS = {
-    sam: "sam, orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-    tom: "tom, orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    sam: "I am a Nuyorican. While redesigning the website for my current employer I realized I had an interest in and enjoyed web development. After being referred to Pursuit by a friend, I decided it was time to bring my passion for helping others and interest in building useful and innovative websites into the world of tech.",
+    tom: "I’m a lifelong technophile, having been lucky enough to get a computer and NES into my home at the age of 2.  I’m glad to have found Pursuit, as the structure and pacing were exactly what I was looking for and failing to find through traditional school and personal study.",
     kalilah:
-      "kalilah, orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "In school my favorite subject was Mathematics because I loved problem solving, I viewed math as a puzzle. I began my career as a Full-Stack Developer because of an Alumni Fellow who recognized those same qualities in web-development. I currently work as an Educator and Supervisor training others to optimally support and communicate with Middle School students  and though I love it, Pursuit has broken the ceiling as I pursue self development.",
     adnan:
-      "adnan, orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "’m from West Africa,  Accra Ghana. I moved here to pursue a lifelong dream of being a developer and help solve world problems through creativity and problem solving. I currently work as a storage manager. I began my journey as a full stack web-development with pursuit which has been a great experience with the skills I have acquired, which I will use in helping solve world problems through tech.",
     sabrina:
-      "sabrina,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-    gigi: "gigi,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-    tim: "tim,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "I am  currently a professional services’ Provider at the Mexican Consulate in New York and also I am studying Web Development in pursuit where I learned JavaScript, HTML, React, CSS and  Postgres. My biggest dream is to become a Web Developer and work for a big company where I can put my skills to use and gain more experience in coding.",
+    gigi: "Gigi,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    tim: "Tim,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
     amber:
-      "amber,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "Amber,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
   };
 
   const handleLearnMore = (teamMate) => {
