@@ -1,7 +1,7 @@
 .main-page{
     display:grid;
     grid-template-columns: repeat(1,1fr);
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: auto;
 
     /* height: 700px; */
@@ -32,9 +32,10 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 40px; */
+    min-height: 200px;
     margin: 15px;
     display: grid;
-    margin-top: 2rem;
+    margin-top: 30px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
     gap: 2.5rem
@@ -59,4 +60,8 @@
 }
 .comphead {
     padding-top: 40px;
+}
+
+.accepted-request{
+ padding-top: 30px;
 }
