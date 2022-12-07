@@ -7,3 +7,6 @@
     overflow: scroll;
     height: 800px;
 } */
+.my-list{
+    min-height: 350px;
+}

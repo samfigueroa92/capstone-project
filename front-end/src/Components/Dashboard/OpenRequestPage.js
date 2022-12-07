@@ -21,10 +21,6 @@ const OpenRequestPage = ({
   const [value, setValue] = useState("");
   const [currentDate, setCurrentDate] = useState("");
 
-  console.log(openRequests)
-
-
-
   useEffect(() => {
     if (date) {
       setCurrentDate(

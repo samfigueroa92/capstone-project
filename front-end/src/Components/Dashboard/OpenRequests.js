@@ -38,19 +38,18 @@ const OpenRequests = ({ openRequests, date, stringCurrentDate }) => {
     }
   }, [date]);
 
-  console.log(value, currentDate);
-  const specifiedrequests = openRequests.map((openRequest) => {
-    if (openRequest.req_date === value) {
+  const specifiedrequests = openRequests.map((openRequest, index) => {
+    if (openRequest.req_date === value && index <= 4) {
       return <RequestCard key={openRequest.id} request={openRequest} />;
     }
   });
 
-  const requests = openRequests.map((openRequest) => {
-    if (openRequest.req_date >= value) {
+  const requests = openRequests.map((openRequest, index) => {
+    if (openRequest.req_date >= value && index <= 4) {
       return <RequestCard key={openRequest.id} request={openRequest} />;
     }
   });
-  //console.log(openRequests)
+
   return (
     <>
     <h3 className="head">Open Requests</h3>

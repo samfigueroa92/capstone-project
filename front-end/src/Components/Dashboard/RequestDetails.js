@@ -43,7 +43,6 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
         volunteer: applicationUser.uuid,
         req_id: id,
       })
-      .then((res) => console.log(res.data))
       .then(navigate("/user-dashboard"));
   };
   const missionFailed = () => {
@@ -51,7 +50,6 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       .put(`${API}/requests/reject_request`, {
         req_id: id,
       })
-      .then((res) => console.log(res.data));
   };
 
   return (

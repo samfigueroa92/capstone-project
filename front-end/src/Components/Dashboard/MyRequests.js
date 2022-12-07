@@ -38,25 +38,25 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
     }
   }, [date]);
   
-  const myspecifiedrequests = requests.map((request) => {
-    if (request.req_date === value) {
+  const myspecifiedrequests = requests.map((request, index) => {
+    if (request.req_date === value && index <= 4) {
       return <RequestCard key={request.id} request={request} />;
     }
   });
 
-  const myrequests = requests.map((request) => {
-    if (request.req_date >= value) {
+  const myrequests = requests.map((request, index) => {
+    if (request.req_date >= value && index <= 4) {
       return <RequestCard key={request.id} request={request} />;
     }
   });
-      console.log(currentDate,value)
+
   return (
+    <>
+    <h3 className="head">My Requests</h3>
     <div className="my-requests">
-      <h3>My Requests</h3>
-      <div className="my-list">
           {currentDate === value ? myrequests : myspecifiedrequests}
-      </div>
     </div>
+    </>
   );
 };
 
