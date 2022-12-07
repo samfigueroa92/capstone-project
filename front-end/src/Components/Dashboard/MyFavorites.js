@@ -9,10 +9,9 @@ import "./MyFavorites.css"
 
 const MyFavorites = () => {
   return (
-    <div>
+    <div className="favorites">
         <h3>Favorites</h3>
-        <div className = ''>
-            {}
+        <div>
         </div>
     </div>
   )
