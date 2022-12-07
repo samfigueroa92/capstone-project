@@ -114,11 +114,6 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               )}
             </Link>
           </div>
-          {/* <div>
-        <Link to="/user-dashboard">
-            <button>DECLINE</button>
-        </Link>
-        </div> */}
         </div>
       </div>
     </div>
