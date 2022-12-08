@@ -50,6 +50,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       .put(`${API}/requests/reject_request`, {
         req_id: id,
       })
+      .then(navigate("/user-dashboard"));
   };
 
   return (
