@@ -6,6 +6,7 @@
 } */
 .req-card {
   background-color: white;
+  /* max-width: 250px; */
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -17,6 +18,7 @@
 }
 .reqImg {
   width: 100%;
+  /* max-width: max-content; */
   height: 128px;
   object-fit: cover;
 }

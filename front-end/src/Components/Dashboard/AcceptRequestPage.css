@@ -1,11 +1,13 @@
-.main-page{
-    display:grid;
-    grid-template-columns: repeat(1,1fr);
-    margin-top: 30px;
-    margin-bottom: auto;
+/* .main-page{ */
+    /* display:grid; */
+    /* grid-template-columns: repeat(1,1fr); */
+    /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
+    /* margin-bottom: 2rem; */
+    /* margin-top: 30px; */
+    /* margin-bottom: auto; */
 
     /* height: 700px; */
-}
+/* } */
 
 .main-page h3 .accepted-request{
     margin: 0px;
@@ -32,10 +34,11 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 40px; */
-    min-height: 200px;
+    /* min-height: 200px; */
     margin: 15px;
     display: grid;
     margin-top: 30px;
+    margin-bottom: 2rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
     gap: 2.5rem
