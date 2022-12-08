@@ -41,7 +41,8 @@
   }
   .back,
   .accept,
-  .reject {
+  .reject,
+  .edit {
       margin-right: 15px;
       padding-left: 80px;
       border: none;
@@ -57,7 +58,8 @@
 
   .back:hover,
   .accept:hover,
-  .reject:hover{
+  .reject:hover,
+  .edit:hover{
     background-color: #B8DEDC;
   }
   

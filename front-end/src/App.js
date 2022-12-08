@@ -21,6 +21,7 @@ import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/ComingSoon/Achievements";
 import Unprotected from "./Components/Unprotected";
+import EditRequest from "./Components/Dashboard/EditRequest";
 
 //CSS
 import "./App.css";
@@ -199,6 +200,7 @@ const App = () => {
                 </Protected>
               }
             />
+            <Route path="/edit/:id" element={<Protected><EditRequest applicationUser={applicationUser} setDate={setDate} /></Protected>} />
             <Route
               path="/user/settings"
               element={

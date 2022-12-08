@@ -31,7 +31,7 @@ const DashboardNav = ({ applicationUser }) => {
       </Navbar.Brand>
       <Container className="dashboard-nav">
         <Nav className="me-auto.">
-          <img src={photoURL} className="profile-pic" alt={displayName} />
+          <img src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
           <Dropdown>
             <Dropdown.Toggle id="dropdown">
               {applicationUser.verified ? (
