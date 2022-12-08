@@ -6,15 +6,18 @@
 
     /* height: 700px; */
 }
+.sidebar{
+    position: sticky;
+}
 
 .main-page h3 .accepted-request{
     margin: 0px;
     margin-top: -25px;
     margin-left: 10px;  
 }
-.user-dashboard{
+/* .user-dashboard{
     position:fixed;
-}
+} */
 
 .main-page h3 .completed{
     margin: 0px;
