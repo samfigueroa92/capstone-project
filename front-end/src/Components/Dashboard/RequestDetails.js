@@ -80,7 +80,6 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               </figure>
               <div className="card-info">
                 <h5 className="card-text">
-                  {" "}
                   <strong>Job Description:</strong> {request.description}
                 </h5>
                 <h4 className="card-text">
@@ -103,8 +102,8 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
             </Link>
           </div>
           <div>
-            <Link to="/user-dashboard">
-              {request.volunteer_id !== applicationUser.uuid ? (
+            {applicationUser.user_type === "Volunteer" ? (
+              request.volunteer_id !== applicationUser.uuid ? (
                 <Button className="accept" onClick={missionAccepted}>
                   ACCEPT
                 </Button>
@@ -112,8 +111,12 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                 <Button className="reject" onClick={missionFailed}>
                   REJECT
                 </Button>
-              )}
-            </Link>
+              )
+            ) : (
+              <Link to={`/edit/${id}`}>
+              <Button className="edit">EDIT</Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
