@@ -89,12 +89,14 @@ const editRequest = async (request, id) => {
   try {
     console.log("Editing request with id of " + id);
     const req = await db.one(
-      "UPDATE requests SET req_date=$1, description=$2, location=$3, time=$4 WHERE id=$5 RETURNING *",
+      "UPDATE requests SET req_date=$1, title=$2, description=$3, location=$4, time=$5, image=$6 WHERE id=$7 RETURNING *",
       [
         request.req_date,
+        request.title,
         request.description,
         request.location,
         request.time,
+        request.image,
         id,
       ]
     );
