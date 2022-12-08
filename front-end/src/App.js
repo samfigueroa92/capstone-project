@@ -19,7 +19,7 @@ import Settings from "./Components/Dashboard/Settings";
 import NewRequestForm from "./Components/Dashboard/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
-import Achievements from "./Components/ComingSoon/Achievements";
+import Achievements from "./Components/Dashboard/Achievements";
 import Unprotected from "./Components/Unprotected";
 
 //CSS
@@ -140,7 +140,7 @@ const App = () => {
               path="/achievements"
               element={
                 <Protected>
-                  <Achievements />
+                  <Achievements setDate={setDate} applicationUser={applicationUser}/>
                 </Protected>
               }
             />
