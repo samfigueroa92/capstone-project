@@ -113,7 +113,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                 </Button>
               )
             ) : (
-              <Link to="">
+              <Link to={`/edit/${id}`}>
               <Button className="edit">EDIT</Button>
               </Link>
             )}
