@@ -85,7 +85,7 @@ function Settings({ applicationUser, setDate }) {
               ? applicationUser.profilephoto
               : user.photoURL
           }
-          alt="profile-photo"
+          alt="profile"
         />
         </div>
         <div className="form-profile">
