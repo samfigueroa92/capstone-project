@@ -158,8 +158,9 @@ const App = () => {
                 </Protected>
               }
             />
+       
             <Route
-              path="/user-dashboard"
+              path="/user-dashboard" 
               element={
                 <Protected>
                   <UserDashboard
@@ -211,7 +212,7 @@ const App = () => {
               }
             />
             <Route
-              path="accepted-requests"
+              path="/accepted-requests"
               element={
                 <Protected>
                   <AcceptRequestPage
