@@ -46,9 +46,11 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       .then(navigate("/user-dashboard"));
   };
   const missionFailed = () => {
-    axios.put(`${API}/requests/reject_request`, {
-      req_id: id,
-    });
+    axios
+      .put(`${API}/requests/reject_request`, {
+        req_id: id,
+      })
+      .then(navigate("/user-dashboard"));
   };
 
   return (
