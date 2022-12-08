@@ -47,6 +47,7 @@ CREATE TABLE ratings (
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     reviewer_id TEXT references users(uuid),
+    reviewed_user_id TEXT references users(uuid),
     description TEXT NOT NULL,
     post_date DATE NOT NULL,
     request_id INT references requests(id)
