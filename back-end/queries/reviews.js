@@ -14,6 +14,12 @@ const getReviews = async () => {
 // --Routes--
 
 // Create review
+
+//BRAINTHOUGHTS -
+// When leaving a review - the reviewer_id should be pulled from the logged
+// in user, either from applicationUser or using the UserContext hook.
+// The reviewed_user_id...maybe a check on the front end, seeing what
+// column the logged in user is in (elder_id or volunteer_id)
 const leaveReview = async (review) => {
   try {
     console.log("Adding review to request");
@@ -21,6 +27,7 @@ const leaveReview = async (review) => {
       "INSERT INTO reviews (reviewer_id, description, post_date, request_id) VALUES ($1, $2, $3, $4) RETURNING *",
       [
         review.reviewer_id,
+        review.reviewed_user_id,
         review.description,
         review.post_date,
         review.request_id,
