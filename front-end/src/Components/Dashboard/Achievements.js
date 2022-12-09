@@ -12,15 +12,17 @@ import SvgIcon from "../ComingSoon/SvgIcon";
 const Achievements = ({setDate, applicationUser}) => {
   
   return (
-    <div className='userdashboard user-dashboard'>
+    <div className='user-dashboard'>
+      <div className='sidebar-nav'>
       <SidebarNav setDate={setDate} applicationUser={applicationUser}/>
+      </div>
     <div className="achieve" style={{ paddingTop: "110px" }}>
       <SvgIcon />
       <p>GoldenSolutions Achievements</p>
       <p> Coming Soon!</p>
-      <Link className="navigate" to="/user-dashboard">
+      {/* <Link className="navigate" to="/user-dashboard">
         BACK
-      </Link>
+      </Link> */}
     </div>
     </div>
   );

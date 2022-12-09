@@ -8,8 +8,10 @@
     align-items: center;
     background-color: #c6eaf6;
     height: 100%;
+    width: 100%;
     background-size: 10%;
     justify-content: center;
+    padding-bottom: 10%;
     /* background-repeat: ; */
 }
 
