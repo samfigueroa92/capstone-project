@@ -21,10 +21,12 @@ import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/ComingSoon/Achievements";
 import Unprotected from "./Components/Unprotected";
+import UsersInfo from "./Components/UsersInfo/UsersInfo";
 
 //CSS
 import "./App.css";
 import PersonalPage from "./Components/HomePage/PersonalPage";
+
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -224,6 +226,10 @@ const App = () => {
                   />
                 </Protected>
               }
+            />
+            <Route 
+            path="user-info"
+            element={<UsersInfo/>}
             />
           </Routes>
         </Router>

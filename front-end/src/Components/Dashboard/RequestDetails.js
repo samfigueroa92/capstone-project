@@ -11,6 +11,7 @@ import Button from "react-bootstrap/Button";
 
 //Components
 import SidebarNav from "./SidebarNav";
+import UsersInfo from "../UsersInfo/UsersInfo";
 
 const RequestDetails = ({ setDate, date, applicationUser }) => {
   setDate("");
@@ -106,13 +107,17 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               {request.volunteer_id !== applicationUser.uuid ? (
                 <Button className="accept" onClick={missionAccepted}>
                   ACCEPT
+                  <UsersInfo applicationUser = {applicationUser} />
                 </Button>
+               
+             
               ) : (
                 <Button className="reject" onClick={missionFailed}>
                   REJECT
                 </Button>
               )}
             </Link>
+            <Link to="/user-info">See user info</Link>
           </div>
         </div>
       </div>
