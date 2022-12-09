@@ -45,6 +45,15 @@ const AcceptRequestPage = ({
     }
   }, [date]);
 
+  // Submitted Request
+  const submittedRequest = requests.map((request) => {
+    return (
+      // <>
+      <RequestCard key={request.id} request={request}/>
+      // </>
+    )
+  })
+
   const accepted = requests.map((request)=>{
     if(request.assigned && request.req_date >= value){
       return <RequestCard key={request.id} request={request}/>
@@ -87,8 +96,12 @@ const AcceptRequestPage = ({
           {currentDate === value ? accepted : acceptedspecified}
         </div>
       {applicationUser.user_type === "Senior" ? <div className="pending"> {currentDate === value ? notaccepted : notacceptedspecified} </div> : null}
-
         {/* Favorites Logic for Seniors */}
+
+        <h3 className="comphead">Submitted Request</h3>
+        <div className="submitted">
+          {currentDate === value ? submittedRequest : null}
+        </div>
         <h3 className="comphead">Completed Request</h3>
         <div className="History">
           {currentDate === value ? completed : completedspecified}
