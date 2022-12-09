@@ -7,10 +7,10 @@
     background-position: center;
     align-items: center;
     background-color: #c6eaf6;
-    height: 100vh;
+    height: 100%;
     background-size: 10%;
     justify-content: center;
-    background-repeat: repeat;
+    /* background-repeat: ; */
 }
 
 

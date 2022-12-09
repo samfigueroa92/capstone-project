@@ -91,6 +91,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                 <h4 className="card-text">
                   <strong>Time:</strong> {request.time}
                 </h4>
+                <p className='warning'><span className='red'>*</span> Cancellations within 24 hours or missing your appointment will result in a negative review & rating.</p>
               </div>
             </div>
           </div>
