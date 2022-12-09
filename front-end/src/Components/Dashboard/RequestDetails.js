@@ -52,6 +52,18 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       })
       .then(navigate("/user-dashboard"));
   };
+  const time =()=>{
+    if(request.time.length <= 5){
+      let timeArray =request.time.split(':')
+      if(Number(timeArray[0]) > 12){
+       return (Number(timeArray[0])-12)+':'+timeArray[1]+ "PM"
+      }else{
+        return (timeArray[0])+':'+ timeArray[1]+ "AM"
+      }
+    }else{
+       return request.time
+    }
+  }
 
   return (
     <div className="details">
@@ -89,7 +101,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                   <strong>Requested:</strong> {request.req_date}
                 </h4>
                 <h4 className="card-text">
-                  <strong>Time:</strong> {request.time}
+                  <strong>Time:</strong> {time()}
                 </h4>
                 <p className='warning'><span className='red'>*</span> Cancellations within 24 hours or missing your appointment will result in a negative review & rating.</p>
               </div>

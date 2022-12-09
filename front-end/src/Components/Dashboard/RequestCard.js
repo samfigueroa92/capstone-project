@@ -13,7 +13,7 @@ const RequestCard = ({ request }) => {
       if(Number(timeArray[0]) > 12){
        return (Number(timeArray[0])-12)+':'+timeArray[1]+ "PM"
       }else{
-        return (timeArray[0])+':'+timeArray[1]+ "AM"
+        return (timeArray[0])+':'+ timeArray[1]+ "AM"
       }
     }else{
        return request.time
