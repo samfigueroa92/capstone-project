@@ -90,9 +90,9 @@ const AcceptRequestPage = ({
 
         {/* Favorites Logic for Seniors */}
         <h3 className="comphead">Completed Request</h3>
-        {/* <div className="History">
+        <div className="History">
           {currentDate === value ? completed : completedspecified}
-        </div> */}
+        </div>
       </div>
     </div>
   );
