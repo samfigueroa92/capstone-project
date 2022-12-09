@@ -55,6 +55,12 @@
       color: white;
       letter-spacing: .2em;
   }
+  .warning{
+    font-size: 12px;
+  }
+  .red{
+    color: red;
+  }
 
   .back:hover,
   .accept:hover,
