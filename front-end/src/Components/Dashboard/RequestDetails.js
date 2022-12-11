@@ -131,6 +131,20 @@ const RequestDetails = ({
           </div>
         </div>
 
+        {reviews.length ? (
+          <div className="reviews">
+            <h4>Your Review</h4>
+            <>
+              {reviews.map((review) => {
+                return (
+                  <>
+                    <Review review={review} applicationUser={applicationUser} />
+                  </>
+                );
+              })}
+            </>{" "}
+          </div>
+        ) : null}
         <div className="buttons">
           <div>
             <Link to="/user-dashboard">
@@ -144,15 +158,17 @@ const RequestDetails = ({
                   ACCEPT
                 </Button>
               ) : request.complete ? (
-                <Button
-                  className="reject"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setReviewFormRevealed(true);
-                  }}
-                >
-                  REVIEW
-                </Button>
+                request.length ? (
+                  <Button
+                    className="reject"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setReviewFormRevealed(true);
+                    }}
+                  >
+                    REVIEW
+                  </Button>
+                ) : null
               ) : (
                 <Button className="reject" onClick={missionFailed}>
                   REJECT
@@ -165,21 +181,6 @@ const RequestDetails = ({
             )}
           </div>
         </div>
-
-        {reviews.length ? (
-          <div className="reviews">
-            <h4>Reviews</h4>
-            <>
-              {reviews.map((review) => {
-                return (
-                  <>
-                    <Review review={review} applicationUser={applicationUser} />
-                  </>
-                );
-              })}
-            </>{" "}
-          </div>
-        ) : null}
 
         {/* {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
           {reviewFormRevealed ? <p>You said : </p>: null}
