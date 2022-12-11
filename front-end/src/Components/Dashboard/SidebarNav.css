@@ -3,7 +3,7 @@
   height: 720px;
   width: 100%;
   padding-top: 40%;
-  padding-bottom: 10%;
+  padding-bottom: 7rem;
   color: black;
   position: sticky;
   top:0;
@@ -18,14 +18,14 @@
 }
 .text {
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 10px;
   color: black;
 }
 
 .react-calendar {
   width: 100%;
   margin: 0px 0px;
-  padding-bottom: 10px;
+  padding-bottom: 7rem;
 }
 
 
@@ -42,6 +42,3 @@ a:hover{
   font-size: small;
 }
 
-@media screen and (max-width: 700px) {
-  
-}

@@ -63,7 +63,9 @@ const OpenRequestPage = ({
 
   return (
     <div className="user-dashboard">
+      <div className='sidebar-nav'>
       <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      </div>
       <div className="main-page">
         <h3>Open Request</h3>
         <div className="open-request-page">
