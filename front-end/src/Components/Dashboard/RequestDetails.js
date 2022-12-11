@@ -114,9 +114,9 @@ const RequestDetails = ({
                 <h4 className="card-text">
                   <strong>Location:</strong> {request.location}
                 </h4>
-                <h4 className="card-text">
+                {/* <h4 className="card-text">
                   <strong>Requested:</strong> {}
-                </h4>
+                </h4> */}
                 <h4 className="card-text">
                   <strong>Time:</strong> {timeConversion}
                 </h4>

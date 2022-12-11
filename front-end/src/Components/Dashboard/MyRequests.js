@@ -38,14 +38,16 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
     }
   }, [date]);
   
-  const myspecifiedrequests = requests.length > 0 ? requests.map((request, index) => {
-    if (request.req_date === value && index <= 4) {
+
+  const myspecifiedrequests = requests.length > 0 ? requests.map((request) => {
+    if (request.req_date === value) {
       return <RequestCard key={request.id} request={request} />;
     }
   }) : <p className="no-requests">No accepted requests.</p>;
 
-  const myrequests = requests.length > 0 ? requests.map((request, index) => {
-    if (request.req_date >= value && index <= 4) {
+
+  const myrequests = requests.length > 0 ? requests.map((request) => {
+    if (request.req_date >= value) {
       return <RequestCard key={request.id} request={request} />;
     }
   }) : <p className="no-requests">No accepted requests.</p>;
