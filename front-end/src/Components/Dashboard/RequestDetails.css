@@ -170,8 +170,12 @@
       border-radius: 7px;
     }
     
+    .details h3{
+      margin-top: -5px;
+    }
   }
  
+
 
   @media only screen and (max-width: 1024px) {
     .sidebar-nav {

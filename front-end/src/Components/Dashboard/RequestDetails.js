@@ -23,6 +23,7 @@ const RequestDetails = ({
   const [request, setRequest] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
+  const [timeConversion, setTimeConversion] = useState("");
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -32,6 +33,7 @@ const RequestDetails = ({
   useEffect(() => {
     axios.get(`${API}/requests/help_req/${id}`).then((response) => {
       setRequest(response.data);
+      setTimeConversion(timeChange(response.data.time));
       setCurrentDate(
         stringCurrentDate.getFullYear() +
           "-" +
@@ -63,7 +65,22 @@ const RequestDetails = ({
       .then(navigate("/user-dashboard"));
   };
 
-  console.log(currentDate);
+  const timeChange = (time) => {
+    if (time) {
+      if (time.length <= 5) {
+        let timeArray = time.split(":");
+        if (Number(timeArray[0]) > 12) {
+          return Number(timeArray[0]) - 12 + ":" + timeArray[1] + "PM";
+        } else {
+          return timeArray[0] + ":" + timeArray[1] + "AM";
+        }
+      } else {
+        return time;
+      }
+    }
+  };
+
+
   return (
     <div className="details">
       <div className="sidebar-Nav">
@@ -97,10 +114,10 @@ const RequestDetails = ({
                   <strong>Location:</strong> {request.location}
                 </h4>
                 <h4 className="card-text">
-                  <strong>Requested:</strong> {request.req_date}
+                  <strong>Requested:</strong> {}
                 </h4>
                 <h4 className="card-text">
-                  <strong>Time:</strong> {request.time}
+                  <strong>Time:</strong> {timeConversion}
                 </h4>
                 <p className="warning">
                   <span className="red">*</span> Cancellations within 24 hours

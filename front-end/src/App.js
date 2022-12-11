@@ -229,6 +229,21 @@ const App = () => {
                 </Protected>
               }
             />
+             <Route
+              path="submitted-requests"
+              element={
+                <Protected>
+                  <AcceptRequestPage
+                    stringCurrentDate={stringCurrentDate}
+                    date={date}
+                    setDate={setDate}
+                    applicationUser={applicationUser}
+                    requests={requests}
+                    setRequests={setRequests}
+                  />
+                </Protected>
+              }
+            />
           </Routes>
         </Router>
       </UserProvider>

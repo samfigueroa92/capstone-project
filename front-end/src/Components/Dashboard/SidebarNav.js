@@ -50,7 +50,7 @@ const SidebarNav = ({ setDate, applicationUser }) => {
           <div className="under-click"></div>
         </Link>
         ) : (
-          <Link to="/accepted-requests">
+          <Link to={applicationUser.user_type === 'Volunteer' ? "/accepted-requests" : "/submitted-requests"}>
           <p>Submitted Requests</p>
           <div className="under-click"></div>
         </Link>

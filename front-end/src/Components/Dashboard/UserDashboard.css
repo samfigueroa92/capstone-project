@@ -1,5 +1,7 @@
 .user-dashboard{
     display: grid;
+    display:flex;
+    
     grid-template-columns: 7fr 25fr;
 }
 
@@ -9,4 +11,10 @@
 } */
 .my-list{
     min-height: 350px;
+}
+.sidebar-nav{
+    width: 23%;
+    height:100%;
+    position: sticky;
+    top: 0;
 }
