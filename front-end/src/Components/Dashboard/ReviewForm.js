@@ -16,11 +16,21 @@ const ReviewForm = ({ applicationUser, currentDate, request, reviews, setReviews
     post_date: currentDate,
     request_id: id,
   });
-  
+  const [user, setUser] = useState({})
   useEffect(() => {
     axios
       .get(`${API}/reviews/${id}`)
       .then((res) => setReview(res.data))
+
+      if(applicationUser.user_type === 'Volunteer'){
+    axios
+      .get(`${API}/users/${request.elder_id}`)
+      .then((res)=>setUser(res.data.payload))
+      }else{
+    axios
+      .get(`${API}/users/${request.volunteer_id}`)
+      .then((res)=>setUser(res.data.payload))
+      }
   }, []);
 
 
@@ -33,16 +43,15 @@ const ReviewForm = ({ applicationUser, currentDate, request, reviews, setReviews
   };
 
 
- 
  let filter =  reviews.find( specifiedReview => specifiedReview.reviewer_id === applicationUser.uuid)
-
+  console.log(user)
 
   return (
     <div className="review">
       <img
         className="review-img"
-        src={applicationUser.profilephoto}
-        alt={applicationUser.firstname + " " + applicationUser.lastname}
+        src={user.profilephoto}
+        alt={user.firstname + " " + user.lastname}
       />
       {filter ? (
         <div key={filter.id}>
