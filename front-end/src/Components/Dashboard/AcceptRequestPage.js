@@ -84,14 +84,16 @@ const AcceptRequestPage = ({
       <SidebarNav setDate={setDate} applicationUser={applicationUser} />
       </div>
       <div className="main-page">
-        <h3 className="accepted-request">{applicationUser.user_type === "Volunteer" ? "Accepted Request" : "My Request"}</h3>
+        <h3 className="accepted-request">Accepted Requests</h3>
         <div className="Accepted">
           {currentDate === value ? accepted : acceptedspecified}
         </div>
+        {applicationUser.user_type === "Senior" ? <h3 className="comphead">Pending Requests</h3> : null}
+       
       {applicationUser.user_type === "Senior" ? <div className="pending"> {currentDate === value ? notaccepted : notacceptedspecified} </div> : null}
 
         {/* Favorites Logic for Seniors */}
-        <h3 className="comphead">Completed Request</h3>
+        <h3 className="comphead">Completed Requests</h3>
         <div className="History">
           {currentDate === value ? completed : completedspecified}
         </div>
