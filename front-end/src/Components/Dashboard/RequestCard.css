@@ -21,6 +21,7 @@
   /* max-width: max-content; */
   height: 128px;
   object-fit: cover;
+  min-height: 128px;
 }
 /* .req-fig {
   position: relative;
@@ -39,9 +40,10 @@
   }
   .req-title {
     font-weight: 700;
-    text-overflow: ellipsis;
+    width:50px;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis " [..]";
   }
   /* .assignment {
 

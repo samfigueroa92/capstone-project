@@ -89,7 +89,9 @@ const AcceptRequestPage = ({
   
   return (
     <div className="user-dashboard">
-      <SidebarNav className= 'sidebar' setDate={setDate} applicationUser={applicationUser} />
+      <div className='sidebar-nav'>
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      </div>
       <div className="main-page">
         <h3 className="accepted-request">{applicationUser.user_type === "Volunteer" ? "Accepted Request" : "My Request"}</h3>
         <div className="Accepted">
