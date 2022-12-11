@@ -38,20 +38,19 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
     }
   }, [date]);
   
-  console.log(requests)
-  const myspecifiedrequests = requests.map((request, index) => {
+
+  const myspecifiedrequests = requests.length > 0 ? requests.map((request) => {
     if (request.req_date === value) {
       return <RequestCard key={request.id} request={request} />;
     }
-  });
+  }) : <p className="no-requests">No accepted requests.</p>;
 
-  const myrequests = requests.map((request, index) => {
-    let count = 0
+
+  const myrequests = requests.length > 0 ? requests.map((request) => {
     if (request.req_date >= value) {
-      count ++
       return <RequestCard key={request.id} request={request} />;
     }
-  });
+  }) : <p className="no-requests">No accepted requests.</p>;
 
   return (
     <>
@@ -64,5 +63,3 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
 };
 
 export default MyRequests;
-
-// request.req_date === value

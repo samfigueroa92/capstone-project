@@ -1,20 +1,20 @@
 //Dependencies
-import React from 'react'
+import React from "react";
 
 //Components
 
 //CSS
-import "./MyFavorites.css"
-
+import "./MyFavorites.css";
 
 const MyFavorites = () => {
   return (
-    <div className="favorites">
-        <h3>Favorites</h3>
-        <div>
-        </div>
-    </div>
-  )
-}
+    <>
+      <h3 className="head">Favorites</h3>
+      <div className="favorites">
+        <p className="no-requests"> Coming soon...</p>
+      </div>
+    </>
+  );
+};
 
-export default MyFavorites
+export default MyFavorites;
