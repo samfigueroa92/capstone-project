@@ -80,6 +80,7 @@ const RequestDetails = ({
     }
   };
 
+  console.log(request)
 
   return (
     <div className="details">
@@ -128,6 +129,19 @@ const RequestDetails = ({
             </div>
           </div>
         </div>
+        <div className="reviews">
+          {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
+          {reviewFormRevealed ? <p>You said : </p>: null}
+          {reviewFormRevealed ? (
+            <ReviewForm
+              request={request}
+              reviews={reviews}
+              setReviews={setReviews}
+              currentDate={currentDate}
+              applicationUser={applicationUser}
+            />
+          ) : null}
+        </div>
         <div className="buttons">
           <div>
             <Link to="/user-dashboard">
@@ -161,18 +175,6 @@ const RequestDetails = ({
               </Link>
             )}
           </div>
-        </div>
-        <div className="reviews">
-          {reviewFormRevealed ? <h3>REVIEWS</h3> : null}
-          {reviewFormRevealed ? (
-            <ReviewForm
-              request={request}
-              reviews={reviews}
-              setReviews={setReviews}
-              currentDate={currentDate}
-              applicationUser={applicationUser}
-            />
-          ) : null}
         </div>
       </div>
     </div>
