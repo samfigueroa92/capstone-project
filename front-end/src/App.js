@@ -22,6 +22,7 @@ import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements";
 import Unprotected from "./Components/Unprotected";
 import EditRequest from "./Components/Dashboard/EditRequest";
+import RequestReviews from "./Components/Review/RequestReview"
 
 //CSS
 import "./App.css";
@@ -75,8 +76,8 @@ const App = () => {
               path="/"
               element={
                 <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
+                applicationUser={applicationUser}
+                setApplicationUser={setApplicationUser}
                 >
                   <Home />
                 </Unprotected>
@@ -86,8 +87,8 @@ const App = () => {
               path="/sign-up"
               element={
                 <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
+                applicationUser={applicationUser}
+                setApplicationUser={setApplicationUser}
                 >
                   <SignUpPage setApplicationUser={setApplicationUser} />
                 </Unprotected>
@@ -97,8 +98,8 @@ const App = () => {
               path="/volunteers"
               element={
                 <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
+                applicationUser={applicationUser}
+                setApplicationUser={setApplicationUser}
                 >
                   <VolunteerPage />
                 </Unprotected>
@@ -108,7 +109,7 @@ const App = () => {
               path="/seniors"
               element={
                 <Unprotected
-                  applicationUser={applicationUser}
+                applicationUser={applicationUser}
                   setApplicationUser={setApplicationUser}
                 >
                   <SeniorsPage />
@@ -119,8 +120,8 @@ const App = () => {
               path="/our-team"
               element={
                 <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
+                applicationUser={applicationUser}
+                setApplicationUser={setApplicationUser}
                 >
                   <OurTeam />
                 </Unprotected>
@@ -130,8 +131,8 @@ const App = () => {
               path="/our-page/:staffMember"
               element={
                 <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
+                applicationUser={applicationUser}
+                setApplicationUser={setApplicationUser}
                 >
                   <PersonalPage />
                 </Unprotected>
@@ -145,6 +146,7 @@ const App = () => {
                 </Protected>
               }
             />
+              <Route path="/reviews" element={<Protected><RequestReviews applicationUser ={applicationUser} setDate={setDate} requests = {requests}/></Protected>}/>
             <Route
               path="/browse-requests"
               element={

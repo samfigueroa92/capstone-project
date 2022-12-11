@@ -6,6 +6,7 @@ const Protected = ({children}) => {
     const user = useContext(UserContext);
 
     if(!user){
+        console.log(user)
         return <Navigate to="/" />
     }
 
