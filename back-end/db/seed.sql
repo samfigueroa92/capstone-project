@@ -130,13 +130,15 @@ INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "descript
 INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
 ('nT7piDTswmNax8Osco30IoX4MrW2','2022-10-26','Accompany Me to the Park','Need to get some exercise in, would love to have a walking partner to help motivate me.','New York','03:00PM-04:00PM','FALSE','FALSE','https://phillypowered.org/wp-content/uploads/2018/08/YEE_5548-20180621.jpg') RETURNING *;
 
+-- Completed
 
+INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
 
+('nT7piDTswmNax8Osco30IoX4MrW2','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2022-10-26','Grocery Shopping','Looking for some help with Grocery shopping. In need of some additional help bring up the bags to the 3rd Floor','New York','03:00PM-05:00PM','TRUE','TRUE','https://static01.nyt.com/images/2016/11/06/education/06view360-sub/06view360-sub-superJumbo.jpg') RETURNING *;
 
+INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
 
-
-
-
+('nT7piDTswmNax8Osco30IoX4MrW2','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2022-10-26','Grocery Shopping','Looking for some help with Grocery shopping. In need of some additional help bring up the bags to the 3rd Floor','New York','03:00PM-05:00PM','TRUE','TRUE','https://static01.nyt.com/images/2016/11/06/education/06view360-sub/06view360-sub-superJumbo.jpg') RETURNING *;
 
 
 -- Stretch Goal

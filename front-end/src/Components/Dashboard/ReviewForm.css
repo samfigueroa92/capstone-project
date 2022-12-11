@@ -1,0 +1,10 @@
+.reviewForm{
+    justify-content: center;
+}
+.review-img{
+    width: 50px
+}
+review{
+    display: flex;
+    flex-wrap: nowrap;
+}

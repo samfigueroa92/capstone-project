@@ -11,6 +11,15 @@ const getReviews = async () => {
   }
 };
 
+const getSubmittedReviews = async (id) =>{
+  try{
+    const reviews = await db.any("SELECT * FROM reviews WHERE reviewer_id = $1", id);
+    return reviews;
+  }catch(error){
+    return error;
+  }
+};
+
 // --Routes--
 
 // Create review
@@ -36,7 +45,7 @@ const leaveReview = async (review) => {
 const getReview = async (id) => {
   try {
     console.log("Retreiving single review with id of " + id);
-    const review = await db.one("SELECT * FROM reviews WHERE id=$1", id);
+    const review = await db.any("SELECT * FROM reviews WHERE request_id=$1", id);
     return review;
   } catch (error) {
     return error;
@@ -57,9 +66,11 @@ const editReview = async (review, id) => {
   }
 };
 
+
 module.exports = {
   getReviews,
   getReview,
   leaveReview,
   editReview,
+  getSubmittedReviews
 };

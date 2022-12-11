@@ -125,6 +125,11 @@
     font-size: 18px;
     line-height: 24px;
   }
+  .reviews{
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
   
   /* media queries */
   @media only screen and (min-width: 1200px) {
@@ -166,6 +171,7 @@
     }
     
   }
+ 
 
   @media only screen and (max-width: 1024px) {
     .sidebar-nav {

@@ -8,18 +8,30 @@ const {
   getReview,
   leaveReview,
   editReview,
+  getSubmittedReviews
 } = require("../queries/reviews.js");
 
 // ROUTES
 // INDEX / ALL REVIEWS
 reviews.get("/", async (req, res) => {
   const allReviews = await getReviews();
-  if (allReviews[0]) {
+  console.log(allReviews)
+  if (Array.isArray(allReviews)) {
     res.status(200).json(allReviews);
   } else {
     res.status(500).json({ error: "server error!" });
   }
 });
+
+reviews.get('/submitted/:id', async(req,res)=>{
+  const {id} = req.params;
+  const submittedReviews = await getSubmittedReviews(id)
+  if(Array.isArray(submittedReviews)){
+    res.status(200).json(submittedReviews)
+  }else{
+    res.status(500).json({error:'server error!'});
+  }
+})
 
 // SHOW / SINGLE REVIEW
 reviews.get("/:id", async (req, res) => {
