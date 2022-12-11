@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 //Components
 import SidebarNav from "./SidebarNav";
 import ReviewForm from "./ReviewForm";
+import { Review } from "./Review";
 
 const RequestDetails = ({
   setDate,
@@ -80,7 +81,7 @@ const RequestDetails = ({
     }
   };
 
-  console.log(request)
+  console.log(request);
 
   return (
     <div className="details">
@@ -129,19 +130,7 @@ const RequestDetails = ({
             </div>
           </div>
         </div>
-        <div className="reviews">
-          {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
-          {reviewFormRevealed ? <p>You said : </p>: null}
-          {reviewFormRevealed ? (
-            <ReviewForm
-              request={request}
-              reviews={reviews}
-              setReviews={setReviews}
-              currentDate={currentDate}
-              applicationUser={applicationUser}
-            />
-          ) : null}
-        </div>
+
         <div className="buttons">
           <div>
             <Link to="/user-dashboard">
@@ -154,7 +143,7 @@ const RequestDetails = ({
                 <Button className="accept" onClick={missionAccepted}>
                   ACCEPT
                 </Button>
-              ) : request.complete && request.req_date < currentDate ? (
+              ) : request.complete ? (
                 <Button
                   className="reject"
                   onClick={(e) => {
@@ -176,6 +165,33 @@ const RequestDetails = ({
             )}
           </div>
         </div>
+
+        {reviews.length ? (
+          <div className="reviews">
+            <h4>Reviews</h4>
+            <>
+              {reviews.map((review) => {
+                return (
+                  <>
+                    <Review review={review} applicationUser={applicationUser} />
+                  </>
+                );
+              })}
+            </>{" "}
+          </div>
+        ) : null}
+
+        {/* {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
+          {reviewFormRevealed ? <p>You said : </p>: null}
+          {reviewFormRevealed ? (
+            <ReviewForm
+              request={request}
+              reviews={reviews}
+              setReviews={setReviews}
+              currentDate={currentDate}
+              applicationUser={applicationUser}
+            />
+          ) : null} */}
       </div>
     </div>
   );
