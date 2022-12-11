@@ -11,25 +11,42 @@ import Button from "react-bootstrap/Button";
 
 //Components
 import SidebarNav from "./SidebarNav";
+import ReviewForm from "./ReviewForm";
 
-const RequestDetails = ({ setDate, date, applicationUser }) => {
+const RequestDetails = ({
+  setDate,
+  date,
+  applicationUser,
+  stringCurrentDate,
+}) => {
   setDate("");
   const [request, setRequest] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
   const [timeConversion, setTimeConversion] = useState("");
   let { id } = useParams();
   let navigate = useNavigate();
 
   const API = process.env.REACT_APP_BACKEND_API_KEY;
-
+  const [currentDate, setCurrentDate] = useState("");
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   useEffect(() => {
-    axios
-      .get(`${API}/requests/help_req/${id}`)
-      .then((response) => {
-        setRequest(response.data);
-        setTimeConversion(timeChange(response.data.time));
-      })
-      .then(() => console.log(timeConversion + " FROM THE USEFFECT"));
+    axios.get(`${API}/requests/help_req/${id}`).then((response) => {
+      setRequest(response.data);
+      setTimeConversion(timeChange(response.data.time));
+      setCurrentDate(
+        stringCurrentDate.getFullYear() +
+          "-" +
+          ((stringCurrentDate.getMonth() + 1).toString().length === 1
+            ? "0" + (setCurrentDate.getMonth() + 1)
+            : stringCurrentDate.getMonth() + 1) +
+          "-" +
+          (stringCurrentDate.getDate().toString().length === 1
+            ? "0" + stringCurrentDate.getDate()
+            : stringCurrentDate.getDate())
+      );
+    });
+    axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
   }, [id, navigate, API]);
 
   const missionAccepted = () => {
@@ -62,6 +79,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       }
     }
   };
+
 
   return (
     <div className="details">
@@ -122,6 +140,16 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                 <Button className="accept" onClick={missionAccepted}>
                   ACCEPT
                 </Button>
+              ) : request.complete && request.req_date < currentDate ? (
+                <Button
+                  className="reject"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setReviewFormRevealed(true);
+                  }}
+                >
+                  REVIEW
+                </Button>
               ) : (
                 <Button className="reject" onClick={missionFailed}>
                   REJECT
@@ -133,6 +161,18 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               </Link>
             )}
           </div>
+        </div>
+        <div className="reviews">
+          {reviewFormRevealed ? <h3>REVIEWS</h3> : null}
+          {reviewFormRevealed ? (
+            <ReviewForm
+              request={request}
+              reviews={reviews}
+              setReviews={setReviews}
+              currentDate={currentDate}
+              applicationUser={applicationUser}
+            />
+          ) : null}
         </div>
       </div>
     </div>

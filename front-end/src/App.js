@@ -196,6 +196,8 @@ const App = () => {
                   <RequestDetails
                     setDate={setDate}
                     date={date}
+                    setStringCurrentDate = {setStringCurrentDate}
+                    stringCurrentDate = {stringCurrentDate}
                     applicationUser={applicationUser}
                   />
                 </Protected>
