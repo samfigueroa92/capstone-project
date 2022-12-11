@@ -1,14 +1,9 @@
 .user-dashboard{
     display: grid;
     display:flex;
-    
     grid-template-columns: 7fr 25fr;
 }
 
-/* .requests{
-    overflow: scroll;
-    height: 800px;
-} */
 .my-list{
     min-height: 350px;
 }
