@@ -7,12 +7,11 @@ import "./UsersInfo.css";
 // Components
 
 
-const UsersInfo = ({applicationUser}) => {
-  console.log(applicationUser.firstname);
+const UsersInfo = ({}) => {
  
   return (
     <div className="userInfo">
-      <p>return ({  applicationUser.firstname})</p>
+      <p></p>
       <Link className="navigate" to="/user-dashboard">
         BACK
       </Link>

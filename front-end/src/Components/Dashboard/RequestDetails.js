@@ -16,6 +16,7 @@ import UsersInfo from "../UsersInfo/UsersInfo";
 const RequestDetails = ({ setDate, date, applicationUser }) => {
   setDate("");
   const [request, setRequest] = useState([]);
+  const [visible, setVisible] = useState(false);
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -24,19 +25,11 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   useEffect(() => {
     axios.get(`${API}/requests/help_req/${id}`).then((response) => {
-      setRequest(response.data);
+      setRequest(response.data).then(() => {
+        axios.get(`${API}/users/${request.volunteer_id}`);
+      });
     });
-  }, [id, navigate, API]);
-
-  // const data = JSON.stringify({ req_id: id, volunteer: applicationUser.uuid });
-  // const config = {
-  //   method: "put",
-  //   url: `${API}/requests/accept_request`,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   data: data,
-  // };
+  }, []);
 
   const missionAccepted = () => {
     axios
@@ -47,10 +40,9 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       .then(navigate("/user-dashboard"));
   };
   const missionFailed = () => {
-    axios
-      .put(`${API}/requests/reject_request`, {
-        req_id: id,
-      })
+    axios.put(`${API}/requests/reject_request`, {
+      req_id: id,
+    });
   };
 
   return (
@@ -107,17 +99,18 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               {request.volunteer_id !== applicationUser.uuid ? (
                 <Button className="accept" onClick={missionAccepted}>
                   ACCEPT
-                  <UsersInfo applicationUser = {applicationUser} />
+                  <UsersInfo applicationUser={applicationUser} />
                 </Button>
-               
-             
               ) : (
                 <Button className="reject" onClick={missionFailed}>
                   REJECT
                 </Button>
               )}
             </Link>
-            <Link to="/user-info">See user info</Link>
+            <Button onClick={() => setVisible(true)}>
+              Show volunteer details
+            </Button>
+            {visible ? <UsersInfo></UsersInfo> : null}
           </div>
         </div>
       </div>
