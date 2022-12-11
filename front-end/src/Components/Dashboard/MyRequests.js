@@ -38,14 +38,17 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
     }
   }, [date]);
   
+  console.log(requests)
   const myspecifiedrequests = requests.map((request, index) => {
-    if (request.req_date === value && index <= 4) {
+    if (request.req_date === value) {
       return <RequestCard key={request.id} request={request} />;
     }
   });
 
   const myrequests = requests.map((request, index) => {
-    if (request.req_date >= value && index <= 4) {
+    let count = 0
+    if (request.req_date >= value) {
+      count ++
       return <RequestCard key={request.id} request={request} />;
     }
   });
