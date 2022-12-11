@@ -45,38 +45,41 @@ const AcceptRequestPage = ({
     }
   }, [date]);
 
-  const accepted = requests.map((request)=>{
+  const accepted = requests.length > 0 ? requests.map((request)=>{
     if(request.assigned && request.req_date >= value){
       return <RequestCard key={request.id} request={request}/>
     }
-  })
+  }) : <p className="no-requests">No accepted requests.</p>;
 
-  const acceptedspecified = requests.map((request)=>{
+  const acceptedspecified = requests.length > 0 ? requests.map((request)=>{
     if(request.assigned && request.req_date === value){
       return <RequestCard key={request.id} request={request}/>
     }
-  })
-  const completed = requests.map((request)=>{
+  }) : <p className="no-requests">No accepted requests.</p>;
+
+  const completed = requests.length > 0 ? requests.map((request)=>{
     if(request.complete){
      return <RequestCard key={request.id} request={request}/>
     }
-  })
+  }) : <p className="no-requests">No completed requests.</p>;
 
-  const completedspecified = requests.map((request)=>{
+  const completedspecified = requests.length > 0 ? requests.map((request)=>{
     if(request.complete && request.req_date === value){
      return <RequestCard key={request.id} request={request}/>
     }
-  })
-  const notaccepted = requests.map((request)=>{
+  }) : <p className="no-requests">No completed requests.</p>;
+
+  const notaccepted = requests.length > 0 ? requests.map((request)=>{
     if(!request.assigned && request.req_date >= value){
      return <RequestCard key={request.id} request={request}/>
     }
-  })
-  const notacceptedspecified = requests.map((request)=>{
+  }) : <p className="no-requests">No pending requests.</p>;
+
+  const notacceptedspecified = requests.length > 0 ? requests.map((request)=>{
     if(!request.assigned && request.req_date === value){
      return <RequestCard key={request.id} request={request}/>
     }
-  })
+  }) : <p className="no-requests">No pending requests.</p>;
   
   return (
     <div className="user-dashboard">
@@ -92,7 +95,6 @@ const AcceptRequestPage = ({
        
       {applicationUser.user_type === "Senior" ? <div className="pending"> {currentDate === value ? notaccepted : notacceptedspecified} </div> : null}
 
-        {/* Favorites Logic for Seniors */}
         <h3 className="comphead">Completed Requests</h3>
         <div className="History">
           {currentDate === value ? completed : completedspecified}

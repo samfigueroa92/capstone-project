@@ -1,3 +1,12 @@
 .favorites{
-    margin: 10px;
+    margin: 15px;
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    gap: 2.5rem;
+}
+
+.no-favs{
+    font-size: x-large;
 }
