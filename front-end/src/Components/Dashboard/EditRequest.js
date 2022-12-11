@@ -56,6 +56,12 @@ const EditRequest = ({ applicationUser, setDate }) => {
     updateRequest(editedRequest, id);
   };
 
+  const handleDelete = () => {
+    axios.delete(`${API}/requests/delete_req/${id}`)
+    .then(() => navigate("/user-dashboard"))
+    .catch(err => console.error(err))
+  }
+
   return (
     <div className="edit-request">
       <SidebarNav applicationUser={applicationUser} setDate={setDate} />
@@ -131,9 +137,8 @@ const EditRequest = ({ applicationUser, setDate }) => {
           </Row>
           <div className="editForm-button">
           <Button type="submit">Submit</Button>
-
+          <Button onClick={handleDelete}>Delete</Button>
           </div>
-
         </Form>
       </Container>
     </div>

@@ -15,6 +15,7 @@ import SidebarNav from "./SidebarNav";
 const RequestDetails = ({ setDate, date, applicationUser }) => {
   setDate("");
   const [request, setRequest] = useState([]);
+  const [timeConversion, setTimeConversion] = useState("");
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -22,20 +23,14 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
 
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   useEffect(() => {
-    axios.get(`${API}/requests/help_req/${id}`).then((response) => {
-      setRequest(response.data);
-    });
+    axios
+      .get(`${API}/requests/help_req/${id}`)
+      .then((response) => {
+        setRequest(response.data);
+        setTimeConversion(timeChange(response.data.time));
+      })
+      .then(() => console.log(timeConversion + " FROM THE USEFFECT"));
   }, [id, navigate, API]);
-
-  // const data = JSON.stringify({ req_id: id, volunteer: applicationUser.uuid });
-  // const config = {
-  //   method: "put",
-  //   url: `${API}/requests/accept_request`,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   data: data,
-  // };
 
   const missionAccepted = () => {
     axios
@@ -52,23 +47,21 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
       })
       .then(navigate("/user-dashboard"));
   };
-  // const time =()=>{
-  //   if(request){
-  //     console.log(request.time)
-  //     if(request.time.length <= 5){
-  //       let timeArray =request.time.split(':')
-  //       if(Number(timeArray[0]) > 12){
-  //        return (Number(timeArray[0])-12)+':'+timeArray[1]+ "PM"
-  //       }else{
-  //         return (timeArray[0])+':'+ timeArray[1]+ "AM"
-  //       }
-  //     }else{
-  //        return request.time
-  //     }
 
-  //   }
-  // }
-  
+  const timeChange = (time) => {
+    if (time) {
+      if (time.length <= 5) {
+        let timeArray = time.split(":");
+        if (Number(timeArray[0]) > 12) {
+          return Number(timeArray[0]) - 12 + ":" + timeArray[1] + "PM";
+        } else {
+          return timeArray[0] + ":" + timeArray[1] + "AM";
+        }
+      } else {
+        return time;
+      }
+    }
+  };
 
   return (
     <div className="details">
@@ -106,9 +99,13 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
                   <strong>Requested:</strong> {}
                 </h4>
                 <h4 className="card-text">
-                  <strong>Time:</strong> {request.time}
+                  <strong>Time:</strong> {timeConversion}
                 </h4>
-                <p className='warning'><span className='red'>*</span> Cancellations within 24 hours or missing your appointment will result in a negative review & rating.</p>
+                <p className="warning">
+                  <span className="red">*</span> Cancellations within 24 hours
+                  or missing your appointment will result in a negative review &
+                  rating.
+                </p>
               </div>
             </div>
           </div>
@@ -132,7 +129,7 @@ const RequestDetails = ({ setDate, date, applicationUser }) => {
               )
             ) : (
               <Link to={`/edit/${id}`}>
-              <Button className="edit">EDIT</Button>
+                <Button className="edit">EDIT</Button>
               </Link>
             )}
           </div>
