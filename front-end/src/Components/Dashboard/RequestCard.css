@@ -20,6 +20,7 @@
   height: 128px;
   object-fit: cover;
   min-height: 128px;
+  /* Hard Code */
   min-width: 250px;
 }
 /* .req-fig {
@@ -39,10 +40,10 @@
   }
   .req-title {
     font-weight: 700;
-    width:50px;
+    width:90%;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis " [..]";
+    text-overflow: ellipsis;
   }
   /* .assignment {
 
