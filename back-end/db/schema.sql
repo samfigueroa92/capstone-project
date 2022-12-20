@@ -3,6 +3,8 @@ CREATE DATABASE task_capstone;
 
 \c task_capstone;
 
+DROP TABLE IF EXISTS users, requests, ratings, reviews;
+
 CREATE TABLE users (
     uuid TEXT PRIMARY KEY UNIQUE NOT NULL,
     firstname TEXT NOT NULL,
