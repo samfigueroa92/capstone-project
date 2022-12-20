@@ -34,7 +34,7 @@ const RequestCard = ({ request }) => {
           />
 
           <div className="req-info">
-            <span className="req-title">{request.title}</span>
+            <h6 className="req-title">{request.title}</h6>
             <span className="reqdate">{request.req_date}</span>
             <span className="assignment">
               {request.assigned ? "Assigned" : "Pending"}
