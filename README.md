@@ -35,6 +35,18 @@ User Auth
 
 - Users can sign up and create a new account via multliple pages on the app while still being able to enjoy other functionality while not logged in.
 
+Calendar Filter
+
+- Users can sort based on date of Request 
+
+Reviews
+
+-Description Needed
+
+Rating
+
+-Description Needed
+
 [more text should go here]
 
 ## CHALLENGES
