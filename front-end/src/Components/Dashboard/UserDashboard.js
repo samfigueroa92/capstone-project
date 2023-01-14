@@ -51,13 +51,15 @@ const UserDashboard = ({
   };
 
   useEffect(() => {
+    //burst fetch to get user info, check user_type and then fetch again for requests
     axios(config).then((res) => setRequests(res.data));
     if (applicationUser.user_type === "Volunteer") {
       axios
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
     }
-  }, [user, applicationUser, openRequests]);
+  }, [user, applicationUser]);
+  //removed openRequests from dependency array to avoid backend from looping
 
   return (
     <div className="user-dashboard">
