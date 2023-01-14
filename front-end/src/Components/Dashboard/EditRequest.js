@@ -41,7 +41,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
 
   const updateRequest = () => {
     axios
-      .put(`${API}/requests/${id}`, editedRequest)
+      .put(`${API}/requests/edit_req/${id}`, editedRequest)
       .then((res) => setEditedRequest(res.data))
       .then(() => navigate("/user-dashboard"))
       .catch((error) => console.error(error));

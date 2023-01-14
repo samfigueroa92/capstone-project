@@ -8,7 +8,6 @@ import RequestCard from "./RequestCard";
 import "./MyRequests.css";
 
 const MyRequests = ({ requests, date, stringCurrentDate }) => {
-  // const [value, setValue] = useState("");
 
   let currentDate =
     stringCurrentDate.getFullYear() +
@@ -33,15 +32,6 @@ const MyRequests = ({ requests, date, stringCurrentDate }) => {
       ? "0" + date?.getDate()
       : date?.getDate());
 
-
-
-
-      // const filterRequestBasedOnCalendarDate =  requests.filter((request)=>{
-      //   if(calendarDate === currentDate){
-
-      //   } 
-      // })
-//filter instead 
   const myspecifiedrequests =
     requests.length > 0 ? (
       requests.map((request) => {
