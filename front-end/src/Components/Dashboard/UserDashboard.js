@@ -62,7 +62,7 @@ const UserDashboard = ({
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">
-        <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
       </div>
       <div className="requests">
         <div className="my-list">

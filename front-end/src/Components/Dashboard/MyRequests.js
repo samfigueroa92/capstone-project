@@ -7,57 +7,65 @@ import RequestCard from "./RequestCard";
 //CSS
 import "./MyRequests.css";
 
-const MyRequests = ({ requests, date, stringCurrentDate }) => {
-  const [value, setValue] = useState("");
-  const [currentDate, setCurrentDate] = useState("");
-
-  useEffect(() => {
-    if (date) {
-      setCurrentDate(
-        stringCurrentDate.getFullYear() +
-          "-" +
-          ((stringCurrentDate.getMonth() + 1).toString().length === 1
-            ? "0" + (setCurrentDate.getMonth() + 1)
-            : stringCurrentDate.getMonth() + 1) +
-          "-" +
-          (stringCurrentDate.getDate().toString().length === 1
-            ? "0" + (stringCurrentDate.getDate())
-            : stringCurrentDate.getDate())
-      );
-      setValue(
-        date.getFullYear() +
-          "-" +
-          ((date.getMonth() + 1).toString().length === 1
-            ? "0" + (date.getMonth() + 1)
-            : date.getMonth() + 1) +
-          "-" +
-          (date.getDate().toString().length === 1
-            ? "0" + date.getDate()
-            : date.getDate())
-      );
-    }
-  }, [date]);
+const MyRequests = ({ requests, date }) => {
   
+  console.log(requests)
+  const dateConverter = (date) => {
+    const fullYear = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2,'0');
+    const currentDate = date.getDate()
+    const paddedDate = currentDate.toString().padStart(2,'0')
 
-  const myspecifiedrequests = requests.length > 0 ? requests.map((request) => {
-    if (request.req_date === value) {
-      return <RequestCard key={request.id} request={request} />;
-    }
-  }) : <p className="no-requests">No accepted requests.</p>;
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
+    
+    return formattedDate
+  };
 
 
-  const myrequests = requests.length > 0 ? requests.map((request) => {
-    if (request.req_date >= value) {
-      return <RequestCard key={request.id} request={request} />;
-    }
-  }) : <p className="no-requests">No accepted requests.</p>;
+  let currentDate = dateConverter(new Date());
+
+  let calendarDate =
+    date?.getFullYear() +
+    "-" +
+    ((date?.getMonth() + 1).toString().length === 1
+      ? "0" + (date?.getMonth() + 1)
+      : date.getMonth() + 1) +
+    "-" +
+    (date?.getDate().toString().length === 1
+      ? "0" + date?.getDate()
+      : date?.getDate());
+
+  // const filterRequestBasedOnCalendarDate =  requests.filter((request)=> calendarDate === currentDate  && ? <RequestCard key={request.id} request={request} /> : )
+  //filter instead
+  const myspecifiedrequests =
+    requests.length > 0 ? (
+      requests.map((request) => {
+        if (request.req_date === calendarDate) {
+          return <RequestCard key={request.id} request={request} />;
+        }
+      })
+    ) : (
+      <p className="no-requests">No accepted requests.</p>
+    );
+
+  const myrequests =
+    requests.length > 0 ? (
+      requests.map((request) => {
+        if (request.req_date >= calendarDate) {
+          return <RequestCard key={request.id} request={request} />;
+        }
+      })
+    ) : (
+      <p className="no-requests">No accepted requests.</p>
+    );
 
   return (
     <>
-    <h3 className="head">My Requests</h3>
-    <div className="my-requests">
-          {currentDate === value ? myrequests : myspecifiedrequests}
-    </div>
+      <h3 className="head">My Requests</h3>
+      <div className="my-requests">
+        {currentDate === calendarDate ? myrequests : myspecifiedrequests}
+      </div>
     </>
   );
 };

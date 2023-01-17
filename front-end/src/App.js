@@ -33,7 +33,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
