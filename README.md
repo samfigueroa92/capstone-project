@@ -17,8 +17,8 @@ GoldenSolutions aims to connect seniors in need of help with various requests wi
 
 [needs review or editing^]
 
-- [Netlify Deployment for front-end](https://goldensolutions.netlify.app/)
-- [Render Deployment for back-end](https://goldensolutions-5z0f.onrender.com/)
+- [Netlify Deployment for front-end](https://goldensolutionscapstone.netlify.app)
+- [Render Deployment for back-end](https://goldensolutionscapstone.onrender.com)
 
 ## TECHNOLOGIES
 
@@ -34,6 +34,18 @@ GoldenSolutions aims to connect seniors in need of help with various requests wi
 User Auth
 
 - Users can sign up and create a new account via multliple pages on the app while still being able to enjoy other functionality while not logged in.
+
+Calendar Filter
+
+- Users can sort based on date of Request 
+
+Reviews
+
+-Description Needed
+
+Rating
+
+-Description Needed
 
 [more text should go here]
 
