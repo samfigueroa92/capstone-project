@@ -32,7 +32,6 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
   const [date, setDate] = useState(new Date());
   //Specific to person
   const [requests, setRequests] = useState([]);
@@ -154,7 +153,7 @@ const App = () => {
                     setDate={setDate}
                     openRequests={openRequests}
                     applicationUser={applicationUser}
-                    stringCurrentDate={stringCurrentDate}
+                   
                   />
                 </Protected>
               }
@@ -170,7 +169,6 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
-                    stringCurrentDate={stringCurrentDate}
                     openRequests={openRequests}
                     setOpenRequests={setOpenRequests}
                   />
@@ -195,8 +193,6 @@ const App = () => {
                   <RequestDetails
                     setDate={setDate}
                     date={date}
-                    setStringCurrentDate = {setStringCurrentDate}
-                    stringCurrentDate = {stringCurrentDate}
                     applicationUser={applicationUser}
                   />
                 </Protected>
@@ -219,7 +215,6 @@ const App = () => {
               element={
                 <Protected>
                   <AcceptRequestPage
-                    stringCurrentDate={stringCurrentDate}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}
@@ -234,7 +229,6 @@ const App = () => {
               element={
                 <Protected>
                   <AcceptRequestPage
-                    stringCurrentDate={stringCurrentDate}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}

@@ -9,12 +9,13 @@ import "./MyRequests.css";
 
 const MyRequests = ({ requests, date }) => {
   
-  console.log(requests)
-  const dateConverter = (date) => {
-    const fullYear = date.getFullYear();
-    const month = date.getMonth() + 1;
+
+  const dateConverter = (specifiedDate) => {
+
+    const fullYear = specifiedDate.getFullYear();
+    const month = specifiedDate.getMonth() + 1;
     const paddedMonth = month.toString().padStart(2,'0');
-    const currentDate = date.getDate()
+    const currentDate = specifiedDate.getDate()
     const paddedDate = currentDate.toString().padStart(2,'0')
 
     const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
@@ -24,47 +25,16 @@ const MyRequests = ({ requests, date }) => {
 
 
   let currentDate = dateConverter(new Date());
+  let selectedCalendarDate = dateConverter(date) 
 
-  let calendarDate =
-    date?.getFullYear() +
-    "-" +
-    ((date?.getMonth() + 1).toString().length === 1
-      ? "0" + (date?.getMonth() + 1)
-      : date.getMonth() + 1) +
-    "-" +
-    (date?.getDate().toString().length === 1
-      ? "0" + date?.getDate()
-      : date?.getDate());
-
-  // const filterRequestBasedOnCalendarDate =  requests.filter((request)=> calendarDate === currentDate  && ? <RequestCard key={request.id} request={request} /> : )
-  //filter instead
-  const myspecifiedrequests =
-    requests.length > 0 ? (
-      requests.map((request) => {
-        if (request.req_date === calendarDate) {
-          return <RequestCard key={request.id} request={request} />;
-        }
-      })
-    ) : (
-      <p className="no-requests">No accepted requests.</p>
-    );
-
-  const myrequests =
-    requests.length > 0 ? (
-      requests.map((request) => {
-        if (request.req_date >= calendarDate) {
-          return <RequestCard key={request.id} request={request} />;
-        }
-      })
-    ) : (
-      <p className="no-requests">No accepted requests.</p>
-    );
+  let requestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> <RequestCard key={request.id} request={request} />)
+ 
 
   return (
     <>
       <h3 className="head">My Requests</h3>
       <div className="my-requests">
-        {currentDate === calendarDate ? myrequests : myspecifiedrequests}
+        {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
       </div>
     </>
   );

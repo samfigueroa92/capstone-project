@@ -28,7 +28,6 @@ const UserDashboard = ({
 }) => {
 
 
-  
   const user = useContext(UserContext);
 
   let route;
@@ -39,7 +38,7 @@ const UserDashboard = ({
   }
 
   const data = JSON.stringify({ uuid: applicationUser.uuid });
-
+  
   const config = {
     method: "post",
     url: `${API}/requests/${route}`,
@@ -69,7 +68,7 @@ const UserDashboard = ({
           <MyRequests
             requests={requests}
             date={date}
-            stringCurrentDate={stringCurrentDate}
+           
           />
         </div>
         <div>
@@ -77,7 +76,7 @@ const UserDashboard = ({
             <OpenRequests
               date={date}
               openRequests={openRequests}
-              stringCurrentDate={stringCurrentDate}
+             
             />
           ) : (
             <MyFavorites users={users} />
