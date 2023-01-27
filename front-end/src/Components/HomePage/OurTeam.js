@@ -1,9 +1,6 @@
 //Dependencies
 import React, { useState } from "react";
 
-//Components Import
-import Footer from "./Footer";
-
 //CSS Imports
 import "./OurTeam.css";
 
@@ -181,8 +178,6 @@ const OurTeam = () => {
           {handleLearnMore("amber")}
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

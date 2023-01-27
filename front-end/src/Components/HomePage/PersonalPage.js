@@ -2,9 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-//Components
-import Footer from "./Footer";
-
 //CSS
 import "./PersonalPage.css";
 
@@ -142,7 +139,6 @@ const [email, setEmail] = useState({
       </div>
       </div>
       </div>
-      <Footer/>
     </div>
   );
 };

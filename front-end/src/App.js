@@ -2,7 +2,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { UserProvider } from "./Providers/UserProviders";
-import axios from "axios";
 
 //COMPONENTS
 import SignUpPage from "./Components/Dashboard/SignUpPage";
@@ -22,6 +21,7 @@ import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements";
 import Unprotected from "./Components/Unprotected";
 import EditRequest from "./Components/Dashboard/EditRequest";
+import Footer from "./Components/HomePage/Footer";
 
 //CSS
 import "./App.css";
@@ -246,6 +246,7 @@ const App = () => {
               }
             />
           </Routes>
+          <Footer />
         </Router>
       </UserProvider>
     </div>

@@ -1,9 +1,6 @@
 //Dependencies
 import { useNavigate } from "react-router-dom";
 
-//Component Imports
-import Footer from "./Footer";
-
 //CSS Imports
 import "./SeniorsPage.css";
 
@@ -41,7 +38,6 @@ const SeniorsPage = () => {
       </div>
       <img className='senior-image'src="https://us.123rf.com/450wm/rumkavodki/rumkavodki2010/rumkavodki201000254/158148260-woman-helping-to-elderly-lady-with-shopping-cartoon-characters-of-volunteer-and-old-woman-at-decorat.jpg?ver=6" />
     </div>
-      <Footer />
     </div>
   );
 };

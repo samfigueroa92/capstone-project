@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 //Component Imports
-import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 
 //CSS Imports
@@ -87,7 +86,6 @@ const Home = () => {
         </div>
       </div>
       <Testimonials />
-      <Footer />
     </div>
   );
 };
