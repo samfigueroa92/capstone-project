@@ -28,7 +28,6 @@ const UserDashboard = ({
 }) => {
 
 
-  
   const user = useContext(UserContext);
 
   let route;

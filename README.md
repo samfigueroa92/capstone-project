@@ -4,22 +4,17 @@
 
 - [Overview](#overview)
 - [Technologies](#technologies)
+- [ScreenShots](#screnshots)
 - [Features](#features)
     - User Auth
     - CRUD
-- [Challenges](#challenges)
-    - Using Firebase to allow a user to sign in with Google
-    - Calendar functionality
-- [Examples](#examples)
 
 ## OVERVIEW
 
 GoldenSolutions is an application that allows senior users to connect with volunteer users. Users with a senior account can upload requests they need help with and users with a volunteer account can accept or decline those requests. 
 
-This app was created by a team of 5 junior web developers using PostgreSQL for Database Mangement, Express on the backend, React on the front end, and Firebase for GoogleAuth.
+- [Visit GoldenSolutions](https://goldensolutions.netlify.app/)
 
-- [Netlify Deployment for front-end](https://goldensolutions.netlify.app/)
-- [Render Deployment for back-end](https://goldensolutions-5z0f.onrender.com/)
 
 ## TECHNOLOGIES
 
@@ -29,6 +24,29 @@ This app was created by a team of 5 junior web developers using PostgreSQL for D
 - Express
 - CSS & React Bootstrap
 - Firebase
+
+## SCREENSHOTS
+
+**Home Page**
+![homePage](front-end/public/images/HomePage.png)
+
+A user can signup from this page or login with their account credentials. They can also navigate to additional pages with more information.
+
+**Login Modal**
+![loginModal](front-end/public/images/LoginModal.png)
+
+A user can choose to signin with their Google account. They will be redirected to signup first if they do not have an account in the database.
+
+**Request Index**
+![requestIndex](front-end/public/images/RequestIndex.png)
+
+Once logged in, a user will be redirected to their userdashboard that shows a list of requests.
+
+**Request Show**
+![requestShow](front-end/public/images/SingleRequest.png)
+
+A user can click on a request to get more details about it, accept/reject it.
+
 
 ## FEATURES
 
@@ -48,46 +66,5 @@ This app was created by a team of 5 junior web developers using PostgreSQL for D
 - Users can create, store, and manage requests through from their dashboard.
 - Users can submit for their request a title, time, date, description, location, and image that will persist to the form.
 
-## CHALLENGES
-
-**Preventing Auto Sign-Up With Firebase**
-
-Incorporating Firebase and a sign in with Google feature meant that if a user were to attempt to sign in with Google before signing up with our form, a Firebase account would be created for them automatically and no account would exist for that user in the database. 
-
-To circumvent this issue a user's UUID is checked when they sign in with a Google account. If they do not exist in our database, they are deleted from Firebase. An alert is issued to the user that they must sign up first. 
-
-```
-export const signInWithGoogle = () => {
-  try {
-    signInWithPopup(auth, googleProvider).then((res) => {
-      const loggedInUser = res.user;
-      const isNewUser = getAdditionalUserInfo(res).isNewUser;
-
-      if (isNewUser) {
-        loggedInUser.delete().then(() => {
-          signOut().then(() => {
-            console.log("Signed Out!");
-            alert("Please Sign Up First!!");
-          });
-        });
-      }
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-```
-
-## EXAMPLES
-
-**Home Page**
-![homePage](front-end/public/images/HomePage.png)
-
-**Login Modal**
-![loginModal](front-end/public/images/LoginModal.png)
-
-**Request Index**
-![requestIndex](front-end/public/images/RequestIndex.png)
-
-**Request Show**
-![requestShow](front-end/public/images/SingleRequest.png)
+**Calendar Filter**
+- A user can filter through the requests by selecting a date on the calendar. 
