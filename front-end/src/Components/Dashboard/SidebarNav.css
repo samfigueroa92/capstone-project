@@ -2,7 +2,8 @@
   background-color: #edf6f9;
   height: 100%;
   width: 100%;
-  padding-top: 40%;
+ /* changed originally 45% */
+  padding-top: 27%;
   padding-bottom: 7rem;
   color: black;
   position: sticky;

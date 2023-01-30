@@ -21,7 +21,6 @@ const UserDashboard = ({
   applicationUser,
   requests,
   setRequests,
-  stringCurrentDate,
   users,
   openRequests,
   setOpenRequests,
@@ -56,7 +55,7 @@ const UserDashboard = ({
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
     }
-  }, [user, applicationUser, openRequests]);
+  }, [user, applicationUser]);
 
   return (
     <div className="user-dashboard">

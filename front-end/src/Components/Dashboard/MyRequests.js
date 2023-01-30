@@ -10,12 +10,12 @@ import "./MyRequests.css";
 const MyRequests = ({ requests, date }) => {
   
 
-  const dateConverter = (specifiedDate) => {
-
-    const fullYear = specifiedDate.getFullYear();
-    const month = specifiedDate.getMonth() + 1;
+  const dateConverter = (specifiedDate = '') => {
+    debugger
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
     const paddedMonth = month.toString().padStart(2,'0');
-    const currentDate = specifiedDate.getDate()
+    const currentDate = specifiedDate?.getDate()
     const paddedDate = currentDate.toString().padStart(2,'0')
 
     const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
@@ -23,7 +23,7 @@ const MyRequests = ({ requests, date }) => {
     return formattedDate
   };
 
-
+  
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
 

@@ -25,6 +25,11 @@ const Home = () => {
               <br />
             That's where we come in! Our goal at GoldenSolutions is to relieve some of the stress and anxiety of these situations by connecting seniors, who need an extra hand with everyday tasks, with local, friendly volunteers who are willing and able to lend their time and skills. 
               <br />
+              <img
+            className="home__mobileimg"
+            src="https://www.lifeopedia.com/wp-content/uploads/2016/05/iStock_000069165823_Large.jpg"
+            alt="Computer Help"
+          />
               <br />
             Immediate families and friends may not always be available to offer help. But New York has thousands of helpful individuals just a button click away ready to lend a hand. Together, we can continue to foster a sense of community! 
             <br/>
