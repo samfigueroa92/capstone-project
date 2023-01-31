@@ -1,5 +1,5 @@
 //Dependencies
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
@@ -24,7 +24,6 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const NewRequestForm = ({ applicationUser, setDate }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
-
 
   // CREATE OR ADD A NEW REQUEST
   const makeRequest = (newRequest) => {

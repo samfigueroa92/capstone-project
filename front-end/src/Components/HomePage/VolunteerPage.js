@@ -1,7 +1,7 @@
 //Dependencies
 import { useNavigate } from "react-router-dom";
 
-//CSS Imports
+//CSS
 import "./VolunteerPage.css";
 
 //BOOTSTRAP

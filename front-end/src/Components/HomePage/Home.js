@@ -1,8 +1,10 @@
+//DEPENDENCIES
 import { useNavigate } from "react-router-dom";
-//Component Imports
+
+//COMPONENTS
 import Testimonials from "./Testimonials";
 
-//CSS Imports
+//CSS
 import "./Home.css";
 
 //BOOTSTRAP

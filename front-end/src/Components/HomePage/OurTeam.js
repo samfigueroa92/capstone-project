@@ -1,7 +1,7 @@
-//Dependencies
-import React, { useState } from "react";
+//DEPENDENCIES
+import { useState } from "react";
 
-//CSS Imports
+//CSS
 import "./OurTeam.css";
 
 const OurTeam = () => {

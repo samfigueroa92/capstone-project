@@ -1,5 +1,4 @@
 //Dependencies
-import { useNavigate } from "react-router-dom";
 import { signOut } from "../../Services/Firebase";
 import { UserContext } from "../../Providers/UserProviders";
 import { useContext } from "react";
@@ -15,14 +14,7 @@ import "./DashboardNav.css";
 
 const DashboardNav = ({ applicationUser }) => {
   const user = useContext(UserContext);
-  const navigate = useNavigate();
   const { displayName, photoURL } = user;
-
-  // const [click, setClick] = useState(false);
-
-  // methods
-  // const handleClick = () => setClick(!click);
-  // const closeMobileMenu = () => setClick(false);
 
   return (
     <Navbar className="dash-navbar">
@@ -40,9 +32,6 @@ const DashboardNav = ({ applicationUser }) => {
               {displayName.split(" ").shift()}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-            {/* <Dropdown.Item onClick={() => navigate("/user-dashboard")}>
-                  Dashboard
-                </Dropdown.Item> */}
               <Dropdown.Item onClick={signOut}>Sign-Out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

@@ -1,6 +1,3 @@
-//Dependencies
-import { useState } from "react";
-
 //Components
 import SidebarNav from "./SidebarNav";
 import RequestCard from "./RequestCard";
@@ -23,7 +20,9 @@ const AcceptRequestPage = ({
     const currentDate = specifiedDate?.getDate()
     const paddedDate = currentDate.toString().padStart(2,'0')
 
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
+
+    return formattedDate;
   };
 
   let currentDate = dateConverter(new Date());

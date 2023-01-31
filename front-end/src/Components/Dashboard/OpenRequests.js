@@ -23,15 +23,13 @@ const OpenRequests = ({ openRequests, date }) => {
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date);
 
-  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> <RequestCard key={request.id} request={request} />)
+  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> <RequestCard key={request.id} request={request} />);
  
   return (
     <>
     <h3 className="head">Open Requests</h3>
     <div className="open-requests">
-      {/* <div className="open-list"> */}
         {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
-      {/* </div> */}
     </div>
     </>
   );

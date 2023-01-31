@@ -1,5 +1,5 @@
 //Dependencies
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 //CSS
@@ -81,7 +81,6 @@ const [email, setEmail] = useState({
     tim: ["javascript","react","html","css","postgres","heroku","github"],
     amber: ["javascript","react","html","css","postgres","heroku","github"]
   })
-  //Java, Spring, OpenAPI, Python, SQL, React/Redux, Agile Methodologies.
 
   const [skillImages, setSkillImages] = useState({
     javascript: "",

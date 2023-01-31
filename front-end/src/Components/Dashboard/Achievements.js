@@ -1,13 +1,9 @@
-import React, {useEffect} from "react";
-import { Link } from "react-router-dom";
+// Components
+import SvgIcon from "../ComingSoon/SvgIcon";
 import SidebarNav from "./SidebarNav";
 
-// Css
+// CSS
 import "./Achievements.css";
-
-// Components
-// import SidebarNav from "../Dashboard/SidebarNav.js";
-import SvgIcon from "../ComingSoon/SvgIcon";
 
 const Achievements = ({setDate, applicationUser}) => {
   
@@ -20,9 +16,6 @@ const Achievements = ({setDate, applicationUser}) => {
       <SvgIcon />
       <p>GoldenSolutions Achievements</p>
       <p> Coming Soon!</p>
-      {/* <Link className="navigate" to="/user-dashboard">
-        BACK
-      </Link> */}
     </div>
     </div>
   );
