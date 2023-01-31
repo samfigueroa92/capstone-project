@@ -11,7 +11,6 @@ const MyRequests = ({ requests, date }) => {
   
 
   const dateConverter = (specifiedDate = '') => {
-    debugger
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;
     const paddedMonth = month.toString().padStart(2,'0');
