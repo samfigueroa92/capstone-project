@@ -21,6 +21,9 @@
 .button:hover{
     background-color:#B8DEDC;
 }
+.senior-image{
+    width: 800px;
+}
 
 @media screen and (max-width: 400px) {
     .button{

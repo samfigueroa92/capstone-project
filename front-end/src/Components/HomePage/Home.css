@@ -103,7 +103,7 @@
 }
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 400px) {
     .home {
         border: none;
         padding-left: 3vw;

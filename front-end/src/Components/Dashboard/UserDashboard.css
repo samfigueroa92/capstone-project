@@ -1,5 +1,5 @@
 .user-dashboard{
-    display: grid;
+   
     display:flex;
     grid-template-columns: 7fr 25fr;
 }
