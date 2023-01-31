@@ -156,7 +156,6 @@ const App = () => {
                     setDate={setDate}
                     openRequests={openRequests}
                     applicationUser={applicationUser}
-                    stringCurrentDate={stringCurrentDate}
                   />
                 </Protected>
               }

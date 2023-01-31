@@ -19,7 +19,7 @@ const RequestDetails = ({
   applicationUser
 }) => {
  
-  // const [request, setRequest] = useState([]);
+  const [request, setRequest] = useState([]);
   // const [reviews, setReviews] = useState([]);
   // const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
   let { id } = useParams();
