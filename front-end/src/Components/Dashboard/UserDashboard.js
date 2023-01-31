@@ -3,8 +3,7 @@ import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
-import RequestCard from "./RequestCard";
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 
 import { UserContext } from "../../Providers/UserProviders";
@@ -21,7 +20,6 @@ const UserDashboard = ({
   applicationUser,
   requests,
   setRequests,
-  stringCurrentDate,
   users,
   openRequests,
   setOpenRequests,
@@ -63,14 +61,13 @@ const UserDashboard = ({
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">
-        <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
       </div>
       <div className="requests">
         <div className="my-list">
           <MyRequests
             requests={requests}
             date={date}
-            stringCurrentDate={stringCurrentDate}
           />
         </div>
         <div>
@@ -78,7 +75,6 @@ const UserDashboard = ({
             <OpenRequests
               date={date}
               openRequests={openRequests}
-              stringCurrentDate={stringCurrentDate}
             />
           ) : (
             <MyFavorites users={users} />

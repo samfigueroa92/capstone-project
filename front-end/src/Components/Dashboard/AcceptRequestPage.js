@@ -1,11 +1,11 @@
 //Dependencies
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
-//Import Components
+//Components
 import SidebarNav from "./SidebarNav";
 import RequestCard from "./RequestCard";
 
-//Import CSS
+//CSS
 import "./AcceptRequestPage.css";
 
 const AcceptRequestPage = ({
@@ -13,91 +13,43 @@ const AcceptRequestPage = ({
   setDate,
   applicationUser,
   requests,
-  stringCurrentDate,
 }) => {
-  const [value, setValue] = useState("");
-  const [currentDate, setCurrentDate] = useState("");
+  
+  const dateConverter = (specifiedDate) => {
 
-  // useEffect(() => {
-  //   if (date) {
-  //     setCurrentDate(
-  //       stringCurrentDate.getFullYear() +
-  //         "-" +
-  //         ((stringCurrentDate.getMonth() + 1).toString().length === 1
-  //           ? "0" + (setCurrentDate.getMonth() + 1)
-  //           : stringCurrentDate.getMonth() + 1) +
-  //         "-" +
-  //         (stringCurrentDate.getDate().toString().length === 1
-  //           ? "0" + (stringCurrentDate.getDate())
-  //           : stringCurrentDate.getDate())
-  //     );
-  //     setValue(
-  //       date.getFullYear() +
-  //         "-" +
-  //         ((date.getMonth() + 1).toString().length === 1
-  //           ? "0" + (date.getMonth() + 1)
-  //           : date.getMonth() + 1) +
-  //         "-" +
-  //         (date.getDate().toString().length === 1
-  //           ? "0" + date.getDate()
-  //           : date.getDate())
-  //     );
-  //   }
-  // }, [date]);
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2,'0');
+    const currentDate = specifiedDate?.getDate()
+    const paddedDate = currentDate.toString().padStart(2,'0')
 
-  const accepted = requests.length > 0 ? requests.map((request)=>{
-    if(request.assigned && request.req_date >= value){
-      return <RequestCard key={request.id} request={request}/>
-    }
-  }) : <p className="no-requests">No accepted requests.</p>;
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
+  };
 
-  const acceptedspecified = requests.length > 0 ? requests.map((request)=>{
-    if(request.assigned && request.req_date === value){
-      return <RequestCard key={request.id} request={request}/>
-    }
-  }) : <p className="no-requests">No accepted requests.</p>;
+  let currentDate = dateConverter(new Date());
+  let selectedCalendarDate = dateConverter(date);
 
-  const completed = requests.length > 0 ? requests.map((request)=>{
-    if(request.complete){
-     return <RequestCard key={request.id} request={request}/>
-    }
-  }) : <p className="no-requests">No completed requests.</p>;
+  let acceptedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.assigned  && <RequestCard key={request.id} request={request} />);
 
-  const completedspecified = requests.length > 0 ? requests.map((request)=>{
-    if(request.complete && request.req_date === value){
-     return <RequestCard key={request.id} request={request}/>
-    }
-  }) : <p className="no-requests">No completed requests.</p>;
+  let completedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.complete  && <RequestCard key={request.id} request={request} />);
 
-  const notaccepted = requests.length > 0 ? requests.map((request)=>{
-    if(!request.assigned && request.req_date >= value){
-     return <RequestCard key={request.id} request={request}/>
-    }
-  }) : <p className="no-requests">No pending requests.</p>;
-
-  const notacceptedspecified = requests.length > 0 ? requests.map((request)=>{
-    if(!request.assigned && request.req_date === value){
-     return <RequestCard key={request.id} request={request}/>
-    }
-  }) : <p className="no-requests">No pending requests.</p>;
+  let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />);
   
   return (
     <div className="user-dashboard">
       <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
       </div>
       <div className="main-page">
         <h3 className="accepted-request">Accepted Requests</h3>
         <div className="Accepted">
-          {currentDate === value ? accepted : acceptedspecified}
+          {acceptedRequestFilter}
         </div>
         {applicationUser.user_type === "Senior" ? <h3 className="comphead">Pending Requests</h3> : null}
-       
-      {applicationUser.user_type === "Senior" ? <div className="pending"> {currentDate === value ? notaccepted : notacceptedspecified} </div> : null}
-
+        {pendingRequestFilter}
         <h3 className="comphead">Completed Requests</h3>
         <div className="History">
-          {currentDate === value ? completed : completedspecified}
+          {completedRequestFilter}
         </div>
       </div>
     </div>

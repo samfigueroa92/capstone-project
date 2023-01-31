@@ -1,20 +1,16 @@
 //Dependencies
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 
 //CSS Import
 import "./CalendarView.css";
 import "react-calendar/dist/Calendar.css";
 
-const CalendarView = ({ setDate }) => {
-    
-  const [value, onChange] = useState(new Date());
-  setDate(value);
-
+const CalendarView = ({ date, setDate }) => {
   
   return (
     <div className="calendar">
-      <Calendar id="react-calendar" onChange={onChange} value={value} />
+      <Calendar id="react-calendar" onChange={setDate} value={date} />
     </div>
   );
 };

@@ -7,7 +7,7 @@ import CalendarView from "./CalendarView";
 //CSS Import
 import "./SidebarNav.css";
 
-const SidebarNav = ({ setDate, applicationUser }) => {
+const SidebarNav = ({ date, setDate, applicationUser }) => {
   return (
     <div className="SideBar">
       <div className="text">
@@ -64,7 +64,7 @@ const SidebarNav = ({ setDate, applicationUser }) => {
         </Link>
       </div>
       <div className="calender-view">
-        <CalendarView setDate={setDate} />
+        <CalendarView setDate={setDate} date={date} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
@@ -32,9 +32,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
-  console.log(stringCurrentDate)
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
@@ -142,7 +140,10 @@ const App = () => {
               path="/achievements"
               element={
                 <Protected>
-                  <Achievements setDate={setDate} applicationUser={applicationUser}/>
+                  <Achievements
+                    setDate={setDate}
+                    applicationUser={applicationUser}
+                  />
                 </Protected>
               }
             />
@@ -171,7 +172,6 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
-                    stringCurrentDate={stringCurrentDate}
                     openRequests={openRequests}
                     setOpenRequests={setOpenRequests}
                   />
@@ -196,14 +196,22 @@ const App = () => {
                   <RequestDetails
                     setDate={setDate}
                     date={date}
-                    setStringCurrentDate = {setStringCurrentDate}
-                    stringCurrentDate = {stringCurrentDate}
                     applicationUser={applicationUser}
                   />
                 </Protected>
               }
             />
-            <Route path="/edit/:id" element={<Protected><EditRequest applicationUser={applicationUser} setDate={setDate} /></Protected>} />
+            <Route
+              path="/edit/:id"
+              element={
+                <Protected>
+                  <EditRequest
+                    applicationUser={applicationUser}
+                    setDate={setDate}
+                  />
+                </Protected>
+              }
+            />
             <Route
               path="/user/settings"
               element={
@@ -220,7 +228,6 @@ const App = () => {
               element={
                 <Protected>
                   <AcceptRequestPage
-                    stringCurrentDate={stringCurrentDate}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}
@@ -230,12 +237,11 @@ const App = () => {
                 </Protected>
               }
             />
-             <Route
+            <Route
               path="submitted-requests"
               element={
                 <Protected>
                   <AcceptRequestPage
-                    stringCurrentDate={stringCurrentDate}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}
