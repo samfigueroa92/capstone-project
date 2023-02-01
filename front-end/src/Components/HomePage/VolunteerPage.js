@@ -34,7 +34,7 @@ const VolunteerPage = () => {
       <div>
         <h5>What are the benefits?</h5>
         <p>
-        Growing up we are told to expand our circle of friends and get to know people of all ages. As a volunteer you have access to older friends! Additionally, there's also nothing better than doing a good deed and seeing a smile on another persons face. If that's not enough we also have incentivized volunteering. Our volunteers receive monthly thank you gifts from us, GoldenSolutions. The more you help, the more gifts you'll get <i class="fa-regular fa-face-grin-wink"></i>! We appreciate all of your support as we support our senior clients one volunteer at a time. 
+        Growing up we are told to expand our circle of friends and get to know people of all ages. As a volunteer you have access to older friends! Additionally, there's also nothing better than doing a good deed and seeing a smile on another persons face. If that's not enough we also have incentivized volunteering. Our volunteers receive monthly thank you gifts from us, GoldenSolutions. The more you help, the more gifts you'll get <i className="fa-regular fa-face-grin-wink"></i>! We appreciate all of your support as we support our senior clients one volunteer at a time. 
         </p>
       </div>
       <Button className='button' onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
