@@ -1,12 +1,12 @@
 //Dependencies
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 //CSS
 import "./PersonalPage.css";
 
 const PersonalPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { staffMember } = useParams();
 
   const [ourTeam, setOurTeam] = useState({
@@ -156,9 +156,13 @@ const PersonalPage = () => {
 
   const sendEmail = () => {
     const {email} = emailState;
-    fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&subject=${email.subject}&text=${email.text}`)
+    fetch(`http://127.0.0.1:3305/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`)
     .catch(err => console.log(err))
-  }
+  };
+
+  const handleSendEmail = (e) => {
+    setEmailState({email: {...emailState.email, recipient: email.samantha}})
+  };
 
   return (
     <div className="personal">
@@ -191,7 +195,7 @@ const PersonalPage = () => {
         <div className="grid">
           <div className="team-skills">
             <h2 className="skills">Skills</h2>
-            <img src="" />
+            <img src="" alt=""/>
           </div>
           <div className="contact">
             <h2 className="contact-form">Contact Form</h2>
@@ -208,9 +212,9 @@ const PersonalPage = () => {
                 Subject:
               <input
                 type="text"
-                name="subject"
-                value={email.subject}
-                onChange={(e) => setEmailState({email: {...email, subject: e.target.value}})}
+                name="topic"
+                value={emailState.email.topic}
+                onChange={(e) => setEmailState({email: {...emailState.email, topic: e.target.value}})}
               />
               </label>
               {/* <label>
@@ -219,18 +223,18 @@ const PersonalPage = () => {
               </label> */}
               <label>
                 Your Email:{" "}
-                <input className="email" type="email" vlaue={email.sender} align="left" required onChange={(e) => setEmailState({email: {...email, sender: e.target.value}})}
+                <input className="email" type="email" vlaue={emailState.email.sender} align="left" required onChange={(e) => setEmailState({email: {...emailState.email, sender: e.target.value}})}
  />
               </label>
               <label>
                 Your Message:{" "}
-                <textarea name="message" value={email.text} rows="4" cols="50" required onChange={(e) => setEmailState({email: {...email, text: e.target.value}})}
+                <textarea name="message" value={emailState.email.text} rows="4" cols="50" required onChange={(e) => setEmailState({email: {...emailState.email, text: e.target.value}})}
 ></textarea>
               </label>
               <br></br>
               <button
                 className="talktoyousoon"
-                onClick={() => navigate("/our-team")}
+                onClick={handleSendEmail}
               >
                 Talk To You Soon ...
               </button>
