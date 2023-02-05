@@ -1,4 +1,4 @@
-//CSS Imports
+//CSS
 import "./Testimonials.css";
 
 const Testimonials = () => {

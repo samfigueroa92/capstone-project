@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
-import { Link } from "react-router-dom";
+// Components
+import SvgIcon from "../ComingSoon/SvgIcon";
 import SidebarNav from "./SidebarNav";
 
-// Css
+// CSS
 import "./Achievements.css";
 
 // Components
@@ -10,6 +10,7 @@ import "./Achievements.css";
 import SvgIcon from "../ComingSoon/SvgIcon";
 
 const Achievements = ({setDate, applicationUser, setRequestSearch, requestSearch }) => {
+
 
   return (
     <div className='user-dashboard'>
@@ -21,9 +22,6 @@ const Achievements = ({setDate, applicationUser, setRequestSearch, requestSearch
       <SvgIcon />
       <p>GoldenSolutions Achievements</p>
       <p> Coming Soon!</p>
-      {/* <Link className="navigate" to="/user-dashboard">
-        BACK
-      </Link> */}
     </div>
     </div>
   );

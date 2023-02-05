@@ -69,3 +69,4 @@ const AcceptRequestPage = ({
 };
 
 export default AcceptRequestPage;
+

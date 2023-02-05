@@ -1,9 +1,12 @@
+//DEPENDENCIES
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+//CSS
 import "./ReviewForm.css";
 
+//API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const ReviewForm = ({ applicationUser, currentDate, request, reviews, setReviews }) => {
@@ -44,7 +47,6 @@ const ReviewForm = ({ applicationUser, currentDate, request, reviews, setReviews
 
 
  let filter =  reviews.find( specifiedReview => specifiedReview.reviewer_id === applicationUser.uuid)
-  
 
   return (
     <div className="review">

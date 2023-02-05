@@ -1,11 +1,12 @@
 //Dependencies
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import { auth } from "../Services/Firebase";
 
 export const UserContext = createContext(null);
 
 export const UserProvider = (props) => {
   const [user, setUser] = useState(null); 
+
 
   useEffect(() => {
     //dont proceed until firebase does its thang....
@@ -22,7 +23,7 @@ export const UserProvider = (props) => {
 
   return (
     <UserContext.Provider value={user}>
-      <div>{props.children}</div>
+      <div>{children}</div>
     </UserContext.Provider>
   );
 };

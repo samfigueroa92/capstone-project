@@ -1,13 +1,15 @@
 //Dependencies
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { signInWithGoogle, } from "../Services/Firebase";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-//CSS Imports
+//CSS
 import "./LoginModal.css";
+
+//BOOTSTRAP
 import Button from "react-bootstrap/esm/Button";
 
 //API

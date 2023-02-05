@@ -1,10 +1,7 @@
-//Dependencies
-import React, { useState } from "react";
+//DEPENDENCIES
+import { useState } from "react";
 
-//Components Import
-import Footer from "./Footer";
-
-//CSS Imports
+//CSS
 import "./OurTeam.css";
 
 const OurTeam = () => {
@@ -181,8 +178,6 @@ const OurTeam = () => {
           {handleLearnMore("amber")}
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };
