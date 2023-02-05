@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
  /* changed originally 45% */
-  padding-top: 27%;
+  padding-top: 24.5%;
   padding-bottom: 7rem;
   color: black;
   position: sticky;
@@ -20,8 +20,10 @@
 .text {
   padding-left: 30px;
   padding-right: 10px;
+  margin-right: 20px;
   color: black;
 }
+
 
 .react-calendar {
   width: 100%;
@@ -42,4 +44,21 @@ a:hover{
 .coming-soon{
   font-size: small;
 }
+
+.bold{
+  font-size: 16.5px;
+  margin-right: 5px;
+}
+
+.bold_link{
+  font-weight: bold;
+}
+  
+.SideBar__searchbar input{
+  margin-bottom: 20px;
+  width: 195px;
+}
+
+
+
 

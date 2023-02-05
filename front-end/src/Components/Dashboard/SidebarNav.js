@@ -33,36 +33,48 @@ const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestS
       </div>
       <div className="under-click"></div>
         <Link to="/user-dashboard">
-          <p className={path === '/user-dashboard' && 'bold_link'}>User Dashboard</p>
+
+          <p className={path === '/user-dashboard' ? 'bold_link': ''}>User Dashboard</p>
+
           <div className="under-click"></div>
         </Link>
        
         {applicationUser.user_type === "Volunteer" ? (
           <Link to="/accepted-requests">
-            <p className={path === '/accepted-requests' && 'bold_link'}>Accepted Requests</p>
+
+            <p className={path === '/accepted-requests' ? 'bold_link':''}>Accepted Requests</p>
+
             <div className="under-click"></div>
           </Link>
         ) : (
           <Link to="/requests/new">
-            <p className={path === '/requests/new' && 'bold_link'}>Submit a New Request</p>
+
+            <p className={path === '/requests/new' ? 'bold_link':''}>Submit a New Request</p>
+
             <div className="under-click"></div>
           </Link>
         )}
         {applicationUser.user_type === "Volunteer" ? (
           <Link to="/browse-requests">
-            <p className={path === '/browse-requests' && 'bold_link'}>Browse Requests</p>
+
+            <p className={path === '/browse-requests' ? 'bold_link':''}>Browse Requests</p>
+
             <div className="under-click"></div>
           </Link>
         ) : (
           <>
-          <p className={path === '/favorites' && 'bold_link'}>Favorites</p>
+
+          <p className={path === '/favorites' ? 'bold_link':''}>Favorites</p>
+
           <div className="under-click"></div>
           </>
         )}
 
         {applicationUser.user_type === "Volunteer" ? (
           <Link to="/achievements">
-          <p className={path === '/achievements' && 'bold_link'}>
+
+          <p className={path === '/achievements' ? 'bold_link':''}>
+
             Achievements
             <br />
             <span className="coming-soon">*coming soon</span>
@@ -71,13 +83,17 @@ const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestS
         </Link>
         ) : (
           <Link to={applicationUser.user_type === 'Volunteer' ? "/accepted-requests" : "/submitted-requests"}>
-          <p className={(path === '/submitted-requests' || path ==='/accepted-requests') && 'bold_link'}>Submitted Requests</p>
+
+          <p className={(path === '/submitted-requests' || path ==='/accepted-requests') ? 'bold_link':''}>Submitted Requests</p>
+
           <div className="under-click"></div>
         </Link>
         )}
 
         <Link to="/reviews">
-          <p className={path === '/reviews' && 'bold_link'}>
+
+          <p className={path === '/reviews' ? 'bold_link':''}>
+
            Reviews
           </p>
           <div className="under-click"></div>
