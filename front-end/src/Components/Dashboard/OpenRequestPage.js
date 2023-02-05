@@ -15,8 +15,9 @@ const OpenRequestPage = ({
   date,
   setDate,
   applicationUser,
-  // stringCurrentDate,
-  openRequests
+  openRequests,
+  setRequestSearch,
+  requestSearch
 }) => {
 
   const dateConverter = (specifiedDate) => {
@@ -34,48 +35,19 @@ const OpenRequestPage = ({
 
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
+  let search = requestSearch.toLowerCase()
 
-
-  // const [value, setValue] = useState("");
-  // const [currentDate, setCurrentDate] = useState("");
-
-  // useEffect(() => {
-  //   if (date) {
-  //     setCurrentDate(
-  //       stringCurrentDate.getFullYear() +
-  //         "-" +
-  //         ((stringCurrentDate.getMonth() + 1).toString().length === 1
-  //           ? "0" + (setCurrentDate.getMonth() + 1)
-  //           : stringCurrentDate.getMonth() + 1) +
-  //         "-" +
-  //         (stringCurrentDate.getDate().toString().length === 1
-  //           ? "0" + (stringCurrentDate.getDate())
-  //           : stringCurrentDate.getDate())
-  //     );
-  //     setValue(
-  //       date.getFullYear() +
-  //         "-" +
-  //         ((date.getMonth() + 1).toString().length === 1
-  //           ? "0" + (date.getMonth() + 1)
-  //           : date.getMonth() + 1) +
-  //         "-" +
-  //         (date.getDate().toString().length === 1
-  //           ? "0" + date.getDate()
-  //           : date.getDate())
-  //     );
-  //   }
-  // }, [date]);
 
 
   // Location Needs to be changed per UseState of UsersProfile location
   const neighborhood = openRequests.map((request) =>
-    !request.assigned && request.req_date >= selectedCalendarDate ? (
+    !request.assigned && request.req_date >= selectedCalendarDate && request.title.toLowerCase().includes(search) ? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );
 
   const currentNeighborhood = openRequests.map((request) =>
-    !request.assigned && request.req_date === selectedCalendarDate ? (
+    !request.assigned && request.req_date === selectedCalendarDate && request.title.toLowerCase().includes(search)? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );
@@ -83,7 +55,8 @@ const OpenRequestPage = ({
   return (
     <div className="user-dashboard">
       <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}/>
       </div>
       <div className="main-page">
         <h3>Open Request</h3>

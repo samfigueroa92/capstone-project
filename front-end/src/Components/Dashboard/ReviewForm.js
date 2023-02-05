@@ -44,7 +44,7 @@ const ReviewForm = ({ applicationUser, currentDate, request, reviews, setReviews
 
 
  let filter =  reviews.find( specifiedReview => specifiedReview.reviewer_id === applicationUser.uuid)
-  console.log(user)
+  
 
   return (
     <div className="review">

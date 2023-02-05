@@ -22,6 +22,8 @@ import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements";
 import Unprotected from "./Components/Unprotected";
 import EditRequest from "./Components/Dashboard/EditRequest";
+import ReviewsPage from "./Components/Dashboard/ReviewsPage";
+
 
 //CSS
 import "./App.css";
@@ -33,10 +35,12 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [date, setDate] = useState(new Date());
+  const [requestSearch, setRequestSearch] = useState('')
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [users, setUsers] = useState([]);
+
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -140,7 +144,7 @@ const App = () => {
               path="/achievements"
               element={
                 <Protected>
-                  <Achievements setDate={setDate} applicationUser={applicationUser}/>
+                  <Achievements setDate={setDate} applicationUser={applicationUser} requestSearch = {requestSearch} setRequestSearch={setRequestSearch}/>
                 </Protected>
               }
             />
@@ -153,6 +157,8 @@ const App = () => {
                     setDate={setDate}
                     openRequests={openRequests}
                     applicationUser={applicationUser}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                    
                   />
                 </Protected>
@@ -171,10 +177,27 @@ const App = () => {
                     setRequests={setRequests}
                     openRequests={openRequests}
                     setOpenRequests={setOpenRequests}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
             />
+              <Route
+                path="/reviews"
+                element={
+                  <Protected>
+                    <ReviewsPage
+                      date={date}
+                      setDate={setDate}
+                      applicationUser={applicationUser}
+                      setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
+                      
+                    />
+                  </Protected>
+                }
+              />
             <Route
               path="/requests/new"
               element={
@@ -182,6 +205,9 @@ const App = () => {
                   <NewRequestForm
                     applicationUser={applicationUser}
                     setDate={setDate}
+                    date = {date}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
@@ -194,6 +220,8 @@ const App = () => {
                     setDate={setDate}
                     date={date}
                     applicationUser={applicationUser}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
@@ -206,6 +234,8 @@ const App = () => {
                   <Settings
                     applicationUser={applicationUser}
                     setDate={setDate}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
@@ -220,6 +250,9 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
+                    
                   />
                 </Protected>
               }
@@ -234,6 +267,8 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }

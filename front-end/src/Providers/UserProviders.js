@@ -5,10 +5,12 @@ import { auth } from "../Services/Firebase";
 export const UserContext = createContext(null);
 
 export const UserProvider = (props) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); 
 
   useEffect(() => {
+    //dont proceed until firebase does its thang....
     auth.onAuthStateChanged((user) => {
+     
       if (user) {
         const { email, displayName, photoURL, uid } = user;
         setUser({ email, displayName, photoURL, uid });

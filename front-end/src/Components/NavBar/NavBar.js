@@ -23,6 +23,7 @@ const NavBar = ({ setModalOpen, applicationUser }) => {
       <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
         <img src="/images/logoGS.png" alt="logo" />
       </Link>
+
       <div className="menu-icon" onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
       </div>

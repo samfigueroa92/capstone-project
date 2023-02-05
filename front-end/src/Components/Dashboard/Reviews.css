@@ -1,0 +1,23 @@
+.Reviews{
+    width: 780px;
+    border: red 2px solid;
+    display: grid;
+    grid-template-columns: 3fr 6fr ;
+    padding: 10px;
+    margin-right: 25px;
+}
+.Reviews__reviewer-info{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 35px;
+}
+.reviewer_img {
+    padding-right: 20px ;
+}
+
+img{
+    width: 100px;
+}
+h6{
+    margin-right: 10px;
+}
