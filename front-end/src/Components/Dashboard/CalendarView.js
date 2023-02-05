@@ -1,5 +1,4 @@
 //Dependencies
-import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 
 //CSS Import
@@ -7,7 +6,7 @@ import "./CalendarView.css";
 import "react-calendar/dist/Calendar.css";
 
 const CalendarView = ({ date, setDate }) => {
-  
+
   
   return (
     <div className="calendar">

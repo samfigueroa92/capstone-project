@@ -11,7 +11,6 @@ const SvgIcon = () => {
         version="1.1"
         preserveAspectRatio="xMidYMin"
         viewBox="0 0 210 210"
-        //   display="center"
       >
         <g transform="translate(0 -87)">
           <path

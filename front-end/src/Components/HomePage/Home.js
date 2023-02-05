@@ -1,9 +1,10 @@
+//DEPENDENCIES
 import { useNavigate } from "react-router-dom";
-//Component Imports
-import Footer from "./Footer";
+
+//COMPONENTS
 import Testimonials from "./Testimonials";
 
-//CSS Imports
+//CSS
 import "./Home.css";
 
 //BOOTSTRAP
@@ -92,7 +93,6 @@ const Home = () => {
         </div>
       </div>
       <Testimonials />
-      <Footer />
     </div>
   );
 };

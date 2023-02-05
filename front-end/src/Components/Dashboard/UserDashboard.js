@@ -24,6 +24,8 @@ const UserDashboard = ({
   users,
   openRequests,
   setOpenRequests,
+  setRequestSearch,
+  requestSearch
 }) => {
 
 
@@ -60,30 +62,35 @@ const UserDashboard = ({
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">
-        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
+        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch} requestSearch = {requestSearch}/>
       </div>
-      <div className="requests">
+      <div className = 'user-dashboard__main-page'>
+      <>
         <div className="my-list">
           <MyRequests
             requests={requests}
             date={date}
+            requestSearch = {requestSearch}
            
           />
         </div>
-        <div>
+        <div className = 'requests'>
           {applicationUser.user_type === "Volunteer" ? (
             <OpenRequests
               date={date}
               openRequests={openRequests}
+              requestSearch = {requestSearch}
              
             />
           ) : (
             <MyFavorites users={users} />
           )}
         </div>
+      </>
       </div>
     </div>
   );
 };
 
 export default UserDashboard;
+

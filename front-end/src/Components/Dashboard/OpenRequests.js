@@ -7,7 +7,8 @@ import RequestCard from "./RequestCard";
 //CSS
 import "./OpenRequests.css";
 
-const OpenRequests = ({ openRequests, date}) => {
+const OpenRequests = ({ openRequests, date, requestSearch}) => {
+  const search = requestSearch.toLowerCase()
 
   const dateConverter = (specifiedDate = '') => {
 
@@ -21,15 +22,14 @@ const OpenRequests = ({ openRequests, date}) => {
     
     return formattedDate
   };
-
+ 
 
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
 
-  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> <RequestCard key={request.id} request={request} />)
+  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date).map((request)=> <RequestCard key={request.id} request={request} />)
  
  
-
   // const specifiedrequests = openRequests.map((openRequest, index) => {
   //   if (openRequest.req_date === value && index <= 4) {
   //     return <RequestCard key={openRequest.id} request={openRequest} />;
@@ -55,4 +55,6 @@ const OpenRequests = ({ openRequests, date}) => {
   );
 };
 export default OpenRequests;
+
+
 

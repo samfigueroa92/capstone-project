@@ -13,6 +13,8 @@ const AcceptRequestPage = ({
   setDate,
   applicationUser,
   requests,
+  setRequestSearch,
+  requestSearch
  
 }) => {
   
@@ -33,28 +35,32 @@ const AcceptRequestPage = ({
   let selectedCalendarDate = dateConverter(date) 
      
   
-  let acceptedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.assigned  && <RequestCard key={request.id} request={request} />)
+  let acceptedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(requestSearch) && !request.complete ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.assigned  && <RequestCard key={request.id} request={request} />)
 
 
-  let completedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.complete  && <RequestCard key={request.id} request={request} />)
+  let completedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(requestSearch) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.complete  && <RequestCard key={request.id} request={request} />)
 
-  let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />)
+  let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(requestSearch) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />)
 
   
   return (
     <div className="user-dashboard">
+      
       <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
+      <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch} requestSearch = {requestSearch} />
       </div>
-      <div className="main-page">
-        <h3 className="accepted-request">Accepted Requests</h3>
-        <div className="Accepted">
+      
+      <div className="acceptRequestPage__main-page">
+        <h3 className="acceptRequestPage__title top">Accepted Requests</h3>
+        <div className="acceptedRequestPage__filter">
           {acceptedRequestFilter}
         </div>
-        {applicationUser.user_type === "Senior" ? <h3 className="comphead">Pending Requests</h3> : null}
+        {applicationUser.user_type === "Senior" && <h3 className="acceptRequestPage__title">Pending Requests</h3>}
+        <div className="acceptedRequestPage__filter">
         {pendingRequestFilter}
-        <h3 className="comphead">Completed Requests</h3>
-        <div className="History">
+        </div>
+        <h3 className="acceptRequestPage__title">Completed Requests</h3>
+        <div className="acceptedRequestPage__filter">
           {completedRequestFilter}
         </div>
       </div>
@@ -63,3 +69,4 @@ const AcceptRequestPage = ({
 };
 
 export default AcceptRequestPage;
+

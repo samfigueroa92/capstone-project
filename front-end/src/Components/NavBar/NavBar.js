@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+//DEPENDENCIES
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import DashboardNav from "./DashboardNav";
 import { UserContext } from "../../Providers/UserProviders";
 import { useContext } from "react";
 
-//CSS Imports
+//CSS
 import "./NavBar.css";
+
+//BOOTSTRAP
 import Button from "react-bootstrap/Button";
+
+//COMPONENTS
+import DashboardNav from "./DashboardNav";
 
 const NavBar = ({ setModalOpen, applicationUser }) => {
   const user = useContext(UserContext);
   const [click, setClick] = useState(false);
 
-  // methods
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
