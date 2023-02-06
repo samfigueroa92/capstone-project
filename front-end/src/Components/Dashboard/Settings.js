@@ -24,7 +24,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
 
-function Settings({ applicationUser, setDate }) {
+function Settings({ applicationUser, setDate, date, setRequestSearch, requestSearch }) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
   const user = useContext(UserContext);
@@ -50,7 +50,7 @@ function Settings({ applicationUser, setDate }) {
 
   useEffect(() => {
     setEditedUser(applicationUser);
-  }, []);
+  }, [applicationUser]);
 
   const updateUser = (updatedUser) => {
     axios
@@ -75,7 +75,7 @@ function Settings({ applicationUser, setDate }) {
 
   return (
     <div className="profileInfo">
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <SidebarNav setDate={setDate} applicationUser={applicationUser} date={date} requestSearch={requestSearch} setRequestSearch={setRequestSearch}/>
       <Container className="settings">
         <h3 className="settings-header">Update Your Profile</h3>
         <div className="profile-image">

@@ -17,11 +17,13 @@ const RequestDetails = ({
   setDate,
   date,
   applicationUser,
+  requestSearch,
+  setRequestSearch
 
 }) => {
 
   const [request, setRequest] = useState([]);
-  const [reviews, setReviews] = useState([]);
+  // const [reviews, setReviews] = useState([]);
   // const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
   let { id } = useParams();
   let navigate = useNavigate();
@@ -73,6 +75,8 @@ const RequestDetails = ({
           setDate={setDate}
           date={date}
           applicationUser={applicationUser}
+          requestSearch={requestSearch}
+          setRequestSearch={setRequestSearch}
         />
       </div>
       <div className="cards">

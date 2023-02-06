@@ -21,7 +21,7 @@ import "./NewRequestForm.css";
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = ({ applicationUser, setDate, requestSearch, setRequestSearch }) => {
+const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequestSearch }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
 
@@ -67,8 +67,7 @@ const NewRequestForm = ({ applicationUser, setDate, requestSearch, setRequestSea
     <div className="user-dashboard">
       <div className='form_sidebar-nav'>
 
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch} />
+      <SidebarNav setDate={setDate} date = {date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch} requestSearch = {requestSearch} />
       </div>
       <Container className="request-form">
         <h3>Submit A Request</h3>

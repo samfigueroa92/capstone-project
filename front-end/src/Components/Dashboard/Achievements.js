@@ -7,16 +7,15 @@ import "./Achievements.css";
 
 // Components
 // import SidebarNav from "../Dashboard/SidebarNav.js";
-import SvgIcon from "../ComingSoon/SvgIcon";
 
-const Achievements = ({setDate, applicationUser, setRequestSearch, requestSearch }) => {
+
+const Achievements = ({setDate, date, applicationUser, setRequestSearch, requestSearch }) => {
 
 
   return (
     <div className='user-dashboard'>
       <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} applicationUser={applicationUser}  setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch} style ={{width: '60px'}}/>
+      <SidebarNav setDate={setDate} applicationUser={applicationUser}  date = {date} setRequestSearch = {setRequestSearch} requestSearch = {requestSearch} style ={{width: '60px'}}/>
       </div>
     <div className="achieve" style={{ paddingTop: "110px" }}>
       <SvgIcon />

@@ -11,7 +11,7 @@ import "./SidebarNav.css";
 const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestSearch }) => {
   
   const location = useLocation()
-  const path = location.pathname
+   const path = location.pathname
   
 
   const handleSubmit = (e) =>{
@@ -20,13 +20,14 @@ const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestS
 
   
   return (
+  
     <div className="SideBar">
       <div className="text">
       <div className = 'SideBar__searchbar'>
         <form onSubmit={handleSubmit}>
           <label >
           <b className='bold'>Search </b>
-          <input type='text' onChange={(e)=> setRequestSearch((e.target.value))} value={requestSearch}/>
+          <input type='text' onChange={(e)=> setRequestSearch(e.target.value)} value={requestSearch}/>
           </label>
 
         </form>
@@ -103,7 +104,7 @@ const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestS
         <CalendarView setDate={setDate} date={date}/>
       </div>
     </div>
-  );
+  )
 };
 
 export default SidebarNav;

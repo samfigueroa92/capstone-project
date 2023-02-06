@@ -55,7 +55,7 @@ const OpenRequestPage = ({
   return (
     <div className="user-dashboard">
       <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} setRequestSearch = {setRequestSearch}
+      <SidebarNav setDate={setDate} date = {date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch}
                     requestSearch = {requestSearch}/>
       </div>
       <div className="main-page">

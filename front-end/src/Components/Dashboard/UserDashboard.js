@@ -3,8 +3,8 @@ import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
-import RequestCard from "./RequestCard";
-import { useState, useEffect, useContext } from "react";
+// import RequestCard from "./RequestCard";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 
 import { UserContext } from "../../Providers/UserProviders";
