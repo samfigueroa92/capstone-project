@@ -8,6 +8,7 @@ import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
+import Unverified from "./Unverified";
 
 //CSS
 import "./UserDashboard.css";
@@ -25,8 +26,6 @@ const UserDashboard = ({
   openRequests,
   setOpenRequests,
 }) => {
-
-
   const user = useContext(UserContext);
 
   let route;
@@ -59,29 +58,39 @@ const UserDashboard = ({
   }, [user, applicationUser]);
   //removed openRequests from dependency array to avoid backend from looping
 
+  const renderContent = () => {
+    if (applicationUser.verified) {
+      return (
+        <>
+        <div className="sidebar-nav">
+        <SidebarNav
+          setDate={setDate}
+          date={date}
+          applicationUser={applicationUser}
+        />
+      </div>
+        <div className="requests">
+          <div className="my-list">
+            <MyRequests requests={requests} date={date} />
+          </div>
+          <div>
+            {applicationUser.user_type === "Volunteer" ? (
+              <OpenRequests date={date} openRequests={openRequests} />
+            ) : (
+              <MyFavorites />
+            )}
+          </div>
+        </div>
+        </>
+      );
+    } else {
+      return <Unverified />;
+    }
+  };
+
   return (
     <div className="user-dashboard">
-      <div className="sidebar-nav">
-        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
-      </div>
-      <div className="requests">
-        <div className="my-list">
-          <MyRequests
-            requests={requests}
-            date={date}
-          />
-        </div>
-        <div>
-          {applicationUser.user_type === "Volunteer" ? (
-            <OpenRequests
-              date={date}
-              openRequests={openRequests}
-            />
-          ) : (
-            <MyFavorites />
-          )}
-        </div>
-      </div>
+        {renderContent()}
     </div>
   );
 };
