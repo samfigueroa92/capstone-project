@@ -1,4 +1,4 @@
- //DEPENDENCIES
+//DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
@@ -18,7 +18,7 @@ import NewRequestForm from "./Components/Dashboard/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements";
-import Unprotected from "./Components/Unprotected";
+// import Unprotected from "./Components/Unprotected";
 import EditRequest from "./Components/Dashboard/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 
@@ -66,61 +66,14 @@ const App = () => {
             setApplicationUser={setApplicationUser}
           />
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <Home />
-                </Unprotected>
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route
               path="/sign-up"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <SignUpPage setApplicationUser={setApplicationUser} />
-                </Unprotected>
-              }
+              element={<SignUpPage setApplicationUser={setApplicationUser} />}
             />
-            <Route
-              path="/our-team"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <OurTeam />
-                </Unprotected>
-              }
-            />
-             <Route
-              path="/faq"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <Faq />
-                </Unprotected>
-              }
-            />
-            <Route
-              path="/our-page/:staffMember"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <PersonalPage />
-                </Unprotected>
-              }
-            />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/our-page/:staffMember" element={<PersonalPage />} />
             <Route
               path="/achievements"
               element={

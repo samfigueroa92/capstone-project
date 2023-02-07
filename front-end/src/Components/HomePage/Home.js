@@ -31,12 +31,10 @@ const Home = () => {
           willing and able to lend their time and skills.
           <br />
           <br />
-          <div className="HomePage_info_columns">
           Sign up as a <span>Senior</span> today and start getting help by submitting requests from your easy to use dashboard.
           <br />
           <br />
           As a <span>Volunteer</span>, you get points for every request completed. The more you help the more benefits you recieve! 
-          </div>
           </p>
       </div>
       <div className="HomePage_blurbs">
