@@ -15,9 +15,16 @@
     padding-right: 20px ;
 }
 
-img{
+.Reviews__img{
     width: 100px;
 }
 h6{
     margin-right: 10px;
+}
+.ellipsis{
+    height:100px;
+    width: 500px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

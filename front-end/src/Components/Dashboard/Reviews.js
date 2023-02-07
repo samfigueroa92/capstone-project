@@ -1,4 +1,5 @@
 import React from "react";
+
 import './Reviews.css'
 
 const Reviews = (reviews) => {
@@ -40,7 +41,7 @@ const Reviews = (reviews) => {
           )}{" "}
           Date: {reviews.date || "02/04/2023"}
         </div>
-        <p>
+        <p className='ellipsis'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum
           fusce ut placerat orci nulla pellentesque dignissim. Ultrices gravida
@@ -55,6 +56,7 @@ const Reviews = (reviews) => {
           aliquet sagittis. Orci phasellus egestas tellus rutrum tellus
           pellentesque. Quisque non tellus orci ac auctor augue mauris augue
           neque.
+          <button onClick></button>
         </p>
       </div>
     </div>
