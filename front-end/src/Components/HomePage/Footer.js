@@ -17,17 +17,16 @@ const Footer = () => {
                 <h5 className = 'links'>Quick Links</h5>
                 <ul className = 'list'>
                 <ol><a href="/">Home</a></ol>
-                <ol><a href="/volunteers">Volunteers</a></ol>
-                <ol><a href="/seniors">Seniors</a></ol>
                 <ol><a href="/our-team">Our Team</a></ol>
+                <ol><a href="/faq">FAQ</a></ol>
                 </ul>
                 </div>
             </div>
             <div className="contact">
                 <h5>Contact Us</h5>
-                <p>123 Anywhere St., Any City, ST 12345</p>
-                <p>support@goldensolutions.com</p>
-                <p>+123-456-7890</p>
+                <div>123 Anywhere St., Any City, ST 12345</div>
+                <div>support@goldensolutions.com</div>
+                <div>+123-456-7890</div>
             </div>
         </div>
     );

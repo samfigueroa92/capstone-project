@@ -8,8 +8,7 @@ import SignUpPage from "./Components/Dashboard/SignUpPage";
 import Home from "./Components/HomePage/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
-import SeniorsPage from "./Components/HomePage/SeniorsPage";
-import VolunteerPage from "./Components/HomePage/VolunteerPage";
+import Faq from "./Components/HomePage/Faq";
 import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard";
 import OpenRequestPage from "./Components/Dashboard/OpenRequestPage";
@@ -33,7 +32,7 @@ const App = () => {
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -90,28 +89,6 @@ const App = () => {
               }
             />
             <Route
-              path="/volunteers"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <VolunteerPage />
-                </Unprotected>
-              }
-            />
-            <Route
-              path="/seniors"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <SeniorsPage />
-                </Unprotected>
-              }
-            />
-            <Route
               path="/our-team"
               element={
                 <Unprotected
@@ -119,6 +96,17 @@ const App = () => {
                   setApplicationUser={setApplicationUser}
                 >
                   <OurTeam />
+                </Unprotected>
+              }
+            />
+             <Route
+              path="/faq"
+              element={
+                <Unprotected
+                  applicationUser={applicationUser}
+                  setApplicationUser={setApplicationUser}
+                >
+                  <Faq />
                 </Unprotected>
               }
             />
@@ -162,7 +150,7 @@ const App = () => {
               element={
                 <Protected>
                   <UserDashboard
-                    users={users}
+                    // users={users}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}

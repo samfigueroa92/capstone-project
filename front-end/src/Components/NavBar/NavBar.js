@@ -31,20 +31,6 @@ const NavBar = ({ setModalOpen, applicationUser }) => {
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li className="nav-item">
-          <Link
-            to="/volunteers"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Volunteers
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/seniors" className="nav-links" onClick={closeMobileMenu}>
-            Seniors
-          </Link>
-        </li>
         <li className="nav-item" onClick={closeMobileMenu}>
           <button onClick={() => setModalOpen(true)} className="nav-links-mobile" >
             Login

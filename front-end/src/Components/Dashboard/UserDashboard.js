@@ -1,14 +1,15 @@
-//Component Imports
+//DEPENDENCIES
+import { useEffect, useContext } from "react";
+import axios from "axios";
+import { UserContext } from "../../Providers/UserProviders";
+
+//COMPONENTS
 import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
-import { useEffect, useContext } from "react";
-import axios from "axios";
 
-import { UserContext } from "../../Providers/UserProviders";
-
-//CSS Imports
+//CSS
 import "./UserDashboard.css";
 
 // Function to query the database with the users uid, and return their posted / assigned requests
@@ -77,7 +78,7 @@ const UserDashboard = ({
               openRequests={openRequests}
             />
           ) : (
-            <MyFavorites users={users} />
+            <MyFavorites />
           )}
         </div>
       </div>
