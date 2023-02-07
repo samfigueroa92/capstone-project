@@ -13,18 +13,13 @@ const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestS
   const location = useLocation()
    const path = location.pathname
   
-
-  const handleSubmit = (e) =>{
-    e.preventDefault();
-  }
-
   
   return (
   
     <div className="SideBar">
       <div className="text">
       <div className = 'SideBar__searchbar'>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e)=>{e.preventDefault()}}>
           <label >
           <b className='bold'>Search </b>
           <input type='text' onChange={(e)=> setRequestSearch(e.target.value)} value={requestSearch}/>

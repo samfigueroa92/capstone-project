@@ -3,13 +3,13 @@
     border: red 2px solid;
     display: grid;
     grid-template-columns: 3fr 6fr ;
-    padding: 10px;
+    padding: 5px;
     margin-right: 25px;
 }
 .Reviews__reviewer-info{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin-top: 35px;
+    margin-top: 10px;
 }
 .reviewer_img {
     padding-right: 20px ;
@@ -18,12 +18,15 @@
 .Reviews__img{
     width: 100px;
 }
+.Reviewer__profile{
+    width: 100px
+}
 h6{
     margin-right: 10px;
 }
 .ellipsis{
-    height:100px;
-    width: 500px;
+    height:180px;
+    width: 470px;
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
