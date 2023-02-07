@@ -1,5 +1,5 @@
 //Dependencies
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { signOut } from "../../Services/Firebase";
 import { UserContext } from "../../Providers/UserProviders";
 import { useContext } from "react";
@@ -23,7 +23,9 @@ const DashboardNav = ({ applicationUser }) => {
   return (
     <Navbar className="dash-navbar">
       <Navbar.Brand className="nav-logo">
+        <Link to='/user-dashboard'>
         <img src="/images/logoGS.png" alt="logo" />
+        </Link>
       </Navbar.Brand>
       <Container className="dashboard-nav">
         <Nav className="me-auto.">

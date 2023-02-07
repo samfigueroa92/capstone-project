@@ -1,4 +1,4 @@
-import React, {useMemo}from 'react'
+import React, {useMemo} from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -20,6 +20,7 @@ function Rate({count, rating, color, onRating}) {
     },[count, rating])
   return (
     <div>
+        
         {starRating}
     </div>
   )
