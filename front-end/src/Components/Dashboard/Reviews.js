@@ -56,7 +56,7 @@ const Reviews = (reviews) => {
           aliquet sagittis. Orci phasellus egestas tellus rutrum tellus
           pellentesque. Quisque non tellus orci ac auctor augue mauris augue
           neque.
-          <button onClick></button>
+          <button></button>
         </p>
       </div>
     </div>

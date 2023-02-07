@@ -36,7 +36,7 @@ const OpenRequestPage = ({
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
   let search = requestSearch.toLowerCase()
-
+  console.log(search)
 
 
   // Location Needs to be changed per UseState of UsersProfile location
@@ -47,7 +47,7 @@ const OpenRequestPage = ({
   );
 
   const currentNeighborhood = openRequests.map((request) =>
-    !request.assigned && request.req_date === selectedCalendarDate && request.title.toLowerCase().includes(search)? (
+    !request.assigned && request.req_date === selectedCalendarDate && request.title.toLowerCase().includes(search) ? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );

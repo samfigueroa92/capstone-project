@@ -25,9 +25,9 @@ const Footer = () => {
             </div>
             <div className="contact">
                 <h5>Contact Us</h5>
-                <p>123 Anywhere St., Any City, ST 12345</p>
-                <p>support@goldensolutions.com</p>
-                <p>+123-456-7890</p>
+                <div>123 Anywhere St., Any City, ST 12345</div>
+                <div>support@goldensolutions.com</div>
+                <div>+123-456-7890</div>
             </div>
         </div>
     );

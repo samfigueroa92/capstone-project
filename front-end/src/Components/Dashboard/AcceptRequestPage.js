@@ -33,14 +33,15 @@ const AcceptRequestPage = ({
 
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
+  let search = requestSearch.toLowerCase()
      
   
-  let acceptedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(requestSearch) && !request.complete ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.assigned  && <RequestCard key={request.id} request={request} />)
+  let acceptedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) && !request.complete ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.assigned  && <RequestCard key={request.id} request={request} />)
 
 
-  let completedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(requestSearch) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.complete  && <RequestCard key={request.id} request={request} />)
+  let completedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.complete  && <RequestCard key={request.id} request={request} />)
 
-  let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(requestSearch) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />)
+  let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />)
 
   
   return (
