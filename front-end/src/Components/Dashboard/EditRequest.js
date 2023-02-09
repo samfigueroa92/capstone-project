@@ -19,7 +19,7 @@ import Container from "react-bootstrap/Container";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const EditRequest = ({ applicationUser, setDate }) => {
+const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, requestSearch }) => {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
       .get(`${API}/requests/help_req/${id}`)
       .then((res) => setEditedRequest(res.data))
       .then((res) => console.log(res.data));
-  }, []);
+  }, [id]);
 
   const updateRequest = () => {
     axios
@@ -64,7 +64,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
 
   return (
     <div className="edit-request">
-      <SidebarNav applicationUser={applicationUser} setDate={setDate} />
+      <SidebarNav applicationUser={applicationUser} setDate={setDate} date ={date} setRequestSearch = {setRequestSearch} requestSearch={requestSearch} />
       <Container className="edit-form">
         <h3>Edit Request</h3>
         <div className="edit-image">

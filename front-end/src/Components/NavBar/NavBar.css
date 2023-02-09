@@ -1,241 +1,241 @@
 .Navbar img {
-    width: 300px;
+  width: 300px;
+}
+
+.Navbar {
+  background-color: #42999b;
+  color: black;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.nav-logo {
+  margin-left: 30px;
+  margin-top: 5px;
+  justify-self: start;
+  /* margin-left: 20px; */
+  cursor: pointer;
+  /* text-decoration: none; */
+  font-size: 2rem;
+}
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.nav-links {
+  color: white;
+  margin-top: 20px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.11em;
+  margin-right: 20px;
+}
+
+/* .nav-links:hover {
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+} */
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* ==> */
+/* .links {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.11em;
+  margin-right: 20px;
+} */
+
+.Navbar Button {
+  background-color: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+  padding: 10px 40px 10px 40px;
+  border-radius: 25px;
+  letter-spacing: 0.2em;
+  font-size: 19px;
+  min-width: 200px;
+  margin-right: 10px;
+}
+
+.Navbar Button:hover {
+  background-color: #b8dedc;
+}
+
+#avatar {
+  padding-right: 15px;
+  font-size: large;
+}
+/* .Navbar button {
+  display: none;
+} */
+
+/* media query  */
+
+@media screen and (max-width: 400px) {
+  .NavbarItems {
+    position: relative;
   }
-  
-  .Navbar {
-    background-color: #42999b;
-    color: black;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-  }
-  
+
   .nav-logo {
-    margin-left: 30px;
-    margin-top: 5px;
-    justify-self: start;
-    /* margin-left: 20px; */
-    cursor: pointer;
-    /* text-decoration: none; */
-    font-size: 2rem;
+    margin-left: 0;
   }
+  .Navbar img {
+    width: 80%;
+    margin-left: 3px;
+    
+  }
+
   .nav-menu {
     display: flex;
-    list-style: none;
-    text-align: center;
-    width: 70vw;
-    align-items: center;
-    margin-right: 2rem;
+    flex-direction: column;
+    width: 100%;
+    height: 35vh;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
   }
-  
-  .nav-item {
-    display: flex;
-    align-items: center;
-    height: 80px;
+
+  .nav-menu.active {
+    background: #42999b;
+    left: 0;
+    /* padding-left: 0; */
+    margin-left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
   }
-  
+
   .nav-links {
-    color: white;
-    margin-top: 20px;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 0.11em;
-    margin-right: 20px;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
   }
-  
-  /* .nav-links:hover {
-    background-color: white;
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
-  } */
-  
-  .nav-links-mobile {
-    display: none;
-  }
-  
-  .menu-icon {
-    display: none;
-  }
-  
-  /* ==> */
-  /* .links {
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 0.11em;
-    margin-right: 20px;
-  } */
-  
-  .Navbar Button {
-    background-color: white;
-    color: black;
-    border: none;
-    font-weight: bold;
-    padding: 10px 40px 10px 40px;
-    border-radius: 25px;
-    letter-spacing: 0.2em;
-    font-size: 19px;
-    min-width: 200px;
-    margin-right: 10px;
-  }
-  
-  .Navbar Button:hover {
+
+  .nav-links:hover {
     background-color: #b8dedc;
+    border-radius: 15px;
   }
-  
-  #avatar {
-    padding-right: 15px;
-    font-size: large;
+
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.9rem;
+    cursor: pointer;
   }
-  /* .Navbar button {
+
+  .fa-bars {
+    color: #fff;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+  .batt1 {
     display: none;
-  } */
-  
-  /* media query  */
-  
-  @media screen and (max-width: 400px) {
-    .NavbarItems {
-      position: relative;
-    }
-  
-    .nav-logo {
-      margin-left: 0;
-    }
-    .Navbar img {
-      width: 80%;
-      margin-left: 3px;
-      
-    }
-  
-    .nav-menu {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 35vh;
-      position: absolute;
-      top: 80px;
-      left: -100%;
-      opacity: 1;
-      transition: all 0.5s ease;
-    }
-  
-    .nav-menu.active {
-      background: #42999b;
-      left: 0;
-      /* padding-left: 0; */
-      margin-left: 0;
-      opacity: 1;
-      transition: all 0.5s ease;
-      z-index: 1;
-    }
-  
-    .nav-links {
-      text-align: center;
-      padding: 2rem;
-      width: 100%;
-      display: table;
-    }
-  
-    .nav-links:hover {
-      background-color: #b8dedc;
-      border-radius: 15px;
-    }
-  
-  
-    .menu-icon {
-      display: block;
-      position: absolute;
-      top: -5px;
-      right: 0;
-      transform: translate(-100%, 60%);
-      font-size: 1.9rem;
-      cursor: pointer;
-    }
-  
-    .fa-bars {
-      color: #fff;
-    }
-  
-    .fa-times {
-      color: #fff;
-      font-size: 2rem;
-    }
-    .batt1 {
-      display: none;
-    }
-    .nav-links-mobile {
-    color: white;
-    margin-top: 20px;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: 0.11em;
-    margin-right: 20px;
-    }
-    .nav-links-mobile {
-      text-align: center;
-      padding: 2rem;
-      width: 100%;
-      display: table;
-    }
-    .nav-links-mobile:hover {
-      background-color: #b8dedc;
-      border-radius: 15px;
-    }
   }
-   
-    
+  .nav-links-mobile {
+  color: white;
+  margin-top: 20px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.11em;
+  margin-right: 20px;
+  }
+  .nav-links-mobile {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+  .nav-links-mobile:hover {
+    background-color: #b8dedc;
+    border-radius: 15px;
+  }
+}
+ 
+  
 
 /* THE OLD CSS */
 /* .Navbar img{
-    width:300px;
+  width:300px;
 }
 
 .nav-content{
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .Navbar{
-    background-color: #42999B;
-    color: black;
+  background-color: #42999B;
+  color: black;
 }
 
 .logo{
-    margin-left: 30px;
-    margin-top: 5px;
+  margin-left: 30px;
+  margin-top: 5px;
 }
 
 .links{
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    letter-spacing: .11em;
-    margin-right: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: .11em;
+  margin-right: 20px;
 }
 
 .Navbar Button{
-    background-color: white;
-    color: black;
-    border: none;
-    font-weight: bold;
-    padding: 10px 40px 10px 40px;
-    border-radius: 25px;
-    letter-spacing: .2em;
-    font-size: 19px;
-    min-width: 200px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+  padding: 10px 40px 10px 40px;
+  border-radius: 25px;
+  letter-spacing: .2em;
+  font-size: 19px;
+  min-width: 200px;
 }
 
 .Navbar Button:hover{
-    background-color: #B8DEDC;
+  background-color: #B8DEDC;
 }
 
 #avatar{
-    padding-right: 15px;
-    font-size: large;
+  padding-right: 15px;
+  font-size: large;
 } */

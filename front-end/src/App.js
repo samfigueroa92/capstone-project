@@ -1,8 +1,8 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
-import axios from "axios";
+
 
 //COMPONENTS
 import SignUpPage from "./Components/Dashboard/SignUpPage";
@@ -22,22 +22,24 @@ import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements";
 import Unprotected from "./Components/Unprotected";
 import EditRequest from "./Components/Dashboard/EditRequest";
-
+import ReviewsPage from "./Components/Dashboard/ReviewsPage";
+import Footer from "./Components/HomePage/Footer";
+import PersonalPage from "./Components/HomePage/PersonalPage";
 //CSS
 import "./App.css";
-import PersonalPage from "./Components/HomePage/PersonalPage";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [stringCurrentDate, setStringCurrentDate] = useState(new Date());
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [requestSearch, setRequestSearch] = useState('')
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [users, setUsers] = useState([]);
+
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -82,7 +84,7 @@ const App = () => {
                 </Unprotected>
               }
             />
-            <Route
+             <Route
               path="/sign-up"
               element={
                 <Unprotected
@@ -114,7 +116,7 @@ const App = () => {
                   <SeniorsPage />
                 </Unprotected>
               }
-            />
+            /> 
             <Route
               path="/our-team"
               element={
@@ -136,12 +138,12 @@ const App = () => {
                   <PersonalPage />
                 </Unprotected>
               }
-            />
-            <Route
+            /> 
+             <Route
               path="/achievements"
               element={
                 <Protected>
-                  <Achievements setDate={setDate} applicationUser={applicationUser}/>
+                  <Achievements setDate={setDate} date={date} applicationUser={applicationUser} requestSearch = {requestSearch} setRequestSearch={setRequestSearch}/>
                 </Protected>
               }
             />
@@ -154,7 +156,9 @@ const App = () => {
                     setDate={setDate}
                     openRequests={openRequests}
                     applicationUser={applicationUser}
-                    stringCurrentDate={stringCurrentDate}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
+                   
                   />
                 </Protected>
               }
@@ -170,13 +174,29 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
-                    stringCurrentDate={stringCurrentDate}
                     openRequests={openRequests}
                     setOpenRequests={setOpenRequests}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
             />
+              <Route
+                path="/reviews"
+                element={
+                  <Protected>
+                    <ReviewsPage
+                      date={date}
+                      setDate={setDate}
+                      applicationUser={applicationUser}
+                      setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
+                      
+                    />
+                  </Protected>
+                }
+              />
             <Route
               path="/requests/new"
               element={
@@ -184,6 +204,9 @@ const App = () => {
                   <NewRequestForm
                     applicationUser={applicationUser}
                     setDate={setDate}
+                    date = {date}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
@@ -195,14 +218,15 @@ const App = () => {
                   <RequestDetails
                     setDate={setDate}
                     date={date}
-                    setStringCurrentDate = {setStringCurrentDate}
-                    stringCurrentDate = {stringCurrentDate}
                     applicationUser={applicationUser}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
             />
-            <Route path="/edit/:id" element={<Protected><EditRequest applicationUser={applicationUser} setDate={setDate} /></Protected>} />
+            <Route path="/edit/:id" element={<Protected><EditRequest applicationUser={applicationUser} setDate={setDate} date={date} setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch} /></Protected>} />
             <Route
               path="/user/settings"
               element={
@@ -210,6 +234,9 @@ const App = () => {
                   <Settings
                     applicationUser={applicationUser}
                     setDate={setDate}
+                    date={date}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
@@ -219,12 +246,14 @@ const App = () => {
               element={
                 <Protected>
                   <AcceptRequestPage
-                    stringCurrentDate={stringCurrentDate}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
+                    
                   />
                 </Protected>
               }
@@ -234,17 +263,19 @@ const App = () => {
               element={
                 <Protected>
                   <AcceptRequestPage
-                    stringCurrentDate={stringCurrentDate}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
+                    setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}
                   />
                 </Protected>
               }
-            />
+            /> 
           </Routes>
+          <Footer />
         </Router>
       </UserProvider>
     </div>
@@ -252,3 +283,4 @@ const App = () => {
 };
 
 export default App;
+

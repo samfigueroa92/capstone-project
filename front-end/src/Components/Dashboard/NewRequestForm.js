@@ -1,5 +1,5 @@
 //Dependencies
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
@@ -21,10 +21,9 @@ import "./NewRequestForm.css";
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = ({ applicationUser, setDate }) => {
+const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequestSearch }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
-
 
   // CREATE OR ADD A NEW REQUEST
   const makeRequest = (newRequest) => {
@@ -65,8 +64,11 @@ const NewRequestForm = ({ applicationUser, setDate }) => {
   };
 
   return (
-    <div className="new-req">
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+    <div className="user-dashboard">
+      <div className='form_sidebar-nav'>
+
+      <SidebarNav setDate={setDate} date = {date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch} requestSearch = {requestSearch} />
+      </div>
       <Container className="request-form">
         <h3>Submit A Request</h3>
         <Form onSubmit={handleSubmit}>

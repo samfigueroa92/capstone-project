@@ -1,10 +1,7 @@
-//Dependencies
-import React, { useState } from "react";
+//DEPENDENCIES
+import { useState } from "react";
 
-//Components Import
-import Footer from "./Footer";
-
-//CSS Imports
+//CSS
 import "./OurTeam.css";
 
 const OurTeam = () => {
@@ -43,6 +40,18 @@ const OurTeam = () => {
     amber:
       "Amber,orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ipsum at urna tincidunt pharetra ut a turpis. Vivamus vulputate ligula in accumsan accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
   };
+
+  const STAFFIMGLINKS = {
+  
+    sam: "https://ca.slack-edge.com/TCVA3PF24-U02LP2TBD8D-66655ad951d8-512",
+    tom:'https://media.licdn.com/dms/image/D4E35AQEo7vsjBAnTOA/profile-framedphoto-shrink_400_400/0/1672963908117?e=1676397600&v=beta&t=6w_YDxwoouSHX9B530mxfraDpRMDjC53PH_xTmhcvho',  
+    kalilah:"https://media.licdn.com/dms/image/C5603AQFIoVA0ltC1Fg/profile-displayphoto-shrink_400_400/0/1592177861401?e=1681344000&v=beta&t=bTi7VatrBY12b7wt9MSZoF3Z2Bdrb1NOhRjxFuEl0cM",
+    adnan:"https://ca.slack-edge.com/TCVA3PF24-U02LBBUQM39-804e6eb0aa9f-512",  
+    sabrina:"https://ca.slack-edge.com/TCVA3PF24-U02M4L7LAV7-07a20f756bae-512",
+    gigi:"https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192", 
+    tim: "https://ca.slack-edge.com/TCVA3PF24-U022H04SBPF-6e9b68170b60-512",
+    amber: "https://ca.slack-edge.com/TCVA3PF24-U04CMRUKB6U-8ad816fd1907-512",
+  }
 
   const handleLearnMore = (teamMate) => {
     return learnMore[teamMate] ? (
@@ -86,7 +95,7 @@ const OurTeam = () => {
           <a href={`/our-page/${team[0]}`}>
             <img
               className="our-team-img"
-              src="https://ca.slack-edge.com/TCVA3PF24-U02LP2TBD8D-66655ad951d8-512"
+              src={STAFFIMGLINKS.sam}
               alt="Samantha Figueroa"
             />
           </a>
@@ -98,7 +107,7 @@ const OurTeam = () => {
           <a href={`/our-page/${team[1]}`}>
             <img
               className="our-team-img"
-              src="https://media-exp1.licdn.com/dms/image/C4D03AQEUYyUqQXTZpQ/profile-displayphoto-shrink_800_800/0/1643244593566?e=1674691200&v=beta&t=mzXtv0JVf8sXvpzSPlT1YW-8aBDkFReJNLP3y6hxtNE"
+              src={STAFFIMGLINKS.tom}
               alt="Tom LaTulipe"
             />
           </a>
@@ -110,7 +119,7 @@ const OurTeam = () => {
         <a href={`/our-page/${team[2]}`}>
           <img
             className="our-team-img"
-            src="https://media-exp1.licdn.com/dms/image/C5603AQFIoVA0ltC1Fg/profile-displayphoto-shrink_800_800/0/1592177861401?e=1674086400&v=beta&t=gGt0ISX9GlFHHDdsgcf4t97d5fpQs00mMEcWSSwQoV8"
+            src={STAFFIMGLINKS.kalilah}
             alt="Kalilah Clarke"
           />
           </a>
@@ -124,7 +133,7 @@ const OurTeam = () => {
           <a href={`/our-page/${team[3]}`}>
           <img
             className="our-team-img"
-            src="https://ca.slack-edge.com/TCVA3PF24-U02LBBUQM39-804e6eb0aa9f-512"
+            src={STAFFIMGLINKS.adnan}
             alt="Adnan Abubakar Adams"
             />
             </a>
@@ -136,7 +145,7 @@ const OurTeam = () => {
         <a href={`/our-page/${team[4]}`}>
           <img
             className="our-team-img"
-            src="https://ca.slack-edge.com/TCVA3PF24-U02M4L7LAV7-07a20f756bae-512"
+            src={STAFFIMGLINKS.sabrina}
             alt="Sabrina"
           />
           </a>
@@ -148,7 +157,7 @@ const OurTeam = () => {
           <a href={`/our-page/${team[5]}`}>
             <img
               className="our-team-img"
-              src="https://ca.slack-edge.com/TCVA3PF24-U022L8PJX8B-edc76878813b-192"
+              src={STAFFIMGLINKS.gigi}
               alt="Gigi Scarsborough"
             />
           </a>
@@ -160,7 +169,7 @@ const OurTeam = () => {
           <a href={`/our-page/${team[6]}`}>
             <img
               className="our-team-img"
-              src="https://ca.slack-edge.com/TCVA3PF24-U022H04SBPF-6e9b68170b60-512"
+              src={STAFFIMGLINKS.tim}
               alt="Tim McKiernan"
             />
           </a>
@@ -172,7 +181,7 @@ const OurTeam = () => {
           <a href={`/our-page/${team[7]}`}>
             <img
               className="our-team-img"
-              src="https://ca.slack-edge.com/TCVA3PF24-U04CMRUKB6U-8ad816fd1907-512"
+              src={STAFFIMGLINKS.amber}
               alt="Amber Bennet"
             />
           </a>
@@ -181,8 +190,6 @@ const OurTeam = () => {
           {handleLearnMore("amber")}
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

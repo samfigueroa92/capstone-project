@@ -17,7 +17,6 @@ const RequestCard = ({ request }) => {
       return request.time;
     }
   };
-  const date = () => {};
 
   return (
     <div className="req-card-details">
