@@ -1,19 +1,36 @@
-.my-requests{
+/* .my-requests{
     margin: 15px;
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+} */
+
+.myRequest__title{
+    margin: 0px;
+    margin-top: -25px;
+    margin-left: 10px;  
+}
+.myRequest__filter{
+    min-height: 200px;
+    margin: 15px;
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
     gap: 2.5rem;
+    margin-bottom: 5% 
 }
 
-.head{
-    margin-left: 10px;
-    padding-top: 30px;
+.top{
+    margin-top: 20px;
 }
 
-.no-requests{
+.noFilter{
     font-size: x-large;
     text-align: center;
     margin-top: 45px;
 }
+/* .request{
+    padding-top: 30px;
+   } */

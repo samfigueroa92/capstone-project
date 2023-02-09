@@ -7,59 +7,37 @@ import RequestCard from "./RequestCard";
 //CSS
 import "./MyRequests.css";
 
-const MyRequests = ({ requests, date, stringCurrentDate }) => {
-  const [value, setValue] = useState("");
-  const [currentDate, setCurrentDate] = useState("");
+const MyRequests = ({ requests, date, requestSearch }) => {
+  const search = requestSearch.toLowerCase()
 
-  useEffect(() => {
-    if (date) {
-      setCurrentDate(
-        stringCurrentDate.getFullYear() +
-          "-" +
-          ((stringCurrentDate.getMonth() + 1).toString().length === 1
-            ? "0" + (setCurrentDate.getMonth() + 1)
-            : stringCurrentDate.getMonth() + 1) +
-          "-" +
-          (stringCurrentDate.getDate().toString().length === 1
-            ? "0" + (stringCurrentDate.getDate())
-            : stringCurrentDate.getDate())
-      );
-      setValue(
-        date.getFullYear() +
-          "-" +
-          ((date.getMonth() + 1).toString().length === 1
-            ? "0" + (date.getMonth() + 1)
-            : date.getMonth() + 1) +
-          "-" +
-          (date.getDate().toString().length === 1
-            ? "0" + date.getDate()
-            : date.getDate())
-      );
-    }
-  }, [date]);
+  const dateConverter = (specifiedDate = '') => {
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2,'0');
+    const currentDate = specifiedDate?.getDate()
+    const paddedDate = currentDate.toString().padStart(2,'0')
+
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
+    
+    return formattedDate
+  };
+
   
+  let currentDate = dateConverter(new Date());
+  let selectedCalendarDate = dateConverter(date) 
 
-  const myspecifiedrequests = requests.length > 0 ? requests.map((request) => {
-    if (request.req_date === value) {
-      return <RequestCard key={request.id} request={request} />;
-    }
-  }) : <p className="no-requests">No accepted requests.</p>;
-
-
-  const myrequests = requests.length > 0 ? requests.map((request) => {
-    if (request.req_date >= value) {
-      return <RequestCard key={request.id} request={request} />;
-    }
-  }) : <p className="no-requests">No accepted requests.</p>;
-
+  let requestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate && request.title.toLowerCase().includes(search): selectedCalendarDate === request.req_date && request.title.toLowerCase().includes(search)).map((request, index)=> index < 4 &&<RequestCard key={request.id} request={request} />)
+ 
+ 
   return (
     <>
-    <h3 className="head">My Requests</h3>
-    <div className="my-requests">
-          {currentDate === value ? myrequests : myspecifiedrequests}
-    </div>
+      <div className="myRequest__title top"><h3>My Requests</h3></div>
+      <div className={requestFilter.length > 0 ? 'myRequest__filter' : 'noFilter'}>
+        {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
+      </div>
     </>
   );
 };
 
 export default MyRequests;
+

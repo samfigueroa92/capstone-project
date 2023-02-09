@@ -1,10 +1,13 @@
+//DEPENDENCIES
 import { useContext } from "react";
 import { UserContext } from "../Providers/UserProviders";
 import { Navigate } from "react-router-dom";
 
 const Protected = ({children}) => {
-    const user = useContext(UserContext);
-
+    const user =  useContext(UserContext);
+    
+    // console.log('protect', user);
+    
     if(!user){
         return <Navigate to="/" />
     }

@@ -17,36 +17,24 @@ const RequestDetails = ({
   setDate,
   date,
   applicationUser,
-  stringCurrentDate,
+  requestSearch,
+  setRequestSearch
+
 }) => {
-  setDate("");
+
   const [request, setRequest] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
-  const [timeConversion, setTimeConversion] = useState("");
+  // const [reviews, setReviews] = useState([]);
+  // const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
   let { id } = useParams();
   let navigate = useNavigate();
 
   const API = process.env.REACT_APP_BACKEND_API_KEY;
-  const [currentDate, setCurrentDate] = useState("");
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   useEffect(() => {
     axios.get(`${API}/requests/help_req/${id}`).then((response) => {
       setRequest(response.data);
-      setTimeConversion(timeChange(response.data.time));
-      setCurrentDate(
-        stringCurrentDate.getFullYear() +
-          "-" +
-          ((stringCurrentDate.getMonth() + 1).toString().length === 1
-            ? "0" + (setCurrentDate.getMonth() + 1)
-            : stringCurrentDate.getMonth() + 1) +
-          "-" +
-          (stringCurrentDate.getDate().toString().length === 1
-            ? "0" + stringCurrentDate.getDate()
-            : stringCurrentDate.getDate())
-      );
     });
-    axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
+    // axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
   }, [id, navigate, API]);
 
   const missionAccepted = () => {
@@ -64,23 +52,21 @@ const RequestDetails = ({
       })
       .then(navigate("/user-dashboard"));
   };
+  
 
-  const timeChange = (time) => {
-    if (time) {
-      if (time.length <= 5) {
-        let timeArray = time.split(":");
-        if (Number(timeArray[0]) > 12) {
-          return Number(timeArray[0]) - 12 + ":" + timeArray[1] + "PM";
-        } else {
-          return timeArray[0] + ":" + timeArray[1] + "AM";
-        }
-      } else {
-        return time;
-      }
-    }
+  const dateConverter = (specifiedDate = '') => {
+    const fullYear = specifiedDate.getFullYear();
+    const month = specifiedDate.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2,'0');
+    const currentDate = specifiedDate.getDate()
+    const paddedDate = currentDate.toString().padStart(2,'0')
+
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
+    
+    return formattedDate
   };
-
-  console.log(request)
+  let currentDate = dateConverter(new Date())
+  
 
   return (
     <div className="details">
@@ -89,6 +75,8 @@ const RequestDetails = ({
           setDate={setDate}
           date={date}
           applicationUser={applicationUser}
+          requestSearch={requestSearch}
+          setRequestSearch={setRequestSearch}
         />
       </div>
       <div className="cards">
@@ -117,9 +105,8 @@ const RequestDetails = ({
                 {/* <h4 className="card-text">
                   <strong>Requested:</strong> {}
                 </h4> */}
-                <h4 className="card-text">
-                  <strong>Time:</strong> {timeConversion}
-                </h4>
+               
+
                 <p className="warning">
                   <span className="red">*</span> Cancellations within 24 hours
                   or missing your appointment will result in a negative review &
@@ -129,7 +116,7 @@ const RequestDetails = ({
             </div>
           </div>
         </div>
-        <div className="reviews">
+        {/* <div className="reviews">
           {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
           {reviewFormRevealed ? <p>You said : </p>: null}
           {reviewFormRevealed ? (
@@ -141,7 +128,7 @@ const RequestDetails = ({
               applicationUser={applicationUser}
             />
           ) : null}
-        </div>
+        </div> */}
         <div className="buttons">
           <div>
             <Link to="/user-dashboard">
@@ -159,7 +146,7 @@ const RequestDetails = ({
                   className="reject"
                   onClick={(e) => {
                     e.preventDefault();
-                    setReviewFormRevealed(true);
+                    // setReviewFormRevealed(true);
                   }}
                 >
                   REVIEW
@@ -182,3 +169,5 @@ const RequestDetails = ({
 };
 
 export default RequestDetails;
+
+

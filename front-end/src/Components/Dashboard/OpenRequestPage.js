@@ -15,48 +15,39 @@ const OpenRequestPage = ({
   date,
   setDate,
   applicationUser,
-  stringCurrentDate,
-  openRequests
+  openRequests,
+  setRequestSearch,
+  requestSearch
 }) => {
-  const [value, setValue] = useState("");
-  const [currentDate, setCurrentDate] = useState("");
 
-  useEffect(() => {
-    if (date) {
-      setCurrentDate(
-        stringCurrentDate.getFullYear() +
-          "-" +
-          ((stringCurrentDate.getMonth() + 1).toString().length === 1
-            ? "0" + (setCurrentDate.getMonth() + 1)
-            : stringCurrentDate.getMonth() + 1) +
-          "-" +
-          (stringCurrentDate.getDate().toString().length === 1
-            ? "0" + (stringCurrentDate.getDate())
-            : stringCurrentDate.getDate())
-      );
-      setValue(
-        date.getFullYear() +
-          "-" +
-          ((date.getMonth() + 1).toString().length === 1
-            ? "0" + (date.getMonth() + 1)
-            : date.getMonth() + 1) +
-          "-" +
-          (date.getDate().toString().length === 1
-            ? "0" + date.getDate()
-            : date.getDate())
-      );
-    }
-  }, [date]);
+  const dateConverter = (specifiedDate) => {
+
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2,'0');
+    const currentDate = specifiedDate?.getDate()
+    const paddedDate = currentDate.toString().padStart(2,'0')
+
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
+    
+    return formattedDate
+  };
+
+  let currentDate = dateConverter(new Date());
+  let selectedCalendarDate = dateConverter(date) 
+  let search = requestSearch.toLowerCase()
+  console.log(search)
 
 
   // Location Needs to be changed per UseState of UsersProfile location
   const neighborhood = openRequests.map((request) =>
-    !request.assigned && request.req_date >= value ? (
+    !request.assigned && request.req_date >= selectedCalendarDate && request.title.toLowerCase().includes(search) ? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );
+
   const currentNeighborhood = openRequests.map((request) =>
-    !request.assigned && request.req_date === value ? (
+    !request.assigned && request.req_date === selectedCalendarDate && request.title.toLowerCase().includes(search) ? (
       <RequestCard key={request.id} request={request} />
     ) : null
   );
@@ -64,12 +55,13 @@ const OpenRequestPage = ({
   return (
     <div className="user-dashboard">
       <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <SidebarNav setDate={setDate} date = {date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch}
+                    requestSearch = {requestSearch}/>
       </div>
       <div className="main-page">
         <h3>Open Request</h3>
         <div className="open-request-page">
-          {currentDate === value ? neighborhood : currentNeighborhood}
+          {currentDate === selectedCalendarDate ? neighborhood : currentNeighborhood}
         </div>
       </div>
     </div>
@@ -77,3 +69,4 @@ const OpenRequestPage = ({
 };
 
 export default OpenRequestPage;
+

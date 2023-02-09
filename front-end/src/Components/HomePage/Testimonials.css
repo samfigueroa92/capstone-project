@@ -72,4 +72,7 @@
     .testimonials p {
         font-size: 0.75rem;
     }
+    .testimonial__img{
+        max-width: 110px;
+    }
 }

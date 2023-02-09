@@ -3,8 +3,8 @@ import SidebarNav from "./SidebarNav";
 import MyRequests from "./MyRequests";
 import OpenRequests from "./OpenRequests";
 import MyFavorites from "./MyFavorites";
-import RequestCard from "./RequestCard";
-import { useState, useEffect, useContext } from "react";
+// import RequestCard from "./RequestCard";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 
 import { UserContext } from "../../Providers/UserProviders";
@@ -21,14 +21,14 @@ const UserDashboard = ({
   applicationUser,
   requests,
   setRequests,
-  stringCurrentDate,
   users,
   openRequests,
   setOpenRequests,
+  setRequestSearch,
+  requestSearch
 }) => {
 
 
-  
   const user = useContext(UserContext);
 
   let route;
@@ -39,7 +39,7 @@ const UserDashboard = ({
   }
 
   const data = JSON.stringify({ uuid: applicationUser.uuid });
-
+  
   const config = {
     method: "post",
     url: `${API}/requests/${route}`,
@@ -57,35 +57,40 @@ const UserDashboard = ({
         .get(`${API}/requests/open_requests`)
         .then((res) => setOpenRequests(res.data));
     }
-  }, [user, applicationUser, openRequests]);
+  }, [user, applicationUser]);
 
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">
-        <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+        <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch} requestSearch = {requestSearch}/>
       </div>
-      <div className="requests">
+      <div className = 'user-dashboard__main-page'>
+      <>
         <div className="my-list">
           <MyRequests
             requests={requests}
             date={date}
-            stringCurrentDate={stringCurrentDate}
+            requestSearch = {requestSearch}
+           
           />
         </div>
-        <div>
+        <div className = 'requests'>
           {applicationUser.user_type === "Volunteer" ? (
             <OpenRequests
               date={date}
               openRequests={openRequests}
-              stringCurrentDate={stringCurrentDate}
+              requestSearch = {requestSearch}
+             
             />
           ) : (
             <MyFavorites users={users} />
           )}
         </div>
+      </>
       </div>
     </div>
   );
 };
 
 export default UserDashboard;
+

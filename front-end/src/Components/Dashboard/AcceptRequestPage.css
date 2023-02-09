@@ -1,34 +1,38 @@
-.main-page{
+.acceptRequestPage__main-page{
     display:grid;
     grid-template-columns: repeat(1,1fr);
     margin-top: 30px;
     margin-bottom: auto;
 }
-.sidebar{
+.sidebar-nav{
     position: sticky;
 }
 
-.main-page h3 .accepted-request{
+.acceptRequestPage__title{
     margin: 0px;
     margin-top: -25px;
     margin-left: 10px;  
 }
 
 
-.main-page h3 .completed{
+/* .main-page h3 .completed{
     margin: 0px;
     margin-left: 10px;  
-}
-.Accepted{
+} */
+.acceptedRequestPage__filter{
     min-height: 200px;
     margin: 15px;
     display: grid;
     margin-top: 30px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
-    gap: 2.5rem
+    gap: 2.5rem;
+    margin-bottom: 5% 
 }
-.pending{
+.top{
+    margin-top: 20px;
+}
+/* .pending{
     min-height: 200px;
     margin: 15px;
     display: grid;
@@ -46,11 +50,11 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
     gap: 2.5rem
-}
-.comphead {
+} */
+/* .comphead {
     padding-top: 40px;
-}
+} */
 
-.accepted-request{
+/* .request{
  padding-top: 30px;
-}
+} */
