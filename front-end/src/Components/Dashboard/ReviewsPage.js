@@ -3,7 +3,7 @@ import { UserContext } from '../../Providers/UserProviders';
 import { Link, useNavigate } from "react-router-dom";
 
 import SidebarNav from "./SidebarNav";
-import Rate from './Rate'
+// import Rate from './Rate'
 import Reviews from "./ReviewCard";
 import "./ReviewsPage.css";
 
@@ -32,7 +32,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
         <br/>
         <h4 className= 'ReviewPage__stars'>Star Rating:</h4>
-        <Rate rating={rating} OnRating={rate=> setRating(rate)} />
+        {/* <Rate rating={rating} OnRating={rate=> setRating(rate)} /> */}
         <h4>Review Count: </h4>
         <p>{reviews.length || 'Review Count'}</p>
         </div>
