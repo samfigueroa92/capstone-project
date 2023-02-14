@@ -58,7 +58,7 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-
+  // console.log(applicationUser.uuid)
   return (
     <div className="App">
       <UserProvider>
