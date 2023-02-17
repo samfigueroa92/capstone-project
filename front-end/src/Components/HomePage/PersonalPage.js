@@ -2,6 +2,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
+//sendingemails
+import emailjs from "emailjs-com";
+import apiKeys from "../ApiKeys/apikeys";
+
 //CSS
 import "./PersonalPage.css";
 
@@ -145,24 +149,35 @@ const PersonalPage = () => {
     agilemethodologies: "",
   });
 
-  const [emailState, setEmailState] = useState({
-      email: {
-      recipient: "",
-      sender: "",
-      subject: "",
-      text: ""
+  const onSubmit=(e)=>{
+    e.preventDefault();
+    emailjs.sendForm("service_3dnjtql", apiKeys.TEMPLATE_ID, e.target, apiKeys.USER_ID)
+    .then(result => {
+    alert('Message Sent, I\'ll get back to you shortly', result.text);
+    },
+    error => {
+    alert( 'An error occured, Plese try again',error.text)
+    })
     }
-  });
 
-  const sendEmail = () => {
-    const {email} = emailState;
-    fetch(`http://127.0.0.1:3305/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`)
-    .catch(err => console.log(err))
-  };
+  // const [emailState, setEmailState] = useState({
+  //     email: {
+  //     recipient: "",
+  //     sender: "",
+  //     subject: "",
+  //     text: ""
+  //   }
+  // });
 
-  const handleSendEmail = (e) => {
-    setEmailState({email: {...emailState.email, recipient: email.samantha}})
-  };
+  // const sendEmail = () => {
+  //   const {email} = emailState;
+  //   fetch(`http://127.0.0.1:3305/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`)
+  //   .catch(err => console.log(err))
+  // };
+
+  // const handleSendEmail = (e) => {
+  //   setEmailState({email: {...emailState.email, recipient: email.samantha}})
+  // };
 
   return (
     <div className="personal">
@@ -201,6 +216,7 @@ const PersonalPage = () => {
             <h2 className="contact-form">Contact Form</h2>
             <form
               className="bottom-center"
+              onSubmit={onSubmit}
               // action={`https://formsubmit.co/${email[staffMember]}`}
               // method="Post"
             >
@@ -212,29 +228,27 @@ const PersonalPage = () => {
                 Subject:
               <input
                 type="text"
-                name="topic"
-                value={emailState.email.topic}
-                onChange={(e) => setEmailState({email: {...emailState.email, topic: e.target.value}})}
+                name="subject"
+                
               />
               </label>
-              {/* <label>
-                Your Name:
-                <input className="email" type="name" value={email.sender} align="left" required />
-              </label> */}
               <label>
-                Your Email:{" "}
-                <input className="email" type="email" vlaue={emailState.email.sender} align="left" required onChange={(e) => setEmailState({email: {...emailState.email, sender: e.target.value}})}
+                Name:
+                <input type="text" name="name"  align="left" required />
+              </label>
+              <label>
+                Your Email:
+                <input className="email" type="email" name="email" align="left" required
  />
               </label>
               <label>
-                Your Message:{" "}
-                <textarea name="message" value={emailState.email.text} rows="4" cols="50" required onChange={(e) => setEmailState({email: {...emailState.email, text: e.target.value}})}
+                Your Message:
+                <textarea name="message" type="text"  rows="4" cols="50" required
 ></textarea>
               </label>
               <br></br>
               <button
                 className="talktoyousoon"
-                onClick={handleSendEmail}
               >
                 Talk To You Soon ...
               </button>
