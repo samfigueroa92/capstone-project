@@ -67,9 +67,9 @@ const OurTeam = () => {
   return (
     <div>
       <div className="teamwork">
-        <div>{"Our Team"}</div>
-        <div>{"Supporting Our Community"}</div>
-        <div>{"One Volunteer at a Time"}</div>
+        <div>Our Team</div>
+        <div>Supporting Our Community</div>
+        <div>One Volunteer at a Time</div>
       </div>
       <div className="quotes">
         <div>

@@ -35,8 +35,8 @@ const DashboardNav = ({ applicationUser }) => {
               <Dropdown.Item onClick={signOut}>Sign-Out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <i className="fa-regular fa-envelope" id="envelope"></i>
-          <i className="fa-regular fa-bell" id="bell"></i>
+          {/* <i className="fa-regular fa-envelope" id="envelope"></i>
+          <i className="fa-regular fa-bell" id="bell"></i> */}
         </Nav>
       </Container>
     </Navbar>

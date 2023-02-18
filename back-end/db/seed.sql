@@ -27,8 +27,8 @@ INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "c
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state") VALUES
 ('CtDxbxLbcFf6YlxbituAP7tSvtE2', 'Adnan','Adams','1991-07-11','1470 davidson Ave','3','Bronx','10434','9173489245','abubakaradnanadams@pursuit.org','','Volunteer','Arabic','NY');
 
-INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state") VALUES
-('KU9EJKYkCQUIHfdnsBMFOKfmJo32','Samantha','Figueroa','1992-07-11','535 Union Ave','708','Bronx','10455','6465151324','samanthafigueroa@pursuit.org','','Volunteer','English','NY');
+INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state", "verified") VALUES
+('KU9EJKYkCQUIHfdnsBMFOKfmJo32','Samantha','Figueroa','1992-07-11','535 Union Ave','708','Bronx','10455','6465151324','samanthafigueroa@pursuit.org','','Volunteer','English','NY', 'TRUE');
 
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto","languages", "user_type", "state","verified") VALUES
 ('b8yL5YJZqXVWJPr3OkW0CQb98mu2', 'Cassandra', 'Oliver', '2023-10-01', '123 Fake Ave','','Bronx','10220','2028703049', 'cassandraoliver91@gmail.com', 'https://media-exp1.licdn.com/dms/image/D5603AQGGZ-qNh8vcJA/profile-displayphoto-shrink_800_800/0/1670167152785?e=1675900800&v=beta&t=irHW96Z4AMj5yWQluHHkGTCslbsG7wqdswIwa2gGVDA','Spanish', 'Senior','NY','TRUE' );

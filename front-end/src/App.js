@@ -8,8 +8,7 @@ import SignUpPage from "./Components/Dashboard/SignUpPage";
 import Home from "./Components/HomePage/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
-import SeniorsPage from "./Components/HomePage/SeniorsPage";
-import VolunteerPage from "./Components/HomePage/VolunteerPage";
+import Faq from "./Components/HomePage/Faq";
 import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard";
 import OpenRequestPage from "./Components/Dashboard/OpenRequestPage";
@@ -19,7 +18,7 @@ import NewRequestForm from "./Components/Dashboard/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements";
-import Unprotected from "./Components/Unprotected";
+// import Unprotected from "./Components/Unprotected";
 import EditRequest from "./Components/Dashboard/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 
@@ -27,16 +26,13 @@ import Footer from "./Components/HomePage/Footer";
 import "./App.css";
 import PersonalPage from "./Components/HomePage/PersonalPage";
 
-//API
-const API = process.env.REACT_APP_BACKEND_API_KEY;
-
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [date, setDate] = useState(new Date());
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -70,72 +66,14 @@ const App = () => {
             setApplicationUser={setApplicationUser}
           />
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <Home />
-                </Unprotected>
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route
               path="/sign-up"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <SignUpPage setApplicationUser={setApplicationUser} />
-                </Unprotected>
-              }
+              element={<SignUpPage setApplicationUser={setApplicationUser} />}
             />
-            <Route
-              path="/volunteers"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <VolunteerPage />
-                </Unprotected>
-              }
-            />
-            <Route
-              path="/seniors"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <SeniorsPage />
-                </Unprotected>
-              }
-            />
-            <Route
-              path="/our-team"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <OurTeam />
-                </Unprotected>
-              }
-            />
-            <Route
-              path="/our-page/:staffMember"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <PersonalPage />
-                </Unprotected>
-              }
-            />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/our-page/:staffMember" element={<PersonalPage />} />
             <Route
               path="/achievements"
               element={
@@ -165,7 +103,7 @@ const App = () => {
               element={
                 <Protected>
                   <UserDashboard
-                    users={users}
+                    // users={users}
                     date={date}
                     setDate={setDate}
                     applicationUser={applicationUser}

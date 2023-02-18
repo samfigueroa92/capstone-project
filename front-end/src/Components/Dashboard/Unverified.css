@@ -1,0 +1,32 @@
+.Unverified{
+    width: 50%;
+    margin: 100px auto;
+    border: 3px solid #42999B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+    box-shadow: 12px 12px 2px 1px #42999B;
+}
+
+.Unverified img{
+    width: 150px;
+    margin: 10px;
+}
+
+.Unverified_content_header{
+    font-size: xx-large;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.Unverified_content_text{
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+    font-size: larger;
+}

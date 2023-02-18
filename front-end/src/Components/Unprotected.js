@@ -1,16 +1,16 @@
 //DEPENDENCIES
-import { useContext } from "react";
-import { UserContext } from "../Providers/UserProviders";
-import { Navigate } from "react-router-dom";
+// import { useContext } from "react";
+// import { UserContext } from "../Providers/UserProviders";
+// import { Navigate } from "react-router-dom";
 
-const Unprotected = ({ children }) => {
-  const user = useContext(UserContext);
+// const Unprotected = ({ children }) => {
+//   const user = useContext(UserContext);
 
-  if (user) {
-    return <Navigate to="/user-dashboard" />;
-  }
+//   if (user) {
+//     return <Navigate to="/user-dashboard" />;
+//   }
 
-  return children;
-};
+//   return children;
+// };
 
-export default Unprotected;
+// export default Unprotected;
