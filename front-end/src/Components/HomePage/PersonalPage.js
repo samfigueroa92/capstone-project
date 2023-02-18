@@ -160,25 +160,6 @@ const PersonalPage = () => {
     })
     }
 
-  // const [emailState, setEmailState] = useState({
-  //     email: {
-  //     recipient: "",
-  //     sender: "",
-  //     subject: "",
-  //     text: ""
-  //   }
-  // });
-
-  // const sendEmail = () => {
-  //   const {email} = emailState;
-  //   fetch(`http://127.0.0.1:3305/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`)
-  //   .catch(err => console.log(err))
-  // };
-
-  // const handleSendEmail = (e) => {
-  //   setEmailState({email: {...emailState.email, recipient: email.samantha}})
-  // };
-
   return (
     <div className="personal">
       <div className="upper">
@@ -217,8 +198,6 @@ const PersonalPage = () => {
             <form
               className="bottom-center"
               onSubmit={onSubmit}
-              // action={`https://formsubmit.co/${email[staffMember]}`}
-              // method="Post"
             >
               <p>
                 Interested in working with me or just want to say hello? Don't
