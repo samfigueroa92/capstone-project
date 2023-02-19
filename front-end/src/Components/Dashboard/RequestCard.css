@@ -1,14 +1,19 @@
 /* .req-card-details {
-  display: grid;
+  /* display: grid;
   margin-top: 2rem;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 2.5rem;
-} */
+  column-gap: 2.5rem; */
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
+/* }  */
 .req-card {
   background-color: white;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
+  /* width: calc(33.33% - 10px);
+  margin-bottom: 20px; */
   /* margin-bottom: 5px; */
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
@@ -63,6 +68,15 @@
     /* margin-left: 8px; */
     margin-top: 8px;
     color: white;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .req-card-details {
+      
+    }
+    .req-card {
+      
+    }
   }
 
 

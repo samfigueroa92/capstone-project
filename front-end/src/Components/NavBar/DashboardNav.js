@@ -35,7 +35,9 @@ const DashboardNav = ({ applicationUser }) => {
               {applicationUser.verified ? (
                 <i className="fa-solid fa-circle-check"></i>
               ) : null}
+              <div className="person-name">
               {displayName.split(" ").shift()}
+              </div>
             </Dropdown.Toggle>
             <Dropdown.Menu>
 
