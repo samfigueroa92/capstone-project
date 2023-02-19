@@ -55,15 +55,15 @@
 }
 
 
- @media screen and (max-width: 1024px){ 
+@media only screen and (max-width: 767px) {
 .hidden {
     display: none;
   }
   #dropdown {
     display: none;
   }
-  /* .person-name {
-    display: none;
-  } */
+  .dash-navbar img {
+    width: 250px;
+  }
 } 
 
