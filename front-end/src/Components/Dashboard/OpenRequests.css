@@ -1,8 +1,18 @@
 .open-requests{
+    width: 100%;
+    /* display: flex; */
+    justify-content: center;
+    margin: 10px 0;
+    /* flex-direction:row; */
+
+
+
+
+
     margin: 15px;
     display: grid;
     margin-top: 2rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 2.5rem;
     /* overflow-x: scroll; */
      /* overflow-y: scroll; */
@@ -27,4 +37,16 @@
 
 .head {
     margin-left: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .head {
+        text-align: center;
+    }
+    .open-requests {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+    }
 }
