@@ -2,7 +2,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import { signOut } from "../../Services/Firebase";
 import { UserContext } from "../../Providers/UserProviders";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 
 //Bootstrap
@@ -11,6 +11,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 
+// ICONS 
+// import { MdArrowDropDown } from "react-icons/md"
+
 //CSS Import
 import "./DashboardNav.css";
 
@@ -18,6 +21,11 @@ const DashboardNav = ({ applicationUser }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
+
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
 
   return (
@@ -29,7 +37,10 @@ const DashboardNav = ({ applicationUser }) => {
       </Navbar.Brand>
       <Container className="dashboard-nav">
         <Nav className="me-auto.">
-          <img src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
+          {/* <div className="yet" > */}
+          <img onClick={handleClick} src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
+          {/* </div> */}
+          
           <Dropdown>
             <Dropdown.Toggle id="dropdown">
               {applicationUser.verified ? (
@@ -49,10 +60,73 @@ const DashboardNav = ({ applicationUser }) => {
               <Dropdown.Item onClick={signOut}>Sign-Out </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          {/* <i className="fa-regular fa-envelope" id="envelope"></i>
-          <i className="fa-regular fa-bell" id="bell"></i> */}
         </Nav>
       </Container>
+      {/* <ul className={click ? "nav-menu active" : "nav-menu"}>
+        <li className="nav-item">
+          <Link
+            to="/user-dashboard"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            User-Dashboard
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/accepted-requests"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Accepted Request
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/browse-requests"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Browse Request
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/achievements"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Achievements
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/reviews"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Reviews
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/settings"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Settings
+          </Link>
+        </li>  */}
+        {/* <button className="nav-item">
+          <Link
+            to="/reviews"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            SignOUt
+          </Link>
+        </button> */}
+         {/* </ul> */}
     </Navbar>
   );
 };
