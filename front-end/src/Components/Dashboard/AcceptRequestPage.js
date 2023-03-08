@@ -1,6 +1,7 @@
 //Components
 import SidebarNav from "./SidebarNav";
 import RequestCard from "./RequestCard";
+import ZeroRequests from "./ZeroRequests";
 
 //CSS
 import "./AcceptRequestPage.css";
@@ -42,13 +43,13 @@ const AcceptRequestPage = ({
       <div className="main-page">
         <h3 className="accepted-request">Accepted Requests</h3>
         <div className="Accepted">
-          {acceptedRequestFilter}
+          {acceptedRequestFilter.length > 0 ? acceptedRequestFilter : <ZeroRequests />}
         </div>
         {applicationUser.user_type === "Senior" ? <h3 className="comphead">Pending Requests</h3> : null}
-        {pendingRequestFilter}
+        {applicationUser.user_type === "Senior" && (pendingRequestFilter.length > 0 ? pendingRequestFilter : <ZeroRequests />)}
         <h3 className="comphead">Completed Requests</h3>
         <div className="History">
-          {completedRequestFilter}
+          {completedRequestFilter.length > 0 ? completedRequestFilter : <ZeroRequests />}
         </div>
       </div>
     </div>

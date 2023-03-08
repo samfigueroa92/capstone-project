@@ -45,12 +45,13 @@ const SignUpPage = ({setApplicationUser}) => {
     languages: "",
     verification_type: "",
   });
+  console.log(user)
 
   useEffect(() => {
     const submitUser = async () => {
       if (user?.uid) {
         axios
-        .post(`${API}/users`, { ...newUser, uuid: user.uid })
+        .post(`${API}/users`, { ...newUser, uuid: user.uid, profilephoto: newUser.profilephoto ? newUser.profilephoto : user.photoURL })
         .then(res => {
           if(res.data.payload.uuid){
             setAuthErrors([]);

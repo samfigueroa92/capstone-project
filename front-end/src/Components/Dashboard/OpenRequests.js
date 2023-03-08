@@ -1,5 +1,6 @@
 //Components
 import RequestCard from "./RequestCard";
+import ZeroRequests from "./ZeroRequests";
 
 //CSS
 import "./OpenRequests.css";
@@ -29,7 +30,7 @@ const OpenRequests = ({ openRequests, date }) => {
     <>
     <h3 className="head">Open Requests</h3>
     <div className="open-requests">
-        {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
+        {requestFilter.length > 0 ? requestFilter : <ZeroRequests />}
     </div>
     </>
   );
