@@ -1,6 +1,7 @@
 //Component Import
 import SidebarNav from "./SidebarNav";
 import RequestCard from "./RequestCard";
+import ZeroRequests from "./ZeroRequests";
 
 //CSS Imports
 import "./OpenRequestPage.css";
@@ -40,6 +41,17 @@ const OpenRequestPage = ({
     ) : null
   );
 
+  const renderContent = () => {
+    if(openRequests.length === 0){
+      return <ZeroRequests />
+    }else{
+      if(currentDate === selectedCalendarDate){
+        return neighborhood;
+      }
+      return currentNeighborhood;
+    }
+  };
+
   return (
     <div className="user-dashboard">
       <div className='sidebar-nav'>
@@ -48,7 +60,7 @@ const OpenRequestPage = ({
       <div className="main-page">
         <h3>Open Request</h3>
         <div className="open-request-page">
-          {currentDate === selectedCalendarDate ? neighborhood : currentNeighborhood}
+          {renderContent()}
         </div>
       </div>
     </div>

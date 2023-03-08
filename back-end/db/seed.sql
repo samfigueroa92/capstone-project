@@ -1,4 +1,7 @@
 \c task_capstone
 
-INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "state", "zipcode", "phonenumber", "email", "verified", "user_type") VALUES
-('zR8PxXG7Vthw8kMADxFgHgTb2Nt2','Samantha','Figueroa', '1992-07-11', '136281 Himalayan Rock Salt Quarry', '1','Staten Island', 'NY', '18221','215664211','samanthafigueroa@pursuit.org','TRUE', 'Volunteer');
+INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "state", "zipcode", "phonenumber", "email", "verified", "user_type", "profilephoto") VALUES
+('zR8PxXG7Vthw8kMADxFgHgTb2Nt2','Samantha','Figueroa', '1992-07-11', '136281 Himalayan Rock Salt Quarry', '1','Staten Island', 'NY', '18221','215664211','samanthafigueroa@pursuit.org','TRUE', 'Volunteer', ''), ('KRpB4t5K0MNr2ew5iBIeBDGNpCq2', 'Cassandra', 'Oliver', '1960-08-16', '123 Fake St', '11C', 'Bronx', 'NY', '12345', '1234567890', 'cassandraoliver91@gmail.com', 'TRUE', 'Senior', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg');
+
+INSERT INTO requests ("elder_id", "elder_img","req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','2023-04-14','Saturday Grocery Shopping','I have a grocery list of items that I need. Unfortunately I am wheelchair bond and cant go to the grocery store by myself. I also need support bring the items in. Usually I order the items in advance and just need pick up', 'Manhattan', '10:00','FALSE', 'FALSE','https://static01.nyt.com/images/2021/03/28/multimedia/28ah-groceryshopping/merlin_176693118_cf0140b2-6ec3-47ee-9afa-b413d138897c-superJumbo.jpg');
