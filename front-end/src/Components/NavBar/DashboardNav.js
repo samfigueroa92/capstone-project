@@ -37,11 +37,32 @@ const DashboardNav = ({ applicationUser }) => {
       </Navbar.Brand>
       <Container className="dashboard-nav">
         <Nav className="me-auto.">
-          <div className="yet" onClick={handleClick}>
-            {/* {console.log("hey")} */}
-          <img src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
-          </div>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
+          {/* <div className="yet" > */}
+          <img onClick={handleClick} src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
+          {/* </div> */}
+          
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown">
+              {applicationUser.verified ? (
+                <i className="fa-solid fa-circle-check"></i>
+              ) : null}
+              <div className="person-name">
+              {displayName.split(" ").shift()}
+              </div>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+
+            
+               <Dropdown.Item onClick={()=>{navigate('/user/settings')}}>
+                Settings <i className="fa-sharp fa-solid fa-gear"></i>
+                </Dropdown.Item>
+          
+              <Dropdown.Item onClick={signOut}>Sign-Out </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav>
+      </Container>
+      {/* <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li className="nav-item">
           <Link
             to="/user-dashboard"
@@ -95,8 +116,8 @@ const DashboardNav = ({ applicationUser }) => {
           >
             Settings
           </Link>
-        </li>
-        <button className="nav-item">
+        </li>  */}
+        {/* <button className="nav-item">
           <Link
             to="/reviews"
             className="nav-links"
@@ -104,29 +125,8 @@ const DashboardNav = ({ applicationUser }) => {
           >
             SignOUt
           </Link>
-        </button>
-        </ul>
-          <Dropdown>
-            <Dropdown.Toggle id="dropdown">
-              {applicationUser.verified ? (
-                <i className="fa-solid fa-circle-check"></i>
-              ) : null}
-              <div className="person-name">
-              {displayName.split(" ").shift()}
-              </div>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-
-            
-               <Dropdown.Item onClick={()=>{navigate('/user/settings')}}>
-                Settings <i className="fa-sharp fa-solid fa-gear"></i>
-                </Dropdown.Item>
-          
-              <Dropdown.Item onClick={signOut}>Sign-Out </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Nav>
-      </Container>
+        </button> */}
+         {/* </ul> */}
     </Navbar>
   );
 };
