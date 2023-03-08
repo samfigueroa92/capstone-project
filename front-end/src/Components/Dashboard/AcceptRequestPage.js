@@ -46,7 +46,7 @@ const AcceptRequestPage = ({
           {acceptedRequestFilter.length > 0 ? acceptedRequestFilter : <ZeroRequests />}
         </div>
         {applicationUser.user_type === "Senior" ? <h3 className="comphead">Pending Requests</h3> : null}
-        {pendingRequestFilter.length > 0 ? pendingRequestFilter : <ZeroRequests />}
+        {applicationUser.user_type === "Senior" && (pendingRequestFilter.length > 0 ? pendingRequestFilter : <ZeroRequests />)}
         <h3 className="comphead">Completed Requests</h3>
         <div className="History">
           {completedRequestFilter.length > 0 ? completedRequestFilter : <ZeroRequests />}
