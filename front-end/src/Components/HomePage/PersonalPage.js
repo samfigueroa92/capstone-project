@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 //sendingemails
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 import apiKeys from "../ApiKeys/apikeys";
 
 //CSS
@@ -149,16 +149,16 @@ const PersonalPage = () => {
     agilemethodologies: "",
   });
 
-  const onSubmit=(e)=>{
-    e.preventDefault();
-    emailjs.sendForm("service_3dnjtql", apiKeys.TEMPLATE_ID, e.target, apiKeys.USER_ID)
-    .then(result => {
-    alert('Message Sent, I\'ll get back to you shortly', result.text);
-    },
-    error => {
-    alert( 'An error occured, Plese try again',error.text)
-    })
-    }
+  // const onSubmit=(e)=>{
+  //   e.preventDefault();
+  //   emailjs.sendForm("service_3dnjtql", apiKeys.TEMPLATE_ID, e.target, apiKeys.USER_ID)
+  //   .then(result => {
+  //   alert('Message Sent, I\'ll get back to you shortly', result.text);
+  //   },
+  //   error => {
+  //   alert( 'An error occured, Plese try again',error.text)
+  //   })
+  //   }
 
   return (
     <div className="personal">
@@ -197,7 +197,7 @@ const PersonalPage = () => {
             <h2 className="contact-form">Contact Form</h2>
             <form
               className="bottom-center"
-              onSubmit={onSubmit}
+              // onSubmit={onSubmit}
             >
               <p>
                 Interested in working with me or just want to say hello? Don't
