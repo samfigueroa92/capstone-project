@@ -45,7 +45,6 @@ const SignUpPage = ({setApplicationUser}) => {
     languages: "",
     verification_type: "",
   });
-  console.log(user)
 
   useEffect(() => {
     const submitUser = async () => {

@@ -8,6 +8,7 @@
     flex-direction: column;
     padding: 15px;
     box-shadow: 5px 5px 2px 1px #42999B;
+    border-radius: 10px;
 }
 
 .ZeroRequests img{
