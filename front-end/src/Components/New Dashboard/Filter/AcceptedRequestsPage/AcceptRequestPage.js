@@ -1,16 +1,17 @@
 //Components
-import SidebarNav from "./SidebarNav";
-import RequestCard from "./RequestCard";
-import ZeroRequests from "./ZeroRequests";
+import RequestCard from "../RequestCard/RequestCard";
+import ZeroRequests from "../ZeroRequests/ZeroRequests";
 
 //CSS
-import "./AcceptRequestPage.css";
+import "./AcceptRequestPage.css"
 
 const AcceptRequestPage = ({
   date,
   setDate,
   applicationUser,
   requests,
+  setRequestSearch,
+  requestSearch
 }) => {
   
   const dateConverter = (specifiedDate) => {
@@ -37,9 +38,7 @@ const AcceptRequestPage = ({
   
   return (
     <div className="user-dashboard">
-      <div className='sidebar-nav'>
-      <SidebarNav setDate={setDate} date={date} applicationUser={applicationUser} />
-      </div>
+      
       <div className="main-page">
         <h3 className="accepted-request">Accepted Requests</h3>
         <div className="Accepted">

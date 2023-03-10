@@ -10,29 +10,20 @@ import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import Faq from "./Components/HomePage/Faq";
 import OurTeam from "./Components/HomePage/OurTeam";
-import UserDashboard from "./Components/Dashboard/UserDashboard";
-import OpenRequestPage from "./Components/Dashboard/OpenRequestPage";
-import RequestDetails from "./Components/Dashboard/RequestDetails";
-import Settings from "./Components/Dashboard/Settings";
-import NewRequestForm from "./Components/Dashboard/NewRequestForm";
+import RequestPage from "./Components/New Dashboard/Pages/RequestDetails/RequestPage";
 import Protected from "./Components/Protected";
-import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
-import Achievements from "./Components/Dashboard/Achievements";
-// import Unprotected from "./Components/Unprotected";
-import EditRequest from "./Components/Dashboard/EditRequest";
+import EditRequest from "./Components/New Dashboard/Pages/EditRequest/EditRequest";
 import Footer from "./Components/HomePage/Footer";
+import PersonalPage from "./Components/HomePage/PersonalPage";
+import NewDashboard from "./Components/New Dashboard/NewDashboard"
 
 //CSS
 import "./App.css";
-import PersonalPage from "./Components/HomePage/PersonalPage";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [date, setDate] = useState(new Date());
-  //Specific to person
-  const [requests, setRequests] = useState([]);
-  const [openRequests, setOpenRequests] = useState([]);
-  // const [users, setUsers] = useState([]);
+  const [dashboardFilter, setDashboardFilter] = useState('main');
+  const [location, setLocation] = useState('');
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -51,7 +42,7 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-
+ 
   return (
     <div className="App">
       <UserProvider>
@@ -74,54 +65,17 @@ const App = () => {
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/our-page/:staffMember" element={<PersonalPage />} />
+
             <Route
-              path="/achievements"
+              path="/dashboard"
               element={
                 <Protected>
-                  <Achievements
-                    setDate={setDate}
+                  <NewDashboard
                     applicationUser={applicationUser}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="/browse-requests"
-              element={
-                <Protected>
-                  <OpenRequestPage
-                    date={date}
-                    setDate={setDate}
-                    openRequests={openRequests}
-                    applicationUser={applicationUser}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="/user-dashboard"
-              element={
-                <Protected>
-                  <UserDashboard
-                    // users={users}
-                    date={date}
-                    setDate={setDate}
-                    applicationUser={applicationUser}
-                    requests={requests}
-                    setRequests={setRequests}
-                    openRequests={openRequests}
-                    setOpenRequests={setOpenRequests}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="/requests/new"
-              element={
-                <Protected>
-                  <NewRequestForm
-                    applicationUser={applicationUser}
-                    setDate={setDate}
+                    dashboardFilter={dashboardFilter}
+                    setDashboardFilter={setDashboardFilter}
+                    location={location}
+                    setLocation={setLocation}
                   />
                 </Protected>
               }
@@ -130,10 +84,10 @@ const App = () => {
               path="/requests/:id"
               element={
                 <Protected>
-                  <RequestDetails
-                    setDate={setDate}
-                    date={date}
+                  <RequestPage
                     applicationUser={applicationUser}
+                    dashboardFilter={dashboardFilter}
+                    setDashboardFilter={setDashboardFilter}
                   />
                 </Protected>
               }
@@ -144,46 +98,7 @@ const App = () => {
                 <Protected>
                   <EditRequest
                     applicationUser={applicationUser}
-                    setDate={setDate}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="/user/settings"
-              element={
-                <Protected>
-                  <Settings
-                    applicationUser={applicationUser}
-                    setDate={setDate}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="accepted-requests"
-              element={
-                <Protected>
-                  <AcceptRequestPage
-                    date={date}
-                    setDate={setDate}
-                    applicationUser={applicationUser}
-                    requests={requests}
-                    setRequests={setRequests}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="submitted-requests"
-              element={
-                <Protected>
-                  <AcceptRequestPage
-                    date={date}
-                    setDate={setDate}
-                    applicationUser={applicationUser}
-                    requests={requests}
-                    setRequests={setRequests}
+                    setDashboardFilter={setDashboardFilter}
                   />
                 </Protected>
               }

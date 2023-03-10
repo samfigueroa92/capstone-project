@@ -2,11 +2,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from '../../Providers/UserProviders';
+import { UserContext } from '../../../../Providers/UserProviders';
 import { useContext } from "react";
-
-//Component
-import SidebarNav from "./SidebarNav";
 
 //Bootstrap
 import Form from "react-bootstrap/Form";
@@ -16,7 +13,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 //CSS
-import "./Settings.css";
+import "./Profile.css";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -24,7 +21,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
 
-function Settings({ applicationUser, setDate }) {
+function Profile({ applicationUser, setDate }) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
   const user = useContext(UserContext);
@@ -57,7 +54,7 @@ function Settings({ applicationUser, setDate }) {
       .put(`${API}/users/${applicationUser.uuid}`, updatedUser)
       .then(
         () => {
-          navigate(`/user-dashboard`);
+          navigate(`/dashboard`);
         },
         (error) => console.error(error)
       )
@@ -75,7 +72,7 @@ function Settings({ applicationUser, setDate }) {
 
   return (
     <div className="profileInfo">
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+    
       <Container className="settings">
         <h3 className="settings-header">Update Your Profile</h3>
         <div className="profile-image">
@@ -228,4 +225,4 @@ function Settings({ applicationUser, setDate }) {
   );
 }
 
-export default Settings;
+export default Profile;

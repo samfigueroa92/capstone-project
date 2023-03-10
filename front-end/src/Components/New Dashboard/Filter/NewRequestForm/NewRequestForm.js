@@ -3,10 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
-import { UserContext } from "../../Providers/UserProviders";
-
-//Components
-import SidebarNav from "./SidebarNav";
+import { UserContext } from "../../../../Providers/UserProviders";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
@@ -21,13 +18,12 @@ import "./NewRequestForm.css";
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = ({ applicationUser, setDate }) => {
+const NewRequestForm = ({ applicationUser, setDashboardFilter }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
 
   // CREATE OR ADD A NEW REQUEST
   const makeRequest = (newRequest) => {
-    debugger;
     axios
       .post(`${API}/requests/new-request`, {
         ...newRequest,
@@ -35,7 +31,7 @@ const NewRequestForm = ({ applicationUser, setDate }) => {
       })
       .then(
         () => {
-          navigate("/user-dashboard");
+          navigate("/dashboard");
         },
         (error) => console.error(error)
       )
@@ -44,6 +40,7 @@ const NewRequestForm = ({ applicationUser, setDate }) => {
 
   const [request, setRequest] = useState({
     elder_id: "",
+    // elder_img: applicationUser.profilephoto,
     title: "",
     req_date: "",
     description: "",
@@ -61,11 +58,10 @@ const NewRequestForm = ({ applicationUser, setDate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     makeRequest(request);
+    setDashboardFilter('main');
   };
 
   return (
-    <div className="new-req">
-      <SidebarNav setDate={setDate} applicationUser={applicationUser} />
       <Container className="request-form">
         <h3>Submit A Request</h3>
         <Form onSubmit={handleSubmit}>
@@ -146,7 +142,6 @@ const NewRequestForm = ({ applicationUser, setDate }) => {
           </div>
         </Form>
       </Container>
-    </div>
   );
 };
 

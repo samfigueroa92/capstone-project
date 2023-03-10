@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 //Components
-import SidebarNav from "./SidebarNav";
+import SidebarNav from "../../SideBar/SidebarNav";
 
 //CSS
 import "./EditRequest.css";
@@ -43,7 +43,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
     axios
       .put(`${API}/requests/edit_req/${id}`, editedRequest)
       .then((res) => setEditedRequest(res.data))
-      .then(() => navigate("/user-dashboard"))
+      .then(() => navigate("/dashboard"))
       .catch((error) => console.error(error));
   };
 
@@ -58,7 +58,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
 
   const handleDelete = () => {
     axios.delete(`${API}/requests/delete_req/${id}`)
-    .then(() => navigate("/user-dashboard"))
+    .then(() => navigate("/dashboard"))
     .catch(err => console.error(err))
   }
 

@@ -1,13 +1,15 @@
 .open-requests{
-    margin: 15px;
+    /* margin: 15px; */
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 2.5rem;
+    height: 350px;
+    /* column-gap: 1.5rem; */
     /* overflow-x: scroll; */
      /* overflow-y: scroll; */
-     gap: 2.5rem;
+     /* gap: 1vh; */
 }
+
 
 /* .open-list{
     display: flex;
@@ -28,3 +30,10 @@
 .head {
     margin-left: 10px;
 }
+
+ /* @media screen and (min-width: 400px) {
+    .open-requests{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}  */
