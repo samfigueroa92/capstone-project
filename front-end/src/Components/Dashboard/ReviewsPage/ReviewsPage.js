@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from '../../Providers/UserProviders';
+import { UserContext } from '../../../Providers/UserProviders';
 import { Link, useNavigate } from "react-router-dom";
 
-import SidebarNav from "./SidebarNav";
+import SidebarNav from "../SideNav/SidebarNav";
 // import Rate from './Rate'
-import Reviews from "./ReviewCard";
+import Reviews from "../ReviewCard/ReviewCard";
 import "./ReviewsPage.css";
 
 

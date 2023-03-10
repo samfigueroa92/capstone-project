@@ -10,8 +10,8 @@ import "./RequestDetails.css";
 import Button from "react-bootstrap/Button";
 
 //Components
-import SidebarNav from "./SidebarNav";
-import ReviewForm from "./ReviewForm";
+import SidebarNav from "../SideNav/SidebarNav";
+import ReviewForm from "../ReviewForm/ReviewForm";
 
 const RequestDetails = ({
   setDate,

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 //Component Import
-import CalendarView from "./CalendarView";
+import CalendarView from "../CalenderView/CalendarView";
 
 //CSS Import
 import "./SidebarNav.css";
