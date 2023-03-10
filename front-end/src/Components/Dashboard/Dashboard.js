@@ -6,15 +6,11 @@ import SidebarNav from "./SideBar/SidebarNav";
 import DashboardFilter from "./DashboardFilter";
 
 //CSS
-import "./NewDashboard.css";
+import "./Dashboard.css";
 
-const NewDashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration}) => {
+const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration}) => {
     const [date, setDate] = useState(new Date());
     const [requestSearch, setRequestSearch] = useState("");
-
-    //Specific to person
-    const [users, setUsers] = useState([]);
-  
   
     return (
       <div className="dashboard">
@@ -43,4 +39,4 @@ const NewDashboard = ({applicationUser, dashboardFilter, setDashboardFilter, set
     );
   };
 
-export default NewDashboard;
+export default Dashboard;

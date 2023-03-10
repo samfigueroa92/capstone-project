@@ -4,18 +4,18 @@ import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
-import SignUpPage from "./Components/Dashboard/SignUpPage";
+import SignUpPage from "./Components/HomePage/SignUpPage";
 import Home from "./Components/HomePage/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import Faq from "./Components/HomePage/Faq";
 import OurTeam from "./Components/HomePage/OurTeam";
-import RequestPage from "./Components/New Dashboard/Pages/RequestDetails/RequestPage";
+import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
 import Protected from "./Components/Protected";
-import EditRequest from "./Components/New Dashboard/Pages/EditRequest/EditRequest";
+import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
-import NewDashboard from "./Components/New Dashboard/NewDashboard"
+import NewDashboard from "./Components/Dashboard/Dashboard"
 
 //CSS
 import "./App.css";
