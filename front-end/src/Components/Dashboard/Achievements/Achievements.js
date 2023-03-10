@@ -1,6 +1,6 @@
 // Components
-import SvgIcon from "../ComingSoon/SvgIcon";
-import SidebarNav from "./SidebarNav";
+import SvgIcon from "../ComingSoon/SvgIcon.js"
+import SidebarNav from "../SideNav/SidebarNav";
 
 // CSS
 import "./Achievements.css";

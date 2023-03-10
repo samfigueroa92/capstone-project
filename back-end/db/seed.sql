@@ -54,7 +54,7 @@ INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "c
 
 --3
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','Vaughn','Greene','1992-01-06','5600 Paddington Pl.','204','Spotsylvania','22553','9179355199','vgreen.me@com','','Senior','English','VA') ;
+('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','Abubakar','Sidick Adams','1993-02-06','979 Brook Ave','33','Bronx','10451','7189734887','abuadnanadams@gmail.com','','Senior','English','NY') ;
 
 --4
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state") VALUES

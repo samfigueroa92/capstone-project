@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from "react";
 
 //Import Components
-import SidebarNav from "./SidebarNav";
-import RequestCard from "./RequestCard";
+import SidebarNav from "../SideNav/SidebarNav";
+import RequestCard from "../RequestCard/RequestCard";
 
 //Import CSS
-import "./AcceptRequestPage.css";
+import "../AcceptedRequestPage/AcceptRequestPage.css";
 
 const AcceptRequestPage = ({
   date,
