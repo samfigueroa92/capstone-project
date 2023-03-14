@@ -13,7 +13,7 @@ const OurTeam = () => {
   });
 
   const STAFFBIOS = {
-    sam: "Hello, my name is Samantha. I currently work as the Adminstrative and Communications Associate for World Day of Prayer International. While redesigning their website I realized I had an interest in and enjoyed web development. After being referred to Pursuit by a friend, I decided it was time to bring my passion for helping others and interest in building useful and innovative websites into the world of tech. In my freetime I enjoy playing video games and learning how to roller skate.",
+    sam: "Currently I work as the Adminstrative Associate for World Day of Prayer International. While redesigning their website I realized I had an interest in and enjoyed web development. After being referred to Pursuit by a friend, I decided it was time to bring my passion for helping others and interest in building useful and innovative websites into the world of tech. The idea for GoldenSolutions came out of my desire to help my elderly grandmother every time she called me to tell me about something she wanted to get done and couldn't manage to do alone. Unfortunately, with her living in Puerto Rico and me in New York, there wasn't much I could do. ",
   };
 
   const handleLearnMore = (teamMate) => {
