@@ -1,8 +1,8 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { UserProvider, UserContext } from "./Providers/UserProviders";
+import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
 import SignUpPage from "./Components/HomePage/SignUpPage";
@@ -16,7 +16,7 @@ import Protected from "./Components/Protected";
 import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
-import Dashboard from "./Components/Dashboard/Dashboard"
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 //CSS
 import "./App.css";
@@ -49,7 +49,7 @@ const App = () => {
     verification_type: "",
   });
 
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
 
   let route;
 
