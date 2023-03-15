@@ -114,6 +114,9 @@ const App = () => {
           <NavBar
             setModalOpen={setModalOpen}
             applicationUser={applicationUser}
+            setDashboardFilter={setDashboardFilter}
+            render = {render}
+            setRender = {setRender}
           />
           <LoginModal
             modalOpen={modalOpen}
