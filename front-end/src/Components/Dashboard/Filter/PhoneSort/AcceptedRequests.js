@@ -1,5 +1,3 @@
-import { FaCommentsDollar } from 'react-icons/fa';
-
 import RequestCard from '../RequestCard/RequestCard';
 
 import '../BrowseRequests/BrowseRequests.css';
@@ -11,37 +9,37 @@ function AcceptedRequests({
   
 ) {
   
-    const dateConverter = (specifiedDate) => {
-        const fullYear = specifiedDate?.getFullYear();
-        const month = specifiedDate?.getMonth() + 1;
-        const paddedMonth = month.toString().padStart(2, "0");
-        const currentDate = specifiedDate?.getDate();
-        const paddedDate = currentDate.toString().padStart(2, "0");
-    
-        const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-    
-        return formattedDate;
-      };
+  const dateConverter = (specifiedDate) => {
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2, "0");
+    const currentDate = specifiedDate?.getDate();
+    const paddedDate = currentDate.toString().padStart(2, "0");
 
-    let currentDate = dateConverter(new Date());
-    let search = requestSearch?.toLowerCase() || '';
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
 
-    let requestsByDate = requests?.filter((request) => currentDate <= request.req_date)
+    return formattedDate;
+  };
 
-  // filter by search
-    let requestsBySearch = requestsByDate?.filter((request) => request.title.toLowerCase().includes(search))
+let currentDate = dateConverter(new Date());
+let search = requestSearch?.toLowerCase() || '';
 
-    const acceptedRequestFilter = requestsBySearch?.map((request) => {
-    if (request.assigned) {
-      return (
-        <RequestCard
-          key={request.id}
-          request={request}
-          applicationUser={applicationUser}
-        />
-      );
-    }
-  })
+let requestsByDate = requests?.filter((request) => currentDate <= request.req_date)
+
+// filter by search
+let requestsBySearch = requestsByDate?.filter((request) => request.title.toLowerCase().includes(search))
+
+const acceptedRequestFilter = requestsBySearch?.map((request) => {
+if (request.assigned) {
+  return (
+    <RequestCard
+      key={request.id}
+      request={request}
+      applicationUser={applicationUser}
+    />
+  );
+}
+})
 
   return (
     <>
