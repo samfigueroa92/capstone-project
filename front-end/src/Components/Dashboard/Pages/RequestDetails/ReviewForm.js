@@ -14,12 +14,12 @@ import Button from "react-bootstrap/Button";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const RequestReviewForm = ({ applicationUser, request }) => {
+const RequestReviewForm = ({ applicationUser, request, setReviewFormRevealed }) => {
   let navigate = useNavigate()
 
   const { id } = useParams();
-  const [edit, setEdit] = useState(false)
-  // const [reviews, setReviews] = useState([]); disgard
+  const [edit, setEdit] = useState(false);
+
   const [newReview, setNewReview] = useState({
     reviewer_id: applicationUser.uuid,
     reviewed_id:  applicationUser.user_type === 'Volunteer' ? request.elder_id : request.volunteer_id,
@@ -97,7 +97,6 @@ const RequestReviewForm = ({ applicationUser, request }) => {
   return (
     <div className='cards'>
       <div className="left">
-       <IoIosArrowBack  className ='center' size={ 40 }/>
       </div>
       <div>
         <h3>Request Review</h3>
@@ -116,7 +115,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
                 <div className='card-info'>
                     <h5 className='card-text'> Review Rating</h5>
                     <StarRating/>
-                    <textarea rows={4} cols= {48} value = {newReview.description} onChange = {handleTextReview}/>
+                    <textarea rows={5} cols= {48} value = {newReview.description} onChange = {handleTextReview}/>
                 </div>
                 </div>
 
@@ -125,17 +124,13 @@ const RequestReviewForm = ({ applicationUser, request }) => {
         <div className="buttons">
         <div>
             
-              <Button className="back" onClick={()=>{navigate(`/requests/${request.id}`)}}>BACK</Button>
-              
-              {/* {reviews.description && !edit ?  */}
-              {/* <Button className="back" onClick={handleEdit}>EDIT</Button> */}
+        <Button className="back" onClick={()=>{setReviewFormRevealed(false)}}>BACK</Button>
               <Button className="back" onClick={handleSubmit}>SUBMIT</Button>
 
             </div>
         </div> 
       </div>
       <div className="right">
-        <IoIosArrowForward  className='center' size={ 40 }/>
       </div>
     </div>
   )

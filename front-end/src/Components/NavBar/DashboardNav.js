@@ -64,6 +64,7 @@ const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render }
             <Dropdown.Menu>
               <Dropdown.Item
                 onClick={() => {
+                  navigate('/dashboard');
                   setDashboardFilter("profile");
                 }}
               >
@@ -71,6 +72,7 @@ const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render }
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => {
+                  navigate('/dashboard');
                   setDashboardFilter("settings");
                 }}
               >

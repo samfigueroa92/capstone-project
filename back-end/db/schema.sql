@@ -37,3 +37,13 @@ CREATE TABLE requests (
     complete BOOLEAN DEFAULT false,
     image TEXT
 );
+
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    reviewer_id TEXT references users(uuid) DEFAULT NULL,
+    reviewer_img TEXT references users(profilephoto),
+    reviewed_id  TEXT references users(uuid),
+    description TEXT NOT NULL,
+    post_date DATE NOT NULL,
+    request_id INT references requests(id)
+);

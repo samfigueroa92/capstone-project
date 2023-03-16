@@ -40,7 +40,7 @@ const NewRequestForm = ({ applicationUser, setDashboardFilter }) => {
 
   const [request, setRequest] = useState({
     elder_id: "",
-    // elder_img: applicationUser.profilephoto,
+    elder_img: applicationUser.profilephoto,
     title: "",
     req_date: "",
     description: "",
