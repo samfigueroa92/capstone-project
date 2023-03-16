@@ -21,7 +21,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
 
-function Profile({ applicationUser, setDate }) {
+function Profile({ applicationUser, setDashboardFilter }) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
   const user = useContext(UserContext);
@@ -47,14 +47,14 @@ function Profile({ applicationUser, setDate }) {
 
   useEffect(() => {
     setEditedUser(applicationUser);
-  }, []);
+  }, [applicationUser]);
 
   const updateUser = (updatedUser) => {
     axios
       .put(`${API}/users/${applicationUser.uuid}`, updatedUser)
       .then(
         () => {
-          navigate(`/dashboard`);
+          setDashboardFilter('main');
         },
         (error) => console.error(error)
       )
@@ -71,8 +71,6 @@ function Profile({ applicationUser, setDate }) {
   };
 
   return (
-    <div className="profileInfo">
-    
       <Container className="settings">
         <h3 className="settings-header">Update Your Profile</h3>
         <div className="profile-image">
@@ -214,14 +212,13 @@ function Profile({ applicationUser, setDate }) {
             </Form.Group>
             <div className="buttons-container">
             <Button type="submit">Submit</Button>
-            <Link to={`/users/${editedUser.uuid}`}>
+            {/* <Link to="/dashboard">
               <Button>Nevermind</Button>
-            </Link>
+            </Link> */}
             </div>
           </Form>
         </div>
       </Container>
-    </div>
   );
 }
 

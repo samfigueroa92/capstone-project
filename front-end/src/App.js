@@ -1,6 +1,7 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
@@ -15,14 +16,19 @@ import Protected from "./Components/Protected";
 import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
-import NewDashboard from "./Components/Dashboard/Dashboard"
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 //CSS
 import "./App.css";
 
+//API
+const API = process.env.REACT_APP_BACKEND_API_KEY;
+
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [dashboardFilter, setDashboardFilter] = useState('main');
+  const [iteration, setIteration] = useState({});
+  const [render, setRender] = useState(true);
   const [location, setLocation] = useState('');
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
@@ -42,6 +48,64 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
+
+  // const user = useContext(UserContext);
+
+  let route;
+
+  if (applicationUser.user_type === "Volunteer") {
+    route = "my_assigned_requests";
+  } else {
+    route = "my_created_requests";
+  }
+
+  const data = JSON.stringify({ uuid: applicationUser.uuid });
+
+  const config = {
+    method: "post",
+    url: `${API}/requests/${route}`,
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  let myRequestIds = [];
+  let openRequestIds = []
+
+  useEffect(() => {
+
+    axios(config).then((res) => {
+      let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
+
+      for (let i = 0; i < 4; i++) {
+        myRequestIds?.push(requestSort[i]?.id);
+      }
+    });
+   
+    axios(config).then((res) => {
+      if (applicationUser.user_type === "Volunteer") {
+        axios.get(`${API}/requests/open_requests`).then((res) => {
+          let openRequestSort = res.data?.sort((a,b) => a.req_date - b.req_date)
+          for(let i = 0; i < 4; i++){
+            openRequestIds?.push(openRequestSort[i]?.id)
+          }
+          setIteration({
+            ...iteration,
+            openRequests: openRequestIds,
+            myRequests: myRequestIds,
+          });
+        });
+      }else{
+        setIteration({
+          ...iteration,
+          myRequests: myRequestIds,
+        });
+      }
+    });
+
+  }, [applicationUser, render]);
  
   return (
     <div className="App">
@@ -50,6 +114,9 @@ const App = () => {
           <NavBar
             setModalOpen={setModalOpen}
             applicationUser={applicationUser}
+            setDashboardFilter={setDashboardFilter}
+            render = {render}
+            setRender = {setRender}
           />
           <LoginModal
             modalOpen={modalOpen}
@@ -70,12 +137,14 @@ const App = () => {
               path="/dashboard"
               element={
                 <Protected>
-                  <NewDashboard
+                  <Dashboard
                     applicationUser={applicationUser}
                     dashboardFilter={dashboardFilter}
                     setDashboardFilter={setDashboardFilter}
                     location={location}
                     setLocation={setLocation}
+                    setIteration={setIteration}
+                    iteration={iteration}
                   />
                 </Protected>
               }
@@ -88,6 +157,10 @@ const App = () => {
                     applicationUser={applicationUser}
                     dashboardFilter={dashboardFilter}
                     setDashboardFilter={setDashboardFilter}
+                    location={location}
+                    iteration={iteration}
+                    render={render}
+                    setRender={setRender}
                   />
                 </Protected>
               }
@@ -99,6 +172,8 @@ const App = () => {
                   <EditRequest
                     applicationUser={applicationUser}
                     setDashboardFilter={setDashboardFilter}
+                    iteration={iteration}
+                    location={location}
                   />
                 </Protected>
               }

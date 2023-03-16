@@ -23,7 +23,7 @@ requests.get("/", async (req, res) => {
   if (allRequests[0]) {
     res.status(200).json(allRequests);
   } else {
-    res.status(500).json({ error: "server error!" });
+    res.status(500).json({ error: "Server Error!" });
   }
 });
 
@@ -34,7 +34,7 @@ requests.get("/help_req/:id", async (req, res) => {
   if (requests) {
     res.json(requests);
   } else {
-    res.status(404).json({ error: "not Found" });
+    res.status(404).json({ error: "Not Found" });
   }
 });
 

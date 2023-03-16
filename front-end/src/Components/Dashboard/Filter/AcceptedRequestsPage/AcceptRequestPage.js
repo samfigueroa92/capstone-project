@@ -1,57 +1,138 @@
+//DEPENDENCIES
+import { useEffect } from "react";
+
 //Components
 import RequestCard from "../RequestCard/RequestCard";
-import ZeroRequests from "../ZeroRequests/ZeroRequests";
 
 //CSS
 import "./AcceptRequestPage.css"
 
 const AcceptRequestPage = ({
   date,
-  setDate,
   applicationUser,
   requests,
-  setRequestSearch,
-  requestSearch
+  iteration,
+  setIteration,
+  requestSearch,
+  dashboardFilter,
+  setLocation
 }) => {
+
+  useEffect(() => {
+    setIteration({
+      ...iteration,
+      'pendingRequests': pendingIds,
+      'acceptedRequests': acceptedIds,
+      'completedRequests': completedIds,
+    });
   
-  const dateConverter = (specifiedDate) => {
+ 
+}, [requestSearch, dashboardFilter === 'acceptedRequest']);
 
-    const fullYear = specifiedDate?.getFullYear();
-    const month = specifiedDate?.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2,'0');
-    const currentDate = specifiedDate?.getDate()
-    const paddedDate = currentDate.toString().padStart(2,'0')
+const dateConverter = (specifiedDate) => {
+  const fullYear = specifiedDate?.getFullYear();
+  const month = specifiedDate?.getMonth() + 1;
+  const paddedMonth = month.toString().padStart(2, "0");
+  const currentDate = specifiedDate?.getDate();
+  const paddedDate = currentDate.toString().padStart(2, "0");
 
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
+  const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
 
-    return formattedDate;
-  };
+  return formattedDate;
+};
 
-  let currentDate = dateConverter(new Date());
-  let selectedCalendarDate = dateConverter(date);
+let currentDate = dateConverter(new Date());
+let selectedCalendarDate = dateConverter(date);
+let search = requestSearch.toLowerCase();
 
-  let acceptedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.assigned  && <RequestCard key={request.id} request={request} />);
+requests?.sort((a,b)=> a.req_date - b.req_date)
 
-  let completedRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> request.complete  && <RequestCard key={request.id} request={request} />);
+let acceptedIds = []
+const acceptedRequestFilter = requests?.filter((request) =>
+    selectedCalendarDate === currentDate &&
+    request.title.toLowerCase().includes(search) &&
+    !request.complete
+      ? request.req_date >= currentDate
+      : selectedCalendarDate === request.req_date
+  )
+  .map((request) => {
+    if (request.assigned) {
+      acceptedIds.push(request.id)
+      return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
+    }
+  });
 
-  let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />);
+let completedIds = []
+const completedRequestFilter = requests
+  .filter((request) =>
+    selectedCalendarDate === currentDate &&
+    request.title.toLowerCase().includes(search)
+      ? request.req_date <= currentDate
+      : selectedCalendarDate === request.req_date
+  )
+  .map((request) => {
+    if (request.complete) {
+      completedIds.push(request.id)
+      return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
+    }
+  });
+
+let pendingIds = []
+const pendingRequestFilter = requests
+  .filter((request) =>
+    selectedCalendarDate === currentDate &&
+    request.title.toLowerCase().includes(search)
+      ? request.req_date >= currentDate
+      : selectedCalendarDate === request.req_date
+  )
+  .map((request) => {
+    if (!request.assigned) {
+      pendingIds.push(request.id)
+      return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
+    }
+  });
+  
   
   return (
-    <div className="user-dashboard">
-      
-      <div className="main-page">
-        <h3 className="accepted-request">Accepted Requests</h3>
-        <div className="Accepted">
-          {acceptedRequestFilter.length > 0 ? acceptedRequestFilter : <ZeroRequests />}
-        </div>
-        {applicationUser.user_type === "Senior" ? <h3 className="comphead">Pending Requests</h3> : null}
-        {applicationUser.user_type === "Senior" && (pendingRequestFilter.length > 0 ? pendingRequestFilter : <ZeroRequests />)}
-        <h3 className="comphead">Completed Requests</h3>
-        <div className="History">
-          {completedRequestFilter.length > 0 ? completedRequestFilter : <ZeroRequests />}
-        </div>
+    <>
+      <div className="acceptRequestPage__main-page">
+        {acceptedRequestFilter.length !== 0 && (
+          <h3 className="acceptRequestPage__title top">Accepted Requests</h3>
+        )}
+        {acceptedRequestFilter.length !== 0 && (
+          <div
+            className="acceptedRequestPage__filter"
+            onClick={()=> setLocation('acceptedRequests')}
+          >
+            {acceptedRequestFilter}
+          </div>
+        )}
+        {applicationUser.user_type !== "Volunteer" &&
+          pendingRequestFilter.length !== 0 && (
+            <h3 className="acceptRequestPage__title">Pending Requests</h3>
+          )}
+        {applicationUser.user_type !== "Volunteer" &&
+          pendingRequestFilter.length !== 0 && (
+            <div
+              className="acceptedRequestPage__filter"
+              onClick={()=>setLocation('pendingRequests')}
+            >
+              {pendingRequestFilter}
+            </div>
+          )}
+        {completedRequestFilter.length !== 0 && (
+          <h3 className="acceptRequestPage__title">Completed Requests</h3>
+        )}
+        {completedRequestFilter.length !== 0 && (
+          <div
+            className="acceptedRequestPage__filter"
+            onClick={()=>setLocation('completedRequests')}
+          >
+            {completedRequestFilter}
+          </div>
+        )}
       </div>
-    </div>
+   </>
   );
 };
 

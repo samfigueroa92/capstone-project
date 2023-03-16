@@ -5,7 +5,7 @@ import RequestCard from "../RequestCard/RequestCard";
 import "../AcceptedRequestsPage/AcceptRequestPage.css";
 
 function PendingRequests({ applicationUser, requests, requestSearch }) {
-  console.log(requests)
+ 
   const dateConverter = (specifiedDate) => {
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;

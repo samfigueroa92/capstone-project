@@ -42,7 +42,7 @@ const SidebarNav = ({
                       type="text"
                       onChange={(e) => setRequestSearch(e.target.value)}
                       value={requestSearch}
-                      placeholder="Search requests"
+                      placeholder={dashboardFilter === ('main') || dashboardFilter === ('newRequest') || dashboardFilter === ('acceptedRequest') || dashboardFilter === ('browseRequest') ? "Search Requests": dashboardFilter === ('reviews') ? 'Search Reviews': dashboardFilter === ('favorite') ? 'Search Favorites' : ''}
                     />
                   </label>
                 </form>
@@ -72,7 +72,7 @@ const SidebarNav = ({
                     className={dashboardFilter === "newRequest" ? "bold_link" : ""}
                     onClick={() => setDashboardFilter("newRequest")}
                   >
-                    Submit a New Requests
+                    Submit a New Request
                   </p>
                   <div className="under-click"></div>
                 </>
@@ -110,7 +110,7 @@ const SidebarNav = ({
                   >
                     Achievements
                     <br />
-                    <span className="coming-soon">*coming soon</span>
+                    
                   </p>
                   <div className="under-click"></div>
                 </>

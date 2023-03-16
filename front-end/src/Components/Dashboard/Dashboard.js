@@ -32,8 +32,8 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLoc
         setDashboardFilter ={setDashboardFilter}
         setLocation={setLocation}
         location={location}
-       
-        
+        setIteration={setIteration}
+        iteration={iteration}
         />
       </div>
     );

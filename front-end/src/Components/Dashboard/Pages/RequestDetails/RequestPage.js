@@ -1,6 +1,6 @@
 ///Dependencies
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 //CSS
@@ -10,13 +10,16 @@ import "./RequestDetails.css";
 import ReviewForm from "./ReviewForm";
 import RequestDetails from "./RequestDetails";
 
-
 const RequestPage = ({
   applicationUser,
   setDashboardFilter,
   dashboardFilter,
   requestSearch,
-  setRequestSearch
+  setRequestSearch,
+  iteration,
+  location,
+  render, 
+  setRender
 }) => {
   
   const [request, setRequest] = useState([]);
@@ -35,24 +38,24 @@ const RequestPage = ({
     axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
   }, [id, navigate, API]);
 
-//   const missionAccepted = () => {
-//     axios
-//       .put(`${API}/requests/accept_request`, {
-//         volunteer: applicationUser.uuid,
-//         volunteer_img: applicationUser.profilephoto,
-//         req_id: id,
-//       })
-//       .then(navigate("/dashboard"));
-//   };
-//   const missionFailed = () => {
-//     axios
-//       .put(`${API}/requests/reject_request`, {
-//         volunteer: "",
-//         volunteer_img: "",
-//         req_id: id,
-//       })
-//       .then(navigate("/dashboard"));
-//   };
+  // const missionAccepted = () => {
+  //   axios
+  //     .put(`${API}/requests/accept_request`, {
+  //       // volunteer: applicationUser.uuid,
+  //       // volunteer_img: applicationUser.profilephoto,
+  //       req_id: id,
+  //     })
+  //     .then(navigate("/dashboard"));
+  // };
+  // const missionFailed = () => {
+  //   axios
+  //     .put(`${API}/requests/reject_request`, {
+  //       // volunteer: "",
+  //       // volunteer_img: "",
+  //       req_id: id,
+  //     })
+  //     .then(navigate("/dashboard"));
+  // };
 
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate.getFullYear();
@@ -77,8 +80,10 @@ const RequestPage = ({
       setReviewFormRevealed={setReviewFormRevealed}
       requestSearch={requestSearch}
       setRequestSearch={setRequestSearch}
-      
-    
+      iteration={iteration}
+      location = {location}
+      render={render}
+      setRender={setRender}
       request={request}
       />
       : <ReviewForm 
@@ -87,6 +92,7 @@ const RequestPage = ({
       setReviews={setReviews}
       currentDate={currentDate}
       applicationUser={applicationUser}
+      setReviewFormRevealed={setReviewFormRevealed}
       />}
      
     </div>
