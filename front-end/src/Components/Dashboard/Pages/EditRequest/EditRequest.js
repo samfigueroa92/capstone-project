@@ -57,10 +57,11 @@ const EditRequest = ({ applicationUser, setDate }) => {
   };
 
   const handleDelete = () => {
-    axios.delete(`${API}/requests/delete_req/${id}`)
-    .then(() => navigate("/dashboard"))
-    .catch(err => console.error(err))
-  }
+    axios
+      .delete(`${API}/requests/delete_req/${id}`)
+      .then(() => navigate("/dashboard"))
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="edit-request">
@@ -68,7 +69,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
       <Container className="edit-form">
         <h3>Edit Request</h3>
         <div className="edit-image">
-        <img src={editedRequest.image} alt="request-image"/>
+          <img src={editedRequest.image} alt="request-image" />
         </div>
         <Form onSubmit={handleSubmit}>
           <Row>
@@ -136,8 +137,8 @@ const EditRequest = ({ applicationUser, setDate }) => {
             </Form.Group>
           </Row>
           <div className="editForm-button">
-          <Button type="submit">Submit</Button>
-          <Button onClick={handleDelete}>Delete</Button>
+            <Button type="submit">Submit</Button>
+            <Button onClick={handleDelete}>Delete</Button>
           </div>
         </Form>
       </Container>

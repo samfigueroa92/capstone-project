@@ -111,8 +111,8 @@ const assignVolunteer = async (request) => {
   try {
     console.log(`QUERY : Assigning volunteer ${request.volunteer} to request ${request.req_id}`);
     const assign = await db.one(
-      "UPDATE requests SET volunteer_id=$1, assigned=$2 WHERE id=$3 RETURNING *",
-      [request.volunteer, "TRUE", request.req_id]
+      "UPDATE requests SET volunteer_id=$1, volunteer_img=$2, assigned=$3 WHERE id=$4 RETURNING *",
+      [request.volunteer, request.volunteer_img, "TRUE", request.req_id]
     );
     return assign;
   } catch (error) {

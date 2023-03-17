@@ -1,12 +1,11 @@
 ///Dependencies
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
 import { UserContext } from '../../../../Providers/UserProviders';
 import { useContext } from "react";
-
 
 //CSS
 import "./RequestDetails.css";
@@ -50,32 +49,23 @@ const RequestDetails = ({
   }
   let description = truncateDescriptionText()
 
-  // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
-  // useEffect(() => {
-  //   axios.get(`${API}/requests/help_req/${id}`).then((response) => {
-  //     setRequest(response.data);
-  //   });
-  // }, [id, navigate, API]);
-
- 
-
-  const missionAccepted = () => {
+  const requestAccepted = () => {
     axios
       .put(`${API}/requests/accept_request`, {
-        // volunteer: applicationUser.uuid,
-        // volunteer_img: applicationUser.profilephoto,
+        volunteer: applicationUser.uuid,
+        volunteer_img: applicationUser.profilephoto,
         req_id: id,
       })
       .then(navigate("/dashboard"));
       setRender(!render);
   };
 
-  const missionFailed = () => {
+  const requestRejected = () => {
     axios
       .put(`${API}/requests/reject_request`, {
         req_id: id,
-        // volunteer: "",
-        // volunteer_img: "",
+        volunteer: "",
+        volunteer_img: "",
       })
       .then(navigate("/dashboard"));
       setRender(!render);
@@ -143,7 +133,7 @@ const RequestDetails = ({
           <div>
             {applicationUser.user_type === "Volunteer" ? (
               request.volunteer_id !== applicationUser.uuid ? (
-                <Button className="accept" onClick={missionAccepted}>
+                <Button className="accept" onClick={requestAccepted}>
                   ACCEPT
                 </Button>
               ) : request.complete && request.req_date < currentDate ? (
@@ -154,7 +144,7 @@ const RequestDetails = ({
                   REVIEW
                 </Button>
               ) : (
-                <Button className="reject" onClick={missionFailed}>
+                <Button className="reject" onClick={requestRejected}>
                   REJECT
                 </Button>
               

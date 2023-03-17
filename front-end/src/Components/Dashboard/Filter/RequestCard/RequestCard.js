@@ -19,13 +19,11 @@ const RequestCard = ({ request, applicationUser }) => {
     }
   };
   let imgString = applicationUser.user_type === 'Volunteer' ? request.elder_id : request.volunteer_id;
-  console.log(request.volunteer_img)
-  console.log(applicationUser)
 
   return (
     <div className="req-card-details">
       {imgString && <Link to = {applicationUser?.user_type === 'Volunteer' ? `/reviews/${request.elder_id}`:`/reviews/${request.volunteer_id}` }>
-         <img className="req-card-img" src={applicationUser?.user_type === 'Volunteer' ?  request.elder_img : request?.volunteer_img}/>
+         <img className="req-card-img" src={applicationUser?.user_type === 'Volunteer' ?  request.elder_img : request?.volunteer_img }/>
       </Link> }
         <div className="req-card">
       <Link className="link" to={`/requests/${request.id}`}>
