@@ -6,7 +6,8 @@ import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
 import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
-import Home from "./Components/HomePage/Home";
+// import Home from "./Components/HomePage/Home";
+import NewHome from "./Components/HomePage/NewHome";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/HomePage/SeniorsPage";
@@ -80,7 +81,8 @@ const App = () => {
                   applicationUser={applicationUser}
                   setApplicationUser={setApplicationUser}
                 >
-                  <Home />
+                  {/* <Home /> */}
+                  <NewHome />
                 </Unprotected>
               }
             />
