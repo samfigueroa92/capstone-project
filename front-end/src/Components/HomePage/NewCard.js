@@ -44,20 +44,20 @@ const NewCard = () => {
         <ul className='new-cards-items'>
         <NewCardData
             src='images/computerHelp.jpeg'
-            text='Get to know more about your sporting Idols'
-            label='Idols'
+            text='Helping granny with her Ipad'
+            label='Golden Solutions'
             path='#'
           />
           <NewCardData
             src='images/RechargeCard.jpeg'
-            text='All Your news in Tennis across the Globe'
-            label='Tennis'
+            text='Help GrandMa with recharge card'
+            label='Golden Solutions'
             path='#'
           />
           <NewCardData
             src='images/gettingup.jpeg'
-            text='Enjoy Legendary moments and Highlights from Memories'
-            label='Moments'
+            text='Taking a walk with Grand Dad'
+            label='Golden Solutions'
             path='#'
           />
 
