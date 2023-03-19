@@ -35,11 +35,21 @@
     background-color: #42999B;
     color: white;
     border: none;
+    margin-bottom: 10px;
     font-weight: bold;
     padding: 10px 50px 10px 50px;
     border-radius: 25px;
     letter-spacing: .2em;
 }
+
+.new-info Button:hover{
+  background-color: #B8DEDC;
+}
+
+h1 {
+  text-align: center;
+}
+
 /* for template */
 .card-item {
   display: flex;
