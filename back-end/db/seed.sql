@@ -21,6 +21,12 @@ INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", 
 
 ('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://lh3.googleusercontent.com/a/AGNmyxbKe8URzzLt85XqCI0ASEzcRKl_rWMpg5L3mehV=s96-c', '2023-05-29', 'Read to Me', 'Poor Eye Site has cause me to stop doing what I love ... READING. I have a couple of books that I would love to read but unfortunately they arent on Audible. Someone please help', 'Bronx', '16:00', 'TRUE', 'FALSE', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfIptn1mN1uj8sU2aF7vW8lnpxkb1PgnTtcg&usqp=CAU');
 
+-- COMPLETED REQUESTS
+INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://lh3.googleusercontent.com/a/AGNmyxbKe8URzzLt85XqCI0ASEzcRKl_rWMpg5L3mehV=s96-c', '2023-01-6', 'Prescription Pick Up', 'I need someone to pick up my meds.','Bronx','10:00','TRUE','TRUE','');
+
 -- REVIEWS
 INSERT INTO reviews ("reviewer_id", "reviewer_img", "reviewed_id", "post_date", "request_id", "description") VALUES
-('zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg', 'KRpB4t5K0MNr2ew5iBIeBDGNpCq2', '2023-01-15','1','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled');
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg', 'zR8PxXG7Vthw8kMADxFgHgTb2Nt2', '2023-01-15','7','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled'),
+
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg', 'zR8PxXG7Vthw8kMADxFgHgTb2Nt2', '2023-02-5','6','She spent two hours reading a new book I''ve been excited about. And we set up a date for our next session already. Incredibly soothing reading voice as well!')

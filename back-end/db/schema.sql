@@ -44,6 +44,6 @@ CREATE TABLE reviews (
     reviewer_img TEXT references users(profilephoto),
     reviewed_id  TEXT references users(uuid),
     description TEXT NOT NULL,
-    post_date DATE NOT NULL,
+    post_date TEXT NOT NULL,
     request_id INT references requests(id)
 );
