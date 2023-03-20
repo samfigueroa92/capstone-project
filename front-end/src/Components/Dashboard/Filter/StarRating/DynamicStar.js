@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+//DEPENDENCIES
+// import {useEffect, useState} from 'react'
 import { Rating } from '@mui/material'
 
 import './DynamicStar.css'

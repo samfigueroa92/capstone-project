@@ -4,8 +4,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
-import { UserContext } from '../../../../Providers/UserProviders';
-import { useContext } from "react";
 
 //CSS
 import "./RequestDetails.css";
@@ -26,7 +24,6 @@ const RequestDetails = ({
   const [showMore, setShowMore] = useState(false)
   let { id } = useParams();
   let navigate = useNavigate();
-  const user = useContext(UserContext);
 
   const index = iteration[location]?.indexOf(Number(id))
 
