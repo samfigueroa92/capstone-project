@@ -10,6 +10,7 @@ import "./ReviewCard.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
+
 const ReviewCard = ({ review, requests }) => {
   const { reviewer_id, reviewer_img, description, post_date } = review;
   const [reviewer, setReviewer] = useState([]);
