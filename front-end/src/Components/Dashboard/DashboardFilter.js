@@ -264,7 +264,7 @@ const DashboardFilter = ({
           />
         )}
         {dashboardFilter === "reviews" && (
-          <ReviewsPage applicationUser={applicationUser} dashboardFilter={dashboardFilter}/>
+          <ReviewsPage applicationUser={applicationUser} dashboardFilter={dashboardFilter} requests={requests}/>
         )}
         {dashboardFilter === "newRequest" &&
           applicationUser.user_type !== "Volunteer" && (

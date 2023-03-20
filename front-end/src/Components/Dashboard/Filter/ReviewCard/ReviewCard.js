@@ -10,7 +10,8 @@ import "./ReviewCard.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const ReviewCard = ({ review }) => {
+
+const ReviewCard = ({ review, requests }) => {
   const { reviewer_id, reviewer_img, description, post_date } = review;
   const [reviewer, setReviewer] = useState([]);
 
@@ -30,6 +31,7 @@ const ReviewCard = ({ review }) => {
     })
   }, []);
 
+  const reviewedRequest = requests.find(request => request.id === review.request_id);
 
   // const [reviewBody, setReviewBody] =
   //   useState(`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -95,14 +97,14 @@ const ReviewCard = ({ review }) => {
         <div className="reviewer__img">
           <img
             className="Reviewer__profile"
-            src={
-              review?.reviewer_img
-            }
+            src={reviewer_img}
+            alt={reviewer.firstname}
           />
         </div>
       </div>
       <div className="Reviews__review">
-        <h6>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</h6>
+        <p>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</p>
+        <p>{reviewedRequest.title}</p>
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
@@ -112,7 +114,7 @@ const ReviewCard = ({ review }) => {
             readOnly
           />
           <div className="ReviewCard__date">
-            Date: {review.post_date || "02/04/2023"}
+            Date: {post_date || "02/04/2023"}
           </div>
         </div>
         {processText}

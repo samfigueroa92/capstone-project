@@ -14,7 +14,7 @@ import "./ReviewsPage.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const ReviewsPage = ({ applicationUser }) => {
+const ReviewsPage = ({ applicationUser, requests }) => {
   const [reviews, setReviews] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
@@ -27,7 +27,6 @@ const ReviewsPage = ({ applicationUser }) => {
       setReviewCount(res.data.length);
     })
   }, []);
-  
 
   // const user = useContext(UserContext);
   // const [rating, setRating] = useState(0);
@@ -60,7 +59,7 @@ const ReviewsPage = ({ applicationUser }) => {
         </div> */}
       </div>
       <div className="ReviewPage__reviews-list">
-        {reviews.map(review => <ReviewCard review={review} />)}
+        {reviews.map(review => <ReviewCard key={review.id} review={review} requests={requests} />)}
       </div>
     </div>
   );
