@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
 
-
 //COMPONENTS
 import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
 // import Home from "./Components/HomePage/Home";
@@ -12,6 +11,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/HomePage/SeniorsPage";
 import VolunteerPage from "./Components/HomePage/VolunteerPage";
+import Testimonials from "./Components/HomePage/Testimonials";
 import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
 import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
@@ -35,7 +35,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [date, setDate] = useState(new Date());
-  const [requestSearch, setRequestSearch] = useState('')
+  const [requestSearch, setRequestSearch] = useState("");
   //Specific to person
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
@@ -86,7 +86,7 @@ const App = () => {
                 </Unprotected>
               }
             />
-             <Route
+            <Route
               path="/sign-up"
               element={
                 <Unprotected
@@ -118,7 +118,18 @@ const App = () => {
                   <SeniorsPage />
                 </Unprotected>
               }
-            /> 
+            />
+            <Route
+              path="/testimonials"
+              element={
+                <Unprotected
+                  applicationUser={applicationUser}
+                  setApplicationUser={setApplicationUser}
+                >
+                  <Testimonials />
+                </Unprotected>
+              }
+            />
             <Route
               path="/our-team"
               element={
@@ -140,12 +151,18 @@ const App = () => {
                   <PersonalPage />
                 </Unprotected>
               }
-            /> 
-             <Route
+            />
+            <Route
               path="/achievements"
               element={
                 <Protected>
-                  <Achievements setDate={setDate} date={date} applicationUser={applicationUser} requestSearch = {requestSearch} setRequestSearch={setRequestSearch}/>
+                  <Achievements
+                    setDate={setDate}
+                    date={date}
+                    applicationUser={applicationUser}
+                    requestSearch={requestSearch}
+                    setRequestSearch={setRequestSearch}
+                  />
                 </Protected>
               }
             />
@@ -158,9 +175,8 @@ const App = () => {
                     setDate={setDate}
                     openRequests={openRequests}
                     applicationUser={applicationUser}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
-                   
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
@@ -178,27 +194,26 @@ const App = () => {
                     setRequests={setRequests}
                     openRequests={openRequests}
                     setOpenRequests={setOpenRequests}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
             />
-              <Route
-                path="/reviews"
-                element={
-                  <Protected>
-                    <ReviewsPage
-                      date={date}
-                      setDate={setDate}
-                      applicationUser={applicationUser}
-                      setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
-                      
-                    />
-                  </Protected>
-                }
-              />
+            <Route
+              path="/reviews"
+              element={
+                <Protected>
+                  <ReviewsPage
+                    date={date}
+                    setDate={setDate}
+                    applicationUser={applicationUser}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
+                  />
+                </Protected>
+              }
+            />
             <Route
               path="/requests/new"
               element={
@@ -206,9 +221,9 @@ const App = () => {
                   <NewRequestForm
                     applicationUser={applicationUser}
                     setDate={setDate}
-                    date = {date}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
+                    date={date}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
@@ -221,14 +236,26 @@ const App = () => {
                     setDate={setDate}
                     date={date}
                     applicationUser={applicationUser}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
             />
-            <Route path="/edit/:id" element={<Protected><EditRequest applicationUser={applicationUser} setDate={setDate} date={date} setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch} /></Protected>} />
+            <Route
+              path="/edit/:id"
+              element={
+                <Protected>
+                  <EditRequest
+                    applicationUser={applicationUser}
+                    setDate={setDate}
+                    date={date}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
+                  />
+                </Protected>
+              }
+            />
             <Route
               path="/user/settings"
               element={
@@ -237,8 +264,8 @@ const App = () => {
                     applicationUser={applicationUser}
                     setDate={setDate}
                     date={date}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
@@ -253,14 +280,13 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
-                    
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
             />
-             <Route
+            <Route
               path="submitted-requests"
               element={
                 <Protected>
@@ -270,12 +296,12 @@ const App = () => {
                     applicationUser={applicationUser}
                     requests={requests}
                     setRequests={setRequests}
-                    setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
-            /> 
+            />
           </Routes>
           <Footer />
         </Router>
@@ -285,4 +311,3 @@ const App = () => {
 };
 
 export default App;
-

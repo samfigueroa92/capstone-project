@@ -1,11 +1,27 @@
 .testimonials{
     font-family:'Poppins', sans-serif;
-    background-color: #42999B;
-    color: white;
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);;
+    /* background-color: #42999B; */
+    box-shadow: 2px 2px 4px silver;
+    color: #42999B;
     display: grid;
     grid-template-areas: "h h h h"
     "a b c d";
     text-align: center;
+}
+
+.testimonials > div {
+    
+    background: white;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+        );
+        border-radius: 1rem;
+        z-index: 2;
+        backdrop-filter: blur(2rem);
+        padding: 1em;
 }
 
 .testimonials h1{

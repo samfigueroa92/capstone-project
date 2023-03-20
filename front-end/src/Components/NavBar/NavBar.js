@@ -46,6 +46,11 @@ const NavBar = ({ setModalOpen, applicationUser }) => {
             Seniors
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/testimonials" className="nav-links" onClick={closeMobileMenu}>
+            Testimonials
+          </Link>
+        </li>
         <li className="nav-item" onClick={closeMobileMenu}>
           <button onClick={() => setModalOpen(true)} className="nav-links-mobile" >
             Login
