@@ -14,6 +14,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const ReviewCard = ({ review, requests }) => {
   const { reviewer_id, reviewer_img, description, post_date } = review;
   const [reviewer, setReviewer] = useState([]);
+  // const [reviewedRequest, setReviewedRequest] = useState({});
 
   const [showMore, setShowMore] = useState(false);
 
@@ -24,30 +25,17 @@ const ReviewCard = ({ review, requests }) => {
   useEffect(() => {
     axios.get(`${API}/users`)
     .then(res => {
-      let reviewer = res.data.find(users => users.uuid === reviewer_id
-      );
-      
+      let reviewer = res.data.find(users => users.uuid === reviewer_id);
       setReviewer(reviewer);
+
+      // let foundReview = requests.find(request => request.id === review.request_id);
+      // console.log(foundReview)
+      // if(foundReview){
+      //   setReviewedRequest(foundReview)
+      // }
     })
+    .catch(err => console.error(err))
   }, []);
-
-  const reviewedRequest = requests.find(request => request.id === review.request_id);
-
-  // const [reviewBody, setReviewBody] =
-  //   useState(`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //   eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum
-  //   fusce ut placerat orci nulla pellentesque dignissim. Ultrices gravida
-  //   dictum fusce ut placerat orci nulla pellentesque dignissim. Aliquet
-  //   nibh praesent tristique magna sit amet. Ipsum consequat nisl vel
-  //   pretium lectus. A diam maecenas sed enim ut sem viverra aliquet eget.
-  //   Ac placerat vestibulum lectus mauris ultrices eros in. Sit amet justo
-  //   donec enim diam vulputate ut. A scelerisque purus semper eget duis at
-  //   tellus. At consectetur lorem donec massa. Venenatis tellus in metus
-  //   vulputate eu. In hac habitasse platea dictumst vestibulum rhoncus est
-  //   pellentesque elit. Porta nibh venenatis cras sed felis eget velit
-  //   aliquet sagittis. Orci phasellus egestas tellus rutrum tellus
-  //   pellentesque. Quisque non tellus orci ac auctor augue mauris augue
-  //   neque.`);
 
   const truncateReviewText = () => {
     if (description > 415) {
@@ -98,13 +86,13 @@ const ReviewCard = ({ review, requests }) => {
           <img
             className="Reviewer__profile"
             src={reviewer_img}
-            alt={reviewer.firstname}
+            alt="reviewer_img"
           />
         </div>
       </div>
       <div className="Reviews__review">
         <p>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</p>
-        <p>{reviewedRequest.title}</p>
+        {/* <p>{reviewedRequest.title}</p> */}
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
