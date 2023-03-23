@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 // import { UserContext } from "../../../../Providers/UserProviders";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 
 //COMPONENTS
 import DynamicStar from "../StarRating/DynamicStar";
@@ -14,25 +14,27 @@ import "./ReviewsPage.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const ReviewsPage = ({ applicationUser, requests }) => {
+const ReviewsPage = ({ applicationUser }) => {
+  const [requests, setRequests] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${API}/reviews`)
     .then(res => {
       const reviews = res.data;
-      console.log(reviews)
       const userReviews = reviews.filter(review => review.reviewed_id === applicationUser.uuid);
-      console.log(userReviews)
-
       if(userReviews){
         setReviews(userReviews);
         setReviewCount(userReviews.length);
       }
     })
+
+    axios.get(`${API}/requests`)
+    .then(res => setRequests(res.data))
+    .catch(err => console.error(err))
   }, []);
 
   // const user = useContext(UserContext);
