@@ -17,7 +17,7 @@ import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
-import ReviewsPage from "./Components/Dashboard/Filter/ReviewsPage/ReviewsPage";
+import PublicReviews from "./Components/Dashboard/Pages/PublicReviews/PublicReviews";
 
 //CSS
 import "./App.css";
@@ -172,9 +172,6 @@ const App = () => {
                 <Protected>
                   <EditRequest
                     applicationUser={applicationUser}
-                    setDashboardFilter={setDashboardFilter}
-                    iteration={iteration}
-                    location={location}
                   />
                 </Protected>
               }
@@ -183,9 +180,7 @@ const App = () => {
               path="/reviews/:id"
               element={
                 <Protected>
-                  <ReviewsPage
-                    applicationUser={applicationUser}
-                    
+                  <PublicReviews
                   />
                 </Protected>
               }

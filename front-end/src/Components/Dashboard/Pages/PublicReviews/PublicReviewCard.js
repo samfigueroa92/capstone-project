@@ -5,13 +5,12 @@ import { Rating } from "@mui/material";
 import axios from "axios";
 
 //CSS
-import "./ReviewCard.css";
+import "../../Filter/ReviewCard/ReviewCard.css";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-
-const ReviewCard = ({ review }) => {
+const PublicReviewCard = ({ review }) => {
   const { reviewer_id, reviewer_img, description, post_date } = review;
   const [reviewer, setReviewer] = useState([]);
   const [showMore, setShowMore] = useState(false);
@@ -21,12 +20,13 @@ const ReviewCard = ({ review }) => {
   });
 
   useEffect(() => {
-    axios.get(`${API}/users`)
-    .then(res => {
-      let reviewer = res.data.find(users => users.uuid === reviewer_id);
-      setReviewer(reviewer);
-    })
-    .catch(err => console.error(err))
+    axios
+      .get(`${API}/users`)
+      .then((res) => {
+        let reviewer = res.data.find((users) => users.uuid === reviewer_id);
+        setReviewer(reviewer);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
   const truncateReviewText = () => {
@@ -83,7 +83,7 @@ const ReviewCard = ({ review }) => {
         </div>
       </div>
       <div className="Reviews__review">
-        <p>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</p>
+        <p>{reviewer.firstname + " " + reviewer.lastname || "Reviewer Name"}</p>
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
@@ -102,4 +102,4 @@ const ReviewCard = ({ review }) => {
   );
 };
 
-export default ReviewCard;
+export default PublicReviewCard;
