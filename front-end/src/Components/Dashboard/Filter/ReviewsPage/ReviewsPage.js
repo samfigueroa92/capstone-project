@@ -23,8 +23,15 @@ const ReviewsPage = ({ applicationUser, requests }) => {
   useEffect(() => {
     axios.get(`${API}/reviews`)
     .then(res => {
-      setReviews(res.data);
-      setReviewCount(res.data.length);
+      const reviews = res.data;
+      console.log(reviews)
+      const userReviews = reviews.filter(review => review.reviewed_id === applicationUser.uuid);
+      console.log(userReviews)
+
+      if(userReviews){
+        setReviews(userReviews);
+        setReviewCount(userReviews.length);
+      }
     })
   }, []);
 
