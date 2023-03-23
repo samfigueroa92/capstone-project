@@ -15,7 +15,6 @@ import "./ReviewsPage.css";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const ReviewsPage = ({ applicationUser }) => {
-  const [requests, setRequests] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
@@ -31,10 +30,6 @@ const ReviewsPage = ({ applicationUser }) => {
         setReviewCount(userReviews.length);
       }
     })
-
-    axios.get(`${API}/requests`)
-    .then(res => setRequests(res.data))
-    .catch(err => console.error(err))
   }, []);
 
   // const user = useContext(UserContext);
@@ -59,16 +54,16 @@ const ReviewsPage = ({ applicationUser }) => {
         <div className="ReviewPage__stars">Star Rating:</div>
         <DynamicStar ratings={ratings} setReviewCount={setReviewCount} />
         <div className="ReviewPage__count">Review Count: {reviewCount}</div>
-        {/* <div className="count__result">
+        <div className="count__result">
           {!ratings
             ? ratings.length > 1
               ? `${ratings.length} reviews`
               : `${ratings.length} review`
             : "No Current Reviews"}
-        </div> */}
+        </div>
       </div>
       <div className="ReviewPage__reviews-list">
-        {reviews.map(review => <ReviewCard key={review.id} review={review} requests={requests} />)}
+        {reviews.map(review => <ReviewCard key={review.id} review={review} />)}
       </div>
     </div>
   );

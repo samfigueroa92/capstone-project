@@ -23,14 +23,25 @@ const RequestReviewForm = ({
 
   const { id } = useParams();
   const [edit, setEdit] = useState();
-
-  const [newReview, setNewReview] = useState({
+  const [editedReview, setEditedReview] = useState({
     reviewer_id: "",
     reviewed_id: "",
     reviewer_img: "",
     description: "",
     post_date: "",
     request_id: "",
+  });
+
+  const [newReview, setNewReview] = useState({
+    reviewer_id: applicationUser.uuid,
+    reviewed_id:
+      applicationUser.user_type === "Volunteer"
+        ? request.elder_id
+        : request.volunteer_id,
+    reviewer_img: applicationUser.profilephoto,
+    description: "",
+    post_date: "",
+    request_id: id,
   });
 
   //Date Converter
@@ -54,48 +65,55 @@ const RequestReviewForm = ({
   useEffect(() => {
     axios.get(`${API}/reviews/${id}`).then((res) => {
       const reviews = res.data;
-      console.log(reviews)
+      console.log(reviews);
       //find review with id and userId
       const currentReview = reviews.find(
         (review) =>
           review.request_id === Number(id) &&
           review.reviewer_id === applicationUser.uuid
       );
+      console.log(currentReview)
+      
       //if it exist
       if (currentReview) {
-        setNewReview(currentReview);
+        setEditedReview(currentReview);
         setEdit(true);
       } else {
-        setNewReview({
-          reviewer_id: applicationUser.uuid,
-          reviewed_id:
-            applicationUser.user_type === "Volunteer"
-              ? request.elder_id
-              : request.volunteer_id,
-          reviewer_img: applicationUser.profilephoto,
-          description: "",
-          post_date: "",
-          request_id: id,
-        });
+        // setNewReview({
+        //   reviewer_id: applicationUser.uuid,
+        //   reviewed_id:
+        //     applicationUser.user_type === "Volunteer"
+        //       ? request.elder_id
+        //       : request.volunteer_id,
+        //   reviewer_img: applicationUser.profilephoto,
+        //   description: "",
+        //   post_date: "",
+        //   request_id: id,
+        // });
         setEdit(false);
       }
     });
   }, []);
 
-  console.log(newReview, edit)
+  console.log(edit)
+
+  // console.log(editedReview);
+  // console.log(newReview)
 
   const addReview = (review) => {
-    axios.post(`${API}/reviews`, review)
+    axios
+      .post(`${API}/reviews`, review)
       .then(() => navigate("/dashboard"))
-      .catch((err) => console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
 
   const editReview = () => {
-    axios.put(`${API}/reviews/${id}`, newReview)
-    .then((res) => setNewReview(res.data))
-    .then(() => navigate("/dashboard"))
-    .catch((err) => console.error(err))
-  }
+    axios
+      .put(`${API}/reviews/${id}`, editedReview)
+      .then((res) => setEditedReview(res.data))
+      .then(() => navigate("/dashboard"))
+      .catch((err) => console.error(err));
+  };
 
   const handleTextReview = (e) => {
     setNewReview({
@@ -103,17 +121,21 @@ const RequestReviewForm = ({
       description: e.target.value,
       post_date: currentDate,
     });
+    setEditedReview({
+      ...editedReview, 
+      description: e.target.value
+    })
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(edit){
-      editReview(newReview, id)
-    }else{
-      addReview(newReview)
+    if (edit) {
+      editReview(newReview, id);
+    } else {
+      addReview(newReview);
     }
   };
-  
+
   return (
     <div className="cards">
       <div className="left"></div>
@@ -138,7 +160,7 @@ const RequestReviewForm = ({
                 <textarea
                   rows={5}
                   cols={48}
-                  value={newReview.description}
+                  value={editedReview.description}
                   onChange={handleTextReview}
                 />
               </div>
