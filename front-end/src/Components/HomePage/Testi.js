@@ -1,7 +1,6 @@
 import React from "react";
 import "./Testi.css";
 import NewCardData from "./NewCardData";
-import {RiDoubleQuotesL} from "react-icons/ri"
 
 const Testi = () => {
   return (
