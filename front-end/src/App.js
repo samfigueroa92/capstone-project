@@ -166,7 +166,7 @@ const App = () => {
                 </Protected>
               }
             />
-            <Route
+            {/* <Route
               path="/edit/:id"
               element={
                 <Protected>
@@ -175,7 +175,7 @@ const App = () => {
                   />
                 </Protected>
               }
-            />
+            /> */}
             <Route
               path="/reviews/:id"
               element={
