@@ -3,11 +3,9 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-//Components
-import SidebarNav from "../../SideBar/SidebarNav";
-
 //CSS
 import "./EditRequest.css";
+// import "../RequestDetails/RequestDetails.css";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
@@ -19,7 +17,7 @@ import Container from "react-bootstrap/Container";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const EditRequest = ({ applicationUser, setDate }) => {
+const EditRequest = ({applicationUser}) => {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -30,6 +28,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
     location: "",
     time: "",
     image: "",
+    elder_id: {applicationUser}
   });
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
 
   return (
     <div className="edit-request">
-      <SidebarNav applicationUser={applicationUser} setDate={setDate} />
+      <div></div>
       <Container className="edit-form">
         <h3>Edit Request</h3>
         <div className="edit-image">
@@ -137,6 +136,7 @@ const EditRequest = ({ applicationUser, setDate }) => {
             </Form.Group>
           </Row>
           <div className="editForm-button">
+            <Button type="submit" onClick={() => navigate("/dashboard")}>Back</Button>
             <Button type="submit">Submit</Button>
             <Button onClick={handleDelete}>Delete</Button>
           </div>

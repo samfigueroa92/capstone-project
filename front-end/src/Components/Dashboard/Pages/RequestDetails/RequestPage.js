@@ -9,6 +9,7 @@ import "./RequestDetails.css";
 //Components
 import ReviewForm from "./ReviewForm";
 import RequestDetails from "./RequestDetails";
+import EditRequest from "../EditRequest/EditRequest";
 
 const RequestPage = ({
   applicationUser,
@@ -25,6 +26,7 @@ const RequestPage = ({
   const [request, setRequest] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
+  const [editRequestRevealed, setEditRequestRevealed] = useState(false);
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -50,32 +52,42 @@ const RequestPage = ({
     return formattedDate;
   };
   let currentDate = dateConverter(new Date());
-  
-  return (
-    <div className="details">
 
-      {!reviewFormRevealed ?<RequestDetails
-      applicationUser={applicationUser}
-      setDashboardFilter = {setDashboardFilter}
-      dashboardFilter ={dashboardFilter}
-      setReviewFormRevealed={setReviewFormRevealed}
-      requestSearch={requestSearch}
-      setRequestSearch={setRequestSearch}
-      iteration={iteration}
-      location = {location}
-      render={render}
-      setRender={setRender}
-      request={request}
-      />
-      : <ReviewForm 
+  const renderContent = () => {
+    if(reviewFormRevealed){
+      return <ReviewForm 
       request={request}
       reviews={reviews}
       setReviews={setReviews}
       currentDate={currentDate}
       applicationUser={applicationUser}
       setReviewFormRevealed={setReviewFormRevealed}
-      />}
-     
+      />
+    }else if(editRequestRevealed){
+      return <EditRequest
+      applicationUser={applicationUser}
+    />
+    }
+
+    return <RequestDetails
+    applicationUser={applicationUser}
+    setDashboardFilter = {setDashboardFilter}
+    dashboardFilter ={dashboardFilter}
+    setReviewFormRevealed={setReviewFormRevealed}
+    setEditRequestRevealed={setEditRequestRevealed}
+    requestSearch={requestSearch}
+    setRequestSearch={setRequestSearch}
+    iteration={iteration}
+    location = {location}
+    render={render}
+    setRender={setRender}
+    request={request}
+    />
+  }
+  
+  return (
+    <div className="details">
+      {renderContent()}
     </div>
   );
 };
