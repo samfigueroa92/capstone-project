@@ -11,7 +11,8 @@ import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/HomePage/SeniorsPage";
 import VolunteerPage from "./Components/HomePage/VolunteerPage";
-import Testimonials from "./Components/HomePage/Testimonials";
+// import Testimonials from "./Components/HomePage/Testimonials";
+import Testi from "./Components/HomePage/Testi";
 import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
 import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
@@ -28,6 +29,7 @@ import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
 //CSS
 import "./App.css";
+
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -126,7 +128,8 @@ const App = () => {
                   applicationUser={applicationUser}
                   setApplicationUser={setApplicationUser}
                 >
-                  <Testimonials />
+                  <Testi />
+                  {/* <Testimonials /> */}
                 </Unprotected>
               }
             />
