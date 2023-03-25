@@ -1,11 +1,5 @@
-/* .main-page{
-    margin-left: 25px;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-} */
 .ReviewPage__img{
     border-radius: 25%;
-    /* margin-top: 20px; */
     height: 250px;
     width: 250px;
 }
@@ -18,16 +12,13 @@
   
 }
 
-
 .ReviewPage__reviews-list{
     margin-top: 25px;
     margin-right: 5vh;
     height: 95vh;
-    /* height: auto */
-    overflow: scroll;
+    /* overflow: scroll; */
    
 }
-
 
 .ReviewPage__personalInfo{
     position: sticky;

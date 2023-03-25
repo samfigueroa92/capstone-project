@@ -31,11 +31,14 @@ const DashboardFilter = ({
   date,
   setIteration,
   iteration,
+  completedData,
 }) => {
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [openRequestIds, setOpenRequestsIds] = useState([]);
-  const [requestIds, setRequestsIds] = useState([2,3])
+  const [requestIds, setRequestsIds] = useState([]);
+  
+  
   const user = useContext(UserContext);
 
   let route;
@@ -82,6 +85,7 @@ const DashboardFilter = ({
   openRequestIds?.sort((a,b)=> b.req_date - a.req_date);
 
   const currentDate = dateConverter(new Date());
+
   const selectedCalendarDate = dateConverter(date);
   const search = requestSearch.toLowerCase() || '';
   
@@ -107,8 +111,6 @@ const DashboardFilter = ({
   request.title.toLowerCase().includes(search)
   ): openRequestsByDate;
 
-
-
   let openIds = []
   openRequestsBySearch.map((request, index)=>{
     if(index < 4){
@@ -127,6 +129,7 @@ const DashboardFilter = ({
 
   },[dashboardFilter === 'main', requestSearch])
 
+  
   return (
     <>
       <div className="phone-userdashboard">
@@ -249,7 +252,7 @@ const DashboardFilter = ({
             />
           )}
         {dashboardFilter === "achievements" &&
-          applicationUser.user_type === "Volunteer" && <Achievements applicationUser={applicationUser} />}
+          applicationUser.user_type === "Volunteer" && <Achievements applicationUser={applicationUser} completedData = {completedData} />}
         {dashboardFilter === "acceptedRequest" && (
           <AcceptRequestPage
             requests={requests}

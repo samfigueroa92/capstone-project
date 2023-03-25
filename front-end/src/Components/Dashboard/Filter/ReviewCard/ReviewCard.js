@@ -78,12 +78,16 @@ const ReviewCard = ({ review }) => {
           <img
             className="Reviewer__profile"
             src={reviewer_img}
-            alt="reviewer_img"
+            alt={reviewer.firstname}
           />
         </div>
       </div>
       <div className="Reviews__review">
-        <p>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</p>
+        <div className="Reviews-header">
+        <div>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</div>
+        <div></div>
+        <div className="ReviewCard__date"> Date: {post_date}</div>
+        </div>
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
@@ -92,10 +96,8 @@ const ReviewCard = ({ review }) => {
             size="small"
             readOnly
           />
-          <div className="ReviewCard__date">
-            Date: {post_date || "02/04/2023"}
-          </div>
         </div>
+        <br></br>
         {processText}
       </div>
     </div>
