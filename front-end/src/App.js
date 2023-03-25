@@ -31,6 +31,7 @@ const App = () => {
   const [iteration, setIteration] = useState({});
   const [render, setRender] = useState(true);
   const [location, setLocation] = useState('');
+  const [completedData, setCompletedData] = useState([]);
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -50,7 +51,6 @@ const App = () => {
     verification_type: "",
   });
 
-  // const user = useContext(UserContext);
 
   let route;
 
@@ -73,24 +73,66 @@ const App = () => {
   };
 
   let myRequestIds = [];
-  let openRequestIds = []
+  let openRequestIds = [];
+
+  const dateConverter = (specifiedDate) => {
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2, "0");
+    const currentDate = specifiedDate?.getDate();
+    const paddedDate = currentDate.toString().padStart(2, "0");
+
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
+
+    return formattedDate;
+  };
+
+  let currentDate = dateConverter(new Date());
 
   useEffect(() => {
+    setCompletedData([]);
 
     axios(config).then((res) => {
       let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
+      let requestFilter = requestSort?.filter(
+        (request) => currentDate <= request.req_date
+      );
 
-      for (let i = 0; i < 4; i++) {
-        myRequestIds?.push(requestSort[i]?.id);
+      let achievementFilter = res.data?.filter(
+        (request) => currentDate > request.req_date && request.complete
+      );
+
+      let completedObject = {};
+      for (let i = 0; i < achievementFilter.length; i++) {
+        if (completedObject[achievementFilter[i].req_date]) {
+          completedObject[achievementFilter[i].req_date]++;
+        } else {
+          completedObject[achievementFilter[i].req_date] = 1;
+        }
       }
+
+      let completedArray = [];
+      for (let key in completedObject) {
+        completedArray.push({ value: completedObject[key], day: key });
+      }
+      setCompletedData([completedArray, ...completedData]);
+      for (let i = 0; i < 4; i++) {
+        myRequestIds?.push(requestFilter[i]?.id);
+      }
+  
     });
-   
+
     axios(config).then((res) => {
       if (applicationUser.user_type === "Volunteer") {
         axios.get(`${API}/requests/open_requests`).then((res) => {
-          let openRequestSort = res.data?.sort((a,b) => a.req_date - b.req_date)
-          for(let i = 0; i < 4; i++){
-            openRequestIds?.push(openRequestSort[i]?.id)
+          let openRequestSort = res.data?.sort(
+            (a, b) => a.req_date - b.req_date
+          );
+          let openRequestFilter = openRequestSort?.filter(
+            (request) => currentDate <= request.req_date
+          );
+          for (let i = 0; i < 4; i++) {
+            openRequestIds?.push(openRequestFilter[i]?.id);
           }
           setIteration({
             ...iteration,
@@ -98,15 +140,15 @@ const App = () => {
             myRequests: myRequestIds,
           });
         });
-      }else{
+      } else {
         setIteration({
           ...iteration,
           myRequests: myRequestIds,
         });
       }
     });
-
   }, [applicationUser, render]);
+
  
   return (
     <div className="App">
@@ -133,7 +175,7 @@ const App = () => {
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/our-page/:staffMember" element={<PersonalPage />} />
-
+            
             <Route
               path="/dashboard"
               element={
@@ -146,6 +188,8 @@ const App = () => {
                     setLocation={setLocation}
                     setIteration={setIteration}
                     iteration={iteration}
+                    completedData={completedData}
+                    setCompletedData={setCompletedData}
                   />
                 </Protected>
               }
@@ -166,27 +210,22 @@ const App = () => {
                 </Protected>
               }
             />
-            {/* <Route
-              path="/edit/:id"
-              element={
-                <Protected>
-                  <EditRequest
-                    applicationUser={applicationUser}
-                  />
-                </Protected>
-              }
-            /> */}
+
             <Route
               path="/reviews/:id"
               element={
                 <Protected>
-                  <PublicReviews
-                  />
+                  <PublicReviews />
                 </Protected>
               }
             />
           </Routes>
-          <Footer />
+          <Footer
+            applicationUser={applicationUser}
+            render={render}
+            setRender={setRender}
+            setDashboardFilter={setDashboardFilter}
+          />
         </Router>
       </UserProvider>
     </div>
