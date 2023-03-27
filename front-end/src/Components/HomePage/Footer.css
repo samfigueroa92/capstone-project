@@ -64,6 +64,19 @@ width: 200%;
    padding-left: 25%;
 }
 
+.my-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+.my-links a {
+    color: white;
+}
+
 
 @media screen and (max-width: 400px) {
     .footer{
@@ -84,21 +97,25 @@ width: 200%;
         padding-top: 10px;
         
     }
+
     .links{
        text-align: center;
        justify-content: center;
        padding-left: 0px;
        padding-right: 85px;
    }
+
    .list{
     padding-right: 120px;
     text-align: center;
    }
+
     .brand-culture{
         text-align: center;
         margin-left: 2%;
         margin-right: 2%;
     }
+
     .brand-box{
         border: none;
         width: 43%;
@@ -106,26 +123,38 @@ width: 200%;
         padding-top: 3%;
         margin-bottom: 2% ;
     }
+
     .brand{
        /* justify-content: center; */
        margin-left: 35px;
     }
+
     .contact{
         text-align: center;
         padding-top: 10px;
         line-height: .9;
         padding-left: 0%;
-
     }
+
     ul{
         margin-left: 0px ;
         
     }
+
+    .my-links {
+        text-align: center;
+        padding-top: 10px;
+        line-height: .9;
+        /* padding-left: 10%; */
+        margin-left: 50px;
+    }
+
     .list{
         padding-left: 0%;
         justify-content: center;
         /* text-align: center; */
      }
+
      ul a:link{
         text-decoration: none;
         color: white;
