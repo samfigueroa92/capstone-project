@@ -52,7 +52,7 @@ const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
         <div className="signin-buttons">
           <h3>Login</h3>
           <Button onClick={signInWithGoogle}>Sign in With Google</Button>
-          <p>Not a user? <Link to="/sign-up" onClick={() => setModalOpen(false)}>Please sign up first.</Link></p>
+          <p>Don't Have An Account? <Link to="/sign-up" onClick={() => setModalOpen(false)}>Please Register Here.</Link></p>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@
 .modal-content {
   position: absolute;
   /* margin: 0 auto; */
-  background-color: white;
+  background-color: #fff;
   width: 50%;
   max-width: 600px;
   min-width: 400px;
@@ -75,7 +75,7 @@
 }
 
 .login-avatar {
-  background-color: #F1B9A5;
+  background-color: #42999b;
   color: white;
   text-align: center;
   font-size: 48px;
