@@ -81,7 +81,7 @@ export const signInWithGoogle = () => {
 ## EXAMPLES
 
 **Home Page**
-![homePage](front-end/public/video/homepage.mp4)
+![homePage](front-end/public/images/HomePage.png)
 
 **Login Modal**
 ![loginModal](front-end/public/images/LoginModal.png)

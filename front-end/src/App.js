@@ -4,7 +4,8 @@ import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
-import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
+// import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
+import SignUp from "./Components/Dashboard/SignUpPage/SignUp";
 // import Home from "./Components/HomePage/Home";
 import NewHome from "./Components/HomePage/NewHome";
 import NavBar from "./Components/NavBar/NavBar";
@@ -88,7 +89,7 @@ const App = () => {
                 </Unprotected>
               }
             />
-            <Route
+            {/* <Route
               path="/sign-up"
               element={
                 <Unprotected
@@ -96,6 +97,17 @@ const App = () => {
                   setApplicationUser={setApplicationUser}
                 >
                   <SignUpPage setApplicationUser={setApplicationUser} />
+                </Unprotected>
+              }
+            /> */}
+            <Route
+              path="/sign-up"
+              element={
+                <Unprotected
+                  applicationUser={applicationUser}
+                  setApplicationUser={setApplicationUser}
+                >
+                  <SignUp setApplicationUser={setApplicationUser} />
                 </Unprotected>
               }
             />
