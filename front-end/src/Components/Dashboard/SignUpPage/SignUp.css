@@ -1,0 +1,33 @@
+.form-card {
+    border: 1px solid red;
+    max-width: 1500px;
+    padding: 20px 5px;
+    margin: 20px auto;
+}
+
+
+.signup-text{
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructions{
+    text-align: left;
+    width: 60%;
+    margin-top: 5px;
+}
+
+.p1, 
+.p2, 
+.p3, 
+.p4{
+    text-align: center;
+}
+
+.new-button {
+    background-color:#42999b;
+}
