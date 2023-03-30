@@ -1,8 +1,7 @@
 //DEPENDENCIES
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-// import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
+import { useParams, useNavigate } from "react-router-dom";
 
 //CSS
 import "./RequestDetails.css";
