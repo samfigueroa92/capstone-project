@@ -10,6 +10,12 @@ import { useContext } from "react";
 import { signUpWithGoogle } from "../../../Services/Firebase";
 
 // MATERIAL UI
+// import Grid from "@mui/material/Grid";
+// import TextField from "@mui/material/TextField";
+// import Button from "@mui/material/Button";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
+// import MenuItem from "@mui/material/MenuItem";
 import {
   Grid,
   TextField,
@@ -17,6 +23,7 @@ import {
   Card,
   CardContent,
   MenuItem,
+  FormControl
 } from "@mui/material";
 
 //API
@@ -49,30 +56,7 @@ const SignUp = ({ setApplicationUser }) => {
     verification_type: "",
   });
 
-  const verification = [
-    {
-      value: 'State ID',
-      label: 'State ID',
-    },
-    {
-      value: 'Passport',
-      label: 'Passport',
-    },
-    {
-      value: "Driver's License",
-      label: "Driver's License",
-    }
-  ]
-  const typeOfUser = [
-    {
-      value: 'Senior',
-      label: 'Senior',
-    },
-    {
-      value: 'Volunteer',
-      label: 'Volunteer',
-    }
-  ]
+  
 
   useEffect(() => {
     const submitUser = async () => {
@@ -103,8 +87,36 @@ const SignUp = ({ setApplicationUser }) => {
 
   const navigate = useNavigate();
 
+  const verification = [
+    {
+      value: 'State ID',
+      label: 'State ID',
+    },
+    {
+      value: 'Passport',
+      label: 'Passport',
+    },
+    {
+      value: "Driver's License",
+      label: "Driver's License",
+    }
+  ]
+  const typeOfUser = [
+    {
+      value: 'Senior',
+      label: 'Senior',
+    },
+    {
+      value: 'Volunteer',
+      label: 'Volunteer',
+    }
+  ]
+
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.id]: e.target.value });
+    // console.log(e.target.id)
+    console.log(e.target.value)
+    // console.log(e.target.name)
   };
 
   const handleSubmit = async (e) => {
@@ -154,6 +166,7 @@ const SignUp = ({ setApplicationUser }) => {
       <Grid>
         <Card className="form-card">
           <CardContent>
+            <FormControl>
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid xs={12} sm={6} item>
@@ -244,11 +257,11 @@ const SignUp = ({ setApplicationUser }) => {
                 </Grid>
                 <Grid xs={12} sm={3} item>
                   <TextField
-                    select
                     label="State"
+                    select
                     variant="outlined"
                     id="state"
-                    value={newUser.state}
+                    value={newUser.state.abbreviation}
                     onChange={handleInput}
                     fullWidth
                     required
@@ -288,9 +301,9 @@ const SignUp = ({ setApplicationUser }) => {
                   <TextField
                     select
                     label="Verification Type"
-                    variant="outlined"
+                    // variant="outlined"
                     id="verification_type"
-                    value={newUser.verification_type}
+                    value={newUser.verification_type.value}
                     onChange={handleInput}
                     fullWidth
                     required
@@ -332,7 +345,7 @@ const SignUp = ({ setApplicationUser }) => {
                     label="User Type"
                     variant="outlined"
                     id="user_type"
-                    value={newUser.user_type}
+                    value={newUser.user_type.typeU}
                     onChange={handleInput}
                     fullWidth
                     required
@@ -351,6 +364,7 @@ const SignUp = ({ setApplicationUser }) => {
                 </Grid>
               </Grid>
             </form>
+            </FormControl>
           </CardContent>
         </Card>
       </Grid>
