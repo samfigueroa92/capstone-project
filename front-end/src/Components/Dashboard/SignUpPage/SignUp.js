@@ -164,7 +164,7 @@ const SignUp = ({ setApplicationUser }) => {
       </div>
 
       <Grid>
-        <Card className="form-card">
+        <Card className="signUp-form-card">
           <CardContent>
             <FormControl>
             <form onSubmit={handleSubmit}>
