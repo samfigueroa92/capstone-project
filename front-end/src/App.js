@@ -18,7 +18,8 @@ import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
 import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
 import RequestDetails from "./Components/Dashboard/RequestDetails/RequestDetails";
-import Settings from "./Components/Dashboard/SettingsPage/Settings";
+// import Settings from "./Components/Dashboard/SettingsPage/Settings";
+import ProfileSettings from "./Components/Dashboard/SettingsPage/ProfileSettings";
 import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptedRequestPage/AcceptRequestPage";
@@ -271,11 +272,25 @@ const App = () => {
                 </Protected>
               }
             />
-            <Route
+            {/* <Route
               path="/user/settings"
               element={
                 <Protected>
                   <Settings
+                    applicationUser={applicationUser}
+                    setDate={setDate}
+                    date={date}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
+                  />
+                </Protected>
+              }
+            /> */}
+            <Route
+              path="/user/settings"
+              element={
+                <Protected>
+                  <ProfileSettings
                     applicationUser={applicationUser}
                     setDate={setDate}
                     date={date}

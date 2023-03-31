@@ -130,9 +130,9 @@ function Settings({ applicationUser, setDate }) {
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   disabled
+                  type="email"
                   id="email"
                   value={applicationUser.email}
-                  type="email"
                   onChange={handleTextChange}
                 />
               </Form.Group>
