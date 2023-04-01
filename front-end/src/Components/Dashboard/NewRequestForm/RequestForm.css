@@ -1,0 +1,66 @@
+.user-dashboard{
+    display:flex;
+    grid-template-columns: 7fr 25fr;   
+}
+.request-form-card {
+    /* border: 1px solid red; */
+    max-width: 1000px;
+    padding: 30px 30px;
+    margin-top: 40px;
+    margin-bottom: auto;
+}
+
+.form_sidebar-nav{
+    width: 23%;
+    margin-right: 40px;
+    height: 100%;
+    position: sticky;
+    top: 0;
+}
+
+h3{
+    text-align: center;
+    margin: 50px 15px;
+}
+
+/* .main-page{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+.request-form{
+    margin-top: 40px;
+    height: 120%;
+    width: 120vh;
+    
+}
+
+.h3{
+    text-align: center;
+    margin: 50px 15px;
+}
+
+.form-button Button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 20px 40px 20px 40px;
+    border-radius: 50px;
+    letter-spacing: .2em;
+}
+
+.form-button Button:hover{
+    background-color: #B8DEDC;
+}
+
+.form-button{
+    text-align: center;
+}
+
+ .new-req .mb-3{
+    margin-right: 2rem !important;
+    margin-left: 1rem !important;
+
+} */

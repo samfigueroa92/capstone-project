@@ -13,7 +13,7 @@ import { useContext } from "react";
 import SidebarNav from "../SideNav/SidebarNav";
 
 // MATERIAL UI COMPONENTS
-import { Card, CardContent, Grid, TextField, MenuItem } from "@mui/material";
+import { Card, CardContent, Grid, TextField, Button, MenuItem } from "@mui/material";
 
 import Container from "react-bootstrap/Container";
 
@@ -216,6 +216,11 @@ const ProfileSettings = ({ applicationUser, setDate }) => {
                     variant="outlined"
                     fullWidth
                   />
+                </Grid>
+                <Grid item xs={12}>
+                  <Button className="new-button" sx={{background:'#42999b'}} type="submit" variant="contained" fullWidth>
+                    Submit
+                  </Button>
                 </Grid>
               </Grid>
             </form>

@@ -10,12 +10,6 @@ import { useContext } from "react";
 import { signUpWithGoogle } from "../../../Services/Firebase";
 
 // MATERIAL UI
-// import Grid from "@mui/material/Grid";
-// import TextField from "@mui/material/TextField";
-// import Button from "@mui/material/Button";
-// import Card from "@mui/material/Card";
-// import CardContent from "@mui/material/CardContent";
-// import MenuItem from "@mui/material/MenuItem";
 import {
   Grid,
   TextField,
@@ -358,7 +352,7 @@ const SignUp = ({ setApplicationUser }) => {
                   </TextField>
                 </Grid>
                 <Grid item xs={12}>
-                  <Button className="new-button" type="submit" variant="contained" fullWidth>
+                  <Button className="new-button" sx={{background:'#42999b'}} type="submit" variant="contained" fullWidth>
                     Submit
                   </Button>
                 </Grid>
