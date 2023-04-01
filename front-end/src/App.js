@@ -20,7 +20,8 @@ import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestP
 import RequestDetails from "./Components/Dashboard/RequestDetails/RequestDetails";
 // import Settings from "./Components/Dashboard/SettingsPage/Settings";
 import ProfileSettings from "./Components/Dashboard/SettingsPage/ProfileSettings";
-import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
+// import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
+import RequestForm from "./Components/Dashboard/NewRequestForm/RequestForm";
 import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptedRequestPage/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements/Achievements";
@@ -234,7 +235,7 @@ const App = () => {
               path="/requests/new"
               element={
                 <Protected>
-                  <NewRequestForm
+                  <RequestForm
                     applicationUser={applicationUser}
                     setDate={setDate}
                     date={date}
@@ -244,6 +245,20 @@ const App = () => {
                 </Protected>
               }
             />
+            {/* <Route
+              path="/requests/new"
+              element={
+                <Protected>
+                  <NewRequestForm
+                    applicationUser={applicationUser}
+                    setDate={setDate}
+                    date={date}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
+                  />
+                </Protected>
+              }
+            /> */}
             <Route
               path="/requests/:id"
               element={
