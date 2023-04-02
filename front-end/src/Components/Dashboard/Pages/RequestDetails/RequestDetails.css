@@ -102,6 +102,13 @@
   color: white;
   letter-spacing: 0.2em;
 }
+.complete{
+  background: #42999b;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.2em;
+}
 .warning {
   font-size: 12px;
 }
