@@ -10,6 +10,7 @@ import DynamicStar from "../../Filter/StarRating/DynamicStar";
 
 //CSS
 import "../../Filter/ReviewsPage/ReviewsPage.css";
+import ZeroRequests from "../../Filter/ZeroRequests/ZeroRequests";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -56,7 +57,7 @@ const PublicReviews = () => {
           </div>
         </div>
         <div className="ReviewPage__reviews-list">
-          {foundReviews.map((review) => (
+          {foundReviews.length === 0 ? <ZeroRequests /> : foundReviews.map((review) => (
             <PublicReviewCard key={review.id} review={review} />
           ))}
         </div>

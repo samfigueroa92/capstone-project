@@ -64,12 +64,12 @@ const acceptedRequestFilter = requests?.filter((request) =>
 
 let completedIds = []
 const completedRequestFilter = requests
-  .filter((request) =>
-    selectedCalendarDate === currentDate &&
-    request.title.toLowerCase().includes(search)
-      ? request.req_date <= currentDate
-      : selectedCalendarDate === request.req_date
-  )
+  // .filter((request) =>
+  //   selectedCalendarDate === currentDate &&
+  //   request.title.toLowerCase().includes(search)
+  //     ? request.req_date <= currentDate
+  //     : selectedCalendarDate === request.req_date
+  // )
   .map((request) => {
     if (request.complete) {
       completedIds.push(request.id)

@@ -1,12 +1,11 @@
 //DEPENDENCIES
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-// import { UserContext } from "../../../../Providers/UserProviders";
-// import { Link, useNavigate } from "react-router-dom";
 
 //COMPONENTS
 import DynamicStar from "../StarRating/DynamicStar";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import ZeroRequests from "../ZeroRequests/ZeroRequests";
 
 //CSS
 import "./ReviewsPage.css";
@@ -18,7 +17,6 @@ const ReviewsPage = ({ applicationUser }) => {
   const [reviews, setReviews] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
-  // let navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${API}/reviews`)
@@ -31,17 +29,6 @@ const ReviewsPage = ({ applicationUser }) => {
       }
     })
   }, []);
-
-  // const user = useContext(UserContext);
-  // const [rating, setRating] = useState(0);
-  //placeholder
-  // const [rate, setRate] = useState({});
-
-  //presort based on review updated
-  //create a filter pulling the reviews associated with the the users account.
-  //map through the reviews using the date and the requestSearch in the conditional
-  // let accumulator = 0;
-  // rate.map((score)=> accumulator += score)
 
   return (
     <div className="ReviewPage">
@@ -63,7 +50,7 @@ const ReviewsPage = ({ applicationUser }) => {
         </div>
       </div>
       <div className="ReviewPage__reviews-list">
-        {reviews.map(review => <ReviewCard key={review.id} review={review} />)}
+        {reviews.length === 0 ? <ZeroRequests /> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
       </div>
     </div>
   );

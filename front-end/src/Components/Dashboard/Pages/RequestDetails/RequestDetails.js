@@ -1,5 +1,5 @@
 ///Dependencies
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
@@ -10,6 +10,9 @@ import "./RequestDetails.css";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
+
+//API
+const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const RequestDetails = ({
   applicationUser,
@@ -22,12 +25,16 @@ const RequestDetails = ({
   setRender,
 }) => {
   const [showMore, setShowMore] = useState(false);
+  // const [completedRequest, setCompletedRequest] = useState();
+
   let { id } = useParams();
   let navigate = useNavigate();
 
   const index = iteration[location]?.indexOf(Number(id));
 
-  const API = process.env.REACT_APP_BACKEND_API_KEY;
+  // useEffect(() => {
+  //   setCompletedRequest(request)
+  // }, [request])
 
   const truncateDescriptionText = () => {
     if (request.description?.length > 100) {
@@ -92,6 +99,29 @@ const RequestDetails = ({
       .then(navigate("/dashboard"));
     setRender(!render);
   };
+
+  const requestCompleted = () => {
+    axios.put(`${API}/requests/complete_request`, {
+      req_id: id,
+    })
+    .then(() => navigate("/dashboard"))
+    .catch((err) => console.error(err))
+    setRender(!render);
+  }
+
+  // const handleChange = (e) => {
+  //   console.log(e.target.value)
+  //   if(e.target.checked){
+  //     // setCompletedRequest({...completedRequest, complete: true})
+  //     requestCompleted(id)
+  //   }
+  // }
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // }
+  // console.log(completedRequest)
+
 
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate.getFullYear();
@@ -190,6 +220,9 @@ const RequestDetails = ({
                 </figure>
                 <div className="card-info">
                   <h5 className="card-description">
+                    <strong>{request.title}</strong>
+                    <br />
+                    <br />
                     <strong>Job Description:</strong>
                     {description}
                   </h5>
@@ -202,6 +235,7 @@ const RequestDetails = ({
                     Cancellations within 24 hours or missing your appointment
                     will result in a negative review & rating.
                   </p>
+                  <Button className="complete" onClick={requestCompleted} >{request.complete ? <i class="fa-solid fa-check"></i> : <i class="fa-solid fa-x"></i>} COMPLETE</Button>
                 </div>
               </div>
             </div>

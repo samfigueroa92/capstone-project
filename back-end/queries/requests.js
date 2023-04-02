@@ -133,6 +133,19 @@ const removeVolunteer = async (request) => {
   }
 };
 
+const completeRequest = async (request) => {
+  try {
+    console.log(`Completing request: ${request.req_id}`);
+    const complete = await db.one(
+      "UPDATE requests SET complete=$1 WHERE id=$2 RETURNING *",
+      ["TRUE", request.req_id]
+    );
+    return complete;
+  } catch (error) {
+    return error;
+  }
+};
+
 const deleteRequest = async (id) => {
   try {
     console.log("Deleting request with id of " + id);
@@ -157,4 +170,5 @@ module.exports = {
   seniorRequests,
   assignVolunteer,
   removeVolunteer,
+  completeRequest,
 };
