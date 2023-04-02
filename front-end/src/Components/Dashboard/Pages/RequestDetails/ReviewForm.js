@@ -28,7 +28,7 @@ const RequestReviewForm = ({
     reviewer_img: "",
     description: "",
     post_date: "",
-    request_id: "",
+    request_id: 0,
   });
 
   const [newReview, setNewReview] = useState({
@@ -64,37 +64,26 @@ const RequestReviewForm = ({
   useEffect(() => {
     axios.get(`${API}/reviews/${id}`).then((res) => {
       const reviews = res.data;
-      console.log(reviews);
+      // console.log(reviews);
       //find review with id and userId
       const currentReview = reviews.find(
         (review) =>
           review.request_id === Number(id) &&
           review.reviewer_id === applicationUser.uuid
       );
-      console.log(currentReview)
+      // console.log(currentReview)
       
       //if it exist
       if (currentReview) {
         setEditedReview(currentReview);
         setEdit(true);
       } else {
-        // setNewReview({
-        //   reviewer_id: applicationUser.uuid,
-        //   reviewed_id:
-        //     applicationUser.user_type === "Volunteer"
-        //       ? request.elder_id
-        //       : request.volunteer_id,
-        //   reviewer_img: applicationUser.profilephoto,
-        //   description: "",
-        //   post_date: "",
-        //   request_id: id,
-        // });
         setEdit(false);
       }
     });
   }, []);
 
-  console.log(edit)
+  console.log(editedReview)
 
   // console.log(editedReview);
   // console.log(newReview)
@@ -106,9 +95,9 @@ const RequestReviewForm = ({
       .catch((err) => console.error(err));
   };
 
-  const editReview = () => {
+  const editReview = (review, id) => {
     axios
-      .put(`${API}/reviews/${id}`, editedReview)
+      .put(`${API}/reviews/${id}`, review)
       .then((res) => setEditedReview(res.data))
       .then(() => navigate("/dashboard"))
       .catch((err) => console.error(err));
@@ -129,7 +118,7 @@ const RequestReviewForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (edit) {
-      editReview(newReview, id);
+      editReview(editedReview, id);
     } else {
       addReview(newReview);
     }
