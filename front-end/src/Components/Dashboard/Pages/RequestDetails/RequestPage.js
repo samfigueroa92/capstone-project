@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { dateConverter } from "../../../../utils/dateUtils"
 
 //CSS
 import "./RequestDetails.css";
@@ -39,18 +40,7 @@ const RequestPage = ({
     });
     axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
   }, [id, navigate, API]);
-
-  const dateConverter = (specifiedDate = "") => {
-    const fullYear = specifiedDate.getFullYear();
-    const month = specifiedDate.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
+  
   let currentDate = dateConverter(new Date());
 
   const renderContent = () => {
@@ -68,7 +58,7 @@ const RequestPage = ({
       applicationUser={applicationUser}
     />
     }
-
+    
     return <RequestDetails
     applicationUser={applicationUser}
     setDashboardFilter = {setDashboardFilter}
@@ -82,6 +72,7 @@ const RequestPage = ({
     render={render}
     setRender={setRender}
     request={request}
+    reviews={reviews}
     />
   }
   

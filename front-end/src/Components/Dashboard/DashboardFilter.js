@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../../Providers/UserProviders";
+import { dateConverter } from "../../utils/dateUtils";
 
 //COMPONENTS
 import MyRequests from "./Filter/MyRequests/MyRequests";
@@ -67,18 +68,6 @@ const DashboardFilter = ({
       axios.get(`${API}/requests/open_requests`).then((res) => setOpenRequests(res.data));
     }
   }, [ applicationUser, dashboardFilter]);
-
-  const dateConverter = (specifiedDate = "") => {
-    const fullYear = specifiedDate?.getFullYear();
-    const month = specifiedDate?.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate?.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
 
   //sort requests by date
   requests?.sort((a, b) => b.req_date - a.req_date);

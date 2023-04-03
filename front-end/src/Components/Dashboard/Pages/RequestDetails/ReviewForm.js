@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { dateConverter } from "../../../../utils/dateUtils";
 
 //CSS
 import "./RequestDetails.css";
@@ -16,12 +17,13 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const RequestReviewForm = ({
   applicationUser,
   request,
+  reviews,
   setReviewFormRevealed,
 }) => {
   let navigate = useNavigate();
 
   const { id } = useParams();
-  const [edit, setEdit] = useState();
+  const [edit, setEdit] = useState(false);
   const [editedReview, setEditedReview] = useState({
     reviewer_id: "",
     reviewed_id: "",
@@ -43,50 +45,23 @@ const RequestReviewForm = ({
     request_id: id,
   });
 
-  //Date Converter
-  const dateConverter = (specifiedDate) => {
-    const fullYear = specifiedDate?.getFullYear();
-    const month = specifiedDate?.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate?.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
-  let currentDate = dateConverter(new Date());
-  //Variable Declared and new Date passed in to format for backend
-
-  // const [user, setUser] = useState({})
-
-  //Need Explanation ?
   useEffect(() => {
-    axios.get(`${API}/reviews/${id}`).then((res) => {
-      const reviews = res.data;
-      // console.log(reviews);
-      //find review with id and userId
-      const currentReview = reviews.find(
-        (review) =>
-          review.request_id === Number(id) &&
-          review.reviewer_id === applicationUser.uuid
-      );
-      // console.log(currentReview)
-      
-      //if it exist
-      if (currentReview) {
-        setEditedReview(currentReview);
-        setEdit(true);
-      } else {
-        setEdit(false);
-      }
-    });
-  }, []);
+    if (currentReview) {
+      setEditedReview(currentReview);
+      setEdit(true);
+    } else {
+      setEdit(false);
+    }
+    }, [])
+  
+  //Variable Declared and new Date passed in to format for backend
+  let currentDate = dateConverter(new Date());
 
-  console.log(editedReview)
-
-  // console.log(editedReview);
-  // console.log(newReview)
+  const currentReview = reviews.find(
+    (review) =>
+      review.request_id === Number(id) &&
+      review.reviewer_id === applicationUser.uuid
+  );
 
   const addReview = (review) => {
     axios
@@ -166,7 +141,7 @@ const RequestReviewForm = ({
               BACK
             </Button>
             <Button className="back" onClick={handleSubmit}>
-              SUBMIT
+              {currentReview ? "UPDATE REVIEW" : "SUBMIT"}
             </Button>
           </div>
         </div>

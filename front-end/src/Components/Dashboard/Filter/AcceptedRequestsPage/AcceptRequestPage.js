@@ -1,5 +1,6 @@
 //DEPENDENCIES
 import { useEffect } from "react";
+import { dateConverter } from "../../../../utils/dateUtils"
 
 //Components
 import RequestCard from "../RequestCard/RequestCard";
@@ -28,18 +29,6 @@ const AcceptRequestPage = ({
   
  
 }, [requestSearch, dashboardFilter === 'acceptedRequest']);
-
-const dateConverter = (specifiedDate) => {
-  const fullYear = specifiedDate?.getFullYear();
-  const month = specifiedDate?.getMonth() + 1;
-  const paddedMonth = month.toString().padStart(2, "0");
-  const currentDate = specifiedDate?.getDate();
-  const paddedDate = currentDate.toString().padStart(2, "0");
-
-  const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-  return formattedDate;
-};
 
 let currentDate = dateConverter(new Date());
 let selectedCalendarDate = dateConverter(date);

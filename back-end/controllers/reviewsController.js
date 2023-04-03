@@ -56,8 +56,7 @@ reviews.post("/", async (req, res) => {
 
 // EDIT OR UPDATE A REVIEW
 reviews.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const updatedReview = await editReview(req.body, id);
+  const updatedReview = await editReview(req.body, req.body.id);
   if (updatedReview.id) {
     res.status(200).json(updatedReview);
   } else {
