@@ -1,0 +1,46 @@
+.edit-request {
+    display: grid;
+    grid-template-columns: 7fr 25fr;
+  }
+  
+  .edit-image{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+  }
+  
+  .edit-image img{
+      width: 300px;
+  }
+  
+  .edit-form{
+      height: 100%;
+      width: 100%;
+      margin: 10px;
+  }
+  
+  .edit-form h3{
+      text-align: center;
+      margin: 25px 15px;
+  }
+  
+  .editForm-button{
+      text-align: center;
+  }
+  
+  .editForm-button Button{
+      background-color: #42999B;
+      color: white;
+      border: none;
+      font-weight: bold;
+      /* padding: 20px 40px 20px 40px; */
+      /* border-radius: 50px; */
+      letter-spacing: .2em;
+      margin: 10px;
+  }
+  
+  .editForm-button Button:hover{
+      background-color: #B8DEDC;
+  
+  }

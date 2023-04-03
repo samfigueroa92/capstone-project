@@ -1,13 +1,14 @@
 import React from "react";
-
-import "./RequestForm.css";
-
 //Dependencies
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { useContext } from "react";
-import { UserContext } from "../../../Providers/UserProviders";
+
+//Components
+import SidebarNav from "../SideNav/SidebarNav";
+
+//CSS
+import "./EditSubmittedRequest.css";
 
 // MATERIAL UI
 import {
@@ -15,45 +16,23 @@ import {
   TextField,
   Button,
   Card,
-  CardContent,
-  MenuItem,
+  CardContent
 } from "@mui/material";
 
-//Components
-import SidebarNav from "../SideNav/SidebarNav";
-
-// API
+//API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const RequestForm = ({
+const EditSubmittedRequest = ({
   applicationUser,
   setDate,
   date,
-  requestSearch,
   setRequestSearch,
+  requestSearch,
 }) => {
+  let { id } = useParams();
   let navigate = useNavigate();
-  let user = useContext(UserContext);
 
-  // CREATE OR ADD A NEW REQUEST
-  const makeRequest = (newRequest) => {
-    debugger;
-    axios
-      .post(`${API}/requests/new-request`, {
-        ...newRequest,
-        elder_id: user.uid,
-      })
-      .then(
-        () => {
-          navigate("/user-dashboard");
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
-  };
-
-  const [request, setRequest] = useState({
-    elder_id: "",
+  const [editedRequest, setEditedRequest] = useState({
     title: "",
     req_date: "",
     description: "",
@@ -62,31 +41,47 @@ const RequestForm = ({
     image: "",
   });
 
-  // text change method
-  const textChange = (e) => {
-    setRequest({ ...request, [e.target.id]: e.target.value });
+  useEffect(() => {
+    axios
+      .get(`${API}/requests/help_req/${id}`)
+      .then((res) => setEditedRequest(res.data))
+      .then((res) => console.log(res.data));
+  }, [id]);
+
+  const updateRequest = () => {
+    axios
+      .put(`${API}/requests/edit_req/${id}`, editedRequest)
+      .then((res) => setEditedRequest(res.data))
+      .then(() => navigate("/user-dashboard"))
+      .catch((error) => console.error(error));
   };
 
-  // submit method
+  const handleTextChange = (e) => {
+    setEditedRequest({ ...editedRequest, [e.target.id]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    makeRequest(request);
+    updateRequest(editedRequest, id);
   };
+
+  const handleDelete = () => {
+    axios
+      .delete(`${API}/requests/delete_req/${id}`)
+      .then(() => navigate("/user-dashboard"))
+      .catch((err) => console.error(err));
+  };
+
   return (
-    <Grid className="user-dashboard">
-      <div className="form_sidebar-nav">
-        <SidebarNav
-          setDate={setDate}
-          date={date}
-          applicationUser={applicationUser}
-          setRequestSearch={setRequestSearch}
-          requestSearch={requestSearch}
-        />
-      </div>
-      <Card className="request-form-card">
-        <CardContent>
-          <h3>Submit A Request</h3>
-          <form onSubmit={handleSubmit}>
+    <Grid className="edit-request">
+    <SidebarNav applicationUser={applicationUser} setDate={setDate} date ={date} setRequestSearch = {setRequestSearch} requestSearch={requestSearch} />
+    <Card className="edit-form">
+      <h3>Edit Request</h3>
+      <Grid className="edit-image">
+      <img src={editedRequest.image} alt="requestimg"/>
+      </Grid>
+      <CardContent>
+      <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid xs={12} sm={6} item>
                 <TextField
@@ -94,8 +89,8 @@ const RequestForm = ({
                   placeholder="Grocery Pick Up"
                   variant="outlined"
                   id="title"
-                  value={request.title}
-                  onChange={textChange}
+                  value={editedRequest.title}
+                  onChange={handleTextChange}
                   fullWidth
                   required
                 />
@@ -107,8 +102,8 @@ const RequestForm = ({
                   variant="outlined"
                   id="req_date"
                   helperText="Request Date"
-                  value={request.req_date}
-                  onChange={textChange}
+                  value={editedRequest.req_date}
+                  onChange={handleTextChange}
                   fullWidth
                   required
                 />
@@ -121,8 +116,8 @@ const RequestForm = ({
                   rows={4}
                   variant="outlined"
                   id="description"
-                  value={request.description}
-                  onChange={textChange}
+                  value={editedRequest.description}
+                  onChange={handleTextChange}
                   fullWidth
                   required
                 />
@@ -133,8 +128,8 @@ const RequestForm = ({
                   placeholder="123 Somewhere St"
                   variant="outlined"
                   id="location"
-                  value={request.location}
-                  onChange={textChange}
+                  value={editedRequest.location}
+                  onChange={handleTextChange}
                   fullWidth
                   required
                 />
@@ -145,8 +140,8 @@ const RequestForm = ({
                   variant="outlined"
                   id="time"
                   helperText="Request Time"
-                  value={request.time}
-                  onChange={textChange}
+                  value={editedRequest.time}
+                  onChange={handleTextChange}
                   fullWidth
                   required
                 />
@@ -157,23 +152,26 @@ const RequestForm = ({
                   placeholder="upload image"
                   variant="outlined"
                   id="image"
-                  value={request.image}
-                  onChange={textChange}
+                  value={editedRequest.image}
+                  onChange={handleTextChange}
                   fullWidth
                   required
                 />
               </Grid>
-              <Grid item xs={12}>
-                  <Button sx={{background:'#42999b !important'}} className="new-button" type="submit" variant="contained" fullWidth>
+              <Grid item xs={12} className="editForm-button">
+                  <Button sx={{background:'#42999b !important'}} type="submit" variant="contained" >
                     Submit
+                  </Button>
+                  <Button sx={{background:'#42999b !important'}} onClick={handleDelete}variant="contained" >
+                    Deletee
                   </Button>
                 </Grid>
             </Grid>
           </form>
-        </CardContent>
+      </CardContent>
       </Card>
-    </Grid>
+      </Grid>
   );
 };
 
-export default RequestForm;
+export default EditSubmittedRequest;

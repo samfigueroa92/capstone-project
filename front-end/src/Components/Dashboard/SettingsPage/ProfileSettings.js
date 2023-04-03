@@ -218,7 +218,7 @@ const ProfileSettings = ({ applicationUser, setDate }) => {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Button className="new-button" sx={{background:'#42999b'}} type="submit" variant="contained" fullWidth>
+                  <Button className="new-button" sx={{background:'#42999b !important'}} type="submit" variant="contained" fullWidth>
                     Submit
                   </Button>
                 </Grid>
