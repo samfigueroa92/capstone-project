@@ -26,7 +26,8 @@ import Protected from "./Components/Protected";
 import AcceptRequestPage from "./Components/Dashboard/AcceptedRequestPage/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements/Achievements";
 import Unprotected from "./Components/Unprotected";
-import EditRequest from "./Components/Dashboard/EditRequest/EditRequest";
+// import EditRequest from "./Components/Dashboard/EditRequest/EditRequest";
+import EditSubmittedRequest from "./Components/Dashboard/EditRequest/EditSubmittedRequest";
 import ReviewsPage from "./Components/Dashboard/ReviewsPage/ReviewsPage";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
@@ -273,11 +274,25 @@ const App = () => {
                 </Protected>
               }
             />
-            <Route
+            {/* <Route
               path="/edit/:id"
               element={
                 <Protected>
                   <EditRequest
+                    applicationUser={applicationUser}
+                    setDate={setDate}
+                    date={date}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
+                  />
+                </Protected>
+              }
+            /> */}
+            <Route
+              path="/edit/:id"
+              element={
+                <Protected>
+                  <EditSubmittedRequest
                     applicationUser={applicationUser}
                     setDate={setDate}
                     date={date}
