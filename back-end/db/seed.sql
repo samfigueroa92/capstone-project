@@ -96,24 +96,24 @@ INSERT INTO requests ("elder_id","volunteer_id", "req_date", "title", "descripti
 
 
 
-INSERT INTO requests ("elder_id","volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','rvzWB9oEqaOEwB8KmnHAtwSiFvE3', '2023-10-10', 'Help me Build a Website', 'Starting a business in my Senior years looking for help to build a website','Virtual','15:00','TRUE','FALSE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj69KqWamqwj2nZUMhV6e2MqMoKasrln5fLg&usqp=CAU');
+-- INSERT INTO requests ("elder_id","volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463','rvzWB9oEqaOEwB8KmnHAtwSiFvE3', '2023-10-10', 'Help me Build a Website', 'Starting a business in my Senior years looking for help to build a website','Virtual','15:00','TRUE','FALSE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj69KqWamqwj2nZUMhV6e2MqMoKasrln5fLg&usqp=CAU');
 
 --mine
-INSERT INTO requests ("elder_id","volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','rvzWB9oEqaOEwB8KmnHAtwSiFvE3', '2023-09-10', 'Help me Build a Website', 'Starting a business in my Senior years looking for help to build a website','Virtual','14:00','TRUE','TRUE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj69KqWamqwj2nZUMhV6e2MqMoKasrln5fLg&usqp=CAU');
+-- INSERT INTO requests ("elder_id","volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463','rvzWB9oEqaOEwB8KmnHAtwSiFvE3', '2023-09-10', 'Help me Build a Website', 'Starting a business in my Senior years looking for help to build a website','Virtual','14:00','TRUE','TRUE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj69KqWamqwj2nZUMhV6e2MqMoKasrln5fLg&usqp=CAU');
 
 
-INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
+-- INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
 
-('rrWVL4lSJvOQgw6kOz7qWCp1N463', '2023-05-18', 'MLK Errand', 'Due to it being a holiday I would like to do some organizing to get ready for tax session. Looking for a great tax person and would like some help with research as well as going there.','Manhattan','10:00','FALSE','FALSE','https://e00-marca.uecdn.es/assets/multimedia/imagenes/2022/10/17/16660139187639.jpg');
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463', '2023-05-18', 'MLK Errand', 'Due to it being a holiday I would like to do some organizing to get ready for tax session. Looking for a great tax person and would like some help with research as well as going there.','Manhattan','10:00','FALSE','FALSE','https://e00-marca.uecdn.es/assets/multimedia/imagenes/2022/10/17/16660139187639.jpg');
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
+-- INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
 
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','5XGYcMFPtnPjx2EeG0e7Rw8N2v83', '2023-01-23', 'Holiday Clean-up','I know this is super late in January, but I needed a breather, looking for a heavy lifter to help me take down the tree and recycle it','Manhattan','14:00', 'TRUE','FALSE','https://www.incimages.com/uploaded_files/image/1920x1080/getty_498739194_409817.jpg');
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463','5XGYcMFPtnPjx2EeG0e7Rw8N2v83', '2023-01-23', 'Holiday Clean-up','I know this is super late in January, but I needed a breather, looking for a heavy lifter to help me take down the tree and recycle it','Manhattan','14:00', 'TRUE','FALSE','https://www.incimages.com/uploaded_files/image/1920x1080/getty_498739194_409817.jpg');
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2023-12-24','Dinner Prep','Christmas Dinner is at my Home this year and I think I bit off more than I can choose this year, due to my age','Brooklyn','15:00','TRUE','FALSE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ocs8qBM6Vl9JCfjvP_bVRXUYFUTIGHmRmA&usqp=CAU');
+-- INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2023-12-24','Dinner Prep','Christmas Dinner is at my Home this year and I think I bit off more than I can choose this year, due to my age','Brooklyn','15:00','TRUE','FALSE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ocs8qBM6Vl9JCfjvP_bVRXUYFUTIGHmRmA&usqp=CAU');
 
  INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
 ('nT7piDTswmNax8Osco30IoX4MrW2','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2023-08-10','Online Holiday Shopping', 'Not the savviest at using technology and would love some help with my holiday shopping. Cant ask family for help because I would like to keep it a secret.','Queens','12:00','TRUE', 'FALSE', 'https://wwwassets.rand.org/content/rand/pubs/research_reports/RRA308-9/jcr:content/par/teaser.aspectfit.0x1200.jpg/1609811465634.jpg');
@@ -133,17 +133,17 @@ INSERT INTO requests ("elder_id", "req_date", "title", "description", "location"
 INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
 ('nT7piDTswmNax8Osco30IoX4MrW2', 'uYH1wI4KmteJ9jnCVyaSIlNaZlq2','2023-05-15','Sunday Laundry','My Nurse that usually supports me is on vacation. I have Laundry that needs to be. What I really need is someone to drop off my Laundry for it to be completed. The service usually takes about 4 hours. So I would just need it to be dropped off and pick-up, I live on the first floor if thats important', 'Manhattan', '10:00','TRUE', 'TRUE','https://images.ctfassets.net/9ycpqnc6ohsr/6CCVOCZnGmKCfE1HiETinK/f8cb90a383efdbb80eae1893374a4a52/ef9e5dab2cc86043cb7dc3a241c72716_2x.jpg') ;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463', '5XGYcMFPtnPjx2EeG0e7Rw8N2v83', '2023-06-20', 'Christmas Tree Help', 'Looking for some assistance is putting together an artificial Christmas tree','Brooklyn','12:00', 'TRUE','FALSE','https://res.cloudinary.com/taskrabbit-com/image/upload/f_auto,q_auto/yqd8y8ils7btrzpxqlhs') ;
+-- INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463', '5XGYcMFPtnPjx2EeG0e7Rw8N2v83', '2023-06-20', 'Christmas Tree Help', 'Looking for some assistance is putting together an artificial Christmas tree','Brooklyn','12:00', 'TRUE','FALSE','https://res.cloudinary.com/taskrabbit-com/image/upload/f_auto,q_auto/yqd8y8ils7btrzpxqlhs') ;
 
-INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','2023-12-06', 'New Dresser', 'I got a new dresser from Ikea, and I hate putting these things together. It would be nice to have someone give me a hand with this.','Manhattan','10:00','TRUE','FALSE','https://tinyurl.com/bdf8cnkp') ;
+-- INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463','2023-12-06', 'New Dresser', 'I got a new dresser from Ikea, and I hate putting these things together. It would be nice to have someone give me a hand with this.','Manhattan','10:00','TRUE','FALSE','https://tinyurl.com/bdf8cnkp') ;
 
-INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463', '2022-12-10','Dead Closet Light', 'A light in my closet blew, and I am unable to reach it. Looking for someone that could handle this small thing for me.','Bronx','10:00','FALSE','FALSE','https://tinyurl.com/bdhywphr') ;
+-- INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463', '2022-12-10','Dead Closet Light', 'A light in my closet blew, and I am unable to reach it. Looking for someone that could handle this small thing for me.','Bronx','10:00','FALSE','FALSE','https://tinyurl.com/bdhywphr') ;
 
-INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
-('rrWVL4lSJvOQgw6kOz7qWCp1N463','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2023-03-01','Grocery Assistance','I need a few grocery items, but am currently recovering from knee surgery for a few more days. If someone would be kind enough to run this errand for me, I would be extremely grateful.','Queens','16:00','TRUE','TRUE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4bIfMT5O6aVxkbYw0fQbyILqbQL2LMsSGbg&usqp=CAU');
+-- INSERT INTO requests ("elder_id", "volunteer_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+-- ('rrWVL4lSJvOQgw6kOz7qWCp1N463','5XGYcMFPtnPjx2EeG0e7Rw8N2v83','2023-03-01','Grocery Assistance','I need a few grocery items, but am currently recovering from knee surgery for a few more days. If someone would be kind enough to run this errand for me, I would be extremely grateful.','Queens','16:00','TRUE','TRUE','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4bIfMT5O6aVxkbYw0fQbyILqbQL2LMsSGbg&usqp=CAU');
 
 INSERT INTO requests ("elder_id", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
 ('nT7piDTswmNax8Osco30IoX4MrW2','2023-09-26','Accompany Me to the Park','Need to get some exercise in, would love to have a walking partner to help motivate me.','New York','15:00','FALSE','FALSE','https://phillypowered.org/wp-content/uploads/2018/08/YEE_5548-20180621.jpg');
