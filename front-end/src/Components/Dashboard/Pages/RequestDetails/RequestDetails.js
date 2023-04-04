@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
+import { dateConverter } from "../../../../utils/dateUtils"
 
 //CSS
 import "./RequestDetails.css";
@@ -23,18 +24,14 @@ const RequestDetails = ({
   request,
   render,
   setRender,
+  reviews
 }) => {
   const [showMore, setShowMore] = useState(false);
-  // const [completedRequest, setCompletedRequest] = useState();
 
   let { id } = useParams();
   let navigate = useNavigate();
 
   const index = iteration[location]?.indexOf(Number(id));
-
-  // useEffect(() => {
-  //   setCompletedRequest(request)
-  // }, [request])
 
   const truncateDescriptionText = () => {
     if (request.description?.length > 100) {
@@ -109,34 +106,10 @@ const RequestDetails = ({
     setRender(!render);
   }
 
-  // const handleChange = (e) => {
-  //   console.log(e.target.value)
-  //   if(e.target.checked){
-  //     // setCompletedRequest({...completedRequest, complete: true})
-  //     requestCompleted(id)
-  //   }
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // }
-  // console.log(completedRequest)
-
-
-  const dateConverter = (specifiedDate = "") => {
-    const fullYear = specifiedDate.getFullYear();
-    const month = specifiedDate.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
-
+  let usersReviews = reviews.filter(review => review.reviewer_id === applicationUser.uuid);
+ 
   let currentDate = dateConverter(new Date());
-
+  
   const renderButton = () => {
     if (applicationUser.user_type === "Volunteer") {
       if (request.volunteer_id !== applicationUser.uuid) {
@@ -147,17 +120,32 @@ const RequestDetails = ({
             </Button>
           </>
         );
-      } else if (request.complete && request.req_date < currentDate) {
-        return (
-          <>
+      } else if (request.complete) {
+        if(usersReviews.length > 0){
+          return (
+            <>
             <Button
               className="reject"
               onClick={() => setReviewFormRevealed(true)}
             >
-              REVIEW
+              EDIT REVIEW
             </Button>
           </>
-        );
+
+          )
+        }else{
+          return (
+            <>
+              <Button
+                className="reject"
+                onClick={() => setReviewFormRevealed(true)}
+              >
+                REVIEW
+              </Button>
+            </>
+          );
+
+        }
       } else {
         return (
           <>

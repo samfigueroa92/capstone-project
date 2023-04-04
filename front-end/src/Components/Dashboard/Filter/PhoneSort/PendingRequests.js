@@ -4,19 +4,9 @@ import RequestCard from "../RequestCard/RequestCard";
 //CSS
 import "../AcceptedRequestsPage/AcceptRequestPage.css";
 
+import { dateConverter } from "../../../../utils/dateUtils"
+
 function PendingRequests({ applicationUser, requests, requestSearch }) {
- 
-  const dateConverter = (specifiedDate) => {
-    const fullYear = specifiedDate?.getFullYear();
-    const month = specifiedDate?.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate?.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
 
   let currentDate = dateConverter(new Date());
   let search = requestSearch.toLowerCase() || '';

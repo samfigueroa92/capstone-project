@@ -1,3 +1,5 @@
+import { dateConverter } from "../../../../utils/dateUtils"
+
 import RequestCard from '../RequestCard/RequestCard';
 
 import '../BrowseRequests/BrowseRequests.css';
@@ -8,18 +10,6 @@ function AcceptedRequests({
   requestSearch}
   
 ) {
-  
-  const dateConverter = (specifiedDate) => {
-    const fullYear = specifiedDate?.getFullYear();
-    const month = specifiedDate?.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate?.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
 
 let currentDate = dateConverter(new Date());
 let search = requestSearch?.toLowerCase() || '';

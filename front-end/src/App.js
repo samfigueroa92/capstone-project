@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserProvider } from "./Providers/UserProviders";
+import { dateConverter } from "./utils/dateUtils";
 
 //COMPONENTS
 import SignUpPage from "./Components/HomePage/SignUpPage";
@@ -74,18 +75,6 @@ const App = () => {
 
   let myRequestIds = [];
   let openRequestIds = [];
-
-  const dateConverter = (specifiedDate) => {
-    const fullYear = specifiedDate?.getFullYear();
-    const month = specifiedDate?.getMonth() + 1;
-    const paddedMonth = month.toString().padStart(2, "0");
-    const currentDate = specifiedDate?.getDate();
-    const paddedDate = currentDate.toString().padStart(2, "0");
-
-    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
-
-    return formattedDate;
-  };
 
   let currentDate = dateConverter(new Date());
 
