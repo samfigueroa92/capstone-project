@@ -44,6 +44,12 @@ const RequestReviewForm = ({
     post_date: "",
     request_id: id,
   });
+  
+  const currentReview = reviews.find(
+    (review) =>
+      review.request_id === Number(id) &&
+      review.reviewer_id === applicationUser.uuid
+  );
 
   useEffect(() => {
     if (currentReview) {
@@ -56,12 +62,6 @@ const RequestReviewForm = ({
   
   //Variable Declared and new Date passed in to format for backend
   let currentDate = dateConverter(new Date());
-
-  const currentReview = reviews.find(
-    (review) =>
-      review.request_id === Number(id) &&
-      review.reviewer_id === applicationUser.uuid
-  );
 
   const addReview = (review) => {
     axios
