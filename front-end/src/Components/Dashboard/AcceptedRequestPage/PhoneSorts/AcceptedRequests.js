@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCommentsDollar } from 'react-icons/fa';
+// import { FaCommentsDollar } from 'react-icons/fa';
 import RequestCard from '../../RequestCard/RequestCard';
 // import '../BrowseRequestPage/BrowseRequestPage.css'
 
