@@ -20,17 +20,14 @@ import {
 } from "@mui/material";
 
 //Components
-import SidebarNav from "../SideNav/SidebarNav";
+// import SidebarNav from "../SideNav/SidebarNav";
 
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const RequestForm = ({
   applicationUser,
-  setDate,
-  date,
-  requestSearch,
-  setRequestSearch,
+  setDashboardFilter
 }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
@@ -53,7 +50,8 @@ const RequestForm = ({
   };
 
   const [request, setRequest] = useState({
-    elder_id: "",
+    elder_id: applicationUser.uuid,
+    elder_img: applicationUser.profilephoto,
     title: "",
     req_date: "",
     description: "",
@@ -71,10 +69,11 @@ const RequestForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     makeRequest(request);
+    setDashboardFilter("main")
   };
   return (
     <Grid className="user-dashboard">
-      <div className="form_sidebar-nav">
+      {/* <div className="form_sidebar-nav">
         <SidebarNav
           setDate={setDate}
           date={date}
@@ -82,7 +81,7 @@ const RequestForm = ({
           setRequestSearch={setRequestSearch}
           requestSearch={requestSearch}
         />
-      </div>
+      </div> */}
       <Card className="request-form-card">
         <CardContent>
           <h3>Submit A Request</h3>

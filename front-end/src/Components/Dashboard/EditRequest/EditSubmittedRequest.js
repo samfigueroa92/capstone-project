@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 //Components
-import SidebarNav from "../SideNav/SidebarNav";
+// import SidebarNav from "../SideNav/SidebarNav";
 
 //CSS
 import "./EditSubmittedRequest.css";
@@ -22,13 +22,7 @@ import {
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const EditSubmittedRequest = ({
-  applicationUser,
-  setDate,
-  date,
-  setRequestSearch,
-  requestSearch,
-}) => {
+const EditSubmittedRequest = ({ applicationUser, setEditRequestRevealed }) => {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -39,6 +33,7 @@ const EditSubmittedRequest = ({
     location: "",
     time: "",
     image: "",
+    elder_id: { applicationUser },
   });
 
   useEffect(() => {
@@ -74,7 +69,7 @@ const EditSubmittedRequest = ({
 
   return (
     <Grid className="edit-request">
-    <SidebarNav applicationUser={applicationUser} setDate={setDate} date ={date} setRequestSearch = {setRequestSearch} requestSearch={requestSearch} />
+    {/* <SidebarNav applicationUser={applicationUser} setDate={setDate} date ={date} setRequestSearch = {setRequestSearch} requestSearch={requestSearch} /> */}
     <Card className="edit-form">
       <h3>Edit Request</h3>
       <Grid className="edit-image">
@@ -159,11 +154,14 @@ const EditSubmittedRequest = ({
                 />
               </Grid>
               <Grid item xs={12} className="editForm-button">
-                  <Button sx={{background:'#42999b !important'}} type="submit" variant="contained" >
+              <Button type="submit" onClick={() => setEditRequestRevealed(false)} sx={{background:'#42999b !important'}} variant="contained" >
+                    Back
+                  </Button>
+                  <Button type="submit" sx={{background:'#42999b !important'}} variant="contained" >
                     Submit
                   </Button>
                   <Button sx={{background:'#42999b !important'}} onClick={handleDelete}variant="contained" >
-                    Deletee
+                    Delete
                   </Button>
                 </Grid>
             </Grid>

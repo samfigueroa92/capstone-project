@@ -1,18 +1,19 @@
 .open-requests{
-    width: 100%;
+    /* width: 100%; */
     /* display: flex; */
-    justify-content: center;
-    margin: 10px 0;
+    /* justify-content: center; */
+    /* margin: 10px 0; */
     /* flex-direction:row; */
 
 
 
 
 
-    margin: 15px;
+    /* margin: 15px; */
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    height: 350px;
     column-gap: 2.5rem;
     /* overflow-x: scroll; */
      /* overflow-y: scroll; */

@@ -1,47 +1,60 @@
-import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from '../../../Providers/UserProviders';
+//DEPENDENCIES
+import { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-import SidebarNav from "../SideNav/SidebarNav";
-// import Rate from './Rate'
-import Reviews from "../ReviewCard/ReviewCard";
+//COMPONENTS
+// import DynamicStar from "../StarRating/DynamicStar";
+import ReviewCard from "../ReviewCard/ReviewCard";
+import NoRequests from "../NoRequests/NoRequests";
+//CSS
 import "./ReviewsPage.css";
 
+//API
+const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, requestSearch }) => {
-  const user = useContext(UserContext);
- 
-  const [rating, setRating] = useState(0)
-  //placeholder
-  const [reviews, setReviews] = useState({})
+const ReviewsPage = ({ applicationUser, dashboardFilter }) => {
+  const [reviews, setReviews] = useState([]);
+  const [ratings, setRatings] = useState([]);
+  const [reviewCount, setReviewCount] = useState(0);
   let navigate = useNavigate();
- 
+
+  useEffect(() => {
+    axios.get(`${API}/reviews`)
+    .then(res => {
+      const reviews = res.data;
+      const userReviews = reviews.filter(review => review.reviewed_id === applicationUser.uuid);
+      if(userReviews){
+        setReviews(userReviews);
+        setReviewCount(userReviews.length);
+      }
+    })
+  }, []);
+  // const user = useContext(UserContext);
+  // const [rating, setRating] = useState(0);
+  //placeholder
+  // const [rate, setRate] = useState({});
+
+  //presort based on review updated
+  //create a filter pulling the reviews associated with the the users account.
+  //map through the reviews using the date and the requestSearch in the conditional
+  // let accumulator = 0;
+  // rate.map((score)=> accumulator += score)
+
   return (
-    <div className="user-dashboard">
-      <div className="sidebar-nav">
-        <SidebarNav
-          date={date}
-          setDate={setDate}
-          applicationUser={applicationUser}
-          setRequestSearch = {setRequestSearch}
-          requestSearch = {requestSearch}
+    <div className="ReviewPage">
+      <div className="ReviewPage__personalInfo">
+        <img
+          className="ReviewPage__img"
+          src={applicationUser?.profilephoto}
         />
+        <br />
+        <div className="ReviewPage__stars">Star Rating:</div>
+        {/* <DynamicStar ratings={ratings} setReviewCount={setReviewCount} /> */}
+        <div className="ReviewPage__count">Review Count: <span className= 'reviewCount_span'>{reviewCount === 0 ? 'No Reviews' : reviewCount}{!!reviewCount && (reviewCount > 1 ? ' reviews': ' review')}</span></div>
       </div>
-      <div className="main-page ReviewPage">
-        <div className= 'ReviewPage__personalInfo'>
-        <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
-        <br/>
-        <h4 className= 'ReviewPage__stars'>Star Rating:</h4>
-        {/* <Rate rating={rating} OnRating={rate=> setRating(rate)} /> */}
-        <h4>Review Count: </h4>
-        <p>{reviews.length || 'Review Count'}</p>
-        </div>
-        <div className='ReviewPage__reviews-list'>
-          <Reviews reviews= {reviews}/>
-        </div>
-
-
-        
+      <div className="ReviewPage__reviews-list">
+      {reviews.length === 0 ? <NoRequests dashboardFilter={dashboardFilter}/> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
       </div>
     </div>
   );

@@ -1,6 +1,18 @@
+/* .signUp-form-card {
+    border: 1px solid red;
+    max-width: 1200px;
+    padding: 20px 5px;
+    margin: 20px auto;
+} */
+
 .edit-request {
-    display: grid;
-    grid-template-columns: 7fr 25fr;
+    /* display: grid; */
+    /* grid-template-columns: 7fr 25fr; */
+    /* grid-template-columns: 1fr 3fr 1fr; */
+    /* border: 1px solid red; */
+    max-width: 1200px;
+    padding: 20px 5px;
+    margin: 20px auto;
   }
   
   .edit-image{
@@ -14,11 +26,11 @@
       width: 300px;
   }
   
-  .edit-form{
+  /* .edit-form{
       height: 100%;
       width: 100%;
       margin: 10px;
-  }
+  } */
   
   .edit-form h3{
       text-align: center;
@@ -42,5 +54,4 @@
   
   .editForm-button Button:hover{
       background-color: #B8DEDC;
-  
   }

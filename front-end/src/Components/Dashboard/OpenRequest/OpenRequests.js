@@ -3,11 +3,19 @@ import { useEffect, useState } from "react";
 
 //Components
 import RequestCard from "../RequestCard/RequestCard";
+import NoRequests from "../NoRequests/NoRequests";
 
 //CSS
 import "./OpenRequests.css";
 
-const OpenRequests = ({ openRequests, date, requestSearch}) => {
+const OpenRequests = ({ 
+  openRequests, 
+  date, 
+  requestSearch,
+  applicationUser,
+  setLocation,
+  setDashboardFilter
+}) => {
   const search = requestSearch.toLowerCase()
 
   const dateConverter = (specifiedDate = '') => {
@@ -27,31 +35,41 @@ const OpenRequests = ({ openRequests, date, requestSearch}) => {
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
 
-  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date).map((request)=> <RequestCard key={request.id} request={request} />)
- 
- 
-  // const specifiedrequests = openRequests.map((openRequest, index) => {
-  //   if (openRequest.req_date === value && index <= 4) {
-  //     return <RequestCard key={openRequest.id} request={openRequest} />;
-  //   }
-  // });
-
-  // const requests = openRequests.map((openRequest, index) => {
-  //   if (openRequest.req_date >= value && index <= 4) {
-  //     return <RequestCard key={openRequest.id} request={openRequest} />;
-  //   }
-  // });
+  const requestFilter = openRequests
+    .filter((request) =>
+      selectedCalendarDate === currentDate &&
+      request.title.toLowerCase().includes(search)
+        ? request.req_date >= currentDate &&
+          request.title.toLowerCase().includes(search)
+        : selectedCalendarDate === request.req_date &&
+          request.title.toLowerCase().includes(search)
+    )
+    .map((request, index) => {
+      if (index < 4) {
+     
+        return (
+          <RequestCard
+            key={request.id}
+            request={request}
+            applicationUser={applicationUser}
+            setDashboardFilter={setDashboardFilter}
+          />
+        );
+      }
+    });
 
   return (
+
     <>
-    <h3 className="head">Open Requests</h3>
-    <div className="open-requests">
-      
-      {/* <div className="open-list"> */}
-      {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
-      {/* </div> */}
-    </div>
+      <h3 className="head">Open Requests</h3>
+      <div
+        className="openRequestPage__filter"
+        onClick={() => setLocation("openRequests")}
+      >
+        {requestFilter.length > 0 ? requestFilter : <NoRequests />}
+      </div>
     </>
+
   );
 };
 export default OpenRequests;

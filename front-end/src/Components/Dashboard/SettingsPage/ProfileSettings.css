@@ -1,11 +1,11 @@
-.profile-Info {
+/* .profile-Info {
     display: grid;
     grid-template-columns: 7fr 25fr;
-}
+} */
 
 .update-form-card {
     border: 1px solid red;
-    max-width: 1500px;
+    max-width: 1200px;
     padding: 20px 5px;
     margin: 20px auto;
 }
