@@ -223,7 +223,7 @@ const RequestDetails = ({
                     Cancellations within 24 hours or missing your appointment
                     will result in a negative review & rating.
                   </p>
-                  <Button className="complete" onClick={requestCompleted} >{request.complete ? <i class="fa-solid fa-check"></i> : <i class="fa-solid fa-x"></i>} COMPLETE</Button>
+                  {request.assigned ? <Button className="complete" onClick={requestCompleted} >{request.complete ? <i class="fa-solid fa-check"></i> : <i class="fa-solid fa-x"></i>} COMPLETE</Button> : null}
                 </div>
               </div>
             </div>

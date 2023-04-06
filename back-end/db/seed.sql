@@ -1,7 +1,7 @@
 \c task_capstone
 -- USERS
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "state", "zipcode", "phonenumber", "email", "verified", "user_type", "profilephoto") VALUES
-('zR8PxXG7Vthw8kMADxFgHgTb2Nt2','Samantha','Figueroa', '1992-07-11', '136281 Himalayan Rock Salt Quarry', '1','Staten Island', 'NY', '18221','215664211','samanthafigueroa@pursuit.org','TRUE', 'Volunteer', 'https://lh3.googleusercontent.com/a/AGNmyxbKe8URzzLt85XqCI0ASEzcRKl_rWMpg5L3mehV=s96-c'), 
+('zR8PxXG7Vthw8kMADxFgHgTb2Nt2','Samantha','Figueroa', '1992-07-11', '136281 Himalayan Rock Salt Quarry', '1','Staten Island', 'NY', '18221','215664211','samanthafigueroa@pursuit.org','TRUE', 'Volunteer', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf84rsLE3gQkPmVzx3HtECy7N4G-_B0XSz_Q&usqp=CAU'), 
 
 ('KRpB4t5K0MNr2ew5iBIeBDGNpCq2', 'Cassandra', 'Oliver', '1960-08-16', '123 Fake St', '11C', 'Bronx', 'NY', '12345', '1234567890', 'cassandraoliver91@gmail.com', 'TRUE', 'Senior', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg');
 
@@ -17,13 +17,13 @@ INSERT INTO requests ("elder_id", "elder_img", "req_date", "title", "description
 
 -- ACCEPTED REQUESTS
 INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
-('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://lh3.googleusercontent.com/a/AGNmyxbKe8URzzLt85XqCI0ASEzcRKl_rWMpg5L3mehV=s96-c', '2024-01-29', 'Ride from the Airport', 'I need a ride from the airport, Ill be coming back from Puerto Rico and I just want to make sure that I get home safely... as well as I would need help bring my suitcase upstairs to the 2nd floor.','LGA','16:00','TRUE','FALSE','https://metroairportnews.com/wp-content/uploads/Reinvention-of-LaGuardia-Airport-4.jpg'), 
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf84rsLE3gQkPmVzx3HtECy7N4G-_B0XSz_Q&usqp=CAU', '2024-01-29', 'Ride from the Airport', 'I need a ride from the airport, Ill be coming back from Puerto Rico and I just want to make sure that I get home safely... as well as I would need help bring my suitcase upstairs to the 2nd floor.','LGA','16:00','TRUE','FALSE','https://metroairportnews.com/wp-content/uploads/Reinvention-of-LaGuardia-Airport-4.jpg'), 
 
-('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://lh3.googleusercontent.com/a/AGNmyxbKe8URzzLt85XqCI0ASEzcRKl_rWMpg5L3mehV=s96-c', '2023-05-29', 'Read to Me', 'Poor Eye Site has cause me to stop doing what I love ... READING. I have a couple of books that I would love to read but unfortunately they arent on Audible. Someone please help', 'Bronx', '16:00', 'TRUE', 'FALSE', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfIptn1mN1uj8sU2aF7vW8lnpxkb1PgnTtcg&usqp=CAU');
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf84rsLE3gQkPmVzx3HtECy7N4G-_B0XSz_Q&usqp=CAU', '2023-05-29', 'Read to Me', 'Poor Eye Site has cause me to stop doing what I love ... READING. I have a couple of books that I would love to read but unfortunately they arent on Audible. Someone please help', 'Bronx', '16:00', 'TRUE', 'FALSE', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfIptn1mN1uj8sU2aF7vW8lnpxkb1PgnTtcg&usqp=CAU');
 
 -- COMPLETED REQUESTS
 INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
-('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://lh3.googleusercontent.com/a/AGNmyxbKe8URzzLt85XqCI0ASEzcRKl_rWMpg5L3mehV=s96-c', '2023-01-6', 'Prescription Pick Up', 'I need someone to pick up my meds.','Bronx','10:00','TRUE','TRUE','');
+('KRpB4t5K0MNr2ew5iBIeBDGNpCq2','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','zR8PxXG7Vthw8kMADxFgHgTb2Nt2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf84rsLE3gQkPmVzx3HtECy7N4G-_B0XSz_Q&usqp=CAU', '2023-01-6', 'Prescription Pick Up', 'I need someone to pick up my meds.','Bronx','10:00','TRUE','TRUE','');
 
 -- REVIEWS
 INSERT INTO reviews ("reviewer_id", "reviewer_img", "reviewed_id", "post_date", "request_id", "description") VALUES
