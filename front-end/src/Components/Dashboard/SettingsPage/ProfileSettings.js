@@ -23,8 +23,8 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
 
-const ProfileSettings = ({ applicationUser, setDate }) => {
-  let navigate = useNavigate();
+const ProfileSettings = ({ applicationUser, setDashboardFilter }) => {
+  // let navigate = useNavigate();
   const usStates = new UsaStates();
   const user = useContext(UserContext);
 
@@ -56,7 +56,8 @@ const ProfileSettings = ({ applicationUser, setDate }) => {
       .put(`${API}/users/${applicationUser.uuid}`, updatedUser)
       .then(
         () => {
-          navigate(`/user-dashboard`);
+          setDashboardFilter('main')
+          // navigate(`/user-dashboard`);
         },
         (error) => console.error(error)
       )
@@ -75,8 +76,8 @@ const ProfileSettings = ({ applicationUser, setDate }) => {
 
   return (
 
-      <div className="profile-Info">
-        <SidebarNav setDate={setDate} applicationUser={applicationUser} />
+      <div className="update-form-card">
+        {/* <SidebarNav setDate={setDate} applicationUser={applicationUser} /> */}
         <Container className="settings">
           <h3 className="settings-header">Update Your Profile</h3>
           <div className="profile-image">
@@ -92,7 +93,7 @@ const ProfileSettings = ({ applicationUser, setDate }) => {
       
 
       <Grid>
-        <Card className="update-form-card">
+        <Card className="">
           <CardContent>
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2}>

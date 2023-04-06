@@ -1,0 +1,15 @@
+[
+    {
+      "id": "javascript",
+      "label": "javascript",
+      "value": 397,
+      "color": "hsl(342, 70%, 50%)"
+    },
+    {
+        "id": "erlang",
+        "label": "erlang",
+        "value": 176,
+        "color": "hsl(195, 70%, 50%)"
+      }
+    ]
+   

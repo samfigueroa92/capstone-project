@@ -3,12 +3,19 @@ import React, { useState, useEffect } from "react";
 
 //Components
 import RequestCard from "../RequestCard/RequestCard";
+import NoRequests from "../NoRequests/NoRequests"
 
 //CSS
 import "./MyRequests.css";
 
-const MyRequests = ({ requests, date, requestSearch }) => {
-  const search = requestSearch.toLowerCase()
+const MyRequests = ({ 
+  requests, 
+  date, 
+  requestSearch, 
+  applicationUser,
+  setLocation,
+  setDashboardFilter
+}) => {
 
   const dateConverter = (specifiedDate = '') => {
     const fullYear = specifiedDate?.getFullYear();
@@ -22,18 +29,54 @@ const MyRequests = ({ requests, date, requestSearch }) => {
     return formattedDate
   };
 
-  
-  let currentDate = dateConverter(new Date());
-  let selectedCalendarDate = dateConverter(date) 
+  //sort requests by date
+  requests?.sort((a, b) => b.req_date - a.req_date);
 
-  let requestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate && request.title.toLowerCase().includes(search): selectedCalendarDate === request.req_date && request.title.toLowerCase().includes(search)).map((request, index)=> index < 4 &&<RequestCard key={request.id} request={request} />)
- 
+  const currentDate = dateConverter(new Date());
+  const selectedCalendarDate = dateConverter(date);
+  const search = requestSearch.toLowerCase() || '';
+  
+  //filter by date
+  let requestsByDate =
+  selectedCalendarDate !== currentDate
+  ? requests?.filter((request) => selectedCalendarDate === request.req_date)
+  : requests?.filter((request) => selectedCalendarDate <= request?.req_date && !request?.complete);
+  
+  // filter by search
+  let requestsBySearch = search
+  ? requestsByDate?.filter((request) =>
+  request.title.toLowerCase().includes(search)
+  )
+  : requestsByDate;
+  
+
+  const requestCards = requestsBySearch.map((request, index) => {
+    if (index < 4) {
+      return (
+        <RequestCard
+          key={request.id}
+          request={request}
+          applicationUser={applicationUser}
+          setDashboardFilter={setDashboardFilter}
+        />
+      );
+    }
+  })
  
   return (
     <>
-      <div className="myRequest__title top"><h3>My Requests</h3></div>
-      <div className={requestFilter.length > 0 ? 'myRequest__filter' : 'noFilter'}>
-        {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
+      <div className="openRequestPage__main-page">
+        <h3 className='openRequestPage__title top'>My Requests</h3>
+      </div>
+      <div
+        className="openRequestPage__filter "
+        onClick={()=> setLocation('myRequests')}
+      >
+        {requestCards?.length > 0 ? (
+          requestCards
+        ) : (
+          <NoRequests/>
+        )}
       </div>
     </>
   );

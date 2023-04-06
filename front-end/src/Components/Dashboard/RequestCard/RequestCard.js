@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 //CSS Imports
 import './RequestCard.css'
 
-const RequestCard = ({ request }) => {
-  const time = () => {
+const RequestCard = ({ request, applicationUser, setDashboardFilter }) => {
+  const formatTime = () => {
     if (request.time.length <= 5) {
       let timeArray = request.time.split(":");
       if (Number(timeArray[0]) > 12) {
@@ -19,10 +19,15 @@ const RequestCard = ({ request }) => {
     }
   };
 
+  let imgString = applicationUser.user_type === 'Volunteer' ? request.elder_id : request.volunteer_id;
+
   return (
     <div className="req-card-details">
-      <Link className="link" to={`/requests/${request.id}`}>
+      {imgString && <Link to = {applicationUser?.user_type === 'Volunteer' ? `/reviews/${request.elder_id}`:`/reviews/${request.volunteer_id}` }>
+         <img  onClick = {()=>setDashboardFilter('reviews')}className="req-card-img" src={applicationUser?.user_type === 'Volunteer' ?  request.elder_img  : request?.volunteer_img}/>
+      </Link> }
         <div className="req-card">
+      <Link className="link" to={`/requests/${request.id}`}>
           <img
             className="reqImg"
             alt="vol"
@@ -37,18 +42,18 @@ const RequestCard = ({ request }) => {
             <h6 className="req-title">{request.title}</h6>
             <span className="reqdate">{request.req_date}</span>
             <span className="assignment">
-              {request.assigned ? "Assigned" : "Pending"}
+            {request.complete ? "Completed" : request.assigned ? "Assigned" : "Pending"}
             </span>
             <br />
             <span className="reqtime">
-              <i className="fa-regular fa-clock clock"></i> {time()}
+              <i className="fa-regular fa-clock clock"></i> {formatTime()}
             </span>
           </div>
           <div className="our-badge">
             <span>GoldenSolutions</span>
           </div>
-        </div>
       </Link>
+        </div>
     </div>
   );
 };

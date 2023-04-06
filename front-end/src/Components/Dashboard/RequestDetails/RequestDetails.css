@@ -1,25 +1,64 @@
-.details {
+.layout{
+  width: 100%;
+
+}
+.cards {
+  padding: 0rem 4rem;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background: #fff;
   display: grid;
-  grid-template-columns: 7fr 25fr;
+  grid-template-columns: 1fr 3fr 1fr;
+  min-width: 150px;
+
+  /* max-width: 1400px; */
+
+  /* align-items: center; */
+  
+}
+.center{
+  margin-top: 350px;
 }
 
-.cards {
-  padding: 4rem;
-  background: #fff;
+.showDetails{
+  border: none;
+  background-color: white;
+  color:  rgba(90, 24, 49, 0.736);
+
+}
+
+.center :hover{
+  color: cadetblue;
+  filter: drop-shadow(30px 10px 4px #545475);; 
+}
+.expand{
+  min-height: 10px;
+  max-height: 20px;
 }
 
 .details h3 {
   text-align: center;
 }
 
+.left{
+  margin-left:  auto;
+}
+.right{
+  margin-right: auto;
+}
 .card-holder {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1120px;
-  width: 50%;
+  max-width: 800px;
+  min-width: 200px;
+  width: 60vh;
   margin: 0 auto;
 }
+/* Perspective was added ... testing */
+/* perspective: 1000px;  */
+
 
 .card-wrap {
   position: relative;
@@ -28,7 +67,43 @@
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   border-radius: 10px;
+  width: 100%;
+  /* Additional CSS */
+  /* transition: transform 0.8s;
+  transform-style: preserve-3d; */
 }
+.flip-card-wrap{
+  position: relative;
+  margin: 25px 0 25px;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.ellipsis p{
+  min-height: 80px;
+}
+
+.card-description{
+  max-height: 20%;
+}
+
+/* .card-holder:hover .card-wrap{
+  transform: rotateY(180deg);
+} */
+/* .card-items-forward, .card-items-backward{
+
+width: 100%;
+height: 100%; 
+-webkit-backface-visibility: hidden; 
+backface-visibility: hidden;
+} */
+/* .card-items-backward{
+  transform: rotateY(180deg); 
+  Jordan: Flip to change isn't working would like it to be an on-click 
+} */
 
 .cards-items {
   margin-bottom: 24px;
@@ -86,14 +161,17 @@
   content: attr(data-category);
   position: absolute;
   bottom: 0;
-  margin-left: 10px;
+  margin-left: 0px;
   padding: 6px 8px;
   max-width: calc((100%) - 60px);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff;
   background-color: #42999b;
   box-sizing: border-box;
+  min-width: 40%;
+  border-radius: 3px;
+  text-align: center;
 }
 
 .cardImg {
@@ -109,6 +187,8 @@
   max-height: 100%;
   object-fit: cover;
   transition: all 0.2s linear;
+  min-width: 492.64px;
+
 }
 
 .cardImg:hover {
@@ -119,17 +199,29 @@
   padding: 20px 30px 30px;
   text-align: center;
 }
-
+/* .card-review {
+  padding: 2px 30px 30px 20px;
+  text-align: center;
+} */
 .card-text {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+  margin: 0px
 }
-.reviews{
+/* .reviews{
   justify-content: center;
   margin-top: 10px;
   text-align: center;
+} */
+.submit{
+  border-radius: 10px;
+  padding: 0 10px;
+
 }
+
+
+
 
 /* media queries */
 @media only screen and (min-width: 1200px) {
@@ -142,43 +234,62 @@
   .cards-items {
     display: flex;
   }
+  
 }
 
+
 @media only screen and (max-width: 1024px) {
+
   .carditem {
     margin-bottom: 2rem;
   }
-}
-@media only screen and (max-width: 1024px) {
+  
   .buttons {
     display: flex;
     /* flex-flow: column; */
     justify-content: center;
   }
-  .back {
+  /* .back {
     justify-content: center;
     margin-bottom: 2rem;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 7px;
-  }
+  } */
   .accept {
     justify-content: center;
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
     border-radius: 7px;
+    min-width: 6vh ;
   }
   
   .details h3{
     margin-top: -5px;
   }
-}
-
-
-
-@media only screen and (max-width: 1024px) {
   .sidebar-nav {
-      display: none;
-  }
+    display: none;
 }
+
+}
+
+
+@media only screen and (max-width: 400px) {
+  .cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0rem 0rem;
+    padding-bottom: 1rem;
+  }
+  .center{
+    display: none
+  }
+  .card-holder{
+    width: 40vh;
+  }
+ .card-wrap{
+  height: 60vh;
+ }
+}
+  
