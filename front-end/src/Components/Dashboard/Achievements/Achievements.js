@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Components
-// import { GiAchievement } from "react-icons/gi";
+import { GiAchievement } from "react-icons/gi";
 import { RiStarSFill } from "react-icons/ri";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Chart from './Chart.js'
@@ -70,7 +70,7 @@ const Achievements = ({ applicationUser, completedData }) => {
               </h3>
               <p>{volenteerLevel} Volunteer</p>
             </div>
-            {/* <GiAchievement size={60} className={color} /> */}
+            <GiAchievement size={60} className={color} />
           </div>
          </div>
          <div className="achieve-box">
