@@ -14,6 +14,7 @@ const {
   seniorRequests,
   openRequests,
   removeVolunteer,
+  completeRequest,
 } = require("../queries/requests.js");
 
 // BUILDING ROUTES
@@ -99,6 +100,21 @@ requests.put("/reject_request", async (req, res) => {
       res.status(200).json(rejectRequest);
     } else {
       res.status(400).json({ error: "Failed to remove request assignment" });
+    }
+  } catch (error) {
+    return error;
+  }
+});
+
+// COMPLETE A REQUEST
+requests.put("/complete_request", async (req, res) => {
+  try {
+    console.log("CONTROLLER : COMPLETING REQUEST");
+    const completedRequest = await completeRequest(req.body);
+    if (completedRequest.complete) {
+      res.status(200).json(completedRequest);
+    } else {
+      res.status(400).json({ error: "Failed to complete request" });
     }
   } catch (error) {
     return error;
