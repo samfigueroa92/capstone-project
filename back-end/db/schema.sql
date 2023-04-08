@@ -17,7 +17,7 @@ CREATE TABLE users (
     email TEXT NOT NULL,
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
-    profilephoto TEXT,
+    profilephoto TEXT UNIQUE,
     languages TEXT,
     verification_type TEXT
 );
@@ -25,9 +25,9 @@ CREATE TABLE users (
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
     elder_id TEXT references users(uuid),
-    -- elder_img TEXT references users(uuid),
+    elder_img TEXT references users(profilephoto),
     volunteer_id TEXT references users(uuid) DEFAULT NULL,
-    -- volunteer_img TEXT references users(profilephoto) DEFAULT NULL,
+    volunteer_img TEXT references users(profilephoto),
     req_date TEXT NOT NULL,
     title TEXT,
     description TEXT NOT NULL,
@@ -38,19 +38,20 @@ CREATE TABLE requests (
     image TEXT
 );
 
-CREATE TABLE ratings (
-    id SERIAL PRIMARY KEY,
-    rating INT NOT NULL,
-    request_id INT references requests(id),
-    rating_user_id TEXT references users(uuid),
-    rated_user_id TEXT references users(uuid)
-);
-
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    reviewer_id TEXT references users(uuid),
-    -- reviewer_img TEXT references users(profilephoto),
+    reviewer_id TEXT references users(uuid) DEFAULT NULL,
+    reviewer_img TEXT references users(profilephoto),
+    reviewed_id TEXT references users(uuid),
     description TEXT NOT NULL,
     post_date DATE NOT NULL,
     request_id INT references requests(id)
 );
+
+-- CREATE TABLE ratings (
+--     id SERIAL PRIMARY KEY,
+--     rating INT NOT NULL,
+--     request_id INT references requests(id),
+--     rating_user_id TEXT references users(uuid),
+--     rated_user_id TEXT references users(uuid)
+-- );

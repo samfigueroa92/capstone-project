@@ -32,9 +32,10 @@ const makeRequest = async (request) => {
   try {
     console.log("QUERY : Adding request to database");
     request = await db.one(
-      "INSERT INTO requests (elder_id, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO requests (elder_id, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
       [
         request.elder_id,
+        request.elder_img,
         request.description,
         request.req_date,
         request.location,
@@ -110,8 +111,8 @@ const assignVolunteer = async (request) => {
   try {
     console.log(`QUERY : Assigning volunteer ${request.volunteer} to request ${request.req_id}`);
     const assign = await db.one(
-      "UPDATE requests SET volunteer_id=$1, assigned=$2 WHERE id=$3 RETURNING *",
-      [request.volunteer, "TRUE", request.req_id]
+      "UPDATE requests SET volunteer_id=$1, volunteer_img=$2, assigned=$3 WHERE id=$4 RETURNING *",
+      [request.volunteer, request.volunteer_img, "TRUE", request.req_id]
     );
     return assign;
   } catch (error) {
@@ -127,6 +128,19 @@ const removeVolunteer = async (request) => {
       [request.req_id]
     );
     return unAssign;
+  } catch (error) {
+    return error;
+  }
+};
+
+const completeRequest = async (request) => {
+  try {
+    console.log(`Completing request: ${request.req_id}`);
+    const complete = await db.one(
+      "UPDATE requests SET complete=$1 WHERE id=$2 RETURNING *",
+      ["TRUE", request.req_id]
+    );
+    return complete;
   } catch (error) {
     return error;
   }
@@ -156,4 +170,5 @@ module.exports = {
   seniorRequests,
   assignVolunteer,
   removeVolunteer,
+  completeRequest,
 };
