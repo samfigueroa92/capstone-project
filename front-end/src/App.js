@@ -7,34 +7,23 @@ import axios from "axios";
 import { useEffect } from "react";
 
 //COMPONENTS
-// import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
 import SignUp from "./Components/Dashboard/SignUpPage/SignUp";
-// import Home from "./Components/HomePage/Home";
 import NewHome from "./Components/HomePage/NewHome";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/HomePage/SeniorsPage";
 import VolunteerPage from "./Components/HomePage/VolunteerPage";
-// import Testimonials from "./Components/HomePage/Testimonials";
 import Testi from "./Components/HomePage/Testi";
 import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
-// import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
-// import RequestDetails from "./Components/Dashboard/RequestDetails/RequestDetails";
 import RequestPage from "./Components/Dashboard/RequestDetails/RequestPage";
-// import Settings from "./Components/Dashboard/SettingsPage/Settings";
 import ProfileSettings from "./Components/Dashboard/SettingsPage/ProfileSettings";
-// import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
-// import RequestForm from "./Components/Dashboard/NewRequestForm/RequestForm";
 import Protected from "./Components/Protected";
-// import AcceptRequestPage from "./Components/Dashboard/AcceptedRequestPage/AcceptRequestPage";
-import Achievements from "./Components/Dashboard/Achievements/Achievements";
 import Unprotected from "./Components/Unprotected";
-// import EditRequest from "./Components/Dashboard/EditRequest/EditRequest";
-// import EditSubmittedRequest from "./Components/Dashboard/EditRequest/EditSubmittedRequest";
 import ReviewsPage from "./Components/Dashboard/ReviewsPage/ReviewsPage";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
+
 //CSS
 import "./App.css";
 
@@ -49,11 +38,7 @@ const App = () => {
   const [location, setLocation] = useState("");
   const [completedData, setCompletedData] = useState([]);
   const [render, setRender] = useState(true);
-  // const [date, setDate] = useState(new Date());
   const [requestSearch, setRequestSearch] = useState("");
-  //Specific to person
-  // const [requests, setRequests] = useState([]);
-  // const [openRequests, setOpenRequests] = useState([]);
   const [users, setUsers] = useState([]);
 
   const [applicationUser, setApplicationUser] = useState({
@@ -119,6 +104,7 @@ const App = () => {
     setCompletedData([]);
 
     axios(config).then((res) => {
+      console.log(res)
       let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
       let requestFilter = requestSort?.filter((request) => currentDate <= request.req_date)
 
@@ -195,22 +181,10 @@ const App = () => {
                   applicationUser={applicationUser}
                   setApplicationUser={setApplicationUser}
                 >
-                  {/* <Home /> */}
                   <NewHome />
                 </Unprotected>
               }
             />
-            {/* <Route
-              path="/sign-up"
-              element={
-                <Unprotected
-                  applicationUser={applicationUser}
-                  setApplicationUser={setApplicationUser}
-                >
-                  <SignUpPage setApplicationUser={setApplicationUser} />
-                </Unprotected>
-              }
-            /> */}
             <Route
               path="/sign-up"
               element={
@@ -252,7 +226,6 @@ const App = () => {
                   setApplicationUser={setApplicationUser}
                 >
                   <Testi />
-                  {/* <Testimonials /> */}
                 </Unprotected>
               }
             />
@@ -278,54 +251,7 @@ const App = () => {
                 </Unprotected>
               }
             />
-            <Route
-              path="/achievements"
-              element={
-                <Protected>
-                  <Achievements
-                    // setDate={setDate}
-                    // date={date}
-                    applicationUser={applicationUser}
-                    requestSearch={requestSearch}
-                    setRequestSearch={setRequestSearch}
-                  />
-                </Protected>
-              }
-            />
-            {/* <Route
-              path="/browse-requests"
-              element={
-                <Protected>
-                  <OpenRequestPage
-                    // date={date}
-                    // setDate={setDate}
-                    // openRequests={openRequests}
-                    applicationUser={applicationUser}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="/user-dashboard"
-              element={
-                <Protected>
-                  <UserDashboard
-                    users={users}
-                    date={date}
-                    setDate={setDate}
-                    applicationUser={applicationUser}
-                    requests={requests}
-                    setRequests={setRequests}
-                    openRequests={openRequests}
-                    setOpenRequests={setOpenRequests}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
+           
             <Route
               path="/user-dashboard"
               element={
@@ -367,8 +293,6 @@ const App = () => {
               element={
                 <Protected>
                   <ReviewsPage
-                    // date={date}
-                    // setDate={setDate}
                     applicationUser={applicationUser}
                     setRequestSearch={setRequestSearch}
                     requestSearch={requestSearch}
@@ -376,136 +300,18 @@ const App = () => {
                 </Protected>
               }
             />
-            {/* <Route
-              path="/requests/new"
-              element={
-                <Protected>
-                  <RequestForm
-                    applicationUser={applicationUser}
-                    // setDate={setDate}
-                    // date={date}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="/requests/new"
-              element={
-                <Protected>
-                  <NewRequestForm
-                    applicationUser={applicationUser}
-                    setDate={setDate}
-                    date={date}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="/requests/:id"
-              element={
-                <Protected>
-                  <RequestDetails
-                    // setDate={setDate}
-                    // date={date}
-                    applicationUser={applicationUser}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="/edit/:id"
-              element={
-                <Protected>
-                  <EditRequest
-                    applicationUser={applicationUser}
-                    setDate={setDate}
-                    date={date}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="/edit/:id"
-              element={
-                <Protected>
-                  <EditSubmittedRequest
-                    applicationUser={applicationUser}
-                    // setDate={setDate}
-                    // date={date}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="/user/settings"
-              element={
-                <Protected>
-                  <Settings
-                    applicationUser={applicationUser}
-                    setDate={setDate}
-                    date={date}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
             <Route
               path="/user/settings"
               element={
                 <Protected>
                   <ProfileSettings
                     applicationUser={applicationUser}
-                    // setDate={setDate}
-                    // date={date}
                     setRequestSearch={setRequestSearch}
                     requestSearch={requestSearch}
                   />
                 </Protected>
               }
             />
-            {/* <Route
-              path="accepted-requests"
-              element={
-                <Protected>
-                  <AcceptRequestPage
-                    // date={date}
-                    // setDate={setDate}
-                    applicationUser={applicationUser}
-                    // requests={requests}
-                    // setRequests={setRequests}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
-            {/* <Route
-              path="submitted-requests"
-              element={
-                <Protected>
-                  <AcceptRequestPage
-                    // date={date}
-                    // setDate={setDate}
-                    applicationUser={applicationUser}
-                    // requests={requests}
-                    // setRequests={setRequests}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            /> */}
           </Routes>
           <Footer />
         </Router>
