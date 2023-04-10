@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.10.15",
     "@nivo/calendar": "^0.80.0",
     "@nivo/pie": "^0.80.0",

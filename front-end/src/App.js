@@ -19,7 +19,7 @@ import VolunteerPage from "./Components/HomePage/VolunteerPage";
 import Testi from "./Components/HomePage/Testi";
 import OurTeam from "./Components/HomePage/OurTeam";
 import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
-import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
+// import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
 // import RequestDetails from "./Components/Dashboard/RequestDetails/RequestDetails";
 import RequestPage from "./Components/Dashboard/RequestDetails/RequestPage";
 // import Settings from "./Components/Dashboard/SettingsPage/Settings";
@@ -27,7 +27,7 @@ import ProfileSettings from "./Components/Dashboard/SettingsPage/ProfileSettings
 // import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
 // import RequestForm from "./Components/Dashboard/NewRequestForm/RequestForm";
 import Protected from "./Components/Protected";
-import AcceptRequestPage from "./Components/Dashboard/AcceptedRequestPage/AcceptRequestPage";
+// import AcceptRequestPage from "./Components/Dashboard/AcceptedRequestPage/AcceptRequestPage";
 import Achievements from "./Components/Dashboard/Achievements/Achievements";
 import Unprotected from "./Components/Unprotected";
 // import EditRequest from "./Components/Dashboard/EditRequest/EditRequest";
@@ -292,7 +292,7 @@ const App = () => {
                 </Protected>
               }
             />
-            <Route
+            {/* <Route
               path="/browse-requests"
               element={
                 <Protected>
@@ -306,7 +306,7 @@ const App = () => {
                   />
                 </Protected>
               }
-            />
+            /> */}
             {/* <Route
               path="/user-dashboard"
               element={
@@ -474,7 +474,7 @@ const App = () => {
                 </Protected>
               }
             />
-            <Route
+            {/* <Route
               path="accepted-requests"
               element={
                 <Protected>
@@ -489,8 +489,8 @@ const App = () => {
                   />
                 </Protected>
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="submitted-requests"
               element={
                 <Protected>
@@ -505,7 +505,7 @@ const App = () => {
                   />
                 </Protected>
               }
-            />
+            /> */}
           </Routes>
           <Footer />
         </Router>

@@ -10,46 +10,11 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  /* added */
+  top: 0px;
+  position: sticky;
+  z-index: 5;
 }
-
-/* new */
-/* .nav-links {
-  display: none;
-} */
-/* .yet {
-  display: none;
-} */
-/* .nav-menu {
-  display: flex;
-  list-style: none;
-  text-align: center;
-  width: 70vw;
-  align-items: center;
-  margin-right: 2rem;
-} 
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  height: 80px;
-  
-} 
-
-.nav-links {
-  color: white;
-  margin-top: 20px;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 0.11em;
-  margin-right: 20px;
-  
-}  */
-
-
-/* ======= */
-
 .dash-navbar Button {
   background-color: white;
   color: black;
@@ -74,6 +39,7 @@
 .dash-navbar .profile-pic {
   border-radius: 50%;
   width: 45px;
+  height: 45px;
   
 }
 
@@ -91,51 +57,34 @@
 #bell {
   margin: 12px 5px;
 }
+.fillCaretDown{
+  display: none;
+}
+#fill-dropdown{
+  display: none;
+}
 
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 400px){
 .hidden {
     display: none;
   }
-  #dropdown {
+  .fillCaretDown{
+    margin-top: 12px;
+    margin-right: 5px;
+    display: flex;
+  
+  }
+ #fill-dropdown{
+  display: block;
+  width: fit-content;
+ }
+
+  #dropdown{
     display: none;
   }
-  .dash-navbar img {
-    width: 250px;
-  }
-
-  /* new */
- /**.nav-menu {
+  .profile-dropdown{
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 80vh;
-    position: absolute;
-    top: 80px;
-    left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
   }
 
-  .nav-menu.active {
-    background: #42999b;
-    left: 0;
-    margin-left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-  }
-
-  .nav-links {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-  }
-
-  .nav-links:hover {
-    background-color: #b8dedc;
-    border-radius: 15px;
-  }*/
-} 
-
+}

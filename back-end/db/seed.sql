@@ -10,13 +10,13 @@ INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "c
 ('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','Abubakar','Sidick Adams','1993-02-06','979 Brook Ave','33','Bronx','10451','7189734887','abuadnanadams@gmail.com','https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg','Senior','English','NY');
 
 --OPEN REQUEST
-INSERT INTO requests ("elder_id", "elder_Img", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
-('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2', 'https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg', '2022-06-14','Capstone Project','Come with me to Google to support my Grandchild during their Presentation','GOOGLE HEADQUARTERS','18:00','FALSE','FALSE','https://tinyurl.com/3398mxek') ;
+INSERT INTO requests ("elder_id", "elder_img", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2', 'https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg', '2023-12-14','Capstone Project','Come with me to Google to support my Grandchild during their Presentation','GOOGLE HEADQUARTERS','18:00','FALSE','FALSE','https://tinyurl.com/3398mxek') ;
 
-INSERT INTO requests ("elder_id", "elder_Img", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+INSERT INTO requests ("elder_id", "elder_img", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
 ('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg', '2023-10-07','Doctors Appt.','I dont have the best eye site, I need someone to accompany me to the doctor and help me get through the paperwork prior to seeing the doctor','Manhattan','12:00','FALSE','FALSE','https://tinyurl.com/4ewy77bs');
 
-INSERT INTO requests ("elder_id", "elder_Img", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
+INSERT INTO requests ("elder_id", "elder_img", "req_date", "title", "description", "location", "time", "assigned", "complete","image") VALUES
 ('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg', '2023-09-26','Accompany Me to the Park','Need to get some exercise in, would love to have a walking partner to help motivate me.','New York','15:00','FALSE','FALSE','https://phillypowered.org/wp-content/uploads/2018/08/YEE_5548-20180621.jpg');
 
 
@@ -53,8 +53,8 @@ INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", 
 INSERT INTO reviews ("reviewer_id","reviewer_img","reviewed_id", "post_date", "request_id", "description") VALUES
 ('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg','rvzWB9oEqaOEwB8KmnHAtwSiFvE3','2023-01-15','9','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled');
 
-INSERT INTO reviews ("reviewer_id","reviewer_img","reviewed_id", "post_date", "request_id", "description") VALUES
-('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg','rvzWB9oEqaOEwB8KmnHAtwSiFvE3','2023-01-15','21','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled');
+-- INSERT INTO reviews ("reviewer_id","reviewer_img","reviewed_id", "post_date", "request_id", "description") VALUES
+-- ('dDN86F8p2SdUo7pDHTrJ9gIJM8Q2','https://t3.ftcdn.net/jpg/03/77/95/28/240_F_377952865_FrXT27NycHrqn04xVvz8qTjzPhqTyHb4.jpg','rvzWB9oEqaOEwB8KmnHAtwSiFvE3','2023-01-15','21','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled');
 
 
 
