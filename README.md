@@ -86,8 +86,8 @@ export const signInWithGoogle = () => {
 **Login Modal**
 ![loginModal](front-end/public/images/LoginModal.png)
 
-<!-- **Request Index**
-![requestIndex](front-end/public/images/RequestIndex.png)
+ **Request Index or User Dashboard**
+![requestIndex](front-end/public/images/userDashboard.png)
 
-**Request Show**
-![requestShow](front-end/public/images/SingleRequest.png) -->
+**Request Show or Request Details**
+![requestShow](front-end/public/images/RequestDetails.png)

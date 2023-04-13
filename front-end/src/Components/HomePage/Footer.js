@@ -68,7 +68,7 @@ const Footer = () => {
             <i class="fab fa-github" />
           </a>
           <a
-            href="https://www.twitter.com"
+            href="https://twitter.com/Energy_Gad_"
             class="social-icon-link twitter"
             target="_blank"
             rel="noreferrer"

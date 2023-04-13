@@ -39,7 +39,7 @@ const App = () => {
   const [completedData, setCompletedData] = useState([]);
   const [render, setRender] = useState(true);
   const [requestSearch, setRequestSearch] = useState("");
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
 
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
@@ -61,7 +61,7 @@ const App = () => {
   });
   // console.log(applicationUser.uuid)
 
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
 
   let route;
 
