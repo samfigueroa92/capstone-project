@@ -161,7 +161,7 @@ const RequestDetails = ({
   
   return (
     <div className='layout'>
-
+      <h1>Request Details</h1>
       <div className="cards">
        {(iteration[location] && iteration[location][index-1]) ? <IoIosArrowBack  className ='center left' size={ 40 } onClick={()=> navigate(`/requests/${iteration[location][index-1]}`)}/>: <div></div>}
        
