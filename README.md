@@ -18,8 +18,8 @@ GoldenSolutions is an application that allows senior users to connect with volun
 
 This app was created by a team of 5 junior web developers using PostgreSQL for Database Mangement, Express on the backend, React on the front end, and Firebase for GoogleAuth.
 
-- [Netlify Deployment for front-end](https://goldensolutions.netlify.app/)
-- [Render Deployment for back-end](https://goldensolutions-5z0f.onrender.com/)
+- [Netlify Deployment for front-end](https://mygoldensolutions.netlify.app/)
+- [Adaptable Deployment for back-end](https://adaptable.io/app/dashboard#)
 
 ## TECHNOLOGIES
 

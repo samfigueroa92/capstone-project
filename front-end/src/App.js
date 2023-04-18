@@ -1,10 +1,9 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useContext  } from "react";
+import { useState, useEffect } from "react";
 import { UserProvider, UserContext } from "./Providers/UserProviders";
 
 import axios from "axios";
-import { useEffect } from "react";
 
 //COMPONENTS
 import SignUp from "./Components/Dashboard/SignUpPage/SignUp";
