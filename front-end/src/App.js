@@ -59,6 +59,7 @@ const App = () => {
     verification_type: "",
   });
   // console.log(applicationUser.uuid)
+  console.log(applicationUser.uuid)
 
   // const user = useContext(UserContext);
 
