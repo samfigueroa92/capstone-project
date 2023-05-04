@@ -31,6 +31,17 @@ ratings.get("/:id", async (req, res) => {
   }
 });
 
+// SHOW / SINGLE RATING BY REQ ID
+ratings.get("/:req_id", async (req, res) => {
+  const { id } = req.params;
+  const rating = await viewRating(id);
+  if (rating) {
+    res.json(rating);
+  } else {
+    res.status(404).json({ error: "not Found!" });
+  }
+});
+
 // CREATE OR LEAVE A RATING
 ratings.post("/", async (req, res) => {
   try {

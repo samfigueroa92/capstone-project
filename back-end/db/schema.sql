@@ -47,3 +47,12 @@ CREATE TABLE reviews (
     post_date TEXT NOT NULL,
     request_id INT references requests(id)
 );
+
+CREATE TABLE ratings (
+    id SERIAL PRIMARY KEY,
+    rating INT, 
+    CHECK (rating >= 0 AND rating <= 5),
+    request_id INT references requests(id),
+    rated_userID TEXT references users(uuid) DEFAULT NULL,
+    rater_userID TEXT references users(uuid) DEFAULT NULL
+);

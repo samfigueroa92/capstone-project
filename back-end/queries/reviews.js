@@ -1,6 +1,7 @@
 const db = require("../db/dbConfig.js");
 
 // Index -- all reviews
+//may not need
 const getReviews = async () => {
   try {
     console.log("Listing all reviews for dev purposes");
