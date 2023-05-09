@@ -10,14 +10,14 @@ import "../../Filter/ReviewCard/ReviewCard.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const PublicReviewCard = ({ review }) => {
+const PublicReviewCard = ({ review, ratings }) => {
   const { reviewer_id, reviewer_img, description, post_date } = review;
   const [reviewer, setReviewer] = useState([]);
   const [showMore, setShowMore] = useState(false);
 
-  const [ratings, setRating] = useState({
-    rating: 0,
-  });
+  // const [ratings, setRating] = useState({
+  //   rating: 0,
+  // });
 
   useEffect(() => {
     axios

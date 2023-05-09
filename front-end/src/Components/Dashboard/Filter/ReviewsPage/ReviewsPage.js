@@ -26,9 +26,20 @@ const ReviewsPage = ({ applicationUser }) => {
       if(userReviews){
         setReviews(userReviews);
         setReviewCount(userReviews.length);
+
+        const ratings = userReviews.map(obj => {
+          for(let key in obj){
+            if(key === "rating"){
+              return obj[key]
+            }
+          }
+        })
+        setRatings(ratings);
       }
     })
   }, []);
+  console.log(ratings)
+ 
 
   return (
     <div className="ReviewPage">
@@ -39,15 +50,8 @@ const ReviewsPage = ({ applicationUser }) => {
         />
         <br />
         <div className="ReviewPage__stars">Star Rating:</div>
-        <DynamicStar ratings={ratings} setReviewCount={setReviewCount} />
-        <div className="ReviewPage__count">Review Count: {reviewCount}</div>
-        <div className="count__result">
-          {!ratings
-            ? ratings.length > 1
-              ? `${ratings.length} reviews`
-              : `${ratings.length} review`
-            : "No Current Reviews"}
-        </div>
+        <DynamicStar ratings={ratings} />
+        <div className="ReviewPage__count">Review Count: {reviewCount ? reviewCount : 0}</div>
       </div>
       <div className="ReviewPage__reviews-list">
         {reviews.length === 0 ? <ZeroRequests /> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
