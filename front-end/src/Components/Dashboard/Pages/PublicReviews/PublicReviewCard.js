@@ -71,6 +71,13 @@ const PublicReviewCard = ({ review, ratings }) => {
   };
   const processText = truncateReviewText();
 
+  const ratingLength = ratings.length || 0
+
+  let accumulator = ratings.length !== 0 ? ratings.reduce((accumulator,rating)=> (accumulator += rating)) : 0 
+
+  const value = accumulator/ratingLength
+  const valueWithDecimal = Number(value.toPrecision(2))
+
   return (
     <div className="Reviews">
       <div className="Reviews__reviewer-info">
@@ -87,7 +94,7 @@ const PublicReviewCard = ({ review, ratings }) => {
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
-            defaultValue={ratings.rating || 2.5}
+            defaultValue={valueWithDecimal || 2.5}
             precision={0.5}
             size="small"
             readOnly

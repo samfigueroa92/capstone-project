@@ -6,16 +6,17 @@ import "./StarRating.css";
 const StarRating = () => {
   const [rating, setRating] = useState(null);
   // const [value, setValue] = useState(0)
-
-  return (
-    <div className="star">
-      {/* <Rating
+   {/* <Rating
         name="simple-controlled"
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
       /> */}
+
+  return (
+    <div className="star">
+     
       {[...Array(5)].map((star, index)=>{
           const ratingValue = index + 1;
 
