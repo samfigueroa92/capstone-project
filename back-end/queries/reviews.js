@@ -1,7 +1,7 @@
 const db = require("../db/dbConfig.js");
 
 // Index -- all reviews
-//may not need
+//may not need - a user will never need to see all reviews
 const getReviews = async () => {
   try {
     console.log("Listing all reviews for dev purposes");
@@ -28,7 +28,7 @@ const leaveReview = async (review) => {
   try {
     console.log("Adding review to request");
     review = await db.one(
-      "INSERT INTO reviews (reviewer_id, reviewed_id, reviewer_img, description, post_date, request_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      "INSERT INTO reviews (reviewer_id, reviewed_id, reviewer_img, description, post_date, request_id, rating) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [
         review.reviewer_id,
         review.reviewed_id,
@@ -36,6 +36,7 @@ const leaveReview = async (review) => {
         review.description,
         review.post_date,
         review.request_id,
+        review.rating
       ]
     );
     return review;
@@ -60,8 +61,8 @@ const editReview = async (review, id) => {
   try {
     console.log("Editing single review with id of " + id);
     const updatedReview = await db.one(
-      "UPDATE reviews SET description=$1 WHERE id=$2 RETURNING *",
-      [review.description, id]
+      "UPDATE reviews SET description=$1, rating=$2 WHERE id=$3 RETURNING *",
+      [review.description, review.rating, id]
     );
     return updatedReview;
   } catch (error) {
