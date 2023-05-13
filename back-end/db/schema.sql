@@ -47,5 +47,5 @@ CREATE TABLE reviews (
     post_date TEXT NOT NULL,
     request_id INT references requests(id),
     rating INT,
-    CHECK (rating >= 1 AND rating <= 5)
+    CHECK (rating >= 0 AND rating <= 5)
 );
