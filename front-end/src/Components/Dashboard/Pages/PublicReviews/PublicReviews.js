@@ -16,13 +16,10 @@ import ZeroRequests from "../../Filter/ZeroRequests/ZeroRequests";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const PublicReviews = () => {
-    let { id } = useParams();
+  let { id } = useParams();
     
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
-  const [ratings, setRatings] = useState([]);
-  const [reviewCount, setReviewCount] = useState(0);
-  console.log(reviews)
 
   useEffect(() => {
     axios.get(`${API}/reviews`).then((res) => {
@@ -35,6 +32,15 @@ const PublicReviews = () => {
 
   const foundUser = users.find(user => user.uuid === id);
   const foundReviews = reviews.filter(review => review.reviewed_id === id);
+  console.log(foundReviews)
+
+  const ratings = foundReviews.map(obj => {
+    for(let key in obj){
+      if(key === "rating"){
+        return obj[key]
+      }
+    }
+  });
 
   return (
     <div>
@@ -46,19 +52,12 @@ const PublicReviews = () => {
           />
           <br />
           <div className="ReviewPage__stars">Star Rating:</div>
-          <DynamicStar ratings={ratings} setReviewCount={setReviewCount} />
+          <DynamicStar ratings={ratings} />
           <div className="ReviewPage__count">Review Count: {foundReviews?.length}</div>
-          <div className="count__result">
-            {!ratings
-              ? ratings.length > 1
-                ? `${ratings.length} reviews`
-                : `${ratings.length} review`
-              : "No Current Reviews"}
-          </div>
         </div>
         <div className="ReviewPage__reviews-list">
           {foundReviews.length === 0 ? <ZeroRequests /> : foundReviews.map((review) => (
-            <PublicReviewCard key={review.id} review={review} />
+            <PublicReviewCard key={review.id} review={review} ratings={ratings} />
           ))}
         </div>
       </div>

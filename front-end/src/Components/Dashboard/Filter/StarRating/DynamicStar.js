@@ -1,5 +1,4 @@
 //DEPENDENCIES
-// import {useEffect, useState} from 'react'
 import { Rating } from '@mui/material'
 
 import './DynamicStar.css'
@@ -12,6 +11,7 @@ const DynamicStar = ({ratings}) => {
 
     const value = accumulator/ratingLength
     const valueWithDecimal = Number(value.toPrecision(2))
+    //why do the stars not show up?
 
   return (
     <div className='DynamicStar'>

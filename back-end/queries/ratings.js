@@ -1,6 +1,7 @@
 const db = require("../db/dbConfig.js");
 
 //Index -- all ratings
+//you most likely don't need all ratings
 const getRatings = async () => {
   try {
     console.log("Listing all ratings for dev purposes");
@@ -29,10 +30,21 @@ const leaveRating = async (rating) => {
 };
 
 // Single Rating
+// const viewRating = async (id) => {
+//   try {
+//     console.log("Viewing single rating");
+//     const rating = await db.one("SELECT * FROM ratings WHERE id=$1", id);
+//     return rating;
+//   } catch (error) {
+//     return error;
+//   }
+// };
+
+// Single Rating BY REQ ID
 const viewRating = async (id) => {
   try {
     console.log("Viewing single rating");
-    const rating = await db.one("SELECT * FROM ratings WHERE id=$1", id);
+    const rating = await db.one("SELECT * FROM ratings WHERE request_id=$1", id);
     return rating;
   } catch (error) {
     return error;

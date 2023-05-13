@@ -45,5 +45,7 @@ CREATE TABLE reviews (
     reviewed_id  TEXT references users(uuid),
     description TEXT NOT NULL,
     post_date TEXT NOT NULL,
-    request_id INT references requests(id)
+    request_id INT references requests(id),
+    rating INT,
+    CHECK (rating >= 0 AND rating <= 5)
 );

@@ -31,6 +31,7 @@ const RequestReviewForm = ({
     description: "",
     post_date: "",
     request_id: 0,
+    rating: 0,
   });
 
   const [newReview, setNewReview] = useState({
@@ -43,6 +44,7 @@ const RequestReviewForm = ({
     description: "",
     post_date: "",
     request_id: id,
+    rating: 0,
   });
   
   const currentReview = reviews.find(
@@ -82,13 +84,27 @@ const RequestReviewForm = ({
     setNewReview({
       ...newReview,
       description: e.target.value,
-      post_date: currentDate,
+      post_date: currentDate
     });
     setEditedReview({
       ...editedReview, 
       description: e.target.value
     })
   };
+
+  const handleClick = (e) => {
+    setNewReview({
+      ...newReview,
+      rating: Number(e.target.value)
+    });
+    setEditedReview({
+      ...editedReview, 
+      rating: Number(e.target.value)
+    })
+  }
+
+  console.log(editedReview)
+  // console.log(newReview)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,7 +135,7 @@ const RequestReviewForm = ({
               </figure>
               <div className="card-info">
                 <h5 className="card-text"> Review Rating</h5>
-                <StarRating />
+                <StarRating handleClick={handleClick} editedReview={editedReview} />
                 <textarea
                   rows={5}
                   cols={48}
