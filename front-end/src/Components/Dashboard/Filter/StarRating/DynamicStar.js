@@ -11,11 +11,10 @@ const DynamicStar = ({ratings}) => {
 
     const value = accumulator/ratingLength
     const valueWithDecimal = Number(value.toPrecision(2))
-    //why do the stars not show up?
 
   return (
     <div className='DynamicStar'>
-     <Rating name="half-rating-read" defaultValue={valueWithDecimal || 0.0} precision={0.1} readOnly />
+     <Rating name="half-rating-read" value={valueWithDecimal} precision={0.1} readOnly />
      <div> { ((accumulator/ratingLength) || 0).toFixed(1) }</div>
     </div>
   )

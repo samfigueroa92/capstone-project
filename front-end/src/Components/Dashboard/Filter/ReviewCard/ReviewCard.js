@@ -11,14 +11,12 @@ import "./ReviewCard.css";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 
-const ReviewCard = ({ review, ratings }) => {
+const ReviewCard = ({ review }) => {
   const { reviewer_id, reviewer_img, description, post_date } = review;
   const [reviewer, setReviewer] = useState([]);
   const [showMore, setShowMore] = useState(false);
-
-  // const [ratings, setRating] = useState({
-  //   rating: 0,
-  // });
+  const [reviewerReviews, setReviwerReviews] = useState([]);
+  // const [ratings, setRatings] = useState([])
 
   useEffect(() => {
     axios.get(`${API}/users`)
@@ -26,7 +24,16 @@ const ReviewCard = ({ review, ratings }) => {
       let reviewer = res.data.find(users => users.uuid === reviewer_id);
       setReviewer(reviewer);
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
+
+    axios.get(`${API}/reviews`)
+    .then(res => {
+      const reviews = res.data;
+      const reviewerReviews = reviews.filter(review => review.reviewed_id === reviewer.uuid);
+      if(reviewerReviews){
+        setReviwerReviews(reviewerReviews);
+      }
+    })
   }, []);
 
   const truncateReviewText = () => {
@@ -70,13 +77,26 @@ const ReviewCard = ({ review, ratings }) => {
     }
   };
   const processText = truncateReviewText();
+  
+  const ratings = reviewerReviews.map((obj) => {
+    for (let key in obj) {
+      if (key === "rating") {
+        return obj[key];
+      }
+    }
+  });
 
-  const ratingLength = ratings.length || 0
+  const ratingLength = ratings.length || 0;
 
-  let accumulator = ratings.length !== 0 ? ratings.reduce((accumulator,rating)=> (accumulator += rating)) : 0 
+  let accumulator =
+    ratings.length !== 0
+      ? ratings.reduce((accumulator, rating) => (accumulator += rating))
+      : 0;
 
-  const value = accumulator/ratingLength
-  const valueWithDecimal = Number(value.toPrecision(2))
+  const value = accumulator / ratingLength;
+  const valueWithDecimal = Number(value.toPrecision(2));
+  console.log(valueWithDecimal)
+
   
   return (
     <div className="Reviews">
@@ -98,7 +118,7 @@ const ReviewCard = ({ review, ratings }) => {
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
-            defaultValue={valueWithDecimal || 0}
+            value={valueWithDecimal}
             precision={0.5}
             size="small"
             readOnly
