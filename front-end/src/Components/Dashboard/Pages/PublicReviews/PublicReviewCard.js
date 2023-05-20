@@ -10,6 +10,7 @@ import "../../Filter/ReviewCard/ReviewCard.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
+
 const PublicReviewCard = ({ reviews, review }) => {
   const { reviewer_id, reviewer_img, description, post_date, rating } = review;
   const [reviewer, setReviewer] = useState([]);
@@ -66,7 +67,7 @@ const PublicReviewCard = ({ reviews, review }) => {
     }
   };
   const processText = truncateReviewText();
-  
+
   return (
     <div className="Reviews">
       <div className="Reviews__reviewer-info">

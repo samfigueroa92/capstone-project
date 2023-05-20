@@ -38,7 +38,7 @@ const ReviewsPage = ({ applicationUser }) => {
       }
     })
   }, []);
- 
+
 
   return (
     <div className="ReviewPage">
@@ -53,7 +53,7 @@ const ReviewsPage = ({ applicationUser }) => {
         <div className="ReviewPage__count">Review Count: {reviewCount ? reviewCount : 0}</div>
       </div>
       <div className="ReviewPage__reviews-list">
-        {reviews.length === 0 ? <ZeroRequests /> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
+        {reviews.length === 0 ? <ZeroRequests /> : reviews.map(review => <ReviewCard key={review.id} review={review} ratings={ratings} />)}
       </div>
     </div>
   );

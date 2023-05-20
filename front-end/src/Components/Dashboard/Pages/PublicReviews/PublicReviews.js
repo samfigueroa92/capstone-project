@@ -32,6 +32,15 @@ const PublicReviews = () => {
 
   const foundUser = users.find(user => user.uuid === id);
   const foundReviews = reviews.filter(review => review.reviewed_id === id);
+  console.log(foundReviews)
+
+  const ratings = foundReviews.map(obj => {
+    for(let key in obj){
+      if(key === "rating"){
+        return obj[key]
+      }
+    }
+  });
 
   const ratings = foundReviews.map(obj => {
     for(let key in obj){
@@ -56,7 +65,7 @@ const PublicReviews = () => {
         </div>
         <div className="ReviewPage__reviews-list">
           {foundReviews.length === 0 ? <ZeroRequests /> : foundReviews.map((review) => (
-            <PublicReviewCard key={review.id} reviews={reviews} review={review} ratings={ratings} />
+            <PublicReviewCard key={review.id} reviews={reviews} review={review} />
           ))}
         </div>
       </div>
