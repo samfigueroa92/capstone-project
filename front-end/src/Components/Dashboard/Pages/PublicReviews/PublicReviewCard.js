@@ -11,7 +11,7 @@ import "../../Filter/ReviewCard/ReviewCard.css";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const PublicReviewCard = ({ reviews, review }) => {
-  const { reviewer_id, reviewer_img, description, post_date } = review;
+  const { reviewer_id, reviewer_img, description, post_date, rating } = review;
   const [reviewer, setReviewer] = useState([]);
   const [showMore, setShowMore] = useState(false);
 
@@ -66,28 +66,6 @@ const PublicReviewCard = ({ reviews, review }) => {
     }
   };
   const processText = truncateReviewText();
-
-  const foundReviews = reviews.filter(
-    (review) => review.reviewed_id === reviewer.uuid
-  );
-
-  const ratings = foundReviews.map((obj) => {
-    for (let key in obj) {
-      if (key === "rating") {
-        return obj[key];
-      }
-    }
-  });
-
-  const ratingLength = ratings.length || 0;
-
-  let accumulator =
-    ratings.length !== 0
-      ? ratings.reduce((accumulator, rating) => (accumulator += rating))
-      : 0;
-
-  const value = accumulator / ratingLength;
-  const valueWithDecimal = Number(value.toPrecision(2));
   
   return (
     <div className="Reviews">
@@ -105,7 +83,7 @@ const PublicReviewCard = ({ reviews, review }) => {
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
-            value={valueWithDecimal}
+            value={rating}
             precision={0.5}
             size="small"
             readOnly
