@@ -42,6 +42,14 @@ const PublicReviews = () => {
     }
   });
 
+  const ratings = foundReviews.map(obj => {
+    for(let key in obj){
+      if(key === "rating"){
+        return obj[key]
+      }
+    }
+  });
+
   return (
     <div>
       <div className="ReviewPage">
@@ -57,7 +65,7 @@ const PublicReviews = () => {
         </div>
         <div className="ReviewPage__reviews-list">
           {foundReviews.length === 0 ? <ZeroRequests /> : foundReviews.map((review) => (
-            <PublicReviewCard key={review.id} review={review} ratings={ratings} />
+            <PublicReviewCard key={review.id} reviews={reviews} review={review} />
           ))}
         </div>
       </div>

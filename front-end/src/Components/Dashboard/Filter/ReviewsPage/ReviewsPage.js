@@ -38,8 +38,7 @@ const ReviewsPage = ({ applicationUser }) => {
       }
     })
   }, []);
-  // console.log(ratings)
- 
+
 
   return (
     <div className="ReviewPage">
