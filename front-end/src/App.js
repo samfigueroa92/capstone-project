@@ -10,11 +10,9 @@ import SignUpPage from "./Components/HomePage/SignUpPage";
 import Home from "./Components/HomePage/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
-import Faq from "./Components/HomePage/Faq";
 import OurTeam from "./Components/HomePage/OurTeam";
 import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
 import Protected from "./Components/Protected";
-import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -162,7 +160,6 @@ const App = () => {
               element={<SignUpPage setApplicationUser={setApplicationUser} />}
             />
             <Route path="/our-team" element={<OurTeam />} />
-            <Route path="/faq" element={<Faq />} />
             <Route path="/our-page/:staffMember" element={<PersonalPage />} />
             
             <Route

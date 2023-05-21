@@ -18,7 +18,6 @@ const Footer = () => {
                 <ul className = 'list'>
                 <ol><a href="/">Home</a></ol>
                 <ol><a href="/our-team">Our Team</a></ol>
-                <ol><a href="/faq">FAQ</a></ol>
                 </ul>
                 </div>
             </div>
