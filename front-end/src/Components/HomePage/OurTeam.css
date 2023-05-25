@@ -37,8 +37,8 @@
 }
 .team{
     padding: 3%;
-
 }
+
 .underline{
     background: 0 0;
     background-position: center center;
@@ -109,7 +109,79 @@
     text-transform: none;
     font-size: 15px;
     line-height: 1.71;
+    text-align: justify;
 }
+
+.about_gs{
+    padding-right: 10%;
+}
+
+.about_gs_subheader{
+    font-size: 25px;
+    font-weight: 500;
+    font-style: italic;
+    padding-bottom: 25px;
+    text-decoration: underline;
+}
+.about_gs_text{
+    padding-bottom: 25px;
+    text-align: justify;
+    line-height: 1.5em;
+}
+.about_gs_list p{
+    text-decoration: underline;
+    text-align: center;
+}
+
+.about_gs_list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 1.5em;
+}
+
+.about_gs_contact{
+    border: 5px solid black;
+    border-radius: 25px;
+    padding: 25px;
+    margin-top:90px;
+    border-style: groove;
+    text-align: center;
+}
+
+.about_gs_contact-header{
+    text-align: center;
+}
+
+.about_gs_contact-form p{
+    line-height: 1.5em;
+    padding: 15px;
+    text-align: center;  
+}
+
+.about_gs_contact-button{
+    background-color: #42999B;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 25px 50px 25px 50px;
+    border-radius: 50px;
+    letter-spacing: .2em;
+    margin-top: 15px;
+}
+
+.about_gs_contact-form input{
+    margin: 10px;
+}
+
+.about_gs_contact-button:hover{
+    background-color: #B8DEDC;
+}
+
+.about_gs_contact-button{
+    text-align: end;
+}
+
 
 /* IPHONE SE */
 

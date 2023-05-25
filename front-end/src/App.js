@@ -14,7 +14,6 @@ import OurTeam from "./Components/HomePage/OurTeam";
 import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
 import Protected from "./Components/Protected";
 import Footer from "./Components/HomePage/Footer";
-import PersonalPage from "./Components/HomePage/PersonalPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PublicReviews from "./Components/Dashboard/Pages/PublicReviews/PublicReviews";
 
@@ -159,9 +158,7 @@ const App = () => {
               path="/sign-up"
               element={<SignUpPage setApplicationUser={setApplicationUser} />}
             />
-            <Route path="/our-team" element={<OurTeam />} />
-            <Route path="/our-page/:staffMember" element={<PersonalPage />} />
-            
+            <Route path="/our-team" element={<OurTeam />} />            
             <Route
               path="/dashboard"
               element={
