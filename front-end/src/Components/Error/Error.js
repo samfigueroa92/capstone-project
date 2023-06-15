@@ -4,9 +4,14 @@ const Error = () => {
   
   return (
     <div className="Error">
-      There was an error! 
-      <br />
-      Please refresh the page or contact support.
+      <img
+        src="https://www.iconpacks.net/icons/1/free-error-icon-905-thumb.png"
+        alt="error-icon"
+      />
+      <div className="Error_content_header">Oops... something went wrong</div>
+      <div className="Error_content_text">
+        Error Message: Dummy Text
+      </div>
     </div>
   );
 };

@@ -17,6 +17,8 @@ import Footer from "./Components/HomePage/Footer";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PublicReviews from "./Components/Dashboard/Pages/PublicReviews/PublicReviews";
 
+import Error from "./Components/Error/Error";
+
 //CSS
 import "./App.css";
 
@@ -154,6 +156,7 @@ const App = () => {
           />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/error" element={<Error />} />
             <Route
               path="/sign-up"
               element={<SignUpPage setApplicationUser={setApplicationUser} />}

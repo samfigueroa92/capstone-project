@@ -36,10 +36,9 @@
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 400px) {
     .testimonials {
         text-align: center;
-        /* grid-template-columns: repeat(2, 1fr); */
         grid-template-areas: 
         "o t"
         "s f";
