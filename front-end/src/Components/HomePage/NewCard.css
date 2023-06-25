@@ -3,21 +3,12 @@
   background: #fff;
 }
 
-.new-card-holder {
+.new-card-holder { /** adjust it to make room for media queries**/
   display: flex;
   flex-flow: column;
   align-items: center;
   max-width: 1120px;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.new-card-holder {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  max-width: 1120px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -25,7 +16,7 @@
   margin-bottom: 24px;
 }
 
-.new-info {
+.new-info {  /** put elipses here and make the text dynamic**/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +43,7 @@ h1 {
   text-align: center;
 }
 
-.blurbs{
+.blurbs{ /** make them small or invisible when on mobile **/
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 50px;
@@ -98,10 +89,10 @@ h1 {
   overflow: hidden;
 }
 
-.fade-img {
+/* .fade-img {
   animation-name: fade-img;
   animation-duration: 2s;
-}
+} */
 
 .card-pic::after {
   content: attr(data-category);
@@ -147,20 +138,21 @@ h1 {
 }
 
 /* media queries */
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 1024px) { /** for screens 1024 and below make adjustments **/
   .content__blog__container {
     width: 84%;
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (max-width: 1024) {
   .new-cards-items {
     display: flex;
+    /* flex-direction: column; */
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .card-item {
-    margin-bottom: 2rem;
+    margin-bottom: 12rem;
   }
 }
