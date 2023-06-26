@@ -1,6 +1,64 @@
 .new-cards {
-  padding: 4rem;
+  /* padding: 4rem; */
   background: #fff;
+  width: 100%;
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+h1 {
+  margin: 15px;
+}
+
+/* FOR THE PARAS AND UNDERLINE */
+.paras{
+  font-family:'Poppins', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 15px;
+  line-height: 1.71;
+}
+
+.underline{
+  background: 0 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.71;
+  color: #000!important;
+  display: inline-block;
+  padding-bottom: 4px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  margin-bottom: 60px;
+}
+  
+ 
+.underline::after{
+  /* text-decoration: underline #E29578 2px; */
+  background-color: #E29578;
+  bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  -webkit-transition: width .1s linear;
+  -o-transition: width .1s linear;
+  transition: width .1s linear;
+  width: 60%;
+  
+}
+.underline:hover::after{
+  width: 100%;
+
 }
 
 .new-card-holder { /** adjust it to make room for media queries**/
@@ -138,21 +196,63 @@ h1 {
 }
 
 /* media queries */
-@media only screen and (max-width: 1024px) { /** for screens 1024 and below make adjustments **/
-  .content__blog__container {
-    width: 84%;
+@media (max-width: 1536px) {
+  .new-cards  {
+    max-width: 1280px;
   }
 }
 
-@media only screen and (max-width: 1024) {
+/* xl */
+@media (max-width: 1280px) {
+  .new-cards  {
+    max-width: 1024px;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .new-cards  {
+    max-width: 768px;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .new-cards  {
+    max-width: 640px;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .new-cards  {
+    max-width: 475px;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .new-cards  {
+    width: 100%;
+  }
+}
+
+/* MINE */
+/* @media only screen and (max-width: 1024px) { * for screens 1024 and below make adjustments *
+  .content__blog__container {
+    width: 84%;
+  } */
+/* } */
+
+/* @media only screen and (max-width: 1024) {
   .new-cards-items {
     display: flex;
     /* flex-direction: column; */
-  }
-}
+  /* } */
+/* } */
 
-@media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
   .card-item {
     margin-bottom: 12rem;
   }
-}
+} */

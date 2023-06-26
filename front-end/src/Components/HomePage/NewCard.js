@@ -1,12 +1,58 @@
-import React from "react";
-import "./NewCard.css"
+import React, { useState } from "react";
 import NewCardData from "./NewCardData";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
+import "./NewCard.css"
+
 const NewCard = () => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate(); 
+
+  const [learnMore, setLearnMore] = useState({
+    paraTwo: false,
+  });
+
+  const PARAGRAPHS = {
+    paraTwo: `That's where we come in! Our goal at GoldenSolutions is to relieve"
+    some of the stress and anxiety of these situations by connecting
+    seniors, who need an extra hand with everyday tasks, with local,
+    friendly volunteers who are willing and able to lend their time and
+    skills.
+    Immediate families and friends may not always be available to offer
+    help. But New York has thousands of helpful individuals just a
+    button click away ready to lend a hand. Together, we can continue to
+    foster a sense of community!
+    All of our users are verified after a rigrous background check. With
+    a few simple and straightforward steps, you will seamlessly be
+    connected with someone who best meets your needs.`
+
+  }
+
+  const handleLearnMore = (paragraph) => {
+    return learnMore[paragraph] ? (
+      <>
+        <p className="paras">{PARAGRAPHS[paragraph]}</p>
+        <div
+          onClick={() => 
+          setLearnMore({ ...learnMore, [paragraph]: !learnMore[paragraph] })
+          }
+          >
+            <p className="underline">View Less</p>
+          </div>
+      </>
+    ) : (
+      <div 
+        onClick={() => 
+          setLearnMore({ ...learnMore, [paragraph]: !learnMore[paragraph] })
+        }
+        >
+          <p className="underline">Learn More</p>
+        </div>
+    );
+  };
+
+  
   return (
     <div className="new-cards">
       <div className="new-info">
@@ -17,26 +63,10 @@ const NewCard = () => {
             older is a normal part of life with it's up's and down's. You may
             also find that basic everday tasks become a little bit more
             difficult and you could use some help.
-            {/* <br /> */}
-            {/* <br /> */}
-            That's where we come in! Our goal at GoldenSolutions is to relieve
-            some of the stress and anxiety of these situations by connecting
-            seniors, who need an extra hand with everyday tasks, with local,
-            friendly volunteers who are willing and able to lend their time and
-            skills.
-            {/* <br /> */}
-            {/* <br /> */}
-            Immediate families and friends may not always be available to offer
-            help. But New York has thousands of helpful individuals just a
-            button click away ready to lend a hand. Together, we can continue to
-            foster a sense of community!
-            {/* <br /> */}
-            {/* <br /> */}
-            All of our users are verified after a rigrous background check. With
-            a few simple and straightforward steps, you will seamlessly be
-            connected with someone who best meets your needs.
           </p>
+          {handleLearnMore("paraTwo")}
         </div>
+
         <Button onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
       </div>
       <div className='new-card-holder'>
@@ -62,7 +92,7 @@ const NewCard = () => {
           />
 
         </ul>
-        {/* <Button onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button> */}
+        
         </div>
         </div>
         <div className="blurbs">
