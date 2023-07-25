@@ -63,16 +63,12 @@ h1 {
 
 .new-card-holder { /** adjust it to make room for media queries**/
   display: flex;
-  flex-flow: column;
-  align-items: center;
   max-width: 1120px;
-  width: 100%;
+  margin-bottom: 24px;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
-.new-cards-items {
-  margin-bottom: 24px;
-}
 
 .new-info {  /** put elipses here and make the text dynamic**/
   display: flex;
@@ -214,6 +210,11 @@ h1 {
   .new-cards  {
     max-width: 768px;
   }
+
+  .new-card-holder {
+    flex-flow: column;
+  }
+  
 }
 
 /* md */

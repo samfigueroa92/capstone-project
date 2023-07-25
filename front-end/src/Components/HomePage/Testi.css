@@ -4,17 +4,17 @@
   }
   
   .new-card-holder {
-    display: flex;
+    /* display: flex;
     flex-flow: column;
     align-items: center;
     max-width: 1120px;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto; */
   }
   
-  .new-cards-items {
+  /* .new-cards-items {
     margin-bottom: 24px;
-  }
+  } */
   
   .new-info {
     display: flex;
