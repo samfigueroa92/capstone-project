@@ -47,8 +47,8 @@ const Footer = () => {
         <div>123 Anywhere St., Any City, ST 12345</div>
         <div>support@goldensolutions.com</div>
         <div>+123-456-7890</div>
-
-        <div className="my-links">
+      </div>
+      <div className="my-links">
           <a
             href="https://www.linkedin.com/in/adnan-abubakar-adams/"
             class="social-icon-link linkedin"
@@ -77,7 +77,6 @@ const Footer = () => {
             <i class="fab fa-twitter" />
           </a>
         </div>
-      </div>
     </div>
   );
 };
