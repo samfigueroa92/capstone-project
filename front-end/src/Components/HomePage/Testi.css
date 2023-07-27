@@ -1,20 +1,25 @@
 .testi-cards {
     padding: 4rem;
     background: #fff;
+    width: 100%;
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   
   .new-card-holder {
-    /* display: flex;
-    flex-flow: column;
-    align-items: center;
+    display: flex;
     max-width: 1120px;
-    width: 90%;
-    margin: 0 auto; */
+    margin-bottom: 24px;
+    justify-content: space-between;
+    margin: 0 auto;
   }
   
-  /* .new-cards-items {
+  .new-cards-items {
     margin-bottom: 24px;
-  } */
+  }
   
   .new-info {
     display: flex;
@@ -155,4 +160,11 @@
       margin-bottom: 2rem;
     }
   }
+
+  @media (max-width: 1536px) {
+    .new-cards-items  {
+      max-width: 1280px;
+    }
+  }
+  
   

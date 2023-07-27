@@ -8,7 +8,7 @@ const Testi = () => {
         <h1 className="testi__heading">TESTIMONIALS</h1>
       <div className="new-card-holder">
         <div className="new-card-wrap">
-          <ul className="new-cards-items">
+          <div className="new-cards-items">
             <NewCardData
               src="images/mela2.jpeg"
               text= "I live in NYC alone so I am glad that this website exists and I can get the help I need quickly. I've received so much help from amazing volunteers and plan on continuing to use this website."
@@ -21,8 +21,8 @@ const Testi = () => {
               label="Finn Styles"
               path="#"
             />
-            </ul>
-            <ul className="new-cards-items">
+            </div>
+            <div className="new-cards-items">
             <NewCardData
               src="images/elderly1.jpeg"
               text="Before I found this easy to use website, I was struggling. I don't have much family or friends around but thanks to GoldenSolutions I have a new family, their army of friendly volunteers."
@@ -41,7 +41,7 @@ const Testi = () => {
               label="Abu Adams"
               path="#"
             /> 
-          </ul>
+          </div>
         </div>
       </div>
     </div>
