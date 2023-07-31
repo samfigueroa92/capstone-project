@@ -72,16 +72,7 @@ const RequestForm = ({
     setDashboardFilter("main")
   };
   return (
-    <Grid className="user-dashboard">
-      {/* <div className="form_sidebar-nav">
-        <SidebarNav
-          setDate={setDate}
-          date={date}
-          applicationUser={applicationUser}
-          setRequestSearch={setRequestSearch}
-          requestSearch={requestSearch}
-        />
-      </div> */}
+    <Grid >
       <Card className="request-form-card">
         <CardContent>
           <h3>Submit A Request</h3>
