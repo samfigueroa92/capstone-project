@@ -22,7 +22,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require('usa-states').UsaStates;
 
-const SignUpPage = ({setApplicationUser}) => {
+const SignUpPage = ({setApplicationUser, setError}) => {
   const [authErrors, setAuthErrors] = useState([]);
   const usStates = new UsaStates();
   
@@ -60,6 +60,7 @@ const SignUpPage = ({setApplicationUser}) => {
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
           }
         })
+        .catch(err => setError(err.message))
       };
     };
 

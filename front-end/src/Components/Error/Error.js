@@ -11,7 +11,7 @@ const Error = ({ error }) => {
         {error ? (
           <>
             <div className="Error_content_text">
-              Error Message: `${error.message}`
+              {error.message}
             </div>
           </>
         ) : (

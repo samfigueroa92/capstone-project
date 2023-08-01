@@ -8,11 +8,9 @@ import DashboardFilter from "./DashboardFilter";
 //CSS
 import "./Dashboard.css";
 
-const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration, completedData}) => {
+const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration, completedData, setError}) => {
   const [date, setDate] = useState(new Date());
   const [requestSearch, setRequestSearch] = useState("");
-  //Specific to person
-  // const [users, setUsers] = useState([]);
  
   return (
     <div className="dashboard">
@@ -37,6 +35,7 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLoc
       setIteration={setIteration}
       iteration={iteration}
       completedData={completedData}
+      setError={setError}
       
       />
     </div>

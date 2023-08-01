@@ -39,12 +39,13 @@ requests.get("/help_req/:id", async (req, res) => {
   }
 });
 
+//change code to 500 to trigger error
 requests.post("/my_assigned_requests", async (req, res) => {
   try {
     const uuid = req.body.uuid;
     console.log("Showing all assigned requests for volunteer " + uuid);
     const requests = await volunteerRequests(uuid);
-    res.json(requests);
+    res.status(200).json(requests);
     console.log(requests);
   } catch (error) {
     return error;

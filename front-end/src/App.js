@@ -52,7 +52,6 @@ const App = () => {
     verification_type: "",
   });
 
-
   let route;
 
   if (applicationUser.user_type === "Volunteer") {
@@ -163,10 +162,10 @@ const App = () => {
             />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/error" element={<Error />} />
+              <Route path="/error" element={<Error error={error} />} />
               <Route
                 path="/sign-up"
-                element={<SignUpPage setApplicationUser={setApplicationUser} />}
+                element={<SignUpPage setError={setError} setApplicationUser={setApplicationUser} />}
               />
               <Route path="/our-team" element={<OurTeam />} />            
               <Route
@@ -183,6 +182,7 @@ const App = () => {
                       iteration={iteration}
                       completedData={completedData}
                       setCompletedData={setCompletedData}
+                      setError={setError}
                     />
                   </Protected>
                 }
