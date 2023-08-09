@@ -1,12 +1,23 @@
-import './Error.css';
+import "./Error.css";
 
-const Error = () => {
-  
+const Error = ({ error }) => {
   return (
     <div className="Error">
-      There was an error! 
-      <br />
-      Please refresh the page or contact support.
+      <img
+        src="https://www.iconpacks.net/icons/1/free-error-icon-905-thumb.png"
+        alt="error-icon"
+      />
+      <div className="Error_content_header">
+        {error ? (
+          <>
+            <div className="Error_content_text">
+              {error.message}
+            </div>
+          </>
+        ) : (
+          "Page Not Found"
+        )}
+      </div>
     </div>
   );
 };

@@ -65,7 +65,7 @@ const OurTeam = () => {
           {handleLearnMore("sam")}
         </div>
         <div className="about_gs">
-          <div className="about_gs_subheader">About GoldenSolutions: this is a test</div>
+          <div className="about_gs_subheader">About GoldenSolutions</div>
           <div className="about_gs_text">
             GoldenSolutions is a passion project that I started during my
             Pursuit fellowship and continue to work on. The idea to build a

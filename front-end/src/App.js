@@ -17,6 +17,8 @@ import Footer from "./Components/HomePage/Footer";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PublicReviews from "./Components/Dashboard/Pages/PublicReviews/PublicReviews";
 
+import Error from "./Components/Error/Error";
+
 //CSS
 import "./App.css";
 
@@ -30,6 +32,7 @@ const App = () => {
   const [render, setRender] = useState(true);
   const [location, setLocation] = useState('');
   const [completedData, setCompletedData] = useState([]);
+  const [error, setError] = useState('')
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -48,7 +51,6 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
-
 
   let route;
 
@@ -106,6 +108,9 @@ const App = () => {
         myRequestIds?.push(requestFilter[i]?.id);
       }
   
+    })
+    .catch(err => {
+      setError(err)
     });
 
     axios(config).then((res) => {
@@ -132,86 +137,95 @@ const App = () => {
           myRequests: myRequestIds,
         });
       }
-    });
+    })
+    .catch(err => {
+      setError(err);
+    })
   }, [applicationUser, render]);
 
- 
-  return (
-    <div className="App">
-      <UserProvider>
-        <Router>
-          <NavBar
-            setModalOpen={setModalOpen}
-            applicationUser={applicationUser}
-            setDashboardFilter={setDashboardFilter}
-            render = {render}
-            setRender = {setRender}
-          />
-          <LoginModal
-            modalOpen={modalOpen}
-            setModalOpen={setModalOpen}
-            setApplicationUser={setApplicationUser}
-          />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/sign-up"
-              element={<SignUpPage setApplicationUser={setApplicationUser} />}
+  
+    return (
+      <div className="App">
+        <UserProvider>
+          <Router>
+            <NavBar
+              setModalOpen={setModalOpen}
+              applicationUser={applicationUser}
+              setDashboardFilter={setDashboardFilter}
+              render = {render}
+              setRender = {setRender}
             />
-            <Route path="/our-team" element={<OurTeam />} />            
-            <Route
-              path="/dashboard"
-              element={
-                <Protected>
-                  <Dashboard
-                    applicationUser={applicationUser}
-                    dashboardFilter={dashboardFilter}
-                    setDashboardFilter={setDashboardFilter}
-                    location={location}
-                    setLocation={setLocation}
-                    setIteration={setIteration}
-                    iteration={iteration}
-                    completedData={completedData}
-                    setCompletedData={setCompletedData}
-                  />
-                </Protected>
-              }
+            <LoginModal
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              setApplicationUser={setApplicationUser}
             />
-            <Route
-              path="/requests/:id"
-              element={
-                <Protected>
-                  <RequestPage
-                    applicationUser={applicationUser}
-                    dashboardFilter={dashboardFilter}
-                    setDashboardFilter={setDashboardFilter}
-                    location={location}
-                    iteration={iteration}
-                    render={render}
-                    setRender={setRender}
-                  />
-                </Protected>
-              }
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/error" element={<Error error={error} />} />
+              <Route
+                path="/sign-up"
+                element={<SignUpPage setError={setError} setApplicationUser={setApplicationUser} />}
+              />
+              <Route path="/our-team" element={<OurTeam />} />            
+              <Route
+                path="/dashboard"
+                element={
+                  <Protected>
+                    <Dashboard
+                      applicationUser={applicationUser}
+                      dashboardFilter={dashboardFilter}
+                      setDashboardFilter={setDashboardFilter}
+                      location={location}
+                      setLocation={setLocation}
+                      setIteration={setIteration}
+                      iteration={iteration}
+                      completedData={completedData}
+                      setCompletedData={setCompletedData}
+                      setError={setError}
+                    />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/requests/:id"
+                element={
+                  <Protected>
+                    <RequestPage
+                      applicationUser={applicationUser}
+                      dashboardFilter={dashboardFilter}
+                      setDashboardFilter={setDashboardFilter}
+                      location={location}
+                      iteration={iteration}
+                      render={render}
+                      setRender={setRender}
+                    />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/reviews/:id"
+                element={
+                  <Protected>
+                    <PublicReviews />
+                  </Protected>
+                }
+              />
+              <Route 
+              path="/*"
+              element={<Error error={error} />}
+              />
+            </Routes>
+            <Footer
+              applicationUser={applicationUser}
+              render={render}
+              setRender={setRender}
+              setDashboardFilter={setDashboardFilter}
             />
-            <Route
-              path="/reviews/:id"
-              element={
-                <Protected>
-                  <PublicReviews />
-                </Protected>
-              }
-            />
-          </Routes>
-          <Footer
-            applicationUser={applicationUser}
-            render={render}
-            setRender={setRender}
-            setDashboardFilter={setDashboardFilter}
-          />
-        </Router>
-      </UserProvider>
-    </div>
-  );
+          </Router>
+        </UserProvider>
+      </div>
+    );
 };
 
 export default App;

@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../../Providers/UserProviders";
 import { dateConverter } from "../../utils/dateUtils";
+import { useNavigate } from "react-router-dom";
 
 //COMPONENTS
 import MyRequests from "./Filter/MyRequests/MyRequests";
@@ -16,7 +17,7 @@ import Profile from "./Filter/Profile/Profile";
 import PendingRequests from "./Filter/PhoneSort/PendingRequests";
 import CompletedRequest from "./Filter/PhoneSort/CompletedRequests";
 import AcceptedRequests from "./Filter/PhoneSort/AcceptedRequests";
-import ReviewsPage from "./Filter/ReviewsPage/ReviewsPage"
+import ReviewsPage from "./Filter/ReviewsPage/ReviewsPage";
 
 // Function to query the database with the users uid, and return their posted / assigned requests
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -33,14 +34,15 @@ const DashboardFilter = ({
   setIteration,
   iteration,
   completedData,
+  setError,
 }) => {
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [openRequestIds, setOpenRequestsIds] = useState([]);
   const [requestIds, setRequestsIds] = useState([]);
-  
-  
+
   const user = useContext(UserContext);
+  // let navigate = useNavigate();
 
   let route;
 
@@ -63,62 +65,75 @@ const DashboardFilter = ({
   };
 
   useEffect(() => {
-  axios(config).then((res) =>  setRequests(res.data));
+    axios(config).then((res) => setRequests(res.data)).catch(err => {
+      setError(err);
+    })
     if (applicationUser.user_type === "Volunteer") {
-      axios.get(`${API}/requests/open_requests`).then((res) => setOpenRequests(res.data));
+      axios
+        .get(`${API}/requests/open_requests`)
+        .then((res) => setOpenRequests(res.data)).catch(err => setError(err.message));
     }
-  }, [ applicationUser, dashboardFilter]);
+
+    setIteration({ ...iteration, openRequests: openIds, myRequests: myIds });
+  }, [applicationUser, dashboardFilter, dashboardFilter === "main", requestSearch]);
 
   //sort requests by date
   requests?.sort((a, b) => b.req_date - a.req_date);
-  openRequestIds?.sort((a,b)=> b.req_date - a.req_date);
+  openRequestIds?.sort((a, b) => b.req_date - a.req_date);
 
   const currentDate = dateConverter(new Date());
 
   const selectedCalendarDate = dateConverter(date);
-  const search = requestSearch.toLowerCase() || '';
-  
+  const search = requestSearch.toLowerCase() || "";
+
   //filter by date
   let requestsByDate =
-  selectedCalendarDate !== currentDate
-  ? requests?.filter((request) => selectedCalendarDate === request.req_date)
-  : requests?.filter((request) => selectedCalendarDate <= request?.req_date && !request?.complete);
+    selectedCalendarDate !== currentDate
+      ? requests?.filter((request) => selectedCalendarDate === request.req_date)
+      : requests?.filter(
+          (request) =>
+            selectedCalendarDate <= request?.req_date && !request?.complete
+        );
 
   let openRequestsByDate =
-  selectedCalendarDate !== currentDate
-  ? openRequests?.filter((request) => selectedCalendarDate === request.req_date)
-  : openRequests?.filter((request) => selectedCalendarDate <= request?.req_date);
-  
+    selectedCalendarDate !== currentDate
+      ? openRequests?.filter(
+          (request) => selectedCalendarDate === request.req_date
+        )
+      : openRequests?.filter(
+          (request) => selectedCalendarDate <= request?.req_date
+        );
+
   // filter by search
   let requestsBySearch = search
-  ? requestsByDate?.filter((request) =>
-  request.title.toLowerCase().includes(search)
-  ): requestsByDate;
+    ? requestsByDate?.filter((request) =>
+        request.title.toLowerCase().includes(search)
+      )
+    : requestsByDate;
 
   let openRequestsBySearch = search
-  ? openRequestsByDate?.filter((request) =>
-  request.title.toLowerCase().includes(search)
-  ): openRequestsByDate;
+    ? openRequestsByDate?.filter((request) =>
+        request.title.toLowerCase().includes(search)
+      )
+    : openRequestsByDate;
 
-  let openIds = []
-  openRequestsBySearch.map((request, index)=>{
-    if(index < 4){
-      openIds.push(request.id)
+  let openIds = [];
+  openRequestsBySearch.map((request, index) => {
+    if (index < 4) {
+      openIds.push(request.id);
     }
-  })
-  let myIds = []
-  requestsBySearch.map((request, index)=>{
-    if(index < 4){
-      myIds.push(request.id)
+  });
+  let myIds = [];
+  requestsBySearch.map((request, index) => {
+    if (index < 4) {
+      myIds.push(request.id);
     }
-  })
+  });
 
-  useEffect(()=>{
-    setIteration({...iteration, 'openRequests': openIds, 'myRequests': myIds })
+  // useEffect(() => {
+  //   setIteration({ ...iteration, openRequests: openIds, myRequests: myIds });
+  // }, [dashboardFilter === "main", requestSearch]);
 
-  },[dashboardFilter === 'main', requestSearch])
-
-  
   return (
     <>
       <div className="phone-userdashboard">
@@ -165,7 +180,6 @@ const DashboardFilter = ({
               requestSearch={requestSearch}
               date={date}
               applicationUser={applicationUser}
-           
             />
           )}
           {dashboardFilter === "completedrequests" && (
@@ -205,7 +219,6 @@ const DashboardFilter = ({
             dashboardFilter={dashboardFilter}
             myRequestIds={requestIds}
             setMyRequestsIds={setRequestsIds}
-
           />
         )}
         {dashboardFilter === "main" &&
@@ -219,9 +232,9 @@ const DashboardFilter = ({
               applicationUser={applicationUser}
               iteration={iteration}
               setIteration={setIteration}
-              dashboardFilter = {dashboardFilter}
-              openRequestIds = { openRequestIds }
-              setOpenRequestsIds = { setOpenRequestsIds }
+              dashboardFilter={dashboardFilter}
+              openRequestIds={openRequestIds}
+              setOpenRequestsIds={setOpenRequestsIds}
             />
           )}
         {dashboardFilter === "main" &&
@@ -241,7 +254,12 @@ const DashboardFilter = ({
             />
           )}
         {dashboardFilter === "achievements" &&
-          applicationUser.user_type === "Volunteer" && <Achievements applicationUser={applicationUser} completedData = {completedData} />}
+          applicationUser.user_type === "Volunteer" && (
+            <Achievements
+              applicationUser={applicationUser}
+              completedData={completedData}
+            />
+          )}
         {dashboardFilter === "acceptedRequest" && (
           <AcceptRequestPage
             requests={requests}
@@ -256,7 +274,10 @@ const DashboardFilter = ({
           />
         )}
         {dashboardFilter === "reviews" && (
-          <ReviewsPage applicationUser={applicationUser} dashboardFilter={dashboardFilter}/>
+          <ReviewsPage
+            applicationUser={applicationUser}
+            dashboardFilter={dashboardFilter}
+          />
         )}
         {dashboardFilter === "newRequest" &&
           applicationUser.user_type !== "Volunteer" && (

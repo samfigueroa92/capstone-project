@@ -106,9 +106,11 @@ const SidebarNav = ({
                 <>
                   <p
                     className={dashboardFilter === "achievements" ? "bold_link" : ""}
-                    onClick={() => setDashboardFilter("achievements")}
+                    // onClick={() => setDashboardFilter("achievements")}
                   >
-                    Achievements
+                    Achievements 
+                    <br />
+                    (*coming soon)
                     <br />
                     
                   </p>
