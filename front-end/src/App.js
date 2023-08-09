@@ -57,7 +57,7 @@ const App = () => {
   } else {
     route = "my_created_requests";
   }
-
+//turns object into a string; can't send obj to backend
   const data = JSON.stringify({ uuid: applicationUser.uuid });
 
   const config = {

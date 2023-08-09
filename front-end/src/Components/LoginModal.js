@@ -16,6 +16,7 @@ import Button from "react-bootstrap/esm/Button";
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
+  //userContext is saving info if the user doesn't log out and comes back to app
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
