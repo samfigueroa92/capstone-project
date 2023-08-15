@@ -238,22 +238,6 @@ h1 {
   }
 }
 
-/* MINE */
-/* @media only screen and (max-width: 1024px) { * for screens 1024 and below make adjustments *
-  .content__blog__container {
-    width: 84%;
-  } */
-/* } */
 
-/* @media only screen and (max-width: 1024) {
-  .new-cards-items {
-    display: flex;
-    /* flex-direction: column; */
-  /* } */
-/* } */
-
-/* @media only screen and (max-width: 1024px) {
-  .card-item {
-    margin-bottom: 12rem;
-  }
-} */
+/* @media only screen and (max-width: 1024px) * for screens 1024 and below make adjustments  */
+  

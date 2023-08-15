@@ -5,12 +5,12 @@ import "./ProfileSettings.css";
 //Dependencies
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../Providers/UserProviders";
 import { useContext } from "react";
 
 //Component
-import SidebarNav from "../SideNav/SidebarNav";
+// import SidebarNav from "../SideNav/SidebarNav";
 
 // MATERIAL UI COMPONENTS
 import { Card, CardContent, Grid, TextField, Button, MenuItem } from "@mui/material";

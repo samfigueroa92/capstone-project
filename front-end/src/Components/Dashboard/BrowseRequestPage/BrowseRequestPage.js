@@ -1,6 +1,5 @@
 //Dependencies
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 //Component Import
 import RequestCard from "../RequestCard/RequestCard";

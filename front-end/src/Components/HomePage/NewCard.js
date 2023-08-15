@@ -70,7 +70,6 @@ const NewCard = () => {
         <Button onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
       </div>
       <div className='new-card-holder'>
-        {/* <div className='new-cards-items'> */}
         <NewCardData
             src='images/computerHelp.jpeg'
             text='Helping granny with her Ipad'
@@ -90,7 +89,6 @@ const NewCard = () => {
             path='#'
           />
 
-        {/* </div> */}
         </div>
         <div className="blurbs">
           <section className="support">

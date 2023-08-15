@@ -1,6 +1,5 @@
 //Dependencies
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
 //Component Import
 import SidebarNav from "../SideNav/SidebarNav";

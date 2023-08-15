@@ -3,7 +3,7 @@
 import axios from "axios";
 import React,{ useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
+// import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 
 //CSS
 import './RequestDetails.css'

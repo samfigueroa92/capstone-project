@@ -15,9 +15,9 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const ReviewsPage = ({ applicationUser, dashboardFilter }) => {
   const [reviews, setReviews] = useState([]);
-  const [ratings, setRatings] = useState([]);
+  // const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${API}/reviews`)

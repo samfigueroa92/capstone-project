@@ -1,5 +1,5 @@
 //Dependencies
-import { useEffect, useState } from "react";
+import React from "react";
 
 //Components
 import RequestCard from "../RequestCard/RequestCard";
