@@ -46,10 +46,10 @@ const OurTeam = () => {
     sam: "images/sam.jpeg",
     tom:"images/Tom .jpeg",  
     kalilah:"images/Kalilah .jpeg",
-    sabrina:"images/Sabrina.jpeg",
-    gigi:"images/gigi.jpeg", 
-    tim: "images/tim.jpeg",
-    amber: "images/amber.jpeg",
+    // sabrina:"images/Sabrina.jpeg",
+    // gigi:"images/gigi.jpeg", 
+    // tim: "images/tim.jpeg",
+    // amber: "images/amber.jpeg",
   }
 
   const handleLearnMore = (teamMate) => {
@@ -141,7 +141,7 @@ const OurTeam = () => {
           {handleLearnMore("kalilah")}
         </div>
         
-        <div className="team">
+        {/* <div className="team">
         <a href={`/our-page/${team[4]}`}>
           <img
             className="our-team-img"
@@ -188,7 +188,7 @@ const OurTeam = () => {
           <p className="name">Amber Bennet</p>
           <p className="position">Mentor</p>
           {handleLearnMore("amber")}
-        </div>
+        </div> */}
       </div>
     </div>
   );
