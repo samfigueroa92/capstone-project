@@ -9,6 +9,10 @@ const PersonalPage = () => {
   const navigate = useNavigate();
   const { staffMember } = useParams();
 
+  const [learnMore, setLearnMore] = useState({
+    paraTwo: false,
+  });
+
   const [ourTeam, setOurTeam] = useState({
     samantha: "Samantha Figueroa",
     tom: "Tom LaTulipe",
@@ -31,27 +35,27 @@ const PersonalPage = () => {
     amber: "amber.bennett@bettercloud.com",
   });
 
-  const [linkedIn, setLinkedIn] = useState({
-    samantha: "https://www.linkedin.com/in/samantha-figueroa-fs/",
-    tom: "https://www.linkedin.com/in/tom-latulipe-a6835120/",
-    kalilah: "https://www.linkedin.com/in/kalilah-clarke-36876530/",
-    adnan: "https://www.linkedin.com/in/adnan-abubakar-adams/",
-    sabrina: "https://www.linkedin.com/in/sabrina-escobar-flores-9b57b011a/",
-    gigi: "https://www.linkedin.com/in/gigimscarborough/",
-    tim: "https://www.linkedin.com/in/tim-mckiernan/",
-    amber: "https://www.linkedin.com/in/positivelyamber/",
-  });
+  // const [linkedIn, setLinkedIn] = useState({
+  //   samantha: "https://www.linkedin.com/in/samantha-figueroa-fs/",
+  //   tom: "https://www.linkedin.com/in/tom-latulipe-a6835120/",
+  //   kalilah: "https://www.linkedin.com/in/kalilah-clarke-36876530/",
+  //   adnan: "https://www.linkedin.com/in/adnan-abubakar-adams/",
+  //   sabrina: "https://www.linkedin.com/in/sabrina-escobar-flores-9b57b011a/",
+  //   gigi: "https://www.linkedin.com/in/gigimscarborough/",
+  //   tim: "https://www.linkedin.com/in/tim-mckiernan/",
+  //   amber: "https://www.linkedin.com/in/positivelyamber/",
+  // });
 
-  const [gitHub, setGitHub] = useState({
-    samantha: "https://github.com/samfigueroa92",
-    tom: "https://github.com/Tetracell",
-    kalilah: "https://github.com/KalilahClarke",
-    adnan: "https://github.com/AdnanAbubakarAdams",
-    sabrina: "https://github.com/Sabrinaescobar",
-    gigi: "https://github.com/gigimscarborough",
-    tim: "https://github.com/mckiernantim",
-    amber: "https://github.com/PositivelyAmber",
-  });
+  // const [gitHub, setGitHub] = useState({
+  //   samantha: "https://github.com/samfigueroa92",
+  //   tom: "https://github.com/Tetracell",
+  //   kalilah: "https://github.com/KalilahClarke",
+  //   adnan: "https://github.com/AdnanAbubakarAdams",
+  //   sabrina: "https://github.com/Sabrinaescobar",
+  //   gigi: "https://github.com/gigimscarborough",
+  //   tim: "https://github.com/mckiernantim",
+  //   amber: "https://github.com/PositivelyAmber",
+  // });
 
   const [personalWebsite, setPersonalWebsite] = useState({
     samantha: "",
@@ -79,74 +83,35 @@ const PersonalPage = () => {
       "https://media-exp1.licdn.com/dms/image/C5603AQFVQE55R7tcAA/profile-displayphoto-shrink_400_400/0/1601486381610?e=1675296000&v=beta&t=E-aQajVlSTPpHVqZxu7AEh1S7Uma34D4ddMUGxmCBS8",
   });
 
-  const [skills, setskills] = useState({
-    samantha: [
-      "javascript",
-      "react",
-      "html",
-      "css",
-      "postgres",
-      "heroku",
-      "github",
-    ],
-    tom: ["javascript", "react", "html", "css", "postgres", "heroku", "github"],
-    kalilah: [
-      "javascript",
-      "react",
-      "html",
-      "css",
-      "postgres",
-      "heroku",
-      "github",
-    ],
-    adnan: [
-      "javascript",
-      "react",
-      "html",
-      "css",
-      "postgres",
-      "heroku",
-      "github",
-    ],
-    sabrina: [
-      "javascript",
-      "react",
-      "html",
-      "css",
-      "postgres",
-      "heroku",
-      "github",
-    ],
-    gig: ["javascript", "react", "html", "css", "postgres", "heroku", "github"],
-    tim: ["javascript", "react", "html", "css", "postgres", "heroku", "github"],
-    amber: [
-      "javascript",
-      "react",
-      "html",
-      "css",
-      "postgres",
-      "heroku",
-      "github",
-    ],
-  });
+  const PARAGRAPHS = {
+    paraTwo: `I  am an innovative and results-oriented software engineer with a strong passion for creating exceptional user-friendly/digital experiences, with projects such as GoldenSolutions where it connects the elderly with volunteers that are willing to help them get their  daily task done.
 
-  const [skillImages, setSkillImages] = useState({
-    javascript: "",
-    react: "",
-    html: "",
-    css: "",
-    postgress: "",
-    heroku: "",
-    github: "",
-    java: "",
-    ruby: "",
-    spring: "",
-    openAPI: "",
-    python: "",
-    sql: "",
-    redux: "",
-    agilemethodologies: "",
-  });
+    As a life-long learner and a very rounded team player, I always grab the opportunity to learn, grow and improve my skills where ever I find my self. Technology is part of our lives and a fast moving train, that excites me a lot and having to connect with other people and use tech to solve problems is a dream come true.`,
+  };
+
+  const handleLearnMore = (paragraph) => {
+    return learnMore[paragraph] ? (
+      <>
+        <p className="paras">{PARAGRAPHS[paragraph]}</p>
+        <div
+          onClick={() =>
+            setLearnMore({ ...learnMore, [paragraph]: !learnMore[paragraph] })
+          }
+        >
+          <p className="underline">View Less</p>
+        </div>
+      </>
+    ) : (
+      <div
+        onClick={() =>
+          setLearnMore({ ...learnMore, [paragraph]: !learnMore[paragraph] })
+        }
+      >
+        <p className="underline">Learn More</p>
+      </div>
+    );
+  };
+  
 
   return (
     <div className="personal-page">
@@ -157,67 +122,65 @@ const PersonalPage = () => {
           alt={`${staffMember}'s Website`}
         />
       </a>
-      <h3 className="staff-name">{ourTeam[staffMember]}</h3>
-      {/* <div className="linked">
-        <a href={linkedIn[staffMember.toLowerCase()]}>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
-            alt={`${staffMember}'s LinkedIn`}
-          />
-        </a>
-        <a href={gitHub[staffMember.toLowerCase()]}>
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-            alt={`${staffMember}'s Github`}
-          />
-        </a>
-      </div> */}
-      <div className="grid">
-        <div className="team-skills">
-          <h2 className="skills">Skills</h2>
-          <img src="" />
-        </div>
-        <div className="contact-container">
-          <div className="contact-content">
+      <div className="my-info">
+        <h3 className="staff-name">{ourTeam[staffMember]}</h3>
+        <p>
+          Hey there 👋 ! I am a solutions driven software engineer with
+          experience in several programming languages and tools and libraries,
+          including HTML, CSS, JavaScript, React/Redux, Express, Node.js,
+          Next.js, and PostgreSQL. I recently completed a year-long
+          Google-funded software engineering fellowship program at Pursuit in
+          New York, NY, where I gained hands-on experience in developing
+          full-stack web applications.
+        </p>
+        {handleLearnMore("paraTwo")}
+      </div>
+      <div className="contact-container">
+        <div className="contact-content">
           <div className="contact-header">
             <p className="contact-title">Contact Me</p>
-            <p className="contact-subtitle">Interested in working with me or just want to say hello? Don't
-              hesitate to send a message!</p>
+            <p className="contact-subtitle">
+              Interested in working with me or just want to say hello? Don't
+              hesitate to send a message!
+            </p>
           </div>
           <div className="contact-form">
-          <form
-            className="contact-form-inner"
-            action={`https://formsubmit.co/${email[staffMember]}`}
-            method="Post"
-          >
-            <input
-              type="hidden"
-              name="subject"
-              value="GoldenSolutions Contact"
-              className="contact-input"
-            />
-            <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            className="contact-input"
-            />
-            <input
-            type="text"
-            name="email"
-            placeholder="Your Email"
-            className="contact-input"
-            />
-            <textarea 
-            name="message"
-            rows="10"
-            placeholder="Enter Message"
-            className="contact-input"
+            <form
+              className="contact-form-inner"
+              action={`https://formsubmit.co/${email[staffMember]}`}
+              method="Post"
             >
-            </textarea>
-            <button className="contact-button" onClick={() => navigate("/our-team")}>Talk To You Soon ...</button>
-          </form>
-          </div>
+              <input
+                type="hidden"
+                name="subject"
+                value="GoldenSolutions Contact"
+                className="contact-input"
+              />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                className="contact-input"
+              />
+              <input
+                type="text"
+                name="email"
+                placeholder="Your Email"
+                className="contact-input"
+              />
+              <textarea
+                name="message"
+                rows="10"
+                placeholder="Enter Message"
+                className="contact-input"
+              ></textarea>
+              <button
+                className="contact-button"
+                onClick={() => navigate("/our-team")}
+              >
+                Talk To You Soon ...
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -227,32 +190,53 @@ const PersonalPage = () => {
 
 export default PersonalPage;
 
+// strech goals
+  // const [skills, setskills] = useState({
+  //   samantha: [
+  //     "javascript",
+  //     "react",
+  //     "html",
+  //     "css",
+  //     "postgres",
+  //     "heroku",
+  //     "github",
+  //   ],
+  //   tom: ["javascript", "react", "html", "css", "postgres", "heroku", "github"],
+  //   kalilah: [
+  //     "javascript",
+  //     "react",
+  //     "html",
+  //     "css",
+  //     "postgres",
+  //     "heroku",
+  //     "github",
+  //   ],
+  //   adnan: [
+  //     "javascript",
+  //     "react",
+  //     "html",
+  //     "css",
+  //     "postgres",
+  //     "heroku",
+  //     "github",
+  //   ],
+  // });
 
-{/* <p>
-              Interested in working with me or just want to say hello? Don't
-              hesitate to send a message!
-            </p>
-            <input
-              type="hidden"
-              name="subject"
-              value="GoldenSolutions Contact"
-            />
-            <label>
-              Your Name:
-              <input className="email" type="name" align="left" required />
-            </label>
-            <label>
-              Your Email:{" "}
-              <input className="email" type="email" align="left" required />
-            </label>
-            <label>
-              Your Message:{" "}
-              <textarea name="message" rows="4" cols="50" required></textarea>
-            </label>
-            <br></br>
-            <button
-              className="talktoyousoon"
-              onClick={() => navigate("/our-team")}
-            >
-              Talk To You Soon ...
-            </button> */}
+  // strech goals------
+  // const [skillImages, setSkillImages] = useState({
+  //   javascript: "",
+  //   react: "",
+  //   html: "",
+  //   css: "",
+  //   postgress: "",
+  //   heroku: "",
+  //   github: "",
+  //   java: "",
+  //   ruby: "",
+  //   spring: "",
+  //   openAPI: "",
+  //   python: "",
+  //   sql: "",
+  //   redux: "",
+  //   agilemethodologies: "",
+  // });
