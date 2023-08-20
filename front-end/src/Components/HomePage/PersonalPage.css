@@ -34,8 +34,15 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  text-align: justify;
+  /* text-align: justify;  */
+  
 }
+
+/* .my-info p { */
+        /* display: inline;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px; */
+/* } */
 
 .contact-container {
   width: 100%;

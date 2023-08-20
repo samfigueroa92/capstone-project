@@ -111,7 +111,6 @@ const PersonalPage = () => {
       </div>
     );
   };
-  
 
   return (
     <div className="personal-page">
@@ -125,13 +124,13 @@ const PersonalPage = () => {
       <div className="my-info">
         <h3 className="staff-name">{ourTeam[staffMember]}</h3>
         <p>
-          Hey there 👋 ! I am a solutions driven software engineer with
-          experience in several programming languages and tools and libraries,
-          including HTML, CSS, JavaScript, React/Redux, Express, Node.js,
-          Next.js, and PostgreSQL. I recently completed a year-long
-          Google-funded software engineering fellowship program at Pursuit in
-          New York, NY, where I gained hands-on experience in developing
-          full-stack web applications.
+          "The Best Way To Find Yourself Is To Lose Yourself In The service Of
+          Others - Mahatma Gandhi" Hey there! I recently completed a
+          year-long Google-funded software engineering fellowship program at
+          Pursuit in New York, NY, where I gained hands-on experience in
+          developing full-stack web applications, and developed strong
+          fundamentals in HTML, CSS, JavaScript, React/Redux, Express, Node.js,
+          Next.js, and PostgreSQL..
         </p>
         {handleLearnMore("paraTwo")}
       </div>
@@ -191,52 +190,52 @@ const PersonalPage = () => {
 export default PersonalPage;
 
 // strech goals
-  // const [skills, setskills] = useState({
-  //   samantha: [
-  //     "javascript",
-  //     "react",
-  //     "html",
-  //     "css",
-  //     "postgres",
-  //     "heroku",
-  //     "github",
-  //   ],
-  //   tom: ["javascript", "react", "html", "css", "postgres", "heroku", "github"],
-  //   kalilah: [
-  //     "javascript",
-  //     "react",
-  //     "html",
-  //     "css",
-  //     "postgres",
-  //     "heroku",
-  //     "github",
-  //   ],
-  //   adnan: [
-  //     "javascript",
-  //     "react",
-  //     "html",
-  //     "css",
-  //     "postgres",
-  //     "heroku",
-  //     "github",
-  //   ],
-  // });
+// const [skills, setskills] = useState({
+//   samantha: [
+//     "javascript",
+//     "react",
+//     "html",
+//     "css",
+//     "postgres",
+//     "heroku",
+//     "github",
+//   ],
+//   tom: ["javascript", "react", "html", "css", "postgres", "heroku", "github"],
+//   kalilah: [
+//     "javascript",
+//     "react",
+//     "html",
+//     "css",
+//     "postgres",
+//     "heroku",
+//     "github",
+//   ],
+//   adnan: [
+//     "javascript",
+//     "react",
+//     "html",
+//     "css",
+//     "postgres",
+//     "heroku",
+//     "github",
+//   ],
+// });
 
-  // strech goals------
-  // const [skillImages, setSkillImages] = useState({
-  //   javascript: "",
-  //   react: "",
-  //   html: "",
-  //   css: "",
-  //   postgress: "",
-  //   heroku: "",
-  //   github: "",
-  //   java: "",
-  //   ruby: "",
-  //   spring: "",
-  //   openAPI: "",
-  //   python: "",
-  //   sql: "",
-  //   redux: "",
-  //   agilemethodologies: "",
-  // });
+// strech goals------
+// const [skillImages, setSkillImages] = useState({
+//   javascript: "",
+//   react: "",
+//   html: "",
+//   css: "",
+//   postgress: "",
+//   heroku: "",
+//   github: "",
+//   java: "",
+//   ruby: "",
+//   spring: "",
+//   openAPI: "",
+//   python: "",
+//   sql: "",
+//   redux: "",
+//   agilemethodologies: "",
+// });
